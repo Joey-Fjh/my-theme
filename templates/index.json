@@ -1,75 +1,93 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "my_image_banner_qe9VB7": {
+      "type": "my-image-banner",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "image_JCxJVM": {
+          "type": "image",
           "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
+            "image": "shopify://shop_images/image.png"
           }
         },
-        "button": {
-          "type": "buttons",
+        "image_VEUJVh": {
+          "type": "image",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "image": "shopify://shop_images/person-fishing-on-the-beach-is-silhouetted-at-sunset.jpg"
           }
         }
       },
       "block_order": [
-        "heading",
-        "button"
+        "image_JCxJVM",
+        "image_VEUJVh"
       ],
+      "name": "my-image-banner",
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "autoplay_speed": 10,
+        "title": "",
+        "sub-title": "",
+        "button-text": "",
+        "button-url": ""
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
+    "brand_banner_yNHUrN": {
+      "type": "brand-banner",
+      "blocks": {
+        "image_aNMmwW": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/logo.png"
+          }
+        },
+        "image_KVgiLg": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/logo_be09af97-1f15-4148-8d01-1b404a716a96.png"
+          }
+        },
+        "image_bhG8Rw": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/logo_e7eddfab-fb47-404e-b12d-4b6e5a5c9333.png"
+          }
+        },
+        "image_TcVp6E": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/logo_a97c0391-195b-470c-948e-3722838e411a.png"
+          }
+        },
+        "image_P7gWiC": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/logo_11cea99c-09af-49bb-9a2c-7e1a889a89fa.png"
+          }
+        }
+      },
+      "block_order": [
+        "image_aNMmwW",
+        "image_KVgiLg",
+        "image_bhG8Rw",
+        "image_TcVp6E",
+        "image_P7gWiC"
+      ],
+      "name": "brand-banner",
       "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "padding_top": 44,
-        "padding_bottom": 36
+        "background-color": "#ffffff",
+        "autoplay_speed": 5
       }
     }
   },
   "order": [
-    "image_banner",
-    "featured_collection"
+    "my_image_banner_qe9VB7",
+    "brand_banner_yNHUrN"
   ]
 }
