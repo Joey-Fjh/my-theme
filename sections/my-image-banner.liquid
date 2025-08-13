@@ -61,7 +61,7 @@
   }
 {% endschema %}
 
-<div class="my-image-banner__container">
+<div class="my-image-banner__container" data-section-id="{{ section.id }}">
   <div class="image-wrapper" data-autoplay-speed="{{ section.settings.autoplay_speed | times: 1000}}">
     {%- assign image_count = 0 -%}
     {% for block in section.blocks %}
@@ -70,7 +70,7 @@
         <div class="image-slide {% if forloop.first %}active{% endif %}" data-index="{{ forloop.index0 }}">
           {{
             block.settings.image
-            | image_url: width: 1200
+            | image_url: width: 1376
             | image_tag:
                 alt: block.settings.image.alt,
                 class: 'image',
@@ -102,206 +102,55 @@
   {%- endif -%}
 </div>
 
-{% javascript %}
-  $(document).ready(function() {
-    const carousel = $('.image-wrapper');
-    const slides = $('.image-slide');
-    const prevBtn = $('.left');
-    const nextBtn = $('.right');
+{{ 'my-image-banner.css' | asset_url | stylesheet_tag }}
+{% comment %} <script src="{{ 'my-image-banner.js' | asset_url }}" defer></script> {% endcomment %}
+
+<script defer type="module">
+  (function(){
+    const sectionId = '{{ section.id }}';
+    const container = $(`.my-image-banner__container[data-section-id="${sectionId}"]`);
+    
+    const carousel = container.find('.image-wrapper');
+    const slides = container.find('.image-slide');
+    const prevBtn = container.find('.left');
+    const nextBtn = container.find('.right');
     const autoplaySpeed = carousel.data("autoplaySpeed") || 10000;
 
     let currentIndex = 0;
     let autoplayTimer;
 
-    const prevSlide = ()=>{
-      currentIndex = currentIndex === 0 ? slides.length - 1 : currentIndex - 1;
-      updateSlide();
+    const prevSlide = ()=> {
+        currentIndex = currentIndex === 0 ? slides.length - 1 : currentIndex - 1;
+        updateSlide();
     }
 
     const nextSlide = ()=>{
-      currentIndex = currentIndex === slides.length - 1 ? 0 : currentIndex + 1;
-      updateSlide();
+        currentIndex = currentIndex === slides.length - 1 ? 0 : currentIndex + 1;
+        updateSlide();
     }
 
     const updateSlide = ()=>{
-      slides.toArray().forEach((slide,index) => {
+        slides.toArray().forEach((slide,index) => {
         slide.classList.toggle('active',index === currentIndex);
-      });
+        });
     }
 
     if(prevBtn) prevBtn.on('click',prevSlide);
     if(nextBtn) nextBtn.on('click',nextSlide);
 
     const startAutoPlay = ()=>{
-      if(autoplayTimer) clearInterval(autoplayTimer);
+        if(autoplayTimer) clearInterval(autoplayTimer);
 
-      autoplayTimer = setInterval(nextSlide, autoplaySpeed);
+        autoplayTimer = setInterval(nextSlide, autoplaySpeed);
     }
 
     const stopAutoPlay = ()=>{
-      clearInterval(autoplayTimer);
+        clearInterval(autoplayTimer);
     }
 
     carousel.on('mouseenter', stopAutoPlay);
     carousel.on('mouseleave', startAutoPlay);
 
     startAutoPlay();
-  });
-{% endjavascript %}
-
-{%- stylesheet -%}
-  .my-image-banner__container {
-    margin-left: 3.2rem;
-    margin-right: 3.2rem;
-    display: flex;
-    position: relative;
-    border-radius: 1.6rem;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-
-    .image-wrapper {
-      position: relative;
-      width: 100%;
-      overflow: hidden;
-      display: flex;
-      max-height: 72rem;
-    }
-
-    .image-wrapper .image {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-      object-position: center;
-      display: block;
-    }
-
-    .image-slide {
-      display: none;
-      width: 100%;
-
-      &.active{
-        display: block;
-        animation: fadeIn 1s ease-in-out;
-      }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    .content-wrapper {
-      display: flex;
-      flex-direction: column;
-      position: absolute;
-      top: 20%;
-      right: 10%;
-      z-index: 10;
-      width: 500px;
-    }
-
-    .title{
-      font-size: 48px;
-      font-weight: 700;
-      color: #1a1a1a;
-      line-height: 1.1;
-      margin-bottom: 16px;
-      text-align: center;
-      letter-spacing: -0.5px;
-    }
-
-    .sub-title {
-      line-height: 1.5;
-      font-size: 16px;
-      line-height: 1.5;
-      text-align: center;
-      font-weight: 400;
-    }
-
-    .button {
-      align-self: center;
-      transform: translateY(5rem);
-      border-radius: 50px;
-      border: none;
-
-      &::after{
-        content: none;
-      }
-    }
-
-    .button a {
-      display: inline-block;
-      background-color: #000000;
-      color: #ffffff;
-      padding: 16px 40px;
-      /* border-radius: 50px; */
-      text-decoration: none;
-      font-size: 16px;
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      border: none;
-      cursor: pointer;
-    }
-
-    .left,
-    .right {
-      position: absolute;
-      top: 20px;
-      width: 50px;
-      height: 50px;
-      background-color: rgba(255, 255, 255, 0.9);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      z-index: 15;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .left {
-      right: 80px;
-    }
-
-    .right {
-      right: 20px;
-    }
-
-    .left:hover,
-    .right:hover {
-      background-color: rgba(255, 255, 255, 1);
-      transform: scale(1.1);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    .left::before,
-    .right::before {
-      content: '';
-      width: 12px;
-      height: 12px;
-      border-top: 2px solid #333;
-      border-right: 2px solid #333;
-      transition: border-color 0.3s ease;
-    }
-
-    .left::before {
-      transform: rotate(-135deg);
-      margin-left: 3px;
-    }
-
-    .right::before {
-      transform: rotate(45deg);
-      margin-right: 3px;
-    }
-
-    .left:hover::before,
-    .right:hover::before {
-      border-color: #000;
-    }
-  }
-{%- endstylesheet -%}
+  })()
+</script>

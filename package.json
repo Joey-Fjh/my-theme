@@ -3,14 +3,21 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "css:watch": "postcss src/**/*.css --dir assets --watch",
+    "css:build": "postcss src/**/*.css --dir assets"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@types/jquery": "^3.5.32",
     "postcss": "^8.5.6",
-    "vite": "^6.3.5"
+    "postcss-pxtorem": "^6.1.0"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss-cli": "^11.0.1",
+    "postcss-px-to-viewport-8-plugin": "^1.2.5"
   }
 }
