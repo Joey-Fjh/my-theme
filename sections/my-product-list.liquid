@@ -1,0 +1,51 @@
+{% schema %}
+  {
+    "name": "my-product-list",
+    "tag": "section",
+    "class": "section",
+    "disabled_on": {
+        "groups": ["header", "footer"]
+    },
+    "settings": [
+      
+    ],
+    "blocks": [],
+    "presets": [
+      {
+        "name": "my-product-list",
+        "settings": {
+        }
+      }
+    ]
+  }
+{% endschema %}
+
+<div class="my-product-list__container" data-section-id="{{ section.id }}">
+    <div class="title__container">
+        <div class="h4">OUR BEST SELLERS</div>
+        <div class="h3">MOST LOVED BY YOU</div>
+    </div>
+    <div class="content__container">
+        <div class="product-card__container">
+            {% comment %} 循环展示 {% endcomment %}
+            <div class="product-card">
+                <div class="product-card__image">
+                    {% comment %} img展示图片 {% endcomment %}
+                </div>
+                <div class="product-card__title">Lorem ipsum dolor sit amet</div>
+                <div class="product-card__price">$ 10.00</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{ 'my-product-list.css' | asset_url | stylesheet_tag }}
+
+{% comment %} <script type="module" defer>
+    (function(){
+        const sectionId = '{{ section.id }}';
+        const container = $(`.my-product-list__container[data-section-id="${ section.id }"]`);
+
+
+    })()
+</script> {% endcomment %}

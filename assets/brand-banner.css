@@ -44,6 +44,11 @@
         height: 3.6rem;
     }
 
+    .right{
+        position: absolute;
+        right: 100vw;
+    }
+
     .image {
         width: 13.611vw;
         max-height: 100%;
