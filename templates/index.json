@@ -89,7 +89,11 @@
     "my_product_list_BMjQet": {
       "type": "my-product-list",
       "name": "my-product-list",
-      "settings": {}
+      "settings": {
+        "title": "OUR BEST SELLERS",
+        "sub_title": "MOST LOVED BY YOU",
+        "product_collection": "女士衣服"
+      }
     },
     "brand_banner_UHKtHB": {
       "type": "brand-banner",
