@@ -197,11 +197,11 @@
         "fashion_highlight_7kq6hh": {
           "type": "fashion_highlight",
           "settings": {
-            "info_text1": "",
-            "info_text2": "",
-            "info_text3": "",
-            "info_text4": "",
-            "info_text5": "",
+            "info_text1": "Black solid dress",
+            "info_text2": "Casual shirt",
+            "info_text3": "Crop top",
+            "info_text4": "Cut Rib Top",
+            "info_text5": "Fedora hat",
             "title": "Cozy Styles to Warm",
             "button_text": "SHOP NOW",
             "button_url": ""
@@ -226,7 +226,9 @@
         "fashion_highlight_RRahxi"
       ],
       "name": "my-fashion-highlights",
-      "settings": {}
+      "settings": {
+        "bgc_img": "shopify://shop_images/image_62.png"
+      }
     }
   },
   "order": [
