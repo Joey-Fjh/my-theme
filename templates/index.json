@@ -257,6 +257,21 @@
       "settings": {
         "bgc_img": "shopify://shop_images/image_62.png"
       }
+    },
+    "my_luxury_collection_iFCwkU": {
+      "type": "my-luxury-collection",
+      "name": "my-luxury-collection",
+      "settings": {
+        "title": "EXPERIENCE OPULENCE LIKE NEVER BEFORE",
+        "image_1": "shopify://shop_images/image_41.png",
+        "image_info1": "Imperial Icons",
+        "image_2": "shopify://shop_images/42.png",
+        "image_info2": "Elysian Elegance",
+        "image_3": "shopify://shop_images/43.png",
+        "image_info3": "Prestige Line",
+        "image_4": "shopify://shop_images/image_44.png",
+        "image_info4": "Eternal Grace"
+      }
     }
   },
   "order": [
@@ -265,6 +280,7 @@
     "my_product_list_BMjQet",
     "brand_banner_UHKtHB",
     "brand_banner_jxteWF",
-    "my_fashion_highlights_jtVAje"
+    "my_fashion_highlights_jtVAje",
+    "my_luxury_collection_iFCwkU"
   ]
 }
