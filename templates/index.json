@@ -190,6 +190,43 @@
         "is_scroll": true,
         "scroll_direction": "right"
       }
+    },
+    "my_fashion_highlights_jtVAje": {
+      "type": "my-fashion-highlights",
+      "blocks": {
+        "fashion_highlight_7kq6hh": {
+          "type": "fashion_highlight",
+          "settings": {
+            "info_text1": "",
+            "info_text2": "",
+            "info_text3": "",
+            "info_text4": "",
+            "info_text5": "",
+            "title": "Cozy Styles to Warm",
+            "button_text": "SHOP NOW",
+            "button_url": ""
+          }
+        },
+        "fashion_highlight_RRahxi": {
+          "type": "fashion_highlight",
+          "settings": {
+            "info_text1": "",
+            "info_text2": "",
+            "info_text3": "",
+            "info_text4": "",
+            "info_text5": "",
+            "title": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "fashion_highlight_7kq6hh",
+        "fashion_highlight_RRahxi"
+      ],
+      "name": "my-fashion-highlights",
+      "settings": {}
     }
   },
   "order": [
@@ -197,6 +234,7 @@
     "brand_banner_yNHUrN",
     "my_product_list_BMjQet",
     "brand_banner_UHKtHB",
-    "brand_banner_jxteWF"
+    "brand_banner_jxteWF",
+    "my_fashion_highlights_jtVAje"
   ]
 }
