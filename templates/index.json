@@ -232,12 +232,26 @@
             "button_text": "SHOP NOW",
             "button_url": ""
           }
+        },
+        "fashion_highlight_kEGjcq": {
+          "type": "fashion_highlight",
+          "settings": {
+            "info_text1": "",
+            "info_text2": "",
+            "info_text3": "",
+            "info_text4": "",
+            "info_text5": "",
+            "title": "Swim Wears Trends",
+            "button_text": "SHOP NOW",
+            "button_url": ""
+          }
         }
       },
       "block_order": [
         "fashion_highlight_7kq6hh",
         "fashion_highlight_RRahxi",
-        "fashion_highlight_xndF3V"
+        "fashion_highlight_xndF3V",
+        "fashion_highlight_kEGjcq"
       ],
       "name": "my-fashion-highlights",
       "settings": {
