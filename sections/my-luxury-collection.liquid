@@ -1,0 +1,147 @@
+{% schema %}
+  {
+    "name": "my-luxury-collection",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "header",
+            "content": "Item 1"
+        },
+        {
+            "type": "image_picker",
+            "id": "image_1",
+            "label": "Image1"
+        },
+        {
+            "type": "text",
+            "id": "image_info1",
+            "label": "Image Info1"
+        },
+        {
+            "type": "header",
+            "content": "Item 2"
+        },
+        {
+            "type": "image_picker",
+            "id": "image_2",
+            "label": "Image2"
+        },
+        {
+            "type": "text",
+            "id": "image_info2",
+            "label": "Image Info2"
+        },
+        {
+            "type": "header",
+            "content": "Item 3"
+        },
+        {
+            "type": "image_picker",
+            "id": "image_3",
+            "label": "Image3"
+        },
+        {
+            "type": "text",
+            "id": "image_info3",
+            "label": "Image Info3"
+        },
+        {
+            "type": "header",
+            "content": "Item 4"
+        },
+        {
+            "type": "image_picker",
+            "id": "image_4",
+            "label": "Image4"
+        },
+        {
+            "type": "text",
+            "id": "image_info4",
+            "label": "Image Info4"
+        }
+    ],
+    "presets": [
+      {
+        "name": "my-luxury-collection",
+        "settings": {
+        }
+      }
+    ]
+  }
+{% endschema %}
+
+<div class="my-luxury-collection__container" data-section-id="{{ section.id }}">
+    <div class="top__container h2">{{ section.settings.title }}</div>
+    <div class="content__container">    
+        <div class="img__container">
+            {{ 
+                section.settings.image_1 
+                | image_url: width:326
+                | image_tag:
+                    alt: section.settings.alt,
+                    class: "img"
+            }}
+        </div>
+        <div class="img_info h2">
+            {{ section.settings.image_info1 }}
+        </div>
+    </div>
+    <div class="content__container">    
+        <div class="img__container">
+            {{ 
+                section.settings.image_2 
+                | image_url: width:326
+                | image_tag:
+                    alt: section.settings.alt,
+                    class: "img"
+            }}
+        </div>
+        <div class="img_info h2">
+            {{ section.settings.image_info2 }}
+        </div>
+    </div>
+    <div class="content__container">    
+        <div class="img__container">
+            {{ 
+                section.settings.image_3 
+                | image_url: width:326
+                | image_tag:
+                    alt: section.settings.alt,
+                    class: "img"
+            }}
+        </div>
+        <div class="img_info h2">
+            {{ section.settings.image_info3 }}
+        </div>
+    </div>
+    <div class="content__container">    
+        <div class="img__container">
+            {{ 
+                section.settings.image_4 
+                | image_url: width:326
+                | image_tag:
+                    alt: section.settings.alt,
+                    class: "img"
+            }}
+        </div>
+        <div class="img_info h2">
+            {{ section.settings.image_info4 }}
+        </div>
+    </div>
+</div>
+
+{{ 'my-luxury-collection.css' | asset_url | stylesheet_tag }}
+
+<script type="module" defer>
+    (function(){
+        const sectionId = '{{ section.id }}'
+        const container = $(`.my-luxury-collection__container[data-section-id="${sectionId}"]`);
+    
+    })()
+</script>
