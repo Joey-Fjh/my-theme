@@ -1,0 +1,86 @@
+{% schema %}
+  {
+    "name": "my-hero-banner",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image_url",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "sub_title",
+        "label": "Sub Title"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button Link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "my-hero-banner",
+        "settings": {
+        }
+      }
+    ]
+  }
+{% endschema %}
+
+<div class="my-hero-banner__container" data-section-id="{{ section.id }}">
+    <div class="img__container">
+      {{ section.settings.image_url
+        | image_url: width: 825, height: 435
+        | image_tag:
+            alt: section.settings.image_url.alt,
+            class: 'img' 
+      }}
+    </div>
+    <div class="content__container">
+      <div class="text__container">
+        <div class="title h4">{{ section.settings.title }}</div>
+        <div class="sub-title h1">{{ section.settings.sub_title }}</div>
+      </div>
+      <div class="time__container">
+        <div class="time__unit">
+          <div class="time__number h1 day">2</div>
+          <div class="time__text">DAYS</div>
+        </div>
+        <div class="time__unit">
+          <div class="time__number h1 hour">22</div>
+          <div class="time__text">HOURS</div>
+        </div>
+        <div class="time__unit">
+          <div class="time__number h1 minute">22</div>
+          <div class="time__text">MINUTES</div>
+        </div>
+        <div class="time__unit">
+          <div class="time__number h1 second">22</div>
+          <div class="time__text">SECONDS</div>
+        </div>
+      </div>
+      <div class="button">{{ section.settings.button_text }}</div>
+    </div>
+</div>
+
+{{ 'my-hero-banner.css' | asset_url | stylesheet_tag }}
+
+<script defer type="module">
+    (function(){
+        const sectionId = '{{ section.id }}';
+        const container = $('.my-hero-banner__container[data-section-id="' + sectionId + '"]');
+    })()
+</script>
