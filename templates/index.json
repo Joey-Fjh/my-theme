@@ -272,6 +272,17 @@
         "image_4": "shopify://shop_images/image_44.png",
         "image_info4": "Eternal Grace"
       }
+    },
+    "my_hero_banner_6JCMYw": {
+      "type": "my-hero-banner",
+      "name": "my-hero-banner",
+      "settings": {
+        "image_url": "shopify://shop_images/Frame_48036.png",
+        "title": "ONLINE ONLY!",
+        "sub_title": "UP TO 50% OFF EVERYTHING",
+        "button_text": "SHOPNOW",
+        "button_link": ""
+      }
     }
   },
   "order": [
@@ -281,6 +292,7 @@
     "brand_banner_UHKtHB",
     "brand_banner_jxteWF",
     "my_fashion_highlights_jtVAje",
-    "my_luxury_collection_iFCwkU"
+    "my_luxury_collection_iFCwkU",
+    "my_hero_banner_6JCMYw"
   ]
 }
