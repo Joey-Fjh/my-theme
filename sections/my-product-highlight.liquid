@@ -1,0 +1,119 @@
+{% schema %}
+  {
+    "name": "my-product-highlight",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "MIX & MAX"
+        },
+        {
+            "type": "text",
+            "id": "description",
+            "label": "Description",
+            "default": "LAYERING WITH BASIC PIECES DESIGNED"
+        },
+        {
+            "type": "image_picker",
+            "id": "image_show",
+            "label": "Image Show"
+        },
+        {
+            "type": "collection",
+            "id": "product_collection",
+            "label": "Products"
+        }
+    ],
+    "presets": [
+      {
+        "name": "my-product-highlight",
+        "settings": {
+        }
+      }
+    ]
+  }
+{% endschema %}
+
+<div class="my-product-highlight__container" data-section-id="{{ section.id }}">
+   <div class="my-product-highlight__wrapper"> 
+        <div class="my-product-highlight__content"> 
+            <div class="my-product-highlight__title h4"> 
+                {{ section.settings.title | escape }} 
+            </div>
+            <div class="my-product-highlight__description h2"> 
+                {{ section.settings.description | escape }} 
+            </div>
+        </div>  
+        {{ 
+            section.settings.image_show
+            | image_url: width: 590, height: 720
+            | image_tag: 
+                alt: section.settings.image_show.alt,
+                class: 'image_show' 
+        }}
+        <div class="product-image__container">
+            {%- for product in section.settings.product_collection.products -%}
+                <div 
+                    class="product-image__wrapper {% if forloop.first %} is-active {% endif %}" 
+                >
+                    {{ 
+                        product.featured_image
+                        | image_url: width: 420, height: 560
+                        | image_tag: 
+                            alt: product.title,
+                            class: 'product_image' 
+                    }}
+
+                    <div style="display: flex;justify-content: space-between;">
+                        <div>                   
+                            <div class="product-image__title h2">{{ product.title }}</div>
+                            <div class="product-image__price h4">{{ product.price | money }}</div>
+                        </div>                   
+                        <a href="{{ product.url }}" class="button">SHOP NOW</a>
+                    </div>
+                </div>
+            {%- endfor -%}
+
+            <div class="product-switch">
+                <span class="dot underline" data-product-index="0"></span>
+                <span class="dot" data-product-index="1"></span>
+                <span class="dot" data-product-index="2"></span>
+            </div>
+        </div>
+   </div>
+</div>
+
+{{ 'my-product-highlight.css' | asset_url | stylesheet_tag }}
+
+<script defer type="module">
+    (function(){
+        const sectionId = '{{ section.id }}';
+        const container = $('.my-product-highlight__container[data-section-id="' + sectionId + '"]');
+
+        const productWrappers = $(".product-image__wrapper");
+        const productSwitch = $(".product-switch");
+        const dots = $(".product-switch .dot");
+        
+        $(productSwitch).on("click",function(event){
+            if(event.target.classList.contains("dot")){
+                const index = parseInt(event.target.getAttribute('data-product-index'));
+                
+                dots.each(function(_,dot) {
+                    dot.classList.remove("underline");
+                });
+                event.target.classList.add("underline"); 
+            
+                productWrappers.each((i,wrapper)=>{
+                    wrapper.classList.remove("is-active");
+                    
+                    if(i === index) {
+                        wrapper.classList.add("is-active");
+                    } 
+                });
+            }
+        });
+    })()
+</script>
