@@ -8,17 +8,9 @@
  * ------------------------------------------------------------
  */
 {
-  "parent": "index.json",
-  "context": {
-    "market": "cn"
-  },
-  "sections": {
-    "my_luxury_collection_iFCwkU": {
-      "settings": {
-        "image_2": "shopify://shop_images/42_df82998f-c90c-41ac-95ba-7826aba0ca78.png",
-        "image_3": "shopify://shop_images/43_8f7a49ea-c4d2-468a-bf67-bb528fed0e0f.png"
-      },
-      "blocks": {}
+  "markets": {
+    "cn": {
+      "parent": "@default"
     }
   }
 }
