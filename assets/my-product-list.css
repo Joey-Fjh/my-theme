@@ -36,7 +36,7 @@
     .content__container {
         display: grid;
         grid-template-columns: repeat(3,30.764vw);
-        gap: 1.667vw;
+        gap: 2.4rem;
     }
 
     .product-card__container { 
@@ -54,12 +54,12 @@
             -ms-flex-align: center;
                 align-items: center;
         width: 30.764vw;
-        max-height: 66.4rem;
+        max-height: 46.111vw;
     }
 
     .product-card__image {
         border-radius: 2rem;
-        max-height: 56.4rem;
+        max-height: 39.167vw;
         overflow: hidden;
     }
 

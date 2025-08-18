@@ -13,7 +13,7 @@
           align-items: center;
   padding-left: 2.222vw;
   padding-right: 2.222vw;
-  max-height: 6rem;
+  max-height: 4.167vw;
 
   .header-menu__container {
     .menu{
@@ -45,7 +45,7 @@
       -webkit-align-items: center;
           -ms-flex-align: center;
               align-items: center;
-      padding: 0.8rem 1.111vw;
+      padding: 0.556vw 1.111vw;
       text-decoration: none;
       color: #374151;
       border-radius: 2rem;
@@ -92,7 +92,7 @@
       box-shadow: 0 0.4rem 0.6rem -0.1rem rgba(0, 0, 0, 0.1), 0 0.2rem 0.4rem -0.1rem rgba(0, 0, 0, 0.06);
       list-style: none;
       margin: 0;
-      padding: 0.4rem 0;
+      padding: 0.278vw 0;
       min-width: 13.889vw;
       z-index: 1000;
       opacity: 0;
@@ -102,7 +102,7 @@
               transform: translateY(-1rem);
       -webkit-transition: all 0.2s ease;
       transition: all 0.2s ease;
-      margin-top: 0.4rem;
+      margin-top: 0.278vw;
     }
      
     .menu-link:hover > .dropdown-child {
@@ -129,7 +129,7 @@
     .dropdown-child .menu-link > a {
       display: block;
       width: 100%;
-      padding: 1.2rem 1.389vw;
+      padding: 0.833vw 1.389vw;
       color: #374151;
       text-decoration: none;
       font-size: 1.4rem;
@@ -176,7 +176,7 @@
       box-shadow: 0 0.4rem 0.6rem -0.1rem rgba(0, 0, 0, 0.1), 0 0.2rem 0.4rem -0.1rem rgba(0, 0, 0, 0.06);
       list-style: none;
       margin: 0;
-      padding: 0.4rem 0;
+      padding: 0.278vw 0;
       min-width: 12.5vw;
       z-index: 1001;
       opacity: 0;
@@ -213,7 +213,7 @@
     .dropdown-grandChild .menu-link > a {
       display: block;
       width: 100%;
-      padding: 1rem 1.111vw;
+      padding: 0.694vw 1.111vw;
       color: #374151;
       text-decoration: none;
       font-size: 1.4rem;
@@ -347,8 +347,8 @@
     }
 
     .search-input {
-      width: 24rem;
-      height: 4rem;
+      width: 16.667vw;
+      height: 2.778vw;
       padding: 0.8rem 2.778vw 0.8rem 1.111vw;
       border: 0.1rem solid #e5e7eb;
       border-radius: 2rem;

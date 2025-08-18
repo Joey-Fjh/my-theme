@@ -31,12 +31,12 @@
 
     .img__container{
         width: 22.639vw;
-        max-height: 46.8rem;
+        max-height: 32.5vw;
+        border: 0.1rem solid black;
         border-radius: 2rem;
         overflow: hidden;
 
         &:hover {
-            border: 0.1rem solid black;
             padding: 1rem;
 
             .img {

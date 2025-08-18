@@ -4,8 +4,7 @@
 
     .fashion__wrapper {
         width: 100vw;
-        max-height: 67.6rem;
-        aspect-ratio: 1440/676;
+        height: 46.944vw;
         display: grid;
         grid-auto-flow: column;
         background-size:cover;
@@ -29,7 +28,7 @@
             -ms-flex-pack: end;
                 justify-content: flex-end;
         padding-left: 1.667vw;
-        padding-bottom:3.4rem;
+        padding-bottom:2.361vw;
 
         &:hover{
             background-color: rgba(0, 0, 0, 0.5);
