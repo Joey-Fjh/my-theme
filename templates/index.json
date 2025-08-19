@@ -306,8 +306,21 @@
     },
     "my_image_with_text_6RV9t9": {
       "type": "my-image-with-text",
+      "blocks": {
+        "accordion_item_DQKfa6": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Unrivaled Quality",
+            "content": "We believe in offering great value"
+          }
+        }
+      },
+      "block_order": [
+        "accordion_item_DQKfa6"
+      ],
       "name": "my-image-with-text",
       "settings": {
+        "image": "shopify://shop_images/image_69.png",
         "title": "Why Choose Us",
         "subtitle": "We pride ourselves on offering products that meet the highest standards of quality."
       }
