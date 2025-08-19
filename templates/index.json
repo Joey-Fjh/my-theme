@@ -293,6 +293,24 @@
         "image_show": "shopify://shop_images/Frame_48014.png",
         "product_collection": "睡衣"
       }
+    },
+    "my_video_player_CfFJqU": {
+      "type": "my-video-player",
+      "name": "my-video-player",
+      "settings": {
+        "cover_image": "shopify://shop_images/video.png",
+        "description": "",
+        "title": "Watch the Full Video About Our Concept Store",
+        "button_text": "Watch Now"
+      }
+    },
+    "my_image_with_text_6RV9t9": {
+      "type": "my-image-with-text",
+      "name": "my-image-with-text",
+      "settings": {
+        "title": "Why Choose Us",
+        "subtitle": "We pride ourselves on offering products that meet the highest standards of quality."
+      }
     }
   },
   "order": [
@@ -304,6 +322,8 @@
     "my_fashion_highlights_jtVAje",
     "my_luxury_collection_iFCwkU",
     "my_hero_banner_6JCMYw",
-    "my_product_highlight_r4acHR"
+    "my_product_highlight_r4acHR",
+    "my_video_player_CfFJqU",
+    "my_image_with_text_6RV9t9"
   ]
 }
