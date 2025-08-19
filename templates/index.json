@@ -313,10 +313,34 @@
             "title": "Unrivaled Quality",
             "content": "We believe in offering great value"
           }
+        },
+        "accordion_item_6K8PCD": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Unrivaled Variety",
+            "content": "We believe in offering great value"
+          }
+        },
+        "accordion_item_VJXPCT": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Sustains bullous",
+            "content": "We believe in offering great value"
+          }
+        },
+        "accordion_item_i4WQXw": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Legacy Of Excellence",
+            "content": "We believe in offering great value"
+          }
         }
       },
       "block_order": [
-        "accordion_item_DQKfa6"
+        "accordion_item_DQKfa6",
+        "accordion_item_6K8PCD",
+        "accordion_item_VJXPCT",
+        "accordion_item_i4WQXw"
       ],
       "name": "my-image-with-text",
       "settings": {
