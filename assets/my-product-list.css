@@ -36,7 +36,7 @@
     .content__container {
         display: grid;
         grid-template-columns: repeat(3,30.764vw);
-        gap: 2.4rem;
+        gap: 1rem;
     }
 
     .product-card__container { 

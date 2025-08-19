@@ -1,0 +1,153 @@
+.my-video-player__container{
+    margin-top: 9.7rem;
+    width: 100%;
+    height: 48.819vw;
+    position: relative;
+    cursor:pointer;
+
+    .poster-image__container,.poster_image{ 
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .mask {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .my-video-player__controls{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+        z-index: 10;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+            -ms-flex-align: center;
+                align-items: center;
+
+        .my-video-player__info{
+            width: 34.583vw;
+            height: 5.417vw;
+            color: white;
+            text-align: center;
+            letter-spacing: 0.4rem;
+        }
+
+        .my-video-player__button{
+            letter-spacing: 0;
+            margin-top: 9.444vw;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+                -ms-flex-align: center;
+                    align-items: center; 
+            width: 18.889vw;
+            height: 4.444vw;
+            font-weight: 500;
+            background-color: #fff;
+            border-radius: 4rem;
+            font-size: 3rem;
+        }
+
+        .play-circle{
+            width: 3.2rem;
+            height: 3.2rem;
+            margin-right: 0.8rem;
+        }
+    }
+
+    .my-video-player__social-share{
+        position: absolute;
+        left: 3.2rem;
+        bottom: 30%;
+        width: 3.056vw;
+        height: 20.764vw;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        background-color: #fff;
+        -webkit-justify-content: space-around;
+            -ms-flex-pack: distribute;
+                justify-content: space-around;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+            -ms-flex-align: center;
+                align-items: center;
+        z-index: 10;
+        border-radius: 3rem;
+    }
+
+    .social-media {
+        width: 2.4rem;
+        height: 2.4rem;
+    }
+
+    .social-badge {
+        background-color: #000;
+        border-radius: 3rem;
+        width: 2.5vw;
+        height: 6.667vw;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+            -ms-flex-align: center;
+                align-items: center;
+    }
+
+    .social-text {
+        color: #fff;
+        font-weight: 500;
+        font-size: 1.4rem;
+        letter-spacing: 0.1rem;
+        -webkit-transform: rotate(-90deg);
+            -ms-transform: rotate(-90deg);
+                transform: rotate(-90deg);
+        white-space: nowrap;
+        text-transform: uppercase;
+    }
+}
+

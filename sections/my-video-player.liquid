@@ -1,0 +1,113 @@
+{% schema %}
+  {
+    "name": "my-video-player",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+      {
+        "type": "video",
+        "id": "my_video",
+        "label": "Select Video"
+      },
+      {
+        "type": "image_picker",
+        "id": "cover_image",
+        "label": "t:sections.video.settings.cover_image.label"
+      },
+      {
+        "type": "text",
+        "id": "description",
+        "label": "t:sections.video.settings.description.label",
+        "info": "t:sections.video.settings.description.info"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default":"Watch the Full Video About Our Concept Store"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text",
+        "default":"Watch Now"
+      },
+    ],
+    "presets": [
+      {
+        "name": "my-video-player",
+        "settings": {
+        }
+      }
+    ]
+  }
+{% endschema %}
+
+
+{%- liquid
+  assign video_id = section.settings.my_video.id
+  assign video_alt = section.settings.my_video.alt | default: section.settings.description
+  assign alt = 'sections.video.load_video' | t: description: video_alt | escape
+  assign poster = section.settings.video.preview_image | default: section.settings.cover_image
+-%}
+
+<div class="my-video-player__container" data-section-id="{{ section.id }}" data-media-id="{{ video_id }}">
+  <div class="mask"></div>
+  <div class="poster-image__container">
+    {%- if poster != null -%}
+      {{
+        poster
+        | image_url: width: 1440  
+        | image_tag: 
+          class:"poster_image",
+          alt: alt
+      }}
+    {%- else -%}
+      {{ 'hero-apparel-3' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
+    {%- endif -%}
+  </div>
+  <div class="video__container">
+    {% if section.settings.my_video %}
+      {{ section.settings.my_video 
+          | video_tag: controls: true, autoplay: false, loop: false, muted: false 
+      }}
+    {% endif %}
+  </div>
+  <div class="my-video-player__controls">
+    <div class="my-video-player__info h2">
+      {{ section.settings.title }}
+    </div>
+    <div class="my-video-player__button h2" aria-label="{{ alt }}">
+      <span class="play-circle">
+        {{- 'play.svg' | inline_asset_content -}}
+      </span>
+      {{ section.settings.button_text }}
+    </div>
+  </div>
+  <div class="my-video-player__social-share">
+    <span class="social-media">
+        {{- 'facebook.svg' | inline_asset_content -}}
+    </span>
+    <span class="social-media">
+        {{- 'twitter.svg' | inline_asset_content -}}
+    </span>
+    <span class="social-media">
+        {{- 'ins.svg' | inline_asset_content -}}
+    </span>
+    <span class="social-media">
+        {{- 'tiktok.svg' | inline_asset_content -}}
+    </span>
+    <div class="social-badge">
+      <span class="social-text">GET 20% OFF</span>
+    </div>
+  </div>
+</div>
+
+{{ 'my-video-player.css' | asset_url | stylesheet_tag }}
+
+<script defer type="module">
+    (function () {
+        const sectionId = '{{ section.id }}';
+        const container = $('.my-video-player__container[data-section-id="' + sectionId + '"]');
+    })()
+</script>

@@ -1,0 +1,86 @@
+{% schema %}
+  {
+    "name": "my-image-with-text",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default":"Why Choose Us",
+        },
+        {
+            "type": "textarea",
+            "id": "subtitle",
+            "label": "Subtitle",
+            "default":"We pride ourselves on offering products that meet the highest standards of quality."
+        },
+    ],
+    "blocks": [
+        {
+            "type": "accordion_item",
+            "name": "Accordion Item",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "textarea",
+                    "id": "content",
+                    "label": "Content"
+                }
+            ]
+        }
+    ],
+    "presets": [
+      {
+        "name": "my-image-with-text",
+        "settings": {
+        }
+      }
+    ]
+  }
+{% endschema %}
+
+<div class="my-image-with-text__container" data-section-id="{{ section.id }}">
+    <div class="image__container">
+        {{ 
+            section.settings.image 
+            | image_url: width: 676, height: 688 
+            | image_tag:
+                class:"image"
+        }}
+    </div>
+    <div class="content__container">
+        <div class="title">{{ section.settings.title }}</div>
+        <div class="subtitle">{{ section.settings.subtitle }}</div>
+        <div class="info_container">
+            {%- for block in section.blocks -%}
+              <div class="info-item">{{ block.settings.title }}</div>
+              <div class="info-item-content">{{ block.settings.content }}</div>
+            {%- endfor -%}
+        </div>
+    </div>
+</div>
+
+{{ 'my-image-with-text.css' | asset_url | stylesheet_tag }}
+
+<script defer type="module">
+    const sectionId = '{{ section.id }}';
+    const container = $('.my-image-with-text__container[data-section-id="' + sectionId + '"]');
+
+
+    const info_container = container.find('.info_container');
+    info_container.on("click",function(e){
+        e.target.classList.toggle('active');
+        e.target.nextElementSibling.classList.toggle('active');
+    });
+</script>
