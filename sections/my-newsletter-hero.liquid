@@ -1,0 +1,108 @@
+{% schema %}
+{
+  "name": "my-newsletter-hero",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "KEEP ME UPDATED"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "NEWSLETTER"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Subscribe to get notified about product launches, special offers and company news."
+    },
+    {
+      "type": "text",
+      "id": "email_placeholder",
+      "label": "Email Placeholder",
+      "default": "E-mail"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "SUBSCRIBE"
+    }
+  ],
+  "presets": [
+    {
+      "name": "my-newsletter-hero"
+    }
+  ]
+}
+{% endschema %}
+
+
+<div class="my-newsletter-hero__container" data-section-id="{{ section.id }}">
+  <div class="newsletter-hero__background">
+    {% if section.settings.background_image %}
+     <img 
+        width="1440"
+        height="435"
+        src="{{ section.settings.background_image | image_url: width: 1440 }}" 
+        alt="{{ section.settings.background_image.alt | escape }}"
+        class="newsletter-hero__bg-image"
+        loading="lazy"
+      />
+    {% endif %}
+    <div class="newsletter-hero__overlay"></div>
+  </div>
+  
+  <div class="newsletter-hero__content">
+    <div class="newsletter-hero__container">
+      {% if section.settings.subtitle %}
+        <p class="newsletter-hero__subtitle">{{ section.settings.subtitle }}</p>
+      {% endif %}
+      
+      {% if section.settings.title %}
+        <h2 class="newsletter-hero__title">{{ section.settings.title }}</h2>
+      {% endif %}
+      
+      {% if section.settings.description %}
+        <p class="newsletter-hero__description">{{ section.settings.description }}</p>
+      {% endif %}
+      
+      <form class="newsletter-hero__form" action="{{ routes.root_url }}contact#contact_form" method="post" accept-charset="UTF-8">
+        <input type="hidden" name="form_type" value="customer">
+        <input type="hidden" name="utf8" value="✓">
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        
+        <div class="newsletter-hero__form-group">
+          <input 
+            type="email" 
+            name="contact[email]" 
+            class="newsletter-hero__input"
+            placeholder="{{ section.settings.email_placeholder | default: 'E-mail' }}"
+            required
+            aria-label="Email address"
+          >
+          <button type="submit" class="newsletter-hero__button">
+            {{ section.settings.button_text | default: 'SUBSCRIBE' }}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{{ 'my-newsletter-hero.css' | asset_url | stylesheet_tag }}
+
+<script defer type="module">
+    (function(){})()
+</script>

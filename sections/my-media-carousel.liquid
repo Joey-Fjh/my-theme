@@ -1,0 +1,338 @@
+{% schema %}
+{
+  "name": "my-media-carousel",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Enable Autoplay",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "label": "Autoplay Speed (ms)",
+      "min": 3000,
+      "max": 9000,
+      "step": 1000,
+      "default": 5000
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Carousel Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "Recommended size: 1200x800px"
+        },
+        {
+          "type": "url",
+          "id": "video_url",
+          "label": "Video URL",
+          "info": "MP4 format recommended. Video will take priority over image."
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Link URL",
+          "info": "Optional link for the entire slide"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "my-media-carousel",
+      "blocks": [
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div class="my-media-carousel__container" data-section-id="{{ section.id }}">
+  <div class="carousel-container">
+    <div class="carousel-wrapper">
+      {%- comment -%}  
+      {%- assign last_block = section.blocks.last -%} 
+      <div class="carousel-slide" data-slide="{{ section.blocks.size | minus: 1 }}">
+        {% if last_block.settings.video_url != blank %}
+          <div class="media-container video-container">
+            <video 
+              class="carousel-video" 
+              poster="
+                {% if last_block.settings.image != blank %}
+                  {{ last_block.settings.image }}
+                {% else %} 
+                  {%comment%} placeholder {%endcomment%} 
+                {% endif %}"
+              preload="metadata"
+              data-video-url="{{ last_block.settings.video_url }}"
+            >
+              <source src="{{ last_block.settings.video_url | asset_url }}" type="video/mp4">
+            </video>
+            <button class="play-button" aria-label="Play video">
+              <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                <path d="M23 20L40 30L23 40V20Z" fill="#000"/>
+              </svg>
+            </button>
+          </div>
+        {% else %}
+          <div class="media-container image-container">
+            {% if last_block.settings.image != blank %}
+              <img 
+                width="700"
+                height="400"
+                src="{{ last_block.settings.image | image_url: width:700  }}" 
+                alt="{{ last_block.settings.image.alt | default: 'Carousel image' }}"
+                class="carousel-image"
+                loading="lazy"
+              />
+            {% else %}
+              {%comment%} placeholder {%endcomment%} 
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+      {%- endcomment -%}
+
+      {% for block in section.blocks %}
+        <div class="carousel-slide {% if forloop.first %}center{% endif %}" data-slide="{{ forloop.index0 }}">
+          {% if block.settings.video_url != blank %}
+            <!-- Video slide -->
+            <div class="media-container video-container">
+              <video 
+                class="carousel-video" 
+                poster="
+                  {% if block.settings.image != blank %}
+                   {{ block.settings.image }}
+                  {% else %} 
+                   {%comment%} placeholder {%endcomment%} 
+                  {% endif %}"
+                preload="metadata"
+                data-video-url="{{ block.settings.video_url }}"
+              >
+                <source src="{{ block.settings.video_url | asset_url }}" type="video/mp4">
+              </video>
+              <button class="play-button" aria-label="Play video">
+                <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                  <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                  <path d="M23 20L40 30L23 40V20Z" fill="#000"/>
+                </svg>
+              </button>
+            </div>
+          {% else %}
+            <!-- Image slide -->
+            <div class="media-container image-container">
+              {% if block.settings.image != blank %}
+                <img 
+                  width="700"
+                  height="400"
+                  src="{{ block.settings.image | image_url: width:700  }}" 
+                  alt="{{ block.settings.image.alt | default: 'Carousel image' }}"
+                  class="carousel-image"
+                  loading="lazy"
+                >
+              {% else %}
+                {%comment%} placeholder {%endcomment%} 
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+
+      {%- comment -%}
+      {%- assign first_block = section.blocks.first -%} 
+      <div class="carousel-slide" data-slide="{{ 0 }}">
+        {% if first_block.settings.video_url != blank %}
+          <div class="media-container video-container">
+            <video 
+              class="carousel-video" 
+              poster="
+                {% if last_block.settings.image != blank %}
+                  {{ last_block.settings.image }}
+                {% else %} 
+                  {%comment%} placeholder {%endcomment%} 
+                {% endif %}"
+              preload="metadata"
+              data-video-url="{{ last_block.settings.video_url }}"
+            >
+              <source src="{{ last_block.settings.video_url | asset_url }}" type="video/mp4">
+            </video>
+            <button class="play-button" aria-label="Play video">
+              <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                <path d="M23 20L40 30L23 40V20Z" fill="#000"/>
+              </svg>
+            </button>
+          </div>
+        {% else %}
+          <div class="media-container image-container">
+            {% if first_block.settings.image != blank %}
+              <img 
+                width="700"
+                height="400"
+                src="{{ first_block.settings.image | image_url: width:700  }}" 
+                alt="{{ first_block.settings.image.alt | default: 'Carousel image' }}"
+                class="carousel-image"
+                loading="lazy"
+              />
+            {% else %}
+              {%comment%} placeholder {%endcomment%} 
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+      {%- endcomment -%}
+    </div>
+    
+    <!-- Navigation arrows -->
+    {% if section.blocks.size > 1 %}
+      <button class="carousel-nav prev-btn" aria-label="Previous slide">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button class="carousel-nav next-btn" aria-label="Next slide">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      
+      <!-- Dot navigation -->
+      <div class="carousel-dots">
+        {% for block in section.blocks %}
+          <button 
+            class="dot {% if forloop.first %}active{% endif %}" 
+            data-slide="{{ forloop.index0 }}"
+            aria-label="Go to slide {{ forloop.index }}"
+          ></button>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{{ 'my-media-carousel.css' | asset_url | stylesheet_tag }}
+
+<script defer type="module">
+  $(document).ready(function() {
+    const sectionId = '{{ section.id }}';
+    const $carousel = $(`[data-section-id="${sectionId}"]`);
+    const $wrapper = $carousel.find('.carousel-wrapper');
+    const $slides = $carousel.find('.carousel-slide');
+    const $dots = $carousel.find('.dot');
+    const $prevBtn = $carousel.find('.prev-btn');
+    const $nextBtn = $carousel.find('.next-btn');
+
+    let currentSlide = 0;
+    let autoplayInterval;
+
+    function goToSlide(index) {
+      $slides.removeClass('center');
+      $dots.removeClass('active');
+      
+      $slides.eq(index).addClass('center');
+      $dots.eq(index).addClass('active');
+      
+      const isMobile = $(window).width() <= 768;
+      if (isMobile) {
+        // 等移动端布局后在修改
+        const translateX = -index * 100;
+        $wrapper.css('transform', `translateX(${translateX}%)`);
+      } else {
+        const slideWidth = (700/1440)*100;
+        const translateX = index == 0 ? (50 - slideWidth/2) : -(index * slideWidth - (50 - slideWidth/2));
+
+        $wrapper.css('transform', `translateX(${translateX}vw)`);
+      }
+  
+      currentSlide = index;
+    }
+
+    function nextSlide() {
+      const next = (currentSlide + 1) % $slides.length;
+      goToSlide(next);
+    }
+
+    function prevSlide() {
+      const prev = (currentSlide - 1 + $slides.length) % $slides.length;
+      goToSlide(prev);
+    }
+
+    $nextBtn.on('click', nextSlide);
+    $prevBtn.on('click', prevSlide);
+
+    $dots.on('click', function() {
+      const slideIndex = parseInt($(this).data('slide'));
+      goToSlide(slideIndex);
+    });
+
+    $carousel.find('.play-button').on('click', function() {
+      const $slide = $(this).closest('.carousel-slide');
+      if (!$slide.hasClass('center')) return;
+      
+      const $video = $(this).siblings('video');
+      const $button = $(this);
+      
+      if ($video.length) {
+        if ($video[0].paused) {
+          $video[0].play();
+          $button.hide();
+        } else {
+          $video[0].pause();
+          $button.show();
+        }
+      }
+    });
+
+    $carousel.find('video').on('play', function() {
+      $(this).siblings('.play-button').hide();
+    });
+
+    $carousel.find('video').on('pause ended', function() {
+      $(this).siblings('.play-button').show();
+    });
+
+    {% if section.settings.autoplay %}
+      function startAutoplay() {
+        autoplayInterval = setInterval(nextSlide, {{ section.settings.autoplay_speed | default: 5000 }});
+      }
+
+      function stopAutoplay() {
+        clearInterval(autoplayInterval);
+      }
+
+      startAutoplay();
+
+      $carousel.on('mouseenter', stopAutoplay);
+      $carousel.on('mouseleave', startAutoplay);
+    {% endif %}
+
+    $(document).on('keydown', function(e) {
+      if ($carousel.is(':hover')) {
+        if (e.key === 'ArrowLeft') {
+          prevSlide();
+        } else if (e.key === 'ArrowRight') {
+          nextSlide();
+        }
+      }
+    });
+  });
+</script>
