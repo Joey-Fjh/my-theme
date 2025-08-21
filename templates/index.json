@@ -348,6 +348,82 @@
         "title": "Why Choose Us",
         "subtitle": "We pride ourselves on offering products that meet the highest standards of quality."
       }
+    },
+    "my_fashion_grid_layout_MtAfQU": {
+      "type": "my-fashion-grid-layout",
+      "name": "my-fashion-grid-layout",
+      "settings": {
+        "image1-1": "shopify://shop_images/image_2.png",
+        "image1-4": "shopify://shop_images/image_73.png",
+        "image2-4": "shopify://shop_images/H526Y04WFA_5100_1F_1.png",
+        "image3-3": "shopify://shop_images/3ad03d4385b40c98bce5e371ed85d9b_1.png",
+        "image3-4": "shopify://shop_images/image_74.png",
+        "image4-4": "shopify://shop_images/image_62.png"
+      }
+    },
+    "my_newsletter_hero_EHJQF4": {
+      "type": "my-newsletter-hero",
+      "name": "my-newsletter-hero",
+      "settings": {
+        "background_image": "shopify://shop_images/image_35.png",
+        "subtitle": "KEEP ME UPDATED",
+        "title": "NEWSLETTER",
+        "description": "Subscribe to get notified about product launches, special offers and company news.",
+        "email_placeholder": "E-mail",
+        "button_text": "SUBSCRIBE"
+      }
+    },
+    "my_sustainable_hero_cHgtTK": {
+      "type": "my-sustainable-hero",
+      "name": "my-sustainable-hero",
+      "settings": {
+        "primary_image": "shopify://shop_images/Frame_47827.png",
+        "secondary_image": "shopify://shop_images/image_30.png",
+        "eyebrow_text": "EVERYDAY ESSENTIALS",
+        "main_heading": "Sustainable Trends You'll Love Forever.",
+        "value_points": "We believe that fashion should be stylish, affordable and accessible to everyone.|Body positivity and inclusivity are values that are at the heart of our brand.|We want everyone to look and feel good, while also doing our part to help the environment.",
+        "cta_text": "OUR STORY",
+        "cta_url": ""
+      }
+    },
+    "my_media_carousel_8nNGTd": {
+      "type": "my-media-carousel",
+      "blocks": {
+        "slide_LMq9NE": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/image_2.png",
+            "video_url": "",
+            "link_url": ""
+          }
+        },
+        "slide_zFza3h": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/video.png",
+            "video_url": "",
+            "link_url": ""
+          }
+        },
+        "slide_y7Hz8g": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Frame_48036.png",
+            "video_url": "",
+            "link_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_LMq9NE",
+        "slide_zFza3h",
+        "slide_y7Hz8g"
+      ],
+      "name": "my-media-carousel",
+      "settings": {
+        "autoplay": false,
+        "autoplay_speed": 5000
+      }
     }
   },
   "order": [
@@ -361,6 +437,10 @@
     "my_hero_banner_6JCMYw",
     "my_product_highlight_r4acHR",
     "my_video_player_CfFJqU",
-    "my_image_with_text_6RV9t9"
+    "my_image_with_text_6RV9t9",
+    "my_fashion_grid_layout_MtAfQU",
+    "my_newsletter_hero_EHJQF4",
+    "my_sustainable_hero_cHgtTK",
+    "my_media_carousel_8nNGTd"
   ]
 }
