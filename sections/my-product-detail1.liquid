@@ -1,0 +1,187 @@
+{% schema %}
+{
+  "name": "my-product-detail1",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Select Product"
+    },
+    {
+      "type": "text",
+      "id": "category_label",
+      "label": "Category Label",
+      "default": "DRESS"
+    },
+    {
+      "type": "textarea",
+      "id": "product_description",
+      "label": "Product Description",
+      "default": "White short address is a professional and efficient way to label your letters and packages. Its clean design makes it easy to read and stand out."
+    }
+  ],
+  "presets": [
+    {
+      "name": "my-product-detail1"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="product-gallery-wrapper" data-section-id="{{ section.id }}">
+  {% assign selected_product = section.settings.product %}
+  {% if selected_product %}
+    <div class="product-gallery-container">
+      <!-- Thumbnail Images -->
+      <div class="product-thumbnails">
+        {% for image in selected_product.images limit: 4 %}
+          <div class="thumbnail-item {% if forloop.first %}active{% endif %}" data-image-index="{{ forloop.index0 }}">
+            <img  width="120" height="120" src="{{ image | image_url: width:120 }}" alt="{{ selected_product.title }}" loading="lazy">
+          </div>
+        {% endfor %}
+      </div>
+
+      <!-- Main Product Image -->
+      <div class="product-main-image">
+        <img id="main-product-image" width="652" height="636" src="{{ selected_product.featured_image | image_url: width:652}}" alt="{{ selected_product.title }}">
+      </div>
+
+      <!-- Product Information -->
+      <div class="product-info">
+        {% if section.settings.category_label %}
+          <div class="product-category">{{ section.settings.category_label }}</div>
+        {% endif %}
+        
+        <h1 class="product-title">{{ selected_product.title }}</h1>
+        
+        <div class="product-price">
+          <span class="current-price">${{ selected_product.price | money_without_currency }}</span>
+          {% if selected_product.compare_at_price > selected_product.price %}
+            <span class="original-price">${{ selected_product.compare_at_price | money_without_currency }}</span>
+          {% endif %}
+        </div>
+
+        <div class="product-divider"></div>
+
+        <!-- Size Selection -->
+        {% unless selected_product.has_only_default_variant %}
+          {% for option in selected_product.options_with_values %}
+            {% if option.name == 'Size' %}
+              <div class="product-option">
+                <div class="option-label">Size: <span class="selected-value">{{ option.selected_value | default: 'S' }}</span></div>
+                <div class="size-selector">
+                  {% for value in option.values %}
+                    <input type="radio" 
+                            id="my-product-detail1__size-{{ value | handle }}" 
+                            name="size" 
+                            value="{{ value }}"
+                            {% if forloop.index == 2 %}checked{% endif %}>
+                    <label for="my-product-detail1__size-{{ value | handle }}" class="size-option">{{ value }}</label>
+                  {% endfor %}
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        {% else %}
+          <div class="product-option">
+            <label class="option-label">Size: <span class="selected-value">S</span></label>
+            <div class="size-selector">
+              {% assign sizes = 'XS,S,M,L,XL' | split: ',' %}
+              {% for size in sizes %}
+                <input type="radio" 
+                        id="size-{{ size | handle }}" 
+                        name="size" 
+                        value="{{ size }}"
+                        {% if size == 'S' %}checked{% endif %}>
+                <label for="size-{{ size | handle }}" class="size-option">{{ size }}</label>
+              {% endfor %}
+            </div>
+          </div>
+        {% endunless %}
+        
+        <!-- Color Selection -->
+        {% unless selected_product.has_only_default_variant %}
+          {% for option in selected_product.options_with_values %}
+            {% if option.name == 'Color' %}
+              <div class="product-option">
+                <label class="option-label">Color: <span class="selected-value">{{ option.selected_value | default: 'Black' }}</span></label>
+                <div class="color-selector">
+                  {% for value in option.values %}
+                    <input type="radio" 
+                            id="my-product-detail1__color-{{ value | handle }}" 
+                            name="color" 
+                            value="{{ value }}"
+                            {% if forloop.first %}checked{% endif %}>
+                    <label for="my-product-detail1__color-{{ value | handle }}" 
+                            class="color-option" 
+                            data-color="{{ value | downcase | replace: ' ', '-' }}"
+                            title="{{ value }}"></label>
+                  {% endfor %}
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        {% else %}
+          <div class="product-option">
+            <label class="option-label">Color: <span class="selected-value">Black</span></label>
+            <div class="color-selector">
+              {% assign colors = 'Black,Brown,Gray,Light Gray' | split: ',' %}
+              {% for color in colors %}
+                <input type="radio" 
+                        id="my-product-detail1__color-{{ color | handle }}" 
+                        name="color" 
+                        value="{{ color }}"
+                        {% if color == 'Black' %}checked{% endif %}>
+                <label for="my-product-detail1__color-{{ color | handle }}" 
+                        class="color-option" 
+                        data-color="{{ color | downcase | replace: ' ', '-' }}"
+                        title="{{ color }}"></label>
+              {% endfor %}
+            </div>
+          </div>
+        {% endunless %}
+
+        <div class="product-divider"></div>
+
+        <!-- Product Description -->
+        {% if section.settings.product_description %}
+          <div class="product-description">
+            {{ section.settings.product_description }}
+          </div>
+        {% endif %}
+
+        <!-- Quantity and Add to Cart -->
+        <div class="product-actions">
+          <label class="quantity-label">Quantity</label>
+          
+          <div style="display: flex; justify-content: space-between;gap:16px">
+            <div class="quantity-controls">
+              <button type="button" class="quantity-btn minus" data-action="decrease">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="10">
+              <button type="button" class="quantity-btn plus" data-action="increase">+</button>
+            </div>
+
+            <button type="button" class="add-to-cart-btn" data-product-id="{{ selected_product.id }}">
+              Add to cart
+            </button>
+          </div>  
+
+          <button type="button" class="buy-now-btn" data-product-id="{{ selected_product.id }}">
+            Buy it now
+          </button>
+        </div>
+      </div>
+    </div>
+  {% else %}
+    <div class="product-placeholder">
+      <p>Please select a product in the theme editor.</p>
+    </div>
+  {% endif %}
+</div>
+
+{{ 'my-product-detail1.css' | asset_url | stylesheet_tag }}
+
+<script defer type="module">
+  (function(){
+  })()
+</script>

@@ -1,0 +1,204 @@
+{% schema %}
+{
+  "name": "my-product-detail",
+  "settings": [
+    {
+      "type": "product",
+      "id": "featured_product",
+      "label": "Select Product"
+    },
+    {
+      "type": "text",
+      "id": "compare_price",
+      "label": "Compare At Price",
+      "default": "550.00"
+    }
+  ],
+  "presets": [
+    {
+      "name": "my-product-detail"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="my-product-detail__container" data-section-id="{{ section.id }}">
+  <!-- Product Images Grid -->
+  <div class="product-images">
+    <div class="image-grid">
+      {% assign selected_product = all_products[section.settings.featured_product] %}
+      {% if selected_product.images.size > 0 %}
+        {% for image in selected_product.images limit: 4 %}
+          <div class="image-item">
+            <img 
+              width="400"
+              height="500"
+              src="{{ image | image_url: width:400 }}" 
+              alt="{{ image.alt | escape }}" 
+              loading="lazy">
+          </div>
+        {% endfor %}
+      {% else %}
+        {% for i in (1..4) %}
+          <div class="image-item">
+            {% comment %} <img src="{{ 'product-placeholder.svg' | asset_url }}" 
+                  alt="Product image placeholder"> {% endcomment %}
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- Product Information -->
+  <div class="product-info">
+    <h1 class="product-title">{{ selected_product.title | default: 'Casual Knitted Shirt' }}</h1>
+    
+    <div class="product-description">
+      {{ selected_product.description | default: 'White short address is a professional and efficient way to label your letters and packages. Its clean design makes it easy to read and stand out. Save time and make a great impression with this easy-to-use product.' }}
+    </div>
+
+    <!-- Price -->
+    <div class="product-price">
+      {% if selected_product.compare_at_price > selected_product.price %}
+        <span class="current-price">${{ selected_product.price | money_without_currency }}</span>
+        <span class="original-price">${{ selected_product.compare_at_price | money_without_currency }}</span>
+      {% else %}
+        <span class="current-price">${{ selected_product.price | money_without_currency | default: '550.00' }}</span>
+        <span class="original-price">${{ section.settings.compare_price | default: '550.00' }}</span>
+      {% endif %}
+    </div>
+
+    <!-- Size Selection -->
+    {% unless selected_product.has_only_default_variant %}
+      {% for option in selected_product.options_with_values %}
+        {% if option.name == 'Size' %}
+          <div class="product-option">
+            <div class="option-label">Size: <span class="selected-value">{{ option.selected_value | default: 'S' }}</span></div>
+            <div class="size-selector">
+              {% for value in option.values %}
+                <input type="radio" 
+                        id="my-product-detail__size-{{ value | handle }}" 
+                        name="size" 
+                        value="{{ value }}"
+                        {% if forloop.index == 2 %}checked{% endif %}>
+                <label for="my-product-detail__size-{{ value | handle }}" class="size-option">{{ value }}</label>
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    {% else %}
+      <div class="product-option">
+        <label class="option-label">Size: <span class="selected-value">S</span></label>
+        <div class="size-selector">
+          {% assign sizes = 'XS,S,M,L,XL' | split: ',' %}
+          {% for size in sizes %}
+            <input type="radio" 
+                    id="size-{{ size | handle }}" 
+                    name="size" 
+                    value="{{ size }}"
+                    {% if size == 'S' %}checked{% endif %}>
+            <label for="size-{{ size | handle }}" class="size-option">{{ size }}</label>
+          {% endfor %}
+        </div>
+      </div>
+    {% endunless %}
+
+    <!-- Color Selection -->
+    {% unless selected_product.has_only_default_variant %}
+      {% for option in selected_product.options_with_values %}
+        {% if option.name == 'Color' %}
+          <div class="product-option">
+            <label class="option-label">Color: <span class="selected-value">{{ option.selected_value | default: 'Black' }}</span></label>
+            <div class="color-selector">
+              {% for value in option.values %}
+                <input type="radio" 
+                        id="my-product-detail__color-{{ value | handle }}" 
+                        name="color" 
+                        value="{{ value }}"
+                        {% if forloop.first %}checked{% endif %}>
+                <label for="my-product-detail__color-{{ value | handle }}" 
+                        class="color-option" 
+                        data-color="{{ value | downcase | replace: ' ', '-' }}"
+                        title="{{ value }}"></label>
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    {% else %}
+      <div class="product-option">
+        <label class="option-label">Color: <span class="selected-value">Black</span></label>
+        <div class="color-selector">
+          {% assign colors = 'Black,Brown,Gray,Light Gray' | split: ',' %}
+          {% for color in colors %}
+            <input type="radio" 
+                    id="my-product-detail__color-{{ color | handle }}" 
+                    name="color" 
+                    value="{{ color }}"
+                    {% if color == 'Black' %}checked{% endif %}>
+            <label for="my-product-detail__color-{{ color | handle }}" 
+                    class="color-option" 
+                    data-color="{{ color | downcase | replace: ' ', '-' }}"
+                    title="{{ color }}"></label>
+          {% endfor %}
+        </div>
+      </div>
+    {% endunless %}
+
+    <!-- Quantity and Add to Cart -->
+    <div class="product-actions">
+      <div class="quantity-selector">
+        <label class="quantity-label">Quantity</label>
+        <div style="display: flex;justify-content: space-between;align-items: center;">
+          <div class="quantity-controls">
+            <button type="button" class="quantity-btn minus" aria-label="Decrease quantity">−</button>
+            <input type="number" class="quantity-input" value="1" min="1" max="10">
+            <button type="button" class="quantity-btn plus" aria-label="Increase quantity">+</button>
+          </div>
+          <button type="button" class="add-to-cart-btn">Add to cart</button>
+        </div>
+      </div>
+
+      <div class="cart-buttons">
+        <button type="button" class="buy-now-btn">Buy it now</button>
+      </div>
+    </div>
+
+    <!-- Additional Actions -->
+    <div class="product-extras">
+      <a href="#" class="ask-question">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M8 1C4.13 1 1 4.13 1 8s3.13 7 7 7 7-3.13 7-7-3.13-7-7-7zm0 10.5c-.41 0-.75-.34-.75-.75s.34-.75.75-.75.75.34.75.75-.34.75-.75.75zM8.75 8.5h-1.5V4.5h1.5V8.5z" fill="currentColor"/>
+        </svg>
+        Ask a Question
+      </a>
+      
+      <div class="social-share">
+        <span class="share-label">Share</span>
+        <a href="#" class="social-link" aria-label="Share on X">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M12.6 2h2.4L9.7 7.3 16 14h-4.8L7.4 9.8 2.8 14H.4l5.6-6.4L0 2h4.9l3.6 4.8L12.6 2z" fill="currentColor"/>
+          </svg>
+        </a>
+        <a href="#" class="social-link" aria-label="Share on Facebook">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M16 8A8 8 0 1 0 6.75 15.9v-5.6H4.7V8h2.05V6.2c0-2.03 1.2-3.15 3.05-3.15.88 0 1.8.16 1.8.16v1.98h-1.01c-1 0-1.31.62-1.31 1.26V8h2.22l-.35 2.3H9.28v5.6A8 8 0 0 0 16 8z" fill="currentColor"/>
+          </svg>
+        </a>
+        <a href="#" class="social-link" aria-label="Share on TikTok">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3V0z" fill="currentColor"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{ 'my-product-detail.css' | asset_url | stylesheet_tag  }}
+
+<script defer type="module">
+  (function () {
+  })()
+</script>

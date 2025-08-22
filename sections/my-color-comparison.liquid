@@ -1,0 +1,233 @@
+{% schema %}
+{
+  "name": "my-color-omparison",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Header"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_header",
+      "label": "Show section header",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "OUR BEST SELLERS"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "CHOOSE YOUR COLOUR"
+    },
+    {
+      "type": "header",
+      "content": "Left Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_image",
+      "label": "Left image"
+    },
+    {
+      "type": "text",
+      "id": "left_label",
+      "label": "Left label",
+      "default": "GRAY"
+    },
+    {
+      "type": "url",
+      "id": "left_link",
+      "label": "Left product link"
+    },
+    {
+      "type": "header",
+      "content": "Right Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_image",
+      "label": "Right image"
+    },
+    {
+      "type": "text",
+      "id": "right_label",
+      "label": "Right label",
+      "default": "MILK"
+    },
+    {
+      "type": "url",
+      "id": "right_link",
+      "label": "Right product link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "my-color-comparison"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="my-color-comparison__container" data-section-id = "{{ section.id }}">
+  {% if section.settings.show_header %}
+    <div class="section-header">
+      {% if section.settings.subtitle != blank %}
+        <p class="subtitle">{{ section.settings.subtitle }}</p>
+      {% endif %}
+      {% if section.settings.title != blank %}
+        <h2 class="title">{{ section.settings.title }}</h2>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  <div class="color-comparison-wrapper">
+    <div class="comparison-container" data-comparison>
+      <div class="image-container">
+        <!-- Left Image -->
+        <div class="comparison-image left-image">
+          {% if section.settings.left_image != blank %}
+            <img
+              width="1240"
+              height="800" 
+              src="{{ section.settings.left_image | image_url: width:1240 }}" 
+              alt="{{ section.settings.left_label }}" 
+              draggable="false"
+            />
+          {% endif %}
+        </div>
+        <div class="image-label left-label">
+            <span class="label-text">{{ section.settings.left_label }}</span>
+            {% if section.settings.left_link != blank %}
+              <a href="{{ section.settings.left_link }}" class="view-product">View Product</a>
+            {% endif %}
+        </div>
+        <!-- Right Image -->
+        <div class="comparison-image right-image">
+          {% if section.settings.right_image != blank %}
+            <img
+              width="1240"
+              height="800" 
+              src="{{ section.settings.right_image | image_url: width:1240 }}" 
+              alt="{{ section.settings.right_label }}" 
+              draggable="false"
+            />
+          {% endif %}
+        </div>
+        <div class="image-label right-label">
+            <span class="label-text">{{ section.settings.right_label }}</span>
+            {% if section.settings.right_link != blank %}
+              <a href="{{ section.settings.right_link }}" class="view-product">View Product</a>
+            {% endif %}
+        </div>
+      </div>
+
+      <!-- Drag Handle -->
+      <div class="drag-handle" data-handle>
+        <div class="handle-icon">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M6 4L2 8L6 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M10 4L14 8L10 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="slider-line" data-slider-line></div>
+    </div>
+  </div>
+</div>
+
+{{ 'my-color-comparison.css' | asset_url | stylesheet_tag }}
+
+
+<script defer type="module">
+  const container = $('.my-color-comparison__container[data-section-id="{{ section.id }}"]');
+  const handle = container.find('[data-handle]');
+  const leftImage = container.find('.left-image');
+  const rightImage = container.find('.right-image');
+  const sliderLine = container.find('[data-slider-line]');
+  
+  let isDragging = false;
+  let startX = 0;
+  let currentPosition = 50; // Start at 50% (middle)
+  
+  // Mouse events
+  container.on('mousedown', function(e) {
+    isDragging = true;
+    startX = e.clientX;
+
+    container.addClass('dragging');
+    e.preventDefault();
+  });
+  
+  container.on('mousemove', function(e) {
+    if (!isDragging) return;
+    
+    const rect = container[0].getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
+    
+    updateClipPath(percentage);
+    updateHandlePosition(percentage);
+    currentPosition = percentage;
+  });
+  
+  container.on('mouseup', function() {
+    if (isDragging) {
+      isDragging = false;
+      container.removeClass('dragging');
+    }
+  });
+  
+  // Touch events for mobile
+  container.on('touchstart', function(e) {
+    isDragging = true;
+    startX = e.touches[0].clientX;
+
+    container.addClass('dragging');
+    e.preventDefault();
+  });
+  
+  container.on('touchmove', function(e) {
+    if (!isDragging) return;
+    
+    const rect = container[0].getBoundingClientRect();
+    const x = e.touches[0].clientX - rect.left;
+    const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
+    
+    updateClipPath(percentage);
+    updateHandlePosition(percentage);
+
+    currentPosition = percentage;
+    e.preventDefault();
+  });
+  
+  container.on('touchend', function() {
+    if (isDragging) {
+      isDragging = false;
+
+      container.removeClass('dragging');
+    }
+  });
+  
+  function updateClipPath(percentage) {
+    rightImage.css('clip-path', `polygon(${percentage}% 0%, 100% 0%, 100% 100%, ${percentage}% 100%)`);
+  }
+  
+  function updateHandlePosition(percentage) {
+    handle.css('left', `${percentage}%`);
+    sliderLine.css('left', `${percentage}%`);
+  }
+  
+  // Initialize position
+  updateClipPath(currentPosition);
+  updateHandlePosition(currentPosition);
+</script>
+
+

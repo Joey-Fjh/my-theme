@@ -232,107 +232,95 @@
 {{ 'my-media-carousel.css' | asset_url | stylesheet_tag }}
 
 <script defer type="module">
-  $(document).ready(function() {
-    const sectionId = '{{ section.id }}';
-    const $carousel = $(`[data-section-id="${sectionId}"]`);
-    const $wrapper = $carousel.find('.carousel-wrapper');
-    const $slides = $carousel.find('.carousel-slide');
-    const $dots = $carousel.find('.dot');
-    const $prevBtn = $carousel.find('.prev-btn');
-    const $nextBtn = $carousel.find('.next-btn');
+  const sectionId = '{{ section.id }}';
+  const $carousel = $(`[data-section-id="${sectionId}"]`);
+  const $wrapper = $carousel.find('.carousel-wrapper');
+  const $slides = $carousel.find('.carousel-slide');
+  const $dots = $carousel.find('.dot');
+  const $prevBtn = $carousel.find('.prev-btn');
+  const $nextBtn = $carousel.find('.next-btn');
 
-    let currentSlide = 0;
-    let autoplayInterval;
+  let currentSlide = 0;
+  let autoplayInterval;
 
-    function goToSlide(index) {
-      $slides.removeClass('center');
-      $dots.removeClass('active');
-      
-      $slides.eq(index).addClass('center');
-      $dots.eq(index).addClass('active');
-      
-      const isMobile = $(window).width() <= 768;
-      if (isMobile) {
-        // 等移动端布局后在修改
-        const translateX = -index * 100;
-        $wrapper.css('transform', `translateX(${translateX}%)`);
-      } else {
-        const slideWidth = (700/1440)*100;
-        const translateX = index == 0 ? (50 - slideWidth/2) : -(index * slideWidth - (50 - slideWidth/2));
+  function goToSlide(index) {
+    $slides.removeClass('center');
+    $dots.removeClass('active');
+    
+    $slides.eq(index).addClass('center');
+    $dots.eq(index).addClass('active');
+    
+    const isMobile = $(window).width() <= 768;
+    if (isMobile) {
+      // 等移动端布局后在修改
+      const translateX = -index * 100;
+      $wrapper.css('transform', `translateX(${translateX}%)`);
+    } else {
+      const slideWidth = (700/1440)*100;
+      const translateX = index == 0 ? (50 - slideWidth/2) : -(index * slideWidth - (50 - slideWidth/2));
 
-        $wrapper.css('transform', `translateX(${translateX}vw)`);
-      }
-  
-      currentSlide = index;
+      $wrapper.css('transform', `translateX(${translateX}vw)`);
     }
 
-    function nextSlide() {
-      const next = (currentSlide + 1) % $slides.length;
-      goToSlide(next);
-    }
+    currentSlide = index;
+  }
 
-    function prevSlide() {
-      const prev = (currentSlide - 1 + $slides.length) % $slides.length;
-      goToSlide(prev);
-    }
+  function nextSlide() {
+    const next = (currentSlide + 1) % $slides.length;
+    goToSlide(next);
+  }
 
-    $nextBtn.on('click', nextSlide);
-    $prevBtn.on('click', prevSlide);
+  function prevSlide() {
+    const prev = (currentSlide - 1 + $slides.length) % $slides.length;
+    goToSlide(prev);
+  }
 
-    $dots.on('click', function() {
-      const slideIndex = parseInt($(this).data('slide'));
-      goToSlide(slideIndex);
-    });
+  $nextBtn.on('click', nextSlide);
+  $prevBtn.on('click', prevSlide);
 
-    $carousel.find('.play-button').on('click', function() {
-      const $slide = $(this).closest('.carousel-slide');
-      if (!$slide.hasClass('center')) return;
-      
-      const $video = $(this).siblings('video');
-      const $button = $(this);
-      
-      if ($video.length) {
-        if ($video[0].paused) {
-          $video[0].play();
-          $button.hide();
-        } else {
-          $video[0].pause();
-          $button.show();
-        }
-      }
-    });
-
-    $carousel.find('video').on('play', function() {
-      $(this).siblings('.play-button').hide();
-    });
-
-    $carousel.find('video').on('pause ended', function() {
-      $(this).siblings('.play-button').show();
-    });
-
-    {% if section.settings.autoplay %}
-      function startAutoplay() {
-        autoplayInterval = setInterval(nextSlide, {{ section.settings.autoplay_speed | default: 5000 }});
-      }
-
-      function stopAutoplay() {
-        clearInterval(autoplayInterval);
-      }
-
-      startAutoplay();
-
-      $carousel.on('mouseenter', stopAutoplay);
-      $carousel.on('mouseleave', startAutoplay);
-    {% endif %}
-
-    $(document).on('keydown', function(e) {
-      if ($carousel.is(':hover')) {
-        if (e.key === 'ArrowLeft') {
-          prevSlide();
-        } else if (e.key === 'ArrowRight') {
-          nextSlide();
-        }
-      }
-    });
+  $dots.on('click', function() {
+    const slideIndex = parseInt($(this).data('slide'));
+    goToSlide(slideIndex);
   });
+
+  $carousel.find('.play-button').on('click', function() {
+    const $slide = $(this).closest('.carousel-slide');
+    if (!$slide.hasClass('center')) return;
+    
+    const $video = $(this).siblings('video');
+    const $button = $(this);
+    
+    if ($video.length) {
+      if ($video[0].paused) {
+        $video[0].play();
+        $button.hide();
+      } else {
+        $video[0].pause();
+        $button.show();
+      }
+    }
+  });
+
+  $carousel.find('video').on('play', function() {
+    $(this).siblings('.play-button').hide();
+  });
+
+  $carousel.find('video').on('pause ended', function() {
+    $(this).siblings('.play-button').show();
+  });
+
+  {% if section.settings.autoplay %}
+    function startAutoplay() {
+      autoplayInterval = setInterval(nextSlide, {{ section.settings.autoplay_speed | default: 5000 }});
+    }
+
+    function stopAutoplay() {
+      clearInterval(autoplayInterval);
+    }
+
+    startAutoplay();
+
+    $carousel.on('mouseenter', stopAutoplay);
+    $carousel.on('mouseleave', startAutoplay);
+  {% endif %}
 </script>
