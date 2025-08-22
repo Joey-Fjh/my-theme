@@ -424,6 +424,21 @@
         "autoplay": false,
         "autoplay_speed": 5000
       }
+    },
+    "my_color_comparison_aRQifX": {
+      "type": "my-color-comparison",
+      "name": "my-color-comparison",
+      "settings": {
+        "show_header": true,
+        "subtitle": "OUR BEST SELLERS",
+        "title": "CHOOSE YOUR COLOUR",
+        "left_image": "shopify://shop_images/image_82.png",
+        "left_label": "GRAY",
+        "left_link": "",
+        "right_image": "shopify://shop_images/image_81.png",
+        "right_label": "MILK",
+        "right_link": ""
+      }
     }
   },
   "order": [
@@ -441,6 +456,7 @@
     "my_fashion_grid_layout_MtAfQU",
     "my_newsletter_hero_EHJQF4",
     "my_sustainable_hero_cHgtTK",
-    "my_media_carousel_8nNGTd"
+    "my_media_carousel_8nNGTd",
+    "my_color_comparison_aRQifX"
   ]
 }
