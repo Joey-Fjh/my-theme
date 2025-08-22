@@ -531,6 +531,15 @@
         "featured_product": "casual-knitted-shirt3",
         "compare_price": "550.00"
       }
+    },
+    "my_product_detail1_B8b6hb": {
+      "type": "my-product-detail1",
+      "name": "my-product-detail1",
+      "settings": {
+        "product": "casual-knitted-shirt3",
+        "category_label": "DRESS",
+        "product_description": "White short address is a professional and efficient way to label your letters and packages. Its clean design makes it easy to read and stand out."
+      }
     }
   },
   "order": [
@@ -552,6 +561,7 @@
     "my_color_comparison_aRQifX",
     "my_promo_split_JYmjBz",
     "my_deals_carousel_fwtLbn",
-    "my_product_detail_dPQr3z"
+    "my_product_detail_dPQr3z",
+    "my_product_detail1_B8b6hb"
   ]
 }
