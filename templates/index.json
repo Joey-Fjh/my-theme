@@ -540,6 +540,23 @@
         "category_label": "DRESS",
         "product_description": "White short address is a professional and efficient way to label your letters and packages. Its clean design makes it easy to read and stand out."
       }
+    },
+    "my_product_grid_rh7YkE": {
+      "type": "my-product-grid",
+      "name": "my-product-grid",
+      "settings": {
+        "featured_product": "casual-knitted-shirt3",
+        "featured_category": "DRESS",
+        "show_bestseller_badge": true,
+        "show_new_badge": true,
+        "shipping_text": "Shipping calculated at check out.",
+        "grid_product_1": "casual-knitted-shirt3",
+        "grid_product_2": "casual-knitted-shirt4",
+        "grid_product_3": "casual-knitted-shirt3",
+        "grid_product_4": "casual-knitted-shirt4",
+        "grid_category": "DRESS",
+        "show_grid_new_badges": true
+      }
     }
   },
   "order": [
@@ -562,6 +579,7 @@
     "my_promo_split_JYmjBz",
     "my_deals_carousel_fwtLbn",
     "my_product_detail_dPQr3z",
-    "my_product_detail1_B8b6hb"
+    "my_product_detail1_B8b6hb",
+    "my_product_grid_rh7YkE"
   ]
 }
