@@ -67,8 +67,7 @@
 
 <div class="my-media-carousel__container" data-section-id="{{ section.id }}">
   <div class="carousel-container">
-    <div class="carousel-wrapper">
-      {%- comment -%}  
+    <div class="carousel-wrapper"> 
       {%- assign last_block = section.blocks.last -%} 
       <div class="carousel-slide" data-slide="{{ section.blocks.size | minus: 1 }}">
         {% if last_block.settings.video_url != blank %}
@@ -110,7 +109,6 @@
           </div>
         {% endif %}
       </div>
-      {%- endcomment -%}
 
       {% for block in section.blocks %}
         <div class="carousel-slide {% if forloop.first %}center{% endif %}" data-slide="{{ forloop.index0 }}">
@@ -157,7 +155,6 @@
         </div>
       {% endfor %}
 
-      {%- comment -%}
       {%- assign first_block = section.blocks.first -%} 
       <div class="carousel-slide" data-slide="{{ 0 }}">
         {% if first_block.settings.video_url != blank %}
@@ -199,7 +196,6 @@
           </div>
         {% endif %}
       </div>
-      {%- endcomment -%}
     </div>
     
     <!-- Navigation arrows -->

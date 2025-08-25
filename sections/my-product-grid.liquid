@@ -1,0 +1,218 @@
+{% schema %}
+{
+  "name": "my-product-grid",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Featured Product"
+    },
+    {
+      "type": "product",
+      "id": "featured_product",
+      "label": "Featured Product"
+    },
+    {
+      "type": "text",
+      "id": "featured_category",
+      "label": "Featured Product Category",
+      "default": "DRESS"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_bestseller_badge",
+      "label": "Show Bestseller Badge",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_new_badge",
+      "label": "Show New Badge",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "shipping_text",
+      "label": "Shipping Text",
+      "default": "Shipping calculated at check out."
+    },
+    {
+      "type": "header",
+      "content": "Product Grid"
+    },
+    {
+      "type": "product",
+      "id": "grid_product_1",
+      "label": "Grid Product 1"
+    },
+    {
+      "type": "product",
+      "id": "grid_product_2",
+      "label": "Grid Product 2"
+    },
+    {
+      "type": "product",
+      "id": "grid_product_3",
+      "label": "Grid Product 3"
+    },
+    {
+      "type": "product",
+      "id": "grid_product_4",
+      "label": "Grid Product 4"
+    },
+    {
+      "type": "text",
+      "id": "grid_category",
+      "label": "Grid Products Category",
+      "default": "DRESS"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_grid_new_badges",
+      "label": "Show New Badges on Grid Items",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "my-product-grid"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="product-grid-container" data-section-id="{{ section.id }}">
+  <div class="featured-product">
+    {% if section.settings.featured_product %}
+      {% assign featured_product = section.settings.featured_product %}
+      <div class="product-card featured">
+        <div class="product-badges">
+          {% if section.settings.show_bestseller_badge %}
+            <span class="badge bestseller">BESTSELLER</span>
+          {% endif %}
+          {% if section.settings.show_new_badge %}
+            <span class="badge new">NEW</span>
+          {% endif %}
+        </div>
+        
+        <div class="product-image">
+          {% if featured_product.featured_image %}
+            <img width='592' height="994" src="{{ featured_product.featured_image | image_url: width:592 }}" 
+                 alt="{{ featured_product.featured_image.alt | escape }}"
+                 loading="lazy">
+          {% else %}
+            <div class="placeholder-image">
+              {% comment %} <img src="/placeholder.svg?height=600&width=400" alt="Product placeholder"> {% endcomment %}
+            </div>
+          {% endif %}
+        </div>
+        
+        <div class="product-info">
+          <div class="product-category">{{ section.settings.featured_category | default: 'DRESS' }}</div>
+          <h3 class="product-title">{{ featured_product.title | default: 'Black DLMN Swing Dress' }}</h3>
+          <div class="product-price">
+            {% if featured_product.compare_at_price > featured_product.price %}
+              <span class="price-current">${{ featured_product.price | money_without_currency }}</span>
+              <span class="price-compare">${{ featured_product.compare_at_price | money_without_currency }}</span>
+            {% else %}
+              <span class="price-current">${{ featured_product.price | money_without_currency | default: '200.00' }}</span>
+            {% endif %}
+          </div>
+          
+          <div class="shipping-info">{{ section.settings.shipping_text | default: 'Shipping calculated at check out.' }}</div>
+          
+          <div class="color-options">
+            {% if featured_product.options_with_values %}
+              {% assign color_option = featured_product.options_with_values | where: 'name', 'Color' | first %}
+              {% if color_option %}
+                {% for value in color_option.values limit: 4 %}
+                  <div class="color-swatch {% if forloop.first %}selected{% endif %}" 
+                       data-color="{{ value | downcase }}"
+                       style="background-color: {{ value | downcase }}"></div>
+                {% endfor %}
+              {% else %}
+                <div class="color-swatch selected" data-color="black" style="background-color: #000"></div>
+                <div class="color-swatch" data-color="white" style="background-color: #fff"></div>
+              {% endif %}
+            {% else %}
+              <div class="color-swatch selected" data-color="black" style="background-color: #000"></div>
+              <div class="color-swatch" data-color="white" style="background-color: #fff"></div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% else %}
+      <!-- Default featured product when none selected -->
+      <div class="product-card featured">
+        <div class="product-badges">
+          <span class="badge bestseller">BESTSELLER</span>
+          <span class="badge new">NEW</span>
+        </div>
+        <div class="product-image">
+          {% comment %} <img src="/placeholder.svg?height=600&width=400" alt="Black DLMN Swing Dress"> {% endcomment %}
+        </div>
+        <div class="product-info">
+          <div class="product-category">DRESS</div>
+          <h3 class="product-title">Black DLMN Swing Dress</h3>
+          <div class="product-price">
+            <span class="price-current">$ 200.00</span>
+          </div>
+          <div class="shipping-info">Shipping calculated at check out.</div>
+          <div class="color-options">
+            <div class="color-swatch selected" data-color="black" style="background-color: #000"></div>
+            <div class="color-swatch" data-color="white" style="background-color: #fff"></div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+  
+  <div class="product-grid">
+    {% for i in (1..4) %}
+      {% assign grid_product_setting = 'grid_product_' | append: i %}
+      {% assign grid_product = section.settings[grid_product_setting] %}
+      
+      <div class="product-card grid-item">
+        {% if section.settings.show_grid_new_badges %}
+          <div class="product-badges">
+            <span class="badge new">NEW</span>
+          </div>
+        {% endif %}
+        
+        <div class="product-image">
+          {% if grid_product and grid_product.featured_image %}
+            <img width="372" height="487" src="{{ grid_product.featured_image | image_url: width:372 }}" 
+                 alt="{{ grid_product.featured_image.alt | escape }}"
+                 loading="lazy">
+          {% else %}
+            {% if i == 1 or i == 3 %}
+              {% comment %} <img src="/placeholder.svg?height=300&width=300" alt="Product placeholder"> {% endcomment %}
+            {% else %}
+              {% comment %} <img src="/placeholder.svg?height=300&width=300" alt="Product placeholder"> {% endcomment %}
+            {% endif %}
+          {% endif %}
+          
+          <div class="quick-actions">
+            <button class="add-to-cart-btn" data-product-id="{{ grid_product.id | default: '' }}">
+              ADD TO CART
+            </button>
+          </div>
+        </div>
+        
+        <div class="product-info">
+          <div class="product-category">{{ section.settings.grid_category | default: 'DRESS' }}</div>
+          <h4 class="product-title">{{ grid_product.title | default: 'Black DLMN Swing Dress' }}</h4>
+          <div class="product-price">
+            {% if grid_product and grid_product.compare_at_price > grid_product.price %}
+              <span class="price-current">${{ grid_product.price | money_without_currency }}</span>
+              <span class="price-compare">${{ grid_product.compare_at_price | money_without_currency }}</span>
+            {% else %}
+              <span class="price-current">${{ grid_product.price | money_without_currency | default: '200.00' }}</span>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{{ 'my-product-grid.css' | asset_url | stylesheet_tag }}
