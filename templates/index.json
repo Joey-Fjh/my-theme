@@ -592,6 +592,17 @@
       "settings": {
         "hero_image": "shopify://shop_images/image_1.png"
       }
+    },
+    "my_product_carousel_ti3BtV": {
+      "type": "my-product-carousel",
+      "name": "my-product-carousel",
+      "settings": {
+        "collection": "女士衣服",
+        "products_to_show": 8,
+        "category_label": "DRESS",
+        "autoplay": false,
+        "autoplay_speed": 5000
+      }
     }
   },
   "order": [
@@ -616,6 +627,7 @@
     "my_product_detail_dPQr3z",
     "my_product_detail1_B8b6hb",
     "my_product_grid_rh7YkE",
-    "my_product_list1_D6RWfy"
+    "my_product_list1_D6RWfy",
+    "my_product_carousel_ti3BtV"
   ]
 }
