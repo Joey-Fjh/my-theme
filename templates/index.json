@@ -557,6 +557,41 @@
         "grid_category": "DRESS",
         "show_grid_new_badges": true
       }
+    },
+    "my_product_list1_D6RWfy": {
+      "type": "my-product-list1",
+      "blocks": {
+        "product_qhWaNj": {
+          "type": "product",
+          "settings": {
+            "product": "casual-knitted-shirt1",
+            "custom_description": ""
+          }
+        },
+        "product_6faKTm": {
+          "type": "product",
+          "settings": {
+            "product": "casual-knitted-shirt3",
+            "custom_description": ""
+          }
+        },
+        "product_6Gqkhc": {
+          "type": "product",
+          "settings": {
+            "product": "casual-knitted-shirt4",
+            "custom_description": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_qhWaNj",
+        "product_6faKTm",
+        "product_6Gqkhc"
+      ],
+      "name": "my-product-list1",
+      "settings": {
+        "hero_image": "shopify://shop_images/image_1.png"
+      }
     }
   },
   "order": [
@@ -580,6 +615,7 @@
     "my_deals_carousel_fwtLbn",
     "my_product_detail_dPQr3z",
     "my_product_detail1_B8b6hb",
-    "my_product_grid_rh7YkE"
+    "my_product_grid_rh7YkE",
+    "my_product_list1_D6RWfy"
   ]
 }
