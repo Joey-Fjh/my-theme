@@ -603,6 +603,69 @@
         "autoplay": false,
         "autoplay_speed": 5000
       }
+    },
+    "my_draggable_carousel_iBjykG": {
+      "type": "my-draggable-carousel",
+      "blocks": {
+        "carousel_card_NHkLpF": {
+          "type": "carousel_card",
+          "settings": {
+            "image": "shopify://shop_images/image_e47bd244-1fd3-408f-97c8-8763e4625654.png",
+            "title": "Discover Your NewLook",
+            "link_url": "",
+            "link_text": "Read More",
+            "date": "",
+            "show_badge": true,
+            "badge_text": "NEWS"
+          }
+        },
+        "carousel_card_gKyTCX": {
+          "type": "carousel_card",
+          "settings": {
+            "image": "shopify://shop_images/image_e47bd244-1fd3-408f-97c8-8763e4625654.png",
+            "title": "Discover Your NewLook",
+            "link_url": "",
+            "link_text": "Read More",
+            "date": "",
+            "show_badge": true,
+            "badge_text": "NEWS"
+          }
+        },
+        "carousel_card_b6RWJP": {
+          "type": "carousel_card",
+          "settings": {
+            "image": "shopify://shop_images/image_e47bd244-1fd3-408f-97c8-8763e4625654.png",
+            "title": "Discover Your NewLook",
+            "link_url": "",
+            "link_text": "Read More",
+            "date": "",
+            "show_badge": true,
+            "badge_text": "NEWS"
+          }
+        },
+        "carousel_card_LfrHNb": {
+          "type": "carousel_card",
+          "settings": {
+            "image": "shopify://shop_images/image_e47bd244-1fd3-408f-97c8-8763e4625654.png",
+            "title": "Discover Your NewLook",
+            "link_url": "",
+            "link_text": "Read More",
+            "date": "",
+            "show_badge": true,
+            "badge_text": "NEWS"
+          }
+        }
+      },
+      "block_order": [
+        "carousel_card_NHkLpF",
+        "carousel_card_gKyTCX",
+        "carousel_card_b6RWJP",
+        "carousel_card_LfrHNb"
+      ],
+      "name": "my-draggable-carousel",
+      "settings": {
+        "section_id": ""
+      }
     }
   },
   "order": [
@@ -628,6 +691,7 @@
     "my_product_detail1_B8b6hb",
     "my_product_grid_rh7YkE",
     "my_product_list1_D6RWfy",
-    "my_product_carousel_ti3BtV"
+    "my_product_carousel_ti3BtV",
+    "my_draggable_carousel_iBjykG"
   ]
 }
