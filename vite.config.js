@@ -2,18 +2,41 @@ import { defineConfig } from 'vite';
 import path from 'path';
 import postcss from './postcss.config.js';
 
+function getEntries(type,pattern){
+    const glob = require('glob');
+    const entries = {};
+
+    const options = {};
+    if(type != 'js'){
+        options.ignore = [
+            'src/components/**'
+        ]
+    }
+
+    const files = glob.sync(`${pattern}.${type}`,options);
+
+    files.forEach(file => {
+        const name = path.basename(file, path.extname(file));
+        entries[name] = path.resolve(__dirname,file);
+    });
+
+    return entries;
+}
+
 export default defineConfig({
   build: {
     outDir: 'assets',
     emptyOutDir: false,
     rollupOptions: {
       input: {
-        main: './src/components/main.js',
-        ...getStyleEntries()
+        ...getEntries('js','src/components/*'),
+        ...getEntries('{css,scss}','src/**/*')
       },
       output: {
         entryFileNames: '[name].js',
-        assetFileNames: '[name].[ext]'
+        manualChunks: undefined,
+        chunkFileNames: '[name].js',
+        assetFileNames: '[name].[ext]', 
       }
     },
   },
@@ -33,19 +56,3 @@ export default defineConfig({
     }
   }
 });
-
-function getStyleEntries() {
-  const glob = require('glob'); 
-  const entries = {};
-  
-  const files = glob.sync('src/**/*.{css,scss}', {
-    ignore: ['src/components/**'] 
-  });
-  
-  files.forEach(file => {
-    const name = path.basename(file, path.extname(file));;
-    entries[name] = path.resolve(__dirname, file);
-  });
-  
-  return entries;
-}

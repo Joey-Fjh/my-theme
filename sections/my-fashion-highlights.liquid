@@ -1,3 +1,42 @@
+{{ 'my-fashion-highlights.css' | asset_url | stylesheet_tag }}
+
+<responsive-container class="my-fashion-highlights__container">
+    <div class="fashion__wrapper"
+        style="background-image: url('{{ 
+            section.settings.bgc_img 
+            | image_url: width:1440,height:676 
+        }}');"    
+    >
+        {%- for block in section.blocks -%}
+            <div class="fashion-item__container">
+                <div class="fashion-item__info__container">
+                    {%- if block.settings.info_text1 != blank -%}
+                        <div class="info h3">{{ block.settings.info_text1 }}</div>
+                    {%- endif -%}
+                    {%- if block.settings.info_text2 != blank -%}
+                        <div class="info h3">{{ block.settings.info_text2 }}</div>
+                    {%- endif -%}
+                    {%- if block.settings.info_text3 != blank -%}
+                        <div class="info h3">{{ block.settings.info_text3 }}</div>
+                    {%- endif -%}
+                    {%- if block.settings.info_text4 != blank -%}
+                        <div class="info h3">{{ block.settings.info_text4 }}</div>
+                    {%- endif -%}
+                    {%- if block.settings.info_text5 != blank -%}
+                        <div class="info h3">{{ block.settings.info_text5 }}</div>
+                    {%- endif -%}
+                </div>
+                <div class="fashion-item__operator__container">
+                    <div class="title h2">
+                        {{ block.settings.title }}
+                    </div>
+                    <div class="my-button h3">{{ block.settings.button_text }}</div>
+                </div>
+            </div>
+        {%- endfor -%}
+    </div>
+</responsive-container>
+
 {% schema %}
   {
     "name": "my-fashion-highlights",
@@ -78,51 +117,3 @@
     ]
   }
 {% endschema %}
-
-<div class="my-fashion-highlights__container" data-section-id="{{ section.id }}">
-    <div class="fashion__wrapper"
-        style="background-image: url('{{ 
-            section.settings.bgc_img 
-            | image_url: width:1440,height:676 
-        }}');"    
-    >
-        {%- for block in section.blocks -%}
-            <div class="fashion-item__container">
-                <div class="fashion-item__info__container">
-                    {%- if block.settings.info_text1 != blank -%}
-                        <div class="info h3">{{ block.settings.info_text1 }}</div>
-                    {%- endif -%}
-                    {%- if block.settings.info_text2 != blank -%}
-                        <div class="info h3">{{ block.settings.info_text2 }}</div>
-                    {%- endif -%}
-                    {%- if block.settings.info_text3 != blank -%}
-                        <div class="info h3">{{ block.settings.info_text3 }}</div>
-                    {%- endif -%}
-                    {%- if block.settings.info_text4 != blank -%}
-                        <div class="info h3">{{ block.settings.info_text4 }}</div>
-                    {%- endif -%}
-                    {%- if block.settings.info_text5 != blank -%}
-                        <div class="info h3">{{ block.settings.info_text5 }}</div>
-                    {%- endif -%}
-                </div>
-                <div class="fashion-item__operator__container">
-                    <div class="title h2">
-                        {{ block.settings.title }}
-                    </div>
-                    <div class="my-button h3">{{ block.settings.button_text }}</div>
-                </div>
-            </div>
-        {%- endfor -%}
-    </div>
-</div>
-
-{{ 'my-fashion-highlights.css' | asset_url | stylesheet_tag }}
-
-<script type="module" defer>
-    (function () {
-        const sectionId = '{{ section.id }}';
-        const container = $(`.my-fashion-highlights__container[data-section-id="${sectionId}"]`);
-
-
-    })()
-</script>

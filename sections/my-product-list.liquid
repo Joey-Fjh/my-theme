@@ -1,3 +1,50 @@
+{{ 'my-product-list.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign title = section.settings.title
+  assign sub_title = section.settings.sub_title
+-%}
+
+<responsive-container class="my-product-list__container">
+    <div class="title__container">
+        <div class="title h4">{{ title }}</div>
+        <div class="sub-title h3">{{ sub_title }}</div>
+    </div>
+    <div class="content__container">
+        {% for product in section.settings.product_collection.products %}
+            <div class="product-card__container">
+                <responsive-container class="product-card__image">
+                    {{ 
+                        product.featured_image
+                        | image_url: width: 443
+                        | image_tag:
+                            alt: product.title, 
+                            class:'image' 
+                    }}
+                </responsive-container> 
+                <div class="product-card__title h2">
+                    <a
+                        href="{{ product.url }}"
+                        id="StandardCardNoMediaLink-{{ section.id }}-{{ product.id }}"
+                        class="full-unstyled-link"
+                        aria-labelledby="StandardCardNoMediaLink-{{ section.id }}-{{ product.id }} NoMediaStandardBadge-{{ section.id }}-{{ product.id }}"
+                    >
+                        {{ product.title | escape }}
+                    </a>
+                </div>
+                <div class="product-card__price h4">
+                    {{ product.price | money }}
+                    {%- if product.compare_at_price > product.price -%}
+                        <span class="old-price" style="text-decoration: line-through;">
+                            {{ product.compare_at_price | money }}
+                        </span>
+                {%- endif -%}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</responsive-container>
+
 {% schema %}
   {
     "name": "my-product-list",
@@ -33,50 +80,3 @@
     ]
   }
 {% endschema %}
-
-{%- liquid
-  assign title = section.settings.title
-  assign sub_title = section.settings.sub_title
--%}
-
-
-<div class="my-product-list__container" data-section-id="{{ section.id }}">
-    <div class="title__container">
-        <div class="title h4">{{ title }}</div>
-        <div class="sub-title h3">{{ sub_title }}</div>
-    </div>
-    <div class="content__container">
-        {% for product in section.settings.product_collection.products %}
-            <div class="product-card__container">
-                <div class="product-card__image">
-                    {{ 
-                        product.featured_image
-                        | image_url: width: 443
-                        | image_tag:
-                            alt: product.title, 
-                            class:'image' 
-                    }}
-                </div> 
-                <div class="product-card__title h2">{{ product.title }}</div>
-                <div class="product-card__price h4">
-                    {{ product.price | money }}
-                    {%- if product.compare_at_price > product.price -%}
-                        <span class="old-price" style="text-decoration: line-through;">
-                            {{ product.compare_at_price | money }}
-                        </span>
-                {%- endif -%}
-                </div>
-            </div>
-        {% endfor %}
-    </div>
-</div>
-
-{{ 'my-product-list.css' | asset_url | stylesheet_tag }}
-
-<script type="module" defer>
-    (function(){
-        const sectionId = '{{ section.id }}';
-        const container = $(`.my-product-list__container[data-section-id="${ sectionId }"]`);
-
-    })()
-</script>

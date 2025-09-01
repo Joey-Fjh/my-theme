@@ -1,3 +1,59 @@
+{{ 'my-swiper-container.css' | asset_url | stylesheet_tag }}
+{{ 'my-image-banner.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'my-swiper-container.js' | asset_url }}" type='module' defer></script>
+
+<responsive-container class="my-image-banner__container">
+  <my-swiper-container
+    class="my-swiper-container"
+    speed="{{ section.settings.autoplay_speed }}"
+  >
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        {%- assign image_count = 0 -%}
+        {% for block in section.blocks %}
+          {% if block.settings.image %}
+            {%- assign image_count = image_count | plus: 1 -%}
+            <div class="swiper-slide">
+              <responsive-container>
+                {{
+                  block.settings.image
+                  | image_url: width: 1376
+                  | image_tag:
+                      alt: block.settings.image.alt,
+                      preload: forloop.first
+                }}
+              </responsive-container>
+            </div>
+          {% endif %}
+        {% endfor %}
+        
+        {%- if image_count == 0 -%}
+          {{ "image" | placeholder_svg_tag }}
+        {%- endif -%}
+      </div>
+
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </my-swiper-container>
+  
+  <div class="banner__content banner__content--{{ section.settings.desktop_content_position }} {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+    <div class="banner__box content-container content-container--full-width-mobile">
+      <h2 class="banner__heading inline-richtext h0">
+        {{ section.settings.title }}
+      </h2>
+      <div class="banner__text rte subtitle">
+        <p>{{ section.settings.sub-title }}</p>
+      </div>
+      <div class="banner__buttons">
+        <a href="{{ routes.all_products_collection_url }}" class="button button--secondary">
+          {{ section.settings.button-text }}
+        </a>
+      </div>
+    </div>
+  </div>
+</responsive-container>
+
 {% schema %}
   {
     "name": "my-image-banner",
@@ -15,6 +71,54 @@
         "max": 10,
         "step": 1,
         "default": 5
+      },
+      {
+      "type": "header",
+      "content": "t:sections.image-banner.settings.content.content"
+      },
+      {
+        "type": "select",
+        "id": "desktop_content_position",
+        "options": [
+          {
+            "value": "top-left",
+            "label": "t:sections.image-banner.settings.desktop_content_position.options__1.label"
+          },
+          {
+            "value": "top-center",
+            "label": "t:sections.image-banner.settings.desktop_content_position.options__2.label"
+          },
+          {
+            "value": "top-right",
+            "label": "t:sections.image-banner.settings.desktop_content_position.options__3.label"
+          },
+          {
+            "value": "middle-left",
+            "label": "t:sections.image-banner.settings.desktop_content_position.options__4.label"
+          },
+          {
+            "value": "middle-center",
+            "label": "t:sections.image-banner.settings.desktop_content_position.options__5.label"
+          },
+          {
+            "value": "middle-right",
+            "label": "t:sections.image-banner.settings.desktop_content_position.options__6.label"
+          },
+          {
+            "value": "bottom-left",
+            "label": "t:sections.image-banner.settings.desktop_content_position.options__7.label"
+          },
+          {
+            "value": "bottom-center",
+            "label": "t:sections.image-banner.settings.desktop_content_position.options__8.label"
+          },
+          {
+            "value": "bottom-right",
+            "label": "t:sections.image-banner.settings.desktop_content_position.options__9.label"
+          }
+        ],
+        "default": "middle-center",
+        "label": "t:sections.image-banner.settings.desktop_content_position.label"
       },
       {
         "type": "inline_richtext",
@@ -60,96 +164,3 @@
     ]
   }
 {% endschema %}
-
-<div class="my-image-banner__container" data-section-id="{{ section.id }}">
-  <div class="image-wrapper" data-autoplay-speed="{{ section.settings.autoplay_speed | times: 1000}}">
-    {%- assign image_count = 0 -%}
-    {% for block in section.blocks %}
-      {% if block.settings.image %}
-        {%- assign image_count = image_count | plus: 1 -%}
-        <div class="image-slide {% if forloop.first %}active{% endif %}" data-index="{{ forloop.index0 }}">
-          {{
-            block.settings.image
-            | image_url: width: 1376
-            | image_tag:
-                alt: block.settings.image.alt,
-                class: 'image',
-                preload: forloop.first
-          }}
-        </div>  
-      {% endif %}
-    {% endfor %}
-
-    {%- if image_count == 0 -%}
-      {{ "image" | placeholder_svg_tag }}
-    {%- endif -%}
-
-    <div class="content-wrapper">
-      <h2 class="title">{{ section.settings.title }}</h2>
-      <div class="sub-title">{{ section.settings.sub-title }}</div>
-      {%- unless section.settings.button-text == blank -%}
-        <div class="button">
-          <a href="{{ section.settings.button-url }}">
-            {{ section.settings.button-text }}
-          </a>
-        </div>
-      {%- endunless -%}
-    </div>
-  </div>
-  {%- if image_count > 1 -%}
-    <div class="left"></div>
-    <div class="right"></div>
-  {%- endif -%}
-</div>
-
-{{ 'my-image-banner.css' | asset_url | stylesheet_tag }}
-
-<script defer type="module">
-  (function(){
-    const sectionId = '{{ section.id }}';
-    const container = $(`.my-image-banner__container[data-section-id="${sectionId}"]`);
-    
-    const carousel = container.find('.image-wrapper');
-    const slides = container.find('.image-slide');
-    const prevBtn = container.find('.left');
-    const nextBtn = container.find('.right');
-    const autoplaySpeed = carousel.data("autoplaySpeed") || 10000;
-
-    let currentIndex = 0;
-    let autoplayTimer;
-
-    const prevSlide = ()=> {
-        currentIndex = currentIndex === 0 ? slides.length - 1 : currentIndex - 1;
-        updateSlide();
-    }
-
-    const nextSlide = ()=>{
-        currentIndex = currentIndex === slides.length - 1 ? 0 : currentIndex + 1;
-        updateSlide();
-    }
-
-    const updateSlide = ()=>{
-        slides.toArray().forEach((slide,index) => {
-        slide.classList.toggle('active',index === currentIndex);
-        });
-    }
-
-    if(prevBtn) prevBtn.on('click',prevSlide);
-    if(nextBtn) nextBtn.on('click',nextSlide);
-
-    const startAutoPlay = ()=>{
-        if(autoplayTimer) clearInterval(autoplayTimer);
-
-        autoplayTimer = setInterval(nextSlide, autoplaySpeed);
-    }
-
-    const stopAutoPlay = ()=>{
-        clearInterval(autoplayTimer);
-    }
-
-    carousel.on('mouseenter', stopAutoPlay);
-    carousel.on('mouseleave', startAutoPlay);
-
-    startAutoPlay();
-  })()
-</script>

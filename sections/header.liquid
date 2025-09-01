@@ -1,23 +1,5 @@
-{% schema %}
-{
-  "name": "t:sections.header.name",
-  "tag": "section",
-  "class": "section-header",
-  "settings": [
-    {
-      "type": "text",
-      "id": "logo_text",
-      "label": "logo_text",
-      "default":"LOGO"
-    },
-    {
-      "type": "image_picker",
-      "id": "logo_image",
-      "label": "logo_image"
-    },
-  ]
-}
-{% endschema %}
+{{ 'header.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'my-mobile-menu.js' | asset_url }}" type='module' defer></script>
 
 <responsive-container class="header-container">
     <div class="header-menu__container">
@@ -48,16 +30,45 @@
         {% endfor %}
       </ul>
 
-      <div class="mobile-menu">
-        <img
-          width="32"
-          height="32" 
-          src="{{ 'icon-menu.svg' | asset_url }}" 
-          alt="icon-menu"
-        />
-        <div class="mobile-menu-dropdown"> 
+      <my-mobile-menu>
+        <div class="mobile-menu">
+          <img
+            width="32"
+            height="32" 
+            src="{{ 'icon-menu.svg' | asset_url }}" 
+            alt="icon-menu"
+          />
+          <div class="menu-drawer">
+            <ul class="menu">
+              {%- for link in linklists.main-menu.links -%}
+                <li class="menu-link">
+                  <a href="{{ link.url }}">
+                    {{ link.title }}
+                  </a>
+                  {%- if link.links.size > 0 -%}
+                    {%- for child_link in link.links -%}
+                      <li class="menu-link child">
+                        <a href="{{ child_link.url }}">
+                          {{ child_link.title }}
+                        </a>
+                        {%- if child_link.links.size > 0 -%}
+                          {%- for grandChild_link in child_link.links -%}
+                            <li class="menu-link grandChild">
+                              <a href="{{ grandChild_link.url }}">
+                                {{ grandChild_link.title }}
+                              </a>
+                            </li>
+                          {%- endfor -%}
+                        {%- endif -%}
+                      </li>
+                    {%- endfor -%}
+                  {%- endif -%}
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
         </div>
-      </div>
+      </my-mobile-menu>
     </div>
 
     
@@ -128,4 +139,23 @@
     </div>
 </responsive-container>
 
-{{ 'header.css' | asset_url | stylesheet_tag }}
+{% schema %}
+{
+  "name": "t:sections.header.name",
+  "tag": "section",
+  "class": "section-header",
+  "settings": [
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "logo_text",
+      "default":"LOGO"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_image",
+      "label": "logo_image"
+    },
+  ]
+}
+{% endschema %}

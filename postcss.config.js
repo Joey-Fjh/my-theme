@@ -16,8 +16,9 @@ module.exports = {
       unitToConvert: 'dw',
       unitPrecision: 3,
       viewportUnit: "vw", 
+      propList: ['*'],    
       minPixelValue: 1,
-      mediaQuery: false,
+      mediaQuery: true,
     }),
 
     // 其余px单位转换为rem

@@ -1,3 +1,68 @@
+{{ 'my-luxury-collection.css' | asset_url | stylesheet_tag }}
+
+<responsive-container class="my-luxury-collection__container" direction='column'>
+    <div class="top__container h2">{{ section.settings.title }}</div>
+
+    <div class="content__container">
+        <div class="item__container">    
+            <responsive-container class="img__container">
+                {{ 
+                    section.settings.image_1 
+                    | image_url: width:326
+                    | image_tag:
+                        alt: section.settings.alt,
+                        class: "img"
+                }}
+            </responsive-container>
+            <div class="img_info h2">
+                {{ section.settings.image_info1 }}
+            </div>
+        </div>
+        <div class="item__container">    
+            <responsive-container class="img__container">
+                {{ 
+                    section.settings.image_2 
+                    | image_url: width:326
+                    | image_tag:
+                        alt: section.settings.alt,
+                        class: "img"
+                }}
+            </responsive-container>
+            <div class="img_info h2">
+                {{ section.settings.image_info2 }}
+            </div>
+        </div>
+        <div class="item__container">    
+            <responsive-container class="img__container">
+                {{ 
+                    section.settings.image_3 
+                    | image_url: width:326
+                    | image_tag:
+                        alt: section.settings.alt,
+                        class: "img"
+                }}
+            </responsive-container>
+            <div class="img_info h2">
+                {{ section.settings.image_info3 }}
+            </div>
+        </div>
+        <div class="item__container">    
+            <responsive-container class="img__container">
+                {{ 
+                    section.settings.image_4 
+                    | image_url: width:326
+                    | image_tag:
+                        alt: section.settings.alt,
+                        class: "img"
+                }}
+            </responsive-container>
+            <div class="img_info h2">
+                {{ section.settings.image_info4 }}
+            </div>
+        </div>
+    </div>
+</responsive-container>
+
 {% schema %}
   {
     "name": "my-luxury-collection",
@@ -75,73 +140,3 @@
     ]
   }
 {% endschema %}
-
-<div class="my-luxury-collection__container" data-section-id="{{ section.id }}">
-    <div class="top__container h2">{{ section.settings.title }}</div>
-    <div class="content__container">    
-        <div class="img__container">
-            {{ 
-                section.settings.image_1 
-                | image_url: width:326
-                | image_tag:
-                    alt: section.settings.alt,
-                    class: "img"
-            }}
-        </div>
-        <div class="img_info h2">
-            {{ section.settings.image_info1 }}
-        </div>
-    </div>
-    <div class="content__container">    
-        <div class="img__container">
-            {{ 
-                section.settings.image_2 
-                | image_url: width:326
-                | image_tag:
-                    alt: section.settings.alt,
-                    class: "img"
-            }}
-        </div>
-        <div class="img_info h2">
-            {{ section.settings.image_info2 }}
-        </div>
-    </div>
-    <div class="content__container">    
-        <div class="img__container">
-            {{ 
-                section.settings.image_3 
-                | image_url: width:326
-                | image_tag:
-                    alt: section.settings.alt,
-                    class: "img"
-            }}
-        </div>
-        <div class="img_info h2">
-            {{ section.settings.image_info3 }}
-        </div>
-    </div>
-    <div class="content__container">    
-        <div class="img__container">
-            {{ 
-                section.settings.image_4 
-                | image_url: width:326
-                | image_tag:
-                    alt: section.settings.alt,
-                    class: "img"
-            }}
-        </div>
-        <div class="img_info h2">
-            {{ section.settings.image_info4 }}
-        </div>
-    </div>
-</div>
-
-{{ 'my-luxury-collection.css' | asset_url | stylesheet_tag }}
-
-<script type="module" defer>
-    (function(){
-        const sectionId = '{{ section.id }}'
-        const container = $(`.my-luxury-collection__container[data-section-id="${sectionId}"]`);
-    
-    })()
-</script>
