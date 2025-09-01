@@ -32,9 +32,10 @@
       "name": "my-image-banner",
       "settings": {
         "autoplay_speed": 10,
-        "title": "",
-        "sub-title": "",
-        "button-text": "",
+        "desktop_content_position": "top-right",
+        "title": "DFSDF",
+        "sub-title": "FSD",
+        "button-text": "SHOP NOW",
         "button-url": ""
       }
     },
@@ -280,6 +281,7 @@
         "image_url": "shopify://shop_images/Frame_48036.png",
         "title": "ONLINE ONLY!",
         "sub_title": "UP TO 50% OFF EVERYTHING",
+        "target_date": "2025-9-15 23:59:59",
         "button_text": "SHOPNOW",
         "button_link": ""
       }
