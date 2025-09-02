@@ -1,4 +1,5 @@
 {{ 'my-product-highlight.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'my-productCarousel-container.js' | asset_url }}" defer type="module"></script>
 
 <responsive-contaienr class="my-product-highlight__container" direction="column">
     <div class="top__container">
@@ -19,28 +20,37 @@
             }}
         </responsive-container>
 
-        <div class="swiper__container">
+        <my-product-carousel-container class="swiper__container">
             {%- for product in section.settings.product_collection.products -%}
-                <responsive-container 
-                    class="wrapper {% if forloop.first %} is-active {% endif %}" 
-                >
-                    {{ 
-                        product.featured_image
-                        | image_url: width: 420, height: 560
-                        | image_tag: 
-                            alt: product.title
-                    }}
-
-                    <div style="display: flex;justify-content: space-between;">
+                <div class="wrapper {% if forloop.first %} is-active {% endif %}">
+                    <responsive-container class="img-wrapper">
+                        {{ 
+                            product.featured_image
+                            | image_url: width: 420, height: 560
+                            | image_tag: 
+                                alt: product.title
+                        }}
+                    </responsive-container>
+                    <div class="info-wrapper">
                         <div>                   
                             <div class="title h2">{{ product.title }}</div>
                             <div class="price h4">{{ product.price | money }}</div>
                         </div>                   
                         <a href="{{ product.url }}" class="button">SHOP NOW</a>
                     </div>
-                </responsive-container>
+                </div>
             {%- endfor -%}
-        </div>
+
+            {%- assign count = section.settings.product_collection.products.size -%}
+            <div class="switch">
+                {%- for i in (1..count) -%}
+                    <div 
+                        class="dot {% if forloop.first %} underline {% endif %}"
+                        data-product-index="{{ i | minus: 1 }}"
+                    ></div>
+                {%- endfor -%}
+            </div>
+        </my-product-carousel-container>
     </div>
 </responsive-contaienr>
 

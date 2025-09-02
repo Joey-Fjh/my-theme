@@ -1,55 +1,6 @@
-{% schema %}
-{
-  "name": "my-newsletter-hero",
-  "tag": "section",
-  "class": "section",
-  "settings": [
-    {
-      "type": "image_picker",
-      "id": "background_image",
-      "label": "Background Image"
-    },
-    {
-      "type": "text",
-      "id": "subtitle",
-      "label": "Subtitle",
-      "default": "KEEP ME UPDATED"
-    },
-    {
-      "type": "text",
-      "id": "title",
-      "label": "Title",
-      "default": "NEWSLETTER"
-    },
-    {
-      "type": "textarea",
-      "id": "description",
-      "label": "Description",
-      "default": "Subscribe to get notified about product launches, special offers and company news."
-    },
-    {
-      "type": "text",
-      "id": "email_placeholder",
-      "label": "Email Placeholder",
-      "default": "E-mail"
-    },
-    {
-      "type": "text",
-      "id": "button_text",
-      "label": "Button Text",
-      "default": "SUBSCRIBE"
-    }
-  ],
-  "presets": [
-    {
-      "name": "my-newsletter-hero"
-    }
-  ]
-}
-{% endschema %}
+{{ 'my-newsletter-hero.css' | asset_url | stylesheet_tag }}
 
-
-<div class="my-newsletter-hero__container" data-section-id="{{ section.id }}">
+<responsive-container class="my-newsletter-hero__container">
   <div class="newsletter-hero__background">
     {% if section.settings.background_image %}
      <img 
@@ -99,10 +50,54 @@
       </form>
     </div>
   </div>
-</div>
+</responsive-container>
 
-{{ 'my-newsletter-hero.css' | asset_url | stylesheet_tag }}
-
-<script defer type="module">
-    (function(){})()
-</script>
+{% schema %}
+{
+  "name": "my-newsletter-hero",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "KEEP ME UPDATED"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "NEWSLETTER"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Subscribe to get notified about product launches, special offers and company news."
+    },
+    {
+      "type": "text",
+      "id": "email_placeholder",
+      "label": "Email Placeholder",
+      "default": "E-mail"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "SUBSCRIBE"
+    }
+  ],
+  "presets": [
+    {
+      "name": "my-newsletter-hero"
+    }
+  ]
+}
+{% endschema %}

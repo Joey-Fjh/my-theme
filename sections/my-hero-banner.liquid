@@ -2,7 +2,7 @@
 <script src="{{ 'my-count-down.js' | asset_url }}" type="module" defer></script>
 
 <responsive-container class="my-hero-banner__container">
-    <responsive-container class="img__container">
+    <responsive-container class="img__container" style="height:auto;">
       {{ section.settings.image_url
         | image_url: width: 825, height: 435
         | image_tag:

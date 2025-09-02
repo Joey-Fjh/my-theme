@@ -1,3 +1,70 @@
+{{ 'my-sustainable-hero.css' | asset_url | stylesheet_tag }}
+
+<responsive-container class="my-sustainable-hero__container">
+  <!-- Left side - Two overlapping images -->
+  <div class="hero-images">
+    <div class="image-primary">
+      <img 
+          width="400"
+          height="400"
+          src="{{ section.settings.primary_image | image_url: width:400 }}" 
+          alt="{{ section.settings.primary_image.alt | default: 'Sustainable fashion model' }}"
+          loading="lazy"
+      />
+    </div>
+    <div class="image-secondary">
+      <img
+          width="400"
+          height="400" 
+          src="{{ section.settings.secondary_image | image_url: width:400 }}" 
+          alt="{{ section.settings.secondary_image.alt | default: 'Fashion accessory' }}"
+          loading="lazy"
+      />
+    </div>
+  </div>
+  <!-- Right side - Content -->
+  <div class="hero-content">
+    {% if section.settings.eyebrow_text != blank %}
+      <p class="eyebrow">{{ section.settings.eyebrow_text }}</p>
+    {% endif %}
+    
+    {% if section.settings.main_heading != blank %}
+      <h1 class="main-heading">{{ section.settings.main_heading }}</h1>
+    {% endif %}
+
+    {% if section.settings.value_points != blank %}
+      <div class="value-points">
+        {% assign points = section.settings.value_points | split: '|' %}
+        {% for point in points %}
+          {% if point != blank %}
+            <div class="value-point">
+              <span class="diamond">♦</span>
+              <p>{{ point | strip }}</p>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if section.settings.cta_text != blank and section.settings.cta_url != blank %}
+      <div class="cta-wrapper">
+        <a href="{{ section.settings.cta_url }}" class="cta-link">
+          {{ section.settings.cta_text }}
+        </a>
+      </div>
+    {% endif %}
+  </div>
+  <div class="image-primary image-mobile-behavior">
+      <img 
+          width="400"
+          height="400"
+          src="{{ section.settings.primary_image | image_url: width:400 }}" 
+          alt="{{ section.settings.primary_image.alt | default: 'Sustainable fashion model' }}"
+          loading="lazy"
+      />
+  </div>
+</responsive-container>
+
 {% schema %}
 {
   "name": "my-sustainable-hero",
@@ -54,68 +121,3 @@
   ]
 }
 {% endschema %}
-
-<div class="my-sustainable-hero__container" data-section-id="{{ section.id }}">
-  <!-- Left side - Two overlapping images -->
-  <div class="hero-images">
-    <div class="image-primary">
-      <img 
-          width="400"
-          height="400"
-          src="{{ section.settings.primary_image | image_url: width:400 }}" 
-          alt="{{ section.settings.primary_image.alt | default: 'Sustainable fashion model' }}"
-          loading="lazy"
-      />
-    </div>
-    <div class="image-secondary">
-      <img
-          width="400"
-          height="400" 
-          src="{{ section.settings.secondary_image | image_url: width:400 }}" 
-          alt="{{ section.settings.secondary_image.alt | default: 'Fashion accessory' }}"
-          loading="lazy"
-      />
-    </div>
-  </div>
-  <!-- Right side - Content -->
-  <div class="hero-content">
-    <div class="content-wrapper">
-      {% if section.settings.eyebrow_text != blank %}
-        <p class="eyebrow">{{ section.settings.eyebrow_text }}</p>
-      {% endif %}
-      
-      {% if section.settings.main_heading != blank %}
-        <h1 class="main-heading">{{ section.settings.main_heading }}</h1>
-      {% endif %}
-
-      {% if section.settings.value_points != blank %}
-        <div class="value-points">
-          {% assign points = section.settings.value_points | split: '|' %}
-          {% for point in points %}
-            {% if point != blank %}
-              <div class="value-point">
-                <span class="diamond">♦</span>
-                <p>{{ point | strip }}</p>
-              </div>
-            {% endif %}
-          {% endfor %}
-        </div>
-      {% endif %}
-
-      {% if section.settings.cta_text != blank and section.settings.cta_url != blank %}
-        <div class="cta-wrapper">
-          <a href="{{ section.settings.cta_url }}" class="cta-link">
-            {{ section.settings.cta_text }}
-          </a>
-        </div>
-      {% endif %}
-    </div>
-  </div>
-</div>
-
-{{ 'my-sustainable-hero.css' | asset_url | stylesheet_tag }}
-
-<script defer type="modul">
-  (function(){
-  })()
-</script>

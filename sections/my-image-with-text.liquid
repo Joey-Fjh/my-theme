@@ -1,5 +1,34 @@
+{{ 'my-image-with-text.css' | asset_url | stylesheet_tag }}
+<script src='{{ 'my-accordion-container.js' | asset_url }}' type='module' defer></script>
+
+<responsive-container class="my-image-with-text__container">
+    <responsive-container class="image__container">
+        {{ 
+            section.settings.image 
+            | image_url: width: 676, height: 688 
+            | image_tag:
+                alt: section.settings.image.alt
+        }}
+    </responsive-container>
+
+    <div class="content__container">
+        <div class="title">{{ section.settings.title }}</div>
+        <div class="subtitle">{{ section.settings.subtitle }}</div>
+
+        <my-accordion-container class="accordion__container">
+            {%- for block in section.blocks -%}
+                <my-accordion-item
+                    title="{{ block.settings.title }}"
+                >
+                    {{ block.settings.content }}
+                </my-accordion-item>
+            {%- endfor -%}
+        </my-accordion-container>
+    </div>
+</responsive-container>
+
 {% schema %}
-  {
+{
     "name": "my-image-with-text",
     "tag": "section",
     "class": "section",
@@ -41,46 +70,11 @@
         }
     ],
     "presets": [
-      {
+        {
         "name": "my-image-with-text",
         "settings": {
         }
-      }
+        }
     ]
-  }
+}
 {% endschema %}
-
-<div class="my-image-with-text__container" data-section-id="{{ section.id }}">
-    <div class="image__container">
-        {{ 
-            section.settings.image 
-            | image_url: width: 676, height: 688 
-            | image_tag:
-                class:"image"
-        }}
-    </div>
-    <div class="content__container">
-        <div class="title">{{ section.settings.title }}</div>
-        <div class="subtitle">{{ section.settings.subtitle }}</div>
-        <div class="info_container">
-            {%- for block in section.blocks -%}
-              <div class="info-item">{{ block.settings.title }}</div>
-              <div class="info-item-content">{{ block.settings.content }}</div>
-            {%- endfor -%}
-        </div>
-    </div>
-</div>
-
-{{ 'my-image-with-text.css' | asset_url | stylesheet_tag }}
-
-<script defer type="module">
-    const sectionId = '{{ section.id }}';
-    const container = $('.my-image-with-text__container[data-section-id="' + sectionId + '"]');
-
-
-    const info_container = container.find('.info_container');
-    info_container.on("click",function(e){
-        e.target.classList.toggle('active');
-        e.target.nextElementSibling.classList.toggle('active');
-    });
-</script>
