@@ -1,0 +1,8 @@
+var d=Object.defineProperty;var l=(i,e,t)=>e in i?d(i,e,{enumerable:!0,configurable:!0,writable:!0,value:t}):i[e]=t;var s=(i,e,t)=>l(i,typeof e!="symbol"?e+"":e,t);import{i as c,a as o,x as h}from"./lit-element.js";import{S as u,N as p}from"./navigation.js";class r extends c{constructor(){super(),this.initIndex=0}get _container(){return this.querySelector(".carousel-container")}get _wrapper(){return this.querySelector(".carousel-wrapper")}get _slides(){return this.querySelectorAll(".carousel-slide")}get _prev(){return this.querySelector(".prev-btn")}get _next(){return this.querySelector(".next-btn")}get _dots(){return this.querySelector(".carousel-dots")}initStatus(){this._slides[this.initIndex].classList.add("center"),this._dots.children[this.initIndex].classList.add("active")}connectedCallback(){if(super.connectedCallback(),this._slides.length==0)return;this.initIndex=Math.floor(this._slides.length/2),this.initStatus();let e=new u(this._container,{modules:[p],slidesPerView:"auto",centeredSlides:!0,initialSlide:this.initIndex,navigation:{nextEl:this._next,prevEl:this._prev}}),t=e.activeIndex;e.on("slideChangeTransitionEnd",()=>{e.slides[t].classList.remove("center"),this._dots.children[t].classList.remove("active"),e.slides[e.activeIndex].classList.add("center"),this._dots.children[e.activeIndex].classList.add("active"),t=e.activeIndex}),this._dots.addEventListener("click",n=>{let a=parseInt(n.target.dataset.dotIndex??0);e.slideToLoop(a)})}render(){return h`<slot></slot>`}}s(r,"properties",{initIndex:{type:Number,state:!0}}),s(r,"styles",[o`
+            :host {
+				display: block;
+				width: 100%;
+				height: 100%;
+				position: relative;
+			}
+        `]);customElements.define("my-media-carousel-container",r);
