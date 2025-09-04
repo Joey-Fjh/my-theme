@@ -1,100 +1,4 @@
-{% schema %}
-  {
-    "name": "my-deals-carousel",
-    "tag": "section",
-    "class": "section",
-    "settings": [
-      {
-        "type": "text",
-        "id": "deals_title",
-        "label": "Deals Title",
-        "default": "Deals Of The Month"
-      },
-      {
-        "type": "textarea",
-        "id": "deals_description",
-        "label": "Deals Description",
-        "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque duis ultrices sollicitudin aliquam sem. Scelerisque duis ultrices sollicitudin"
-      },
-      {
-        "type": "text",
-        "id": "cta_text",
-        "label": "CTA Button Text",
-        "default": "Buy Now"
-      },
-      {
-        "type": "url",
-        "id": "cta_link",
-        "label": "CTA Button Link"
-      },
-      {
-        "type": "text",
-        "id": "countdown_title",
-        "label": "Countdown Title",
-        "default": "Hurry, Before It's Too Late!"
-      },
-      {
-        "type": "text",
-        "id": "countdown_end_date",
-        "label": "Countdown End Date",
-        "info": "Format: YYYY-MM-DD HH:MM:SS",
-        "default": "2024-12-31 23:59:59"
-      }
-    ],
-    "blocks": [
-      {
-        "type": "slide",
-        "name": "Carousel Slide",
-        "settings": [
-          {
-            "type": "image_picker",
-            "id": "slide_image",
-            "label": "Slide Image"
-          },
-          {
-            "type": "text",
-            "id": "slide_title",
-            "label": "Slide Title"
-          },
-          {
-            "type": "text",
-            "id": "slide_number",
-            "label": "Slide Number",
-            "default": "01"
-          },
-          {
-            "type": "text",
-            "id": "slide_category",
-            "label": "Slide Category",
-            "default": "Spring Sale"
-          },
-          {
-            "type": "text",
-            "id": "slide_discount",
-            "label": "Slide Discount",
-            "default": "30% OFF"
-          }
-        ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "my-deals-carousel",
-        "blocks": [
-          {
-            "type": "slide"
-          },
-          {
-            "type": "slide"
-          },
-          {
-            "type": "slide"
-          }
-        ]
-      }
-    ]
-  }
-{% endschema %}
+{{ "my-deals-carousel.css" | asset_url | stylesheet_tag  }}
 
 <div class="my-deals-carousel__container" data-section-id="{{ section.id }}">
   <!-- Left Side - Information & Countdown -->
@@ -209,12 +113,100 @@
   </div>
 </div>
 
-{{ "my-deals-carousel.css" | asset_url | stylesheet_tag  }}
-
-<script defer type="module">
-  (function(){
-    const sectionId = "{{ section.id }}";
-    const container = $(".my-deals-carousel-container[data-section-id='" + sectionId + "']");
-    
-  })()
-</script>
+{% schema %}
+  {
+    "name": "my-deals-carousel",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "deals_title",
+        "label": "Deals Title",
+        "default": "Deals Of The Month"
+      },
+      {
+        "type": "textarea",
+        "id": "deals_description",
+        "label": "Deals Description",
+        "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque duis ultrices sollicitudin aliquam sem. Scelerisque duis ultrices sollicitudin"
+      },
+      {
+        "type": "text",
+        "id": "cta_text",
+        "label": "CTA Button Text",
+        "default": "Buy Now"
+      },
+      {
+        "type": "url",
+        "id": "cta_link",
+        "label": "CTA Button Link"
+      },
+      {
+        "type": "text",
+        "id": "countdown_title",
+        "label": "Countdown Title",
+        "default": "Hurry, Before It's Too Late!"
+      },
+      {
+        "type": "text",
+        "id": "countdown_end_date",
+        "label": "Countdown End Date",
+        "info": "Format: YYYY-MM-DD HH:MM:SS",
+        "default": "2024-12-31 23:59:59"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "slide",
+        "name": "Carousel Slide",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "slide_image",
+            "label": "Slide Image"
+          },
+          {
+            "type": "text",
+            "id": "slide_title",
+            "label": "Slide Title"
+          },
+          {
+            "type": "text",
+            "id": "slide_number",
+            "label": "Slide Number",
+            "default": "01"
+          },
+          {
+            "type": "text",
+            "id": "slide_category",
+            "label": "Slide Category",
+            "default": "Spring Sale"
+          },
+          {
+            "type": "text",
+            "id": "slide_discount",
+            "label": "Slide Discount",
+            "default": "30% OFF"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "my-deals-carousel",
+        "blocks": [
+          {
+            "type": "slide"
+          },
+          {
+            "type": "slide"
+          },
+          {
+            "type": "slide"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
