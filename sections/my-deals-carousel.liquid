@@ -1,117 +1,69 @@
 {{ "my-deals-carousel.css" | asset_url | stylesheet_tag  }}
+{{ 'my-swiper-container.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'my-count-down.js' | asset_url }}" type="module" defer></script>
+<script src="{{ 'my-dealsCarousel-container.js' | asset_url }}" type="module" defer></script>
 
-<div class="my-deals-carousel__container" data-section-id="{{ section.id }}">
-  <!-- Left Side - Information & Countdown -->
-  <div class="deals-info-left">
-    <div class="deals-content">
-      <h2 class="deals-title">{{ section.settings.deals_title | default: 'Deals Of The Month' }}</h2>
-      <p class="deals-description">{{ section.settings.deals_description | default: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque duis ultrices sollicitudin aliquam sem. Scelerisque duis ultrices sollicitudin' }}</p>
+<my-deals-carousel-container class="my-swiper-container">
+  <responsive-container class="my-deals-carousel__container">
+    <div class="deals-info-left">
+      <div class="deals-content">
+        <h2 class="deals-title">{{ section.settings.deals_title | default: 'Deals Of The Month' }}</h2>
+        <p class="deals-description">{{ section.settings.deals_description | default: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque duis ultrices sollicitudin aliquam sem. Scelerisque duis ultrices sollicitudin' }}</p>
+        
+        <div class="deals-cta">
+          <a href="{{ section.settings.cta_link | default: '#' }}" class="buy-now-btn">
+            {{ section.settings.cta_text | default: 'Buy Now' }}
+          </a>
+        </div>
+      </div>  
+
+      <div class="countdown-section">
+        <h3 class="countdown-title">{{ section.settings.countdown_title | default: "Hurry, Before It\'s Too Late!" }}</h3>
+        <my-count-down
+          count-down-type="other"
+          target-date="{{ section.settings.countdown_end_date | date: '%Y-%m-%dT%H:%M:%S' }}"
+        >
+        </my-count-down>
+      </div>
       
-      <div class="deals-cta">
-        <a href="{{ section.settings.cta_link | default: '#' }}" class="buy-now-btn">
-          {{ section.settings.cta_text | default: 'Buy Now' }}
-        </a>
-      </div>
-    </div>  
-
-    <!-- Countdown -->
-    <div class="countdown-section">
-      <h3 class="countdown-title">{{ section.settings.countdown_title | default: "Hurry, Before It\'s Too Late!" }}</h3>
-      <div class="countdown-timer" data-end-date="{{ section.settings.countdown_end_date }}">
-        <div class="countdown-item">
-          <span class="countdown-number" data-days>02</span>
-          <span class="countdown-label">Days</span>
+      {%- if section.blocks.size > 1 -%}
+        <div class="carousel-navigation">
+          <button class="carousel-nav carousel-prev" aria-label="Previous slide">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <button class="carousel-nav carousel-next" aria-label="Next slide">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
         </div>
-        <div class="countdown-item">
-          <span class="countdown-number" data-hours>06</span>
-          <span class="countdown-label">Hr</span>
-        </div>
-        <div class="countdown-item">
-          <span class="countdown-number" data-minutes>05</span>
-          <span class="countdown-label">Mins</span>
-        </div>
-        <div class="countdown-item">
-          <span class="countdown-number" data-seconds>30</span>
-          <span class="countdown-label">Sec</span>
-        </div>
-      </div>
+      {%- endif -%}
     </div>
 
-    <!-- Carousel Navigation -->
-    <div class="carousel-navigation">
-      <button class="carousel-nav carousel-prev" aria-label="Previous slide">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="carousel-nav carousel-next" aria-label="Next slide">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-    </div>
-  </div>
-
-  <!-- Right Side - Stepped Carousel -->
-  <div class="deals-carousel-right">
-    <!-- Main Active Slide -->
-    <div class="carousel-main-slide">
-      {% for block in section.blocks limit: 1 %}
-        {% if block.type == 'slide' %}
-          <div class="main-slide-content" data-slide-index="0">
-            {% if block.settings.slide_image %}
-              <img
-                width="404"
-                height="582" 
-                src="{{ block.settings.slide_image | image_url: width:404 }}" 
-                alt="{{ block.settings.slide_image.alt | default: block.settings.slide_title }}"
-                class="main-slide-image">
-            {% endif %}
-            <div class="slide-overlay">
-              <div class="slide-info">
-                <span class="slide-number">{{ block.settings.slide_number | default: '01' }}</span>
-                <span class="slide-separator">——</span>
-                <span class="slide-category">{{ block.settings.slide_category | default: 'Spring Sale' }}</span>
-              </div>
-              <div class="slide-discount">{{ block.settings.slide_discount | default: '30% OFF' }}</div>
-            </div>
-          </div>
-        {% endif %}
-      {% endfor %}
-    </div>
-
-    <!-- Thumbnail Slides -->
-    <div class="carousel-thumbnails">
-      {% for block in section.blocks offset: 1 %}
-        {% if block.type == 'slide' %}
-          <div class="thumbnail-slide" data-slide-index="{{ forloop.index }}">
-            {% if block.settings.slide_image %}
-              <img
-                width="372"
-                height="486" 
-                src="{{ block.settings.slide_image | image_url: width: 372 }}" 
-                alt="{{ block.settings.slide_image.alt | default: block.settings.slide_title }}"
-                class="thumbnail-image">
-            {% endif %}
-          </div>
-        {% endif %}
-      {% endfor %}
-
-      <!-- Carousel Indicators -->
-      <div class="carousel-indicators">
-        {% for block in section.blocks %}
-          {% if block.type == 'slide' %}
-            <button 
-              class="carousel-indicator {% if forloop.first %}active{% endif %}" 
-              data-slide-index="{{ forloop.index0 }}"
-              aria-label="Go to slide {{ forloop.index }}">
-            </button>
-          {% endif %}
-        {% endfor %}
+    <div class="deals-carousel-right swiper">
+      <div class="carousel-wrapper swiper-wrapper">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'slide' -%}
+            <responsive-container 
+              class="carousel-slide swiper-slide 
+              {% if forloop.first %} active {% endif} %}">
+              {%- if block.settings.slide_image -%}
+                <img
+                  width="404"
+                  height="582"
+                  src="{{ block.settings.slide_image | image_url: width:404 }}"
+                  alt="{{ block.settings.slide_image.alt | default: block.setings.slide_title  }}"
+                >
+              {%- endif -%}
+            </responsive-container>
+          {%- endif -%}
+        {%- endfor -%}
       </div>
     </div>
-  </div>
-</div>
+  </responsive-container>
+</my-deals-carousel-container>
 
 {% schema %}
   {
