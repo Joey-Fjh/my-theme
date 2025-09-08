@@ -1,4 +1,4 @@
-var p=Object.defineProperty;var m=(s,t,e)=>t in s?p(s,t,{enumerable:!0,configurable:!0,writable:!0,value:e}):s[t]=e;var r=(s,t,e)=>m(s,typeof t!="symbol"?t+"":t,e);import{a,i as h,S as u,x as o}from"./lit-element.js";const g=a`
+var p=Object.defineProperty;var h=(s,t,e)=>t in s?p(s,t,{enumerable:!0,configurable:!0,writable:!0,value:e}):s[t]=e;var d=(s,t,e)=>h(s,typeof t!="symbol"?t+"":t,e);import{a,i as m,S as u,x as o}from"./lit-element.js";const g=a`
   :host {
     width: 100%;
     display: block;
@@ -57,11 +57,12 @@ var p=Object.defineProperty;var m=(s,t,e)=>t in s?p(s,t,{enumerable:!0,configura
       font-size: 2rem;
     }
   }
-`,x=a`
+`,f=a`
   .countdown-container {
     display: flex;
     gap: 24px;
     align-items: center;
+    flex-wrap: wrap;
   }
 
   .countdown-container.expired {
@@ -133,47 +134,7 @@ var p=Object.defineProperty;var m=(s,t,e)=>t in s?p(s,t,{enumerable:!0,configura
     text-transform: uppercase;
     letter-spacing: 1px;
   }
-
-  /* Responsive design */
-  @media (max-width: 1024px) {
-    .countdown-container {
-        gap: 16px;
-    }
-    
-    .countdown-item {
-        padding: 16px 12px;
-        min-width: 80px;
-    }
-    
-    .countdown-number {
-        min-width: 100px;
-        padding: 12px 8px;
-    }
-    
-    .digit {
-        width: 32px;
-        height: 48px;
-    }
-    
-    .segment.horizontal {
-        width: 24px;
-        left: 4px;
-    }
-    
-    .segment.vertical {
-        height: 20px;
-    }
-    
-    .segment.middle { top: 22px; }
-    .segment.bottom { top: 44px; }
-    .segment.bottom-left { top: 26px; }
-    .segment.bottom-right { top: 26px; }
-    
-    .countdown-label {
-        font-size: 11px;
-    }
-  }
-`;class l extends h{get segmentPatterns(){return{0:[1,1,1,0,1,1,1],1:[0,0,1,0,0,1,0],2:[1,0,1,1,1,0,1],3:[1,0,1,1,0,1,1],4:[0,1,1,1,0,1,0],5:[1,1,0,1,0,1,1],6:[1,1,0,1,1,1,1],7:[1,0,1,0,0,1,0],8:[1,1,1,1,1,1,1],9:[1,1,1,1,0,1,1]}}constructor(){super(),this.type="normal",this.targetDate="",this.days=0,this.hours=0,this.minutes=0,this.seconds=0,this.isExpired=!1,this.intervalId=null}connectedCallback(){super.connectedCallback(),this.startCountdown()}firstUpdated(){super.firstUpdated(),u(this.shadowRoot,[g,this.type==="normal"?v:x])}disconnectedCallback(){super.disconnectedCallback(),this.intervalId&&clearInterval(this.intervalId)}updated(t){t.has("targetDate")&&this.startCountdown()}startCountdown(){if(this.intervalId&&clearInterval(this.intervalId),!this.targetDate){console.warn("CountdownComponent: target-date attribute is required");return}const t=()=>{const e=new Date().getTime(),i=new Date(this.targetDate).getTime()-e;i>0?(this.days=Math.floor(i/(1e3*60*60*24)),this.hours=Math.floor(i%(1e3*60*60*24)/(1e3*60*60)),this.minutes=Math.floor(i%(1e3*60*60)/(1e3*60)),this.seconds=Math.floor(i%(1e3*60)/1e3),this.isExpired=!1):(this.days=0,this.hours=0,this.minutes=0,this.seconds=0,this.isExpired=!0,this.dispatchEvent(new CustomEvent("countdown-expired",{bubbles:!0,composed:!0})),this.intervalId&&clearInterval(this.intervalId)),this.type!=="normal"&&this.initOther()};t(),this.intervalId=setInterval(t,1e3)}updateDigit(t,e){const n=t.querySelectorAll(".segment"),i=this.segmentPatterns[e];n.forEach((d,c)=>{i[c]?d.classList.add("active"):d.classList.remove("active")})}initOther(){const t=this.renderRoot.querySelectorAll(".digit");[Math.floor(this.days/10),this.days%10,Math.floor(this.hours/10),this.hours%10,Math.floor(this.minutes/10),this.minutes%10,Math.floor(this.seconds/10),this.seconds%10].forEach((n,i)=>{t[i]&&this.updateDigit(t[i],n)})}formatNumber(t){return t.toString().padStart(2,"0")}countDownTemplate(t){const e=o`
+`;class l extends m{get segmentPatterns(){return{0:[1,1,1,0,1,1,1],1:[0,0,1,0,0,1,0],2:[1,0,1,1,1,0,1],3:[1,0,1,1,0,1,1],4:[0,1,1,1,0,1,0],5:[1,1,0,1,0,1,1],6:[1,1,0,1,1,1,1],7:[1,0,1,0,0,1,0],8:[1,1,1,1,1,1,1],9:[1,1,1,1,0,1,1]}}constructor(){super(),this.type="normal",this.targetDate="",this.days=0,this.hours=0,this.minutes=0,this.seconds=0,this.isExpired=!1,this.intervalId=null}connectedCallback(){super.connectedCallback(),this.startCountdown()}firstUpdated(){super.firstUpdated(),u(this.shadowRoot,[g,this.type==="normal"?v:f])}disconnectedCallback(){super.disconnectedCallback(),this.intervalId&&clearInterval(this.intervalId)}updated(t){t.has("targetDate")&&this.startCountdown()}startCountdown(){if(this.intervalId&&clearInterval(this.intervalId),!this.targetDate){console.warn("CountdownComponent: target-date attribute is required");return}const t=()=>{const e=new Date().getTime(),i=new Date(this.targetDate).getTime()-e;i>0?(this.days=Math.floor(i/(1e3*60*60*24)),this.hours=Math.floor(i%(1e3*60*60*24)/(1e3*60*60)),this.minutes=Math.floor(i%(1e3*60*60)/(1e3*60)),this.seconds=Math.floor(i%(1e3*60)/1e3),this.isExpired=!1):(this.days=0,this.hours=0,this.minutes=0,this.seconds=0,this.isExpired=!0,this.dispatchEvent(new CustomEvent("countdown-expired",{bubbles:!0,composed:!0})),this.intervalId&&clearInterval(this.intervalId)),this.type!=="normal"&&this.initOther()};t(),this.intervalId=setInterval(t,1e3)}updateDigit(t,e){const n=t.querySelectorAll(".segment"),i=this.segmentPatterns[e];n.forEach((r,c)=>{i[c]?r.classList.add("active"):r.classList.remove("active")})}initOther(){const t=this.renderRoot.querySelectorAll(".digit");[Math.floor(this.days/10),this.days%10,Math.floor(this.hours/10),this.hours%10,Math.floor(this.minutes/10),this.minutes%10,Math.floor(this.seconds/10),this.seconds%10].forEach((n,i)=>{t[i]&&this.updateDigit(t[i],n)})}formatNumber(t){return t.toString().padStart(2,"0")}countDownTemplate(t){const e=o`
       ${this.formatNumber(t)}
     `,n=o`
       <div class="digit">
@@ -213,4 +174,4 @@ var p=Object.defineProperty;var m=(s,t,e)=>t in s?p(s,t,{enumerable:!0,configura
           <div class="countdown-label">SECONDS</div>
         </div>
       </div>
-    `}}r(l,"properties",{type:{type:String,attribute:"count-down-type"},targetDate:{type:String,attribute:"target-date"},days:{type:Number,state:!0},hours:{type:Number,state:!0},minutes:{type:Number,state:!0},seconds:{type:Number,state:!0},isExpired:{type:Boolean,state:!0}});customElements.define("my-count-down",l);
+    `}}d(l,"properties",{type:{type:String,attribute:"count-down-type"},targetDate:{type:String,attribute:"target-date"},days:{type:Number,state:!0},hours:{type:Number,state:!0},minutes:{type:Number,state:!0},seconds:{type:Number,state:!0},isExpired:{type:Boolean,state:!0}});customElements.define("my-count-down",l);
