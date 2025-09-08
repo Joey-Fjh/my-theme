@@ -528,10 +528,52 @@
     },
     "my_product_detail_dPQr3z": {
       "type": "my-product-detail",
+      "blocks": {
+        "title_rDAX6E": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "description_zhEN6R": {
+          "type": "description",
+          "settings": {}
+        },
+        "price_WWCgFb": {
+          "type": "price",
+          "settings": {}
+        },
+        "quantity_selector_xzEPLW": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "variant_picker_JnAJHD": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "buy_buttons_CgNH4f": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        }
+      },
+      "block_order": [
+        "title_rDAX6E",
+        "description_zhEN6R",
+        "price_WWCgFb",
+        "quantity_selector_xzEPLW",
+        "variant_picker_JnAJHD",
+        "buy_buttons_CgNH4f"
+      ],
       "name": "my-product-detail",
       "settings": {
         "featured_product": "casual-knitted-shirt3",
-        "compare_price": "550.00"
+        "image_type": "grid"
       }
     }
   },
