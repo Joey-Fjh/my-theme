@@ -11,6 +11,7 @@
   "name": "t:sections.footer.name",
   "order": [
     "brand_banner_4nEdhp",
+    "my_footer_y9TVH6"
   ],
   "sections": {
     "brand_banner_4nEdhp": {
@@ -52,6 +53,37 @@
         "background_color": "#dedede",
         "is_scroll": true,
         "scroll_direction": "left"
+      }
+    },
+    "my_footer_y9TVH6": {
+      "type": "my-footer",
+      "blocks": {
+        "text_8NVq9N": {
+          "type": "text",
+          "settings": {
+            "heading": "Heading",
+            "subtext": "<p>Share contact information, store details, and brand content with your customers.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_8NVq9N"
+      ],
+      "name": "my-footer",
+      "settings": {
+        "color_scheme": "",
+        "newsletter_enable": true,
+        "newsletter_heading": "Subscribe to our emails",
+        "newsletter_description": "newsletter description",
+        "enable_follow_on_shop": true,
+        "show_social": true,
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "payment_enable": true,
+        "show_policy": true,
+        "margin_top": 0,
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     }
   },
