@@ -22,6 +22,8 @@
   }
 {%- endstyle -%}
 
+{%- assign footer_bottom_block = section.blocks | where: 'type', 'footer_bottom' | first -%}
+
 <responsive-container class="my-footer__container">
     <footer class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
         <div class="top footer__content-top page-width">
@@ -188,7 +190,39 @@
             {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
             {% if settings.animations_reveal_on_scroll %} data-cascade {% endif %}
         >
-            底部内容
+            <div class="social">
+                {%- render 'social-icons' -%}
+            </div>
+            <div class="content">
+                {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
+                    <localization-form>
+                        {%- form 'localization', id: 'FooterCountryForm', class: 'localization-form' -%}
+                            {%- render 'country-localization', localPosition: 'FooterCountry' -%}
+                        {%- endform -%}
+                    </localization-form>
+                {%- endif -%}
+
+                {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
+                    <localization-form>
+                        {%- form 'localization', id: 'FooterLanguageForm', class: 'localization-form' -%}
+                            {%- render 'language-localization', localPosition: 'FooterLanguage' -%}
+                        {%- endform -%}
+                    </localization-form>
+                {%- endif -%}
+                {%- if footer_bottom_block.settings.show_copyright -%}
+                    <div 
+                        class="copyright__content" 
+                        style="
+                        font-size:{% if footer_bottom_block.settings.text_fontsize != blank %} {{ footer_bottom_block.settings.text_fontsize }}{% else %} 12 {% endif %}px; 
+                        color: {{ footer_bottom_block.settings.copyright_content_color }}"
+                    >
+                        {{ footer_bottom_block.settings.copyright_content | default: ' ' }}
+                    </div>
+                {%- endif -%}
+            </div>
+            <div class="payment">
+                {%- render 'footer-payment',block: footer_bottom_block-%}
+            </div>
         </div>
         
     </footer>
@@ -344,6 +378,179 @@
                     "type": "image_picker",
                     "id": "image",
                     "label": "Image"
+                }
+            ]
+        },
+        {
+            "type": "footer_bottom",
+            "name": "footer_bottom",
+            "limit": 1,
+            "settings": [   
+                {
+                    "type": "header",
+                    "content": "copy_right"
+                },
+                {
+                    "id": "show_copyright",
+                    "type": "checkbox",
+                    "label": "show_copyright",
+                    "default": true
+                },
+                {
+                    "type": "range",
+                    "id": "text_fontsize",
+                    "label": "text_font_size",
+                    "min": 8,
+                    "max": 30,
+                    "step": 1,
+                    "default": 14
+                },
+                {
+                    "id": "copyright_content",
+                    "type": "richtext",
+                    "label": "copyright_content"
+                },
+                {
+                    "id": "copyright_content_color",
+                    "type": "color",
+                    "label": "text_color"
+                },
+                {
+                    "type": "header",
+                    "content": "payment"
+                },
+                {
+                    "id": "show_payment",
+                    "type": "checkbox",
+                    "default": true,
+                    "label": "show_payment"
+                },
+                {
+                    "type": "select",
+                    "id": "payment_type",
+                    "label": "payment_type.option",
+                    "default": "custom",
+                    "options": [
+                        {
+                        "value": "default",
+                        "label": "default"
+                        },
+                        {
+                        "value": "custom",
+                        "label": "custom"
+                        }
+                    ],
+                    "info": "payment_typeinfo"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "show_payment_visa",
+                    "label": "Visa"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "show_payment_master",
+                    "label": "Master"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "show_payment_maestro",
+                    "label": "Maestro"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "show_payment_american_express",
+                    "label": "American Express"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "show_payment_apple_pay",
+                    "label": "Apple Pay"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "show_payment_bitcoin",
+                    "label": "Bitcoin"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "show_payment_dankort",
+                    "label": "Dankort"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "show_payment_diners_club",
+                    "label": "Diners Club"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "show_payment_discover",
+                    "label": "Discover"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "show_payment_paypal",
+                    "label": "Paypal"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "show_payment_dogecoin",
+                    "label": "Dogecoin"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "show_payment_dwolla",
+                    "label": "Dwolla"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "show_payment_forbrugsforeningen",
+                    "label": "Forbrugsforeningen"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "show_payment_jcb",
+                    "label": "JCB"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "show_payment_litecoin",
+                    "label": "Litecoin"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "show_payment_afterpay",
+                    "label": "Afterpay"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "show_payment_google_pay",
+                    "label": "Googlepay"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "show_payment_ideal",
+                    "label": "Ideal"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "show_payment_klarna",
+                    "label": "Klarna"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "show_payment_klarna-pay-later",
+                    "label": "Klarnapay Later"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "show_payment_shopify_pay",
+                    "label": "Shopifypay"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "show_payment_sofort",
+                    "label": "Sofort"
                 }
             ]
         }
