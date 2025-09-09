@@ -69,8 +69,8 @@
           "type": "footer_bottom",
           "settings": {
             "show_copyright": true,
-            "text_fontsize": 14,
-            "copyright_content": "",
+            "text_fontsize": 10,
+            "copyright_content": "<p>© 2025, Palo Alto Theme - Vibrant. Powered by Shopify.</p>",
             "copyright_content_color": "",
             "show_payment": true,
             "payment_type": "custom",
