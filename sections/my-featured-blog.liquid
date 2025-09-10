@@ -1,0 +1,163 @@
+{{ 'my-featured-blog.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign articles = section.settings.blog.articles
+  assign left_article = articles.first
+  assign show_image = section.settings.show_image
+  assign show_date = section.settings.show_date
+  assign show_author = section.settings.show_author
+-%}
+
+<responsive-container class="container">
+    <div class="wrapper">
+        <div class="top">
+            <h2
+            id="SectionHeading-{{ section.id }}"
+            class="inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            {% if settings.animations_reveal_on_scroll %}
+                data-cascade
+            {% endif %}
+            >
+                {{ section.settings.heading }}
+            </h2>
+        </div>
+        <div class="bottom">
+            <div class="left">
+                <responsive-container class="image__container">
+                    {{ 
+                        left_article.image
+                        | image_url: width: 751, height: 500
+                        | image_tag:
+                            alt: left_article.image.alt 
+                    }}
+                    <div class="content">
+                        <div class="title h2">
+                            {{ left_article.title }}
+                        </div>
+                        <div class="description h3">
+                            {{ left_article.content }}
+                        </div>
+                        <a class="link" href="{{ left_article.url }}">Read more</a>
+                    </div>
+                </responsive-container>
+            </div>
+            <div class="right">
+                {%- for i in (2..articles.size)-%}
+                    {% assign idx = i | minus: 1 %}
+                    {% assign article = articles[idx] %}
+                    <div class="card">
+                        {%- if show_image -%}
+                            <responsive-container class="image__container">
+                                {{ 
+                                    article.image
+                                    | image_url: width: 238, height: 238
+                                    | image_tag:
+                                        alt:article.image.alt 
+                                }}
+                            </responsive-container>
+                        {%- endif -%}
+                        <div class="content">
+                            <div class="info">
+                                {%- if show_date -%}
+                                    <span>{{ article.published_at | time_tag: format: 'date' }}</span>
+                                {%- endif -%}
+                                {%- if show_author -%}
+                                    <span>{{ article.author }}</span>
+                                {%- endif -%}
+                                <span>{{ article.comments_count }} comments</span>
+                            </div>
+                            <div class="title h3">
+                                {{ article.title }}
+                            </div>
+                            <div class="description h5">
+                                {{ article.content }}
+                            </div>
+                            <a class="link h4" href="{{ article.url }}">Read more</a>
+                        </div>
+                    </div>
+                {%- endfor -%}
+            </div>
+        </div>
+    </div>
+</responsive-container>
+
+
+{% schema %}
+  {
+    "name": "my-featured-blog",
+    "tag": "section",
+    "disabled_on": {
+        "groups": ["header", "footer"]
+    },
+    "settings": [
+        {
+            "type": "blog",
+            "id": "blog",
+            "label": "t:sections.featured-blog.settings.blog.label"
+        },
+        {
+            "type": "header",
+            "content": "t:sections.featured-blog.settings.text_header.content"
+        },            
+        {
+            "type": "inline_richtext",
+            "id": "heading",
+            "default": "t:sections.featured-blog.settings.heading.default",
+            "label": "t:sections.featured-blog.settings.heading.label"
+        },
+        {
+            "type": "select",
+            "id": "heading_size",
+            "options": [
+                {
+                    "value": "h2",
+                    "label": "t:sections.all.heading_size.options__1.label"
+                },
+                {
+                    "value": "h1",
+                    "label": "t:sections.all.heading_size.options__2.label"
+                },
+                {
+                    "value": "h0",
+                    "label": "t:sections.all.heading_size.options__3.label"
+                },
+                {
+                    "value": "hxl",
+                    "label": "t:sections.all.heading_size.options__4.label"
+                },
+                {
+                    "value": "hxxl",
+                    "label": "t:sections.all.heading_size.options__5.label"
+                }
+            ],
+            "default": "h1",
+            "label": "t:sections.all.heading_size.label"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_image",
+            "default": true,
+            "label": "t:sections.featured-blog.settings.show_image.label"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_date",
+            "default": true,
+            "label": "t:sections.featured-blog.settings.show_date.label"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_author",
+            "default": false,
+            "label": "t:sections.featured-blog.settings.show_author.label"
+        },
+    ],
+    "presets": [
+      {
+        "name": "my-featured-blog",
+        "settings": {
+        }
+      }
+    ]
+  }
+{% endschema %}
