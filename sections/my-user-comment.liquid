@@ -1,0 +1,58 @@
+{{ 'my-user-comment.css' | asset_url | stylesheet_tag  }}
+{{ 'my-swiper-container.css' | asset_url | stylesheet_tag }}
+<script src='{{ 'my-userComment-container.js' | asset_url }}'  type="module" defer></script>
+
+<responsive-container class="my-user-comment__container">
+  <my-user-comment-container>
+    <div class="swiper">
+      <div class="swiper-wrapper wrapper">
+        {%- for comment in section.settings.user_comments -%}
+          <div class="swiper-slide card">
+            <responsive-container>
+              {{ 
+                all_products[comment.product].featured_image
+                | image_url: width: 329, height:410
+                | image_tag:
+                  alt: all_products[comment.product].featured_image.alt 
+              }}
+            </responsive-container>
+            <div class="product-name">
+              {{ all_products[comment.product].title }}
+            </div>
+            <div class="star">
+              {%- render 'icon-star',rating: comment.star.value | strip | times: 1 | round:0 -%}
+            </div>
+            <div class="customer-name">
+              {{ comment.customer_name }}
+            </div>
+            <div class="comment">
+              {{ comment.comment }}
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+  </div>
+  </my-user-comment-container>
+</responsive-container>
+
+{% schema %}
+  {
+    "name": "my-user-comment",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "metaobject_list",
+        "id": "user_comments",
+        "label":"User Comments",
+        "metaobject_type": "user_comment",
+      }
+    ],
+    "presets": [
+      {
+        "name": "my-user-comment",
+        "settings": {
+        }
+      }
+    ]
+  }
+{% endschema %}
