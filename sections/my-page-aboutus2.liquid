@@ -1,0 +1,23 @@
+{{ 'my-page-aboutus2.css' | asset_url | stylesheet_tag }}
+
+<responsive-container class="my-page-aboutus2__container">
+    <div>This is aboutus 2</div>
+    {{ page.title }} - {{ page.content }}
+</responsive-container>
+
+{% schema %}
+  {
+    "name": "my-page-aboutus2",
+    "tag": "section",
+    "settings": [
+      
+    ],
+    "presets": [
+      {
+        "name": "my-page-aboutus2",
+        "settings": {
+        }
+      }
+    ]
+  }
+{% endschema %}

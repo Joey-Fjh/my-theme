@@ -1,0 +1,100 @@
+{{ 'my-page-aboutus1.css' | asset_url | stylesheet_tag }}
+
+<responsive-container class="my-page-aboutus1__container">
+    <div>This is aboutus 1</div>
+    {{ page.title }}
+</responsive-container>
+
+{% schema %}
+  {
+    "name": "my-page-aboutus1",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "t:sections.all.colors.label",
+        "info": "t:sections.all.colors.has_cards_info",
+        "default": "scheme-1"
+      },  
+      {
+        "type": "checkbox",
+        "id": "show_page_title",
+        "label": "Show Page Title",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "page_title_alignment",
+        "label": "Page Title Alignment",
+        "options": [
+          {
+              "value": "left",
+              "label": "left"
+          },
+          {
+              "value": "center",
+              "label": "center"
+          },
+          {
+              "value": "right",
+              "label": "right"
+          }
+        ],
+        "default": "center"
+      },
+    ],
+    "blocks": [
+      {
+        "type" : "content",
+        "name" : "content",
+        "settings":
+        [
+          {
+            "type" : "text",
+            "id" : "title",
+            "label" : "title",
+            "default": "About Esen"
+          },
+          {
+              "type" : "html",
+              "id" : "content",
+              "label" : "content"
+          },
+          {
+              "type": "select",
+              "id": "align",
+              "label": "content_alignment",
+              "options": [
+                {
+                    "value": "left",
+                    "label": "left"
+                },
+                {
+                    "value": "center",
+                    "label": "center"
+                },
+                {
+                    "value": "right",
+                    "label": "right"
+                }
+              ],
+              "default": "center"
+          },
+          {
+              "type": "color",
+              "id": "content_text_color",
+              "label": "text_color"
+          }
+        ]
+    },
+    ],
+    "presets": [
+      {
+        "name": "my-page-aboutus1",
+        "settings": {
+        }
+      }
+    ]
+  }
+{% endschema %}
