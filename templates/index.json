@@ -575,6 +575,30 @@
         "featured_product": "casual-knitted-shirt3",
         "image_type": "grid"
       }
+    },
+    "my_user_comment_w84MEY": {
+      "type": "my-user-comment",
+      "name": "my-user-comment",
+      "settings": {
+        "user_comments": [
+          "user-comment-ku1cxxnh",
+          "user-comment-fq1of1x3",
+          "user-comment-0t7wsrqq",
+          "user-comment-gs1wqfgi"
+        ]
+      }
+    },
+    "my_featured_blog_Wa7B4H": {
+      "type": "my-featured-blog",
+      "name": "my-featured-blog",
+      "settings": {
+        "blog": "news",
+        "heading": "Blog posts",
+        "heading_size": "h1",
+        "show_image": true,
+        "show_date": true,
+        "show_author": false
+      }
     }
   },
   "order": [
@@ -596,6 +620,8 @@
     "my_color_comparison_aRQifX",
     "my_promo_split_JYmjBz",
     "my_deals_carousel_fwtLbn",
-    "my_product_detail_dPQr3z"
+    "my_product_detail_dPQr3z",
+    "my_user_comment_w84MEY",
+    "my_featured_blog_Wa7B4H"
   ]
 }
