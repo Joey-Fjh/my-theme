@@ -11,12 +11,76 @@
   "sections": {
     "main": {
       "type": "my-page-aboutus1",
-      "settings":{
-        
+      "blocks": {
+        "image_Q9MKAk": {
+          "type": "image",
+          "settings": {
+            "banner_image": "shopify://shop_images/9022a705161ff42b7879d88f1fd6d0e8.png",
+            "title": "About Esen",
+            "subtitle": ""
+          }
+        },
+        "content_pz3Drd": {
+          "type": "content",
+          "settings": {
+            "title": "About Esen",
+            "content": "Welcome to our classic women's clothing store, where we believe\nthat timeless style never goes out of fashion. Our collection features classic\npieces that are both stylish and versatile, perfect for building a\nwardrobe that will last for years.",
+            "align": "center"
+          }
+        }
       },
+      "block_order": [
+        "image_Q9MKAk",
+        "content_pz3Drd"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "show_page_title": false,
+        "page_title_alignment": "center"
+      }
+    },
+    "image_with_text_MEVhhY": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_DRAM8h": {
+          "type": "heading",
+          "settings": {
+            "heading": "Established - 1997",
+            "heading_size": "h1"
+          }
+        },
+        "text_aVQcaz": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Be the first to wear the season’s most coveted trends with our curated selection of modern fashion pieces. Featuring bold patterns, vibrant colors, and statement silhouettes, these styles are designed for those who love to stand out. Explore our collection to find outfits that make a lasting impression.<br/><br/><br/>Our collection combines functionality with fashion. Perfect for creating effortlessly chic looks.<br/><br/></p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_DRAM8h",
+        "text_aVQcaz"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/1-1.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "image_with_text_MEVhhY"
   ]
 }
