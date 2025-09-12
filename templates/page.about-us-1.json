@@ -77,10 +77,32 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "my_sustainable_hero_bRzmzJ": {
+      "type": "my-sustainable-hero",
+      "name": "my-sustainable-hero",
+      "settings": {
+        "reverse_layout": false,
+        "title": "Sustainable Trends You'll Love Forever.",
+        "description": "We believe that fashion should be stylish, affordable and accessible to everyone. Body positivity and inclusivity are values that are at the heart of our brand. We want everyone to look and feel good, while also doing our part to help the environment."
+      }
+    },
+    "my_sustainable_hero_PYPCfh": {
+      "type": "my-sustainable-hero",
+      "name": "my-sustainable-hero",
+      "settings": {
+        "reverse_layout": true,
+        "primary_image": "shopify://shop_images/1-1_1f407948-93dd-4e35-8503-feaed3449b41.png",
+        "secondary_image": "shopify://shop_images/1-1_1f407948-93dd-4e35-8503-feaed3449b41.png",
+        "title": "Our mission",
+        "description": "Our mission is to empower people through sustainable fashion.We want everyone to look and feel good, while also doing our part tohelp the environment.We believe that fashion should be stylish,affordable and accessible to everyone. Body positivity and inclusivityare values that are at the heart of our brand."
+      }
     }
   },
   "order": [
     "main",
-    "image_with_text_MEVhhY"
+    "image_with_text_MEVhhY",
+    "my_sustainable_hero_bRzmzJ",
+    "my_sustainable_hero_PYPCfh"
   ]
 }
