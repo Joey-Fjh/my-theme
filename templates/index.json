@@ -379,13 +379,11 @@
       "type": "my-sustainable-hero",
       "name": "my-sustainable-hero",
       "settings": {
+        "reverse_layout": false,
         "primary_image": "shopify://shop_images/Frame_47827.png",
         "secondary_image": "shopify://shop_images/image_30.png",
-        "eyebrow_text": "EVERYDAY ESSENTIALS",
-        "main_heading": "Sustainable Trends You'll Love Forever.",
-        "value_points": "We believe that fashion should be stylish, affordable and accessible to everyone.|Body positivity and inclusivity are values that are at the heart of our brand.|We want everyone to look and feel good, while also doing our part to help the environment.",
-        "cta_text": "OUR STORY",
-        "cta_url": ""
+        "title": "Sustainable Trends You'll Love Forever.",
+        "description": "We believe that fashion should be stylish, affordable and accessible to everyone. Body positivity and inclusivity are values that are at the heart of our brand. We want everyone to look and feel good, while also doing our part to help the environment."
       }
     },
     "my_media_carousel_8nNGTd": {
@@ -576,6 +574,15 @@
         "image_type": "grid"
       }
     },
+    "my_blog_carousel_Pb9fHn": {
+      "type": "my-blog-carousel",
+      "name": "my-blog-carousel",
+      "settings": {
+        "title": "Read Our Blogs",
+        "alignment": "center",
+        "blog": "news"
+      }
+    },
     "my_user_comment_w84MEY": {
       "type": "my-user-comment",
       "name": "my-user-comment",
@@ -621,6 +628,7 @@
     "my_promo_split_JYmjBz",
     "my_deals_carousel_fwtLbn",
     "my_product_detail_dPQr3z",
+    "my_blog_carousel_Pb9fHn",
     "my_user_comment_w84MEY",
     "my_featured_blog_Wa7B4H"
   ]
