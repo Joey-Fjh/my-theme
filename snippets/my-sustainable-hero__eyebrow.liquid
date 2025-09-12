@@ -1,0 +1,31 @@
+<div class="eyebrow__content">
+    {% if block.settings.eyebrow_text != blank %}
+        <p class="eyebrow">{{ block.settings.eyebrow_text }}</p>
+    {% endif %}
+
+    {% if block.settings.main_heading != blank %}
+        <h1 class="main-heading">{{ block.settings.main_heading }}</h1>
+    {% endif %}
+
+    {% if block.settings.value_points != blank %}
+        <div class="value-points">
+        {% assign points = block.settings.value_points | split: '|' %}
+        {% for point in points %}
+            {% if point != blank %}
+            <div class="value-point">
+                <span class="diamond">♦</span>
+                <p>{{ point | strip }}</p>
+            </div>
+            {% endif %}
+        {% endfor %}
+        </div>
+    {% endif %}
+
+    {% if block.settings.cta_text != blank and block.settings.cta_url != blank %}
+        <div class="cta-wrapper">
+        <a href="{{ block.settings.cta_url }}" class="cta-link">
+            {{ block.settings.cta_text }}
+        </a>
+        </div>
+    {% endif %}
+</div>

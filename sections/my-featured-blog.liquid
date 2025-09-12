@@ -42,7 +42,7 @@
                 </responsive-container>
             </div>
             <div class="right">
-                {%- for i in (2..articles.size)-%}
+                {%- for i in (2..articles.size) limit: 2-%}
                     {% assign idx = i | minus: 1 %}
                     {% assign article = articles[idx] %}
                     <div class="card">

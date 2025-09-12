@@ -1,6 +1,13 @@
 {{ 'my-sustainable-hero.css' | asset_url | stylesheet_tag }}
 
-<responsive-container class="my-sustainable-hero__container">
+<responsive-container class="my-sustainable-hero__container my-sustainable-hero__container-{{ section.id }}">
+  <style>
+    {%- if section.settings.reverse_layout -%}
+      .my-sustainable-hero__container-{{ section.id }} { 
+        flex-direction:row-reverse;
+      }
+    {%- endif -%}
+  </style>
   <!-- Left side - Two overlapping images -->
   <div class="hero-images">
     <div class="image-primary">
@@ -24,35 +31,24 @@
   </div>
   <!-- Right side - Content -->
   <div class="hero-content">
-    {% if section.settings.eyebrow_text != blank %}
-      <p class="eyebrow">{{ section.settings.eyebrow_text }}</p>
-    {% endif %}
-    
-    {% if section.settings.main_heading != blank %}
-      <h1 class="main-heading">{{ section.settings.main_heading }}</h1>
-    {% endif %}
-
-    {% if section.settings.value_points != blank %}
-      <div class="value-points">
-        {% assign points = section.settings.value_points | split: '|' %}
-        {% for point in points %}
-          {% if point != blank %}
-            <div class="value-point">
-              <span class="diamond">♦</span>
-              <p>{{ point | strip }}</p>
-            </div>
-          {% endif %}
-        {% endfor %}
+    {%- if section.blocks.size == 0 -%}
+      <div class="content">
+        <div class="title h1">
+          {{ section.settings.title }}
+        </div>
+        <div class="descript.ion h3">
+          {{ section.settings.description }}
+        </div>
       </div>
-    {% endif %}
-
-    {% if section.settings.cta_text != blank and section.settings.cta_url != blank %}
-      <div class="cta-wrapper">
-        <a href="{{ section.settings.cta_url }}" class="cta-link">
-          {{ section.settings.cta_text }}
-        </a>
-      </div>
-    {% endif %}
+    {%- else -%}
+      {%- assign block = section.blocks.first -%}
+      {%- case block.type -%}
+        {%- when "eyebrow" -%}
+          {%- render 'my-sustainable-hero__eyebrow', block:block -%}
+        {%- when 'comment' -%}
+           {%- render 'my-sustainable-hero__comment', block:block -%}
+        {%- endcase -%}
+    {%- endif -%}
   </div>
   <div class="image-primary image-mobile-behavior">
       <img 
@@ -72,6 +68,12 @@
   "class": "section",
   "settings": [
     {
+      "type": "checkbox",
+      "id": "reverse_layout",
+      "label": "Reverse Layout",
+      "default": false
+    },
+    {
       "type": "image_picker",
       "id": "primary_image",
       "label": "Primary Image",
@@ -85,35 +87,74 @@
     },
     {
       "type": "text",
-      "id": "eyebrow_text",
-      "label": "Eyebrow Text",
-      "default": "EVERYDAY ESSENTIALS"
-    },
-    {
-      "type": "text",
-      "id": "main_heading",
-      "label": "Main Heading",
+      "id": "title",
+      "label": "Title",
       "default": "Sustainable Trends You'll Love Forever."
     },
     {
-      "type": "textarea",
-      "id": "value_points",
-      "label": "Value Points",
-      "info": "Separate each point with | (pipe symbol)",
-      "default": "We believe that fashion should be stylish, affordable and accessible to everyone.|Body positivity and inclusivity are values that are at the heart of our brand.|We want everyone to look and feel good, while also doing our part to help the environment."
-    },
-    {
       "type": "text",
-      "id": "cta_text",
-      "label": "Call to Action Text",
-      "default": "OUR STORY"
-    },
-    {
-      "type": "url",
-      "id": "cta_url",
-      "label": "Call to Action URL"
+      "id": "description",
+      "label": "Description",
+      "default": "We believe that fashion should be stylish, affordable and accessible to everyone. Body positivity and inclusivity are values that are at the heart of our brand. We want everyone to look and feel good, while also doing our part to help the environment."
     }
   ],
+  "blocks": [
+    {
+      "type": "eyebrow",
+      "name": "Eyebrow",
+      "settings": [
+        {
+          "type": "text",
+          "id": "eyebrow_text",
+          "label": "Eyebrow Text",
+          "default": "EVERYDAY ESSENTIALS"
+        },
+        {
+          "type": "text",
+          "id": "main_heading",
+          "label": "Main Heading",
+          "default": "Sustainable Trends You'll Love Forever."
+        },
+        {
+          "type": "textarea",
+          "id": "value_points",
+          "label": "Value Points",
+          "info": "Separate each point with | (pipe symbol)",
+          "default": "We believe that fashion should be stylish, affordable and accessible to everyone.|Body positivity and inclusivity are values that are at the heart of our brand.|We want everyone to look and feel good, while also doing our part to help the environment."
+        },
+        {
+          "type": "text",
+          "id": "cta_text",
+          "label": "Call to Action Text",
+          "default": "OUR STORY"
+        },
+        {
+          "type": "url",
+          "id": "cta_url",
+          "label": "Call to Action URL"
+        }
+      ]
+    },
+    {
+      "type": "comment",
+      "name": "Comment",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Our Story"
+        },
+        {
+          "type": "metaobject_list",
+          "id": "user_comments",
+          "label":"User Comments",
+          "metaobject_type": "user_comment"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 1,
   "presets": [
     {
       "name": "my-sustainable-hero"

@@ -1,0 +1,84 @@
+{{ 'my-swiper-container.css' | asset_url | stylesheet_tag  }}
+{{ 'my-blog-carousel.css' | asset_url | stylesheet_tag  }}
+<script src="{{ 'my-blogCarousel-container.js' | asset_url }}" defer type="module"></script>
+
+<responsive-container class="my-blog-carousel__container">
+    <div class="top">
+        <div class="title h2" style="text-align:{{ section.settings.alignment }}">
+            {{ section.settings.title }}
+        </div>
+    </div>
+    <div class="bottom">
+        <my-blog-carousel-container class="my-swiper-container">
+            <div class="swiper">
+                <div class="swiper-wrapper wrapper">
+                    {%- for article in section.settings.blog.articles -%}
+                        <div class="swiper-slide slide">
+                            <responsive-container class="image__container">
+                                {{ 
+                                    article.image 
+                                    | image_url: width: 278, height: 278
+                                    | image_tag:
+                                        alt: article.title
+                                }}
+                                <div class="category">{{ section.settings.blog.title }}</div>
+                            </responsive-container>
+
+                            <div class="article-title h3">{{ article.title }}</div>
+                            <a href="{{ article.url }}" class="link">Read More</a>
+                        </div>
+                    {%- endfor -%}
+                </div>
+
+                <div class="swiper-pagination"></div>
+            </div>
+        </my-blog-carousel-container>
+    </div>
+</responsive-container>
+
+{% schema %}
+  {
+    "name": "my-blog-carousel",
+    "tag": "section",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default":"Read Our Blogs"
+        },
+        {
+            "type": "select",
+            "id": "alignment",
+            "label": "Page Title Alignment",
+            "options": [
+            {
+                "value": "left",
+                "label": "left"
+            },
+            {
+                "value": "center",
+                "label": "center"
+            },
+            {
+                "value": "right",
+                "label": "right"
+            }
+            ],
+            "default": "center"
+        },
+        {
+            "type": "blog",
+            "id": "blog",
+            "label": "t:sections.featured-blog.settings.blog.label"
+        }
+    ],
+    "presets": [
+      {
+        "name": "my-blog-carousel",
+        "settings": {
+        }
+      }
+    ]
+  }
+{% endschema %}

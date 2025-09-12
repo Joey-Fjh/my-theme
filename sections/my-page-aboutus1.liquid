@@ -1,8 +1,45 @@
 {{ 'my-page-aboutus1.css' | asset_url | stylesheet_tag }}
 
-<responsive-container class="my-page-aboutus1__container">
-    <div>This is aboutus 1</div>
-    {{ page.title }}
+{%- liquid
+  assign show_page_title = section.settings.show_page_title
+  assign banner_image_block = section.blocks | where: "type", "image" | first
+-%}
+
+<responsive-container class="my-page-aboutus1__container color-{{ section.settings.color_scheme }}">
+  {%- if banner_image_block.settings.banner_image != blank -%}
+    <responsive-container class="banner-image__container">
+      {{ banner_image_block.settings.banner_image 
+        | image_url: width: 1440 , height: 600 
+        | image_tag:
+            alt: banner_image_block.settings.banner_image.title
+      }}
+      <div class="wrapper">
+        <div class="content">
+          <div class="title h0">{{ banner_image_block.settings.title }}</div>
+          <div class="subtitle">{{ banner_image_block.settings.subtitle }}</div>
+        </div>
+      </div>
+    </responsive-container>
+  {%- endif -%}
+
+  <div class="block__wrapper">
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when "content" -%}
+          <div class="content__container" style="text-align: {{ block.settings.align }};">
+            {%- if show_page_title -%}
+              <div class="title h2 {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">{{ page.title }}</div>
+            {%- endif -%}
+            <div class="title h2 {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+              {{ block.settings.title }}
+            </div>
+            <p class="content h4 {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+              {{ block.settings.content }}
+            </p>
+          </div>  
+      {% endcase %}
+    {%- endfor -%}
+  </div>
 </responsive-container>
 
 {% schema %}
@@ -46,6 +83,30 @@
     ],
     "blocks": [
       {
+        "type": "image",
+        "name": "banner",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "banner_image",
+            "label": "Banner Image"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "About Esen"
+          },
+          {
+            "type": "text",
+            "id": "subtitle",
+            "label": "Subtitle",
+            "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl nec ultricies lacinia, nisl nisl"
+          }
+        ]
+      },
+      {
         "type" : "content",
         "name" : "content",
         "settings":
@@ -80,14 +141,9 @@
                 }
               ],
               "default": "center"
-          },
-          {
-              "type": "color",
-              "id": "content_text_color",
-              "label": "text_color"
           }
         ]
-    },
+      }
     ],
     "presets": [
       {

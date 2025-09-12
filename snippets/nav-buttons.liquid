@@ -1,0 +1,79 @@
+<div class="navigation-controls">
+    <button class="nav-button prev">
+        <span class="arrow"></span>
+    </button>
+    <button class="nav-button next">
+        <span class="arrow"></span>
+    </button>
+</div>
+<style>
+    .navigation-controls {
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    .nav-button {
+        padding:0;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1px solid #4a4a4a;
+        background-color: white;
+        color: #333;
+        font-size: 1.2rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .nav-button::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.05);
+        transform: scale(0);
+        border-radius: 50%;
+        transition: transform 0.3s ease;
+    }
+
+    .nav-button:hover {
+        border-color: #2c3e50;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-button:active::after {
+        transform: scale(1);
+    }
+
+    .nav-button:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(74, 74, 74, 0.2);
+    }
+
+    .nav-button .arrow {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        border-style: solid;
+        border-width: 2px 2px 0 0;
+        position: relative;
+    }
+
+    .nav-button.prev .arrow {
+        transform: rotate(-135deg);
+        left: 2px;
+    }
+
+    .nav-button.next .arrow {
+        transform: rotate(45deg);
+        right: 2px;
+    }
+</style>

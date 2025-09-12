@@ -1,0 +1,30 @@
+{{ 'my-swiper-container.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'my-sustainableHero-comment.js' | asset_url }}" defer type="module"></script>
+
+<div class="comment__content">
+    <div class="title h1">{{ block.settings.title }}</div>
+    <div class="icon">
+        {%- render 'icon-comma' -%}
+    </div>
+    <my-sustainable-hero-comment class="my-swiper-container">
+        <div class="swiper">
+            <div class="swiper-wrapper wrapper">
+                {%- for comment in block.settings.user_comments -%}
+                    <div class="swiper-slide slide">
+                        <div class="star">
+                            {%- render 'icon-star', rating:comment.star.value | strip | times:1 | round:0 -%}
+                        </div>
+                        <div class="comment">
+                            {{ comment.comment }}
+                        </div>
+                        <div class="customer_name">
+                            {{ comment.customer_name }}
+                        </div>
+                    </div>
+                {%- endfor -%}
+            </div>
+        </div>
+
+        {%- render 'nav-buttons' -%}
+    </my-sustainable-hero-comment>
+</div>
