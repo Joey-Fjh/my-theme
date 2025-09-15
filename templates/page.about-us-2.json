@@ -55,8 +55,9 @@
         "avatar_TyTtAj": {
           "type": "avatar",
           "settings": {
-            "name": "",
-            "job": ""
+            "avatar": "shopify://shop_images/1-1_1f407948-93dd-4e35-8503-feaed3449b41.png",
+            "name": "Kenneth Fong",
+            "job": "Ceo and founder"
           }
         }
       },
