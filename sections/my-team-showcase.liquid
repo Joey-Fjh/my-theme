@@ -1,0 +1,116 @@
+{{ 'my-team-showcase.css' | asset_url | stylesheet_tag }}
+
+<responsive-container class="my-team-showcase__container">
+    <div class="top">
+        <div class="content__container">
+            <div class="title h1">
+                {{ section.settings.text }}
+            </div>
+            <div class="description h3">
+                {{ section.settings.description }}
+            </div>
+            <a href="{{ section.settings.btn_url }}">
+                <button class="button">
+                    {{ section.settings.btn_text }}
+                </button>
+            </a>
+        </div>
+        {%- for block in section.blocks limit: 2 -%}
+            <div class="member__container">
+                <responsive-container>
+                    {{ 
+                        block.settings.image
+                        | image_url: width: 288, height: 288
+                        | image_tag:
+                            alt: block.settings.image.alt
+                    }}    
+                </responsive-container>
+                <div class="name h3" style="font-weight:700;">{{ block.settings.name }}</div>
+                <div class="job h5">{{ block.settings.job }}</div>
+            </div>
+        {%- endfor -%}
+    </div>
+    <div class="bottom">
+        {%- for block in section.blocks offset: 2 -%}
+            <div class="member__container">
+                <responsive-container>
+                    {{ 
+                        block.settings.image
+                        | image_url: width: 288, height: 288
+                        | image_tag:
+                            alt: block.settings.image.alt
+                    }}    
+                </responsive-container>
+                <div class="name h3" style="font-weight:700;">{{ block.settings.name }}</div>
+                <div class="job h5">{{ block.settings.job }}</div>
+            </div>
+        {%- endfor -%}
+    </div>
+</responsive-container>
+
+{% schema %}
+  {
+    "name": "my-team-showcase",
+    "tag": "section",
+    "settings": [
+        {
+            "type": "header",
+            "content": "Text Settings"
+        },
+        {
+            "type": "text",
+            "id": "text",
+            "label": "Text",
+            "default": "Meet Our Team Of Creators,Designers,And World-Class Problem Solvers"
+        },
+        {
+            "type": "richtext",
+            "id": "description",
+            "label": "Description",
+            "default": "<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words.</p>"
+        },
+        {
+            "type": "text",
+            "id": "btn_text",
+            "label": "Button Text",
+            "default": "Join Our Team"
+        },
+        {
+            "type": "url",
+            "id": "btn_url",
+            "label": "Button URL"
+        },
+    ],
+    "blocks": [
+        {
+            "type": "team_member",
+            "name": "Team Member",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image"
+                },
+                {
+                    "type": "text",
+                    "id": "name",
+                    "label": "Name"
+                },
+                {
+                    "type": "text",
+                    "id": "job",
+                    "label": "Job"
+                }
+            ]
+        }
+    ],
+    "max_blocks": 6,
+    "presets": [
+      {
+        "name": "my-team-showcase",
+        "settings": {
+        }
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,83 @@
+{{ 'my-text-banner.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign title_block = section.blocks | where: 'type', 'title' | first
+  assign desc_block = section.blocks | where: 'type', 'desc' | first
+  assign button_block = section.blocks | where: 'type', 'buttons' | first
+-%}
+
+<responsive-container class="my-text-banner__container color-{{ section.settings.color_scheme }}">
+    <div class="title h2">{{ title_block.settings.title }}</div>
+    <div class="desc">{{ desc_block.settings.description }}</div>
+    <a href="{{ button_block.settings.url }}">
+        <button class="btn">{{ button_block.settings.text }}</button>
+    </a>
+</responsive-container>
+
+{% schema %}
+  {
+    "name": "my-text-banner",
+    "tag": "section",
+    "settings": [
+        {
+            "type": "color_scheme",
+            "id": "color_scheme",
+            "label": "Color scheme",
+            "info": "Choose a color scheme.",
+            "default": "scheme-4"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "title",
+            "name": "Title",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title",
+                    "default": "Title"
+                }
+            ]
+        },
+        {
+            "type": "desc",
+            "name": "Description",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "richtext",
+                    "id": "description",
+                    "label": "Description"
+                }
+            ]
+        },
+        {
+            "type": "buttons",
+            "name": "Buttons",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "text",
+                    "label": "Button Text",
+                    "default": "Get In Touch"
+                },
+                {
+                    "type": "url",
+                    "id": "url",
+                    "label": "Button URL"
+                }
+            ]
+        }
+    ],
+    "presets": [
+      {
+        "name": "my-text-banner",
+        "settings": {
+        }
+      }
+    ]
+  }
+{% endschema %}

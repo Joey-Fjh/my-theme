@@ -1,8 +1,38 @@
 {{ 'my-page-aboutus2.css' | asset_url | stylesheet_tag }}
 
+{%- liquid
+  assign banner_image_block = section.blocks | where: "type", "image" | first
+  assign banner_info_block = section.blocks | where: "type", "banner-info" | first
+-%}
+
 <responsive-container class="my-page-aboutus2__container">
-    <div>This is aboutus 2</div>
-    {{ page.title }} - {{ page.content }}
+  <div class="top-info__container">
+    <div class="title h1">
+      {{ section.settings.title }}
+    </div>
+    <div class="sale-info">
+      <span class="h1">{{ section.settings.sale_info }}</span>
+      <span class="h3" style="font-weight:500;">Items Sale</span>
+    </div>
+    <div class="invest-info">
+      <span class="h1">{{ section.settings.investment_info }}</span>
+      <span class="h3" style="font-weight:500;">Return On Investment</span>
+    </div>
+  </div>
+  <div class="banner__container">
+    <responsive-container class="banner-image__container">
+      {{ banner_image_block.settings.banner_image 
+        | image_url: width: 1440 , height: 600 
+        | image_tag:
+            alt: banner_image_block.settings.banner_image.title
+      }}
+      <div class="title h0">{{ banner_image_block.settings.title }}</div>
+      <div class="banner-info">
+        <div class="info-title h1">{{ banner_info_block.settings.title }}</div>
+        <div class="description h3">{{ banner_info_block.settings.description }}</div>
+      </div>
+    </responsive-container>
+  </div>
 </responsive-container>
 
 {% schema %}
@@ -10,7 +40,62 @@
     "name": "my-page-aboutus2",
     "tag": "section",
     "settings": [
-      
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "About Us"
+      },
+      {
+        "type": "text",
+        "id": "sale_info",
+        "label": "Sale Info",
+        "default": "50+"
+      },
+      {
+        "type": "text",
+        "id": "investment_info",
+        "label": "Investment Info",
+        "default": "300%"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "image",
+        "name": "banner",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "banner_image",
+            "label": "Banner Image"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "About Us"
+          }
+        ]
+      },
+      {
+        "type": "banner-info",
+        "name": "banner-info",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Why Choose Us"
+          },
+          {
+            "type": "richtext",
+            "id": "description",
+            "label":"Description"
+          }
+        ]
+      }
     ],
     "presets": [
       {
