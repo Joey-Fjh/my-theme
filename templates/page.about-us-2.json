@@ -36,9 +36,43 @@
         "sale_info": "50+",
         "investment_info": "300%"
       }
+    },
+    "my_image_with_text1_3GnppJ": {
+      "type": "my-image-with-text1",
+      "blocks": {
+        "title_nXQgqK": {
+          "type": "title",
+          "settings": {
+            "title": "Elevate Your Style: A Unique Fashion Experience at Pixio"
+          }
+        },
+        "description_FpJXi8": {
+          "type": "description",
+          "settings": {
+            "description": "<p>At Untouch, we're dedicated to creating an exclusive fashion destination that transcends the ordinary. Our passion for style, quality, and individuality drives our mission. Our collection is a carefully curated blend of timeless classics and the latest trends,<br/><br/>In addition to our extensive collection, we're equally devoted to ensuring your shopping experience is seamless and enjoyable. Our website is designed with your convenience in mind, offering secure transactions and a responsive customer support team to assist you every step of the way.<br/><br/></p>"
+          }
+        },
+        "avatar_TyTtAj": {
+          "type": "avatar",
+          "settings": {
+            "name": "",
+            "job": ""
+          }
+        }
+      },
+      "block_order": [
+        "title_nXQgqK",
+        "description_FpJXi8",
+        "avatar_TyTtAj"
+      ],
+      "name": "my-image-with-text1",
+      "settings": {
+        "image": "shopify://shop_images/9022a705161ff42b7879d88f1fd6d0e8_e2aac91e-8a5b-44b6-83b8-797651c77e8c.png"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "my_image_with_text1_3GnppJ"
   ]
 }
