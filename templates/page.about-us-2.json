@@ -70,10 +70,44 @@
       "settings": {
         "image": "shopify://shop_images/9022a705161ff42b7879d88f1fd6d0e8_e2aac91e-8a5b-44b6-83b8-797651c77e8c.png"
       }
+    },
+    "my_text_banner_CxrYiX": {
+      "type": "my-text-banner",
+      "blocks": {
+        "title_MDQGiL": {
+          "type": "title",
+          "settings": {
+            "title": "Questions ?"
+          }
+        },
+        "desc_DBz8AE": {
+          "type": "desc",
+          "settings": {
+            "description": "<p>Our experts will help find the grar that’s right for you</p>"
+          }
+        },
+        "buttons_pFatAD": {
+          "type": "buttons",
+          "settings": {
+            "text": "Get In Touch",
+            "url": "shopify://pages/contact-us1"
+          }
+        }
+      },
+      "block_order": [
+        "title_MDQGiL",
+        "desc_DBz8AE",
+        "buttons_pFatAD"
+      ],
+      "name": "my-text-banner",
+      "settings": {
+        "color_scheme": ""
+      }
     }
   },
   "order": [
     "main",
-    "my_image_with_text1_3GnppJ"
+    "my_image_with_text1_3GnppJ",
+    "my_text_banner_CxrYiX"
   ]
 }
