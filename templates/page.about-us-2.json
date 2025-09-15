@@ -114,10 +114,55 @@
             "name": "Joey",
             "job": "CEO"
           }
+        },
+        "team_member_tbx4kF": {
+          "type": "team_member",
+          "settings": {
+            "image": "shopify://shop_images/1-1_1f407948-93dd-4e35-8503-feaed3449b41.png",
+            "name": "Joey",
+            "job": "CEO"
+          }
+        },
+        "team_member_k8b6XT": {
+          "type": "team_member",
+          "settings": {
+            "image": "shopify://shop_images/1-1_1f407948-93dd-4e35-8503-feaed3449b41.png",
+            "name": "Joey",
+            "job": "CEO"
+          }
+        },
+        "team_member_36MmBr": {
+          "type": "team_member",
+          "settings": {
+            "image": "shopify://shop_images/1-1_1f407948-93dd-4e35-8503-feaed3449b41.png",
+            "name": "Joey",
+            "job": "CEO"
+          }
+        },
+        "team_member_tXhHQr": {
+          "type": "team_member",
+          "settings": {
+            "image": "shopify://shop_images/1-1_1f407948-93dd-4e35-8503-feaed3449b41.png",
+            "name": "Joey",
+            "job": "CEO"
+          }
+        },
+        "team_member_xyVWnc": {
+          "type": "team_member",
+          "settings": {
+            "image": "shopify://shop_images/1-1_1f407948-93dd-4e35-8503-feaed3449b41.png",
+            "name": "Joey",
+            "job": "CEO"
+          }
         }
       },
       "block_order": [
-        "team_member_hJKryy"
+        "team_member_hJKryy",
+        "team_member_tbx4kF",
+        "team_member_k8b6XT",
+        "team_member_36MmBr",
+        "team_member_tXhHQr",
+        "team_member_xyVWnc"
       ],
       "name": "my-team-showcase",
       "settings": {
