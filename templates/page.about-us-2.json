@@ -103,11 +103,35 @@
       "settings": {
         "color_scheme": ""
       }
+    },
+    "my_team_showcase_eynFUf": {
+      "type": "my-team-showcase",
+      "blocks": {
+        "team_member_hJKryy": {
+          "type": "team_member",
+          "settings": {
+            "image": "shopify://shop_images/1-1_1f407948-93dd-4e35-8503-feaed3449b41.png",
+            "name": "Joey",
+            "job": "CEO"
+          }
+        }
+      },
+      "block_order": [
+        "team_member_hJKryy"
+      ],
+      "name": "my-team-showcase",
+      "settings": {
+        "text": "Meet Our Team Of Creators,Designers,And World-Class Problem Solvers",
+        "description": "<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words.</p>",
+        "btn_text": "Join Our Team",
+        "btn_url": ""
+      }
     }
   },
   "order": [
     "main",
     "my_image_with_text1_3GnppJ",
-    "my_text_banner_CxrYiX"
+    "my_text_banner_CxrYiX",
+    "my_team_showcase_eynFUf"
   ]
 }
