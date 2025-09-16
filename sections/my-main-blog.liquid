@@ -1,0 +1,83 @@
+{{ 'my-main-blog.css' | asset_url | stylesheet_tag  }}
+
+
+{%- liquid
+  assign handle = blog.handle
+  assign articles = blog.articles
+-%}
+
+<responsive-container class="my-main-blog__container">
+    <responsive-container class="top">
+      {{ 
+        section.settings.banner_image
+        | image_url: width: 1440, height: 338
+        | image_tag:
+            alt: section.settings.banner_image.alt
+      }}
+      <div class="title h0">Blog</div>
+    </responsive-container>
+    <div class="bottom">
+      {%- for article in articles limit: 1 -%}
+        {%- if article -%}
+          <responsive-container class="banner-article__container">
+            {{ 
+              article.image
+              | image_url: width: 1200, height: 466
+              | image_tag:
+                  alt: article.image.alt 
+            }}
+            <div class="info">
+              <div class="title h1" style="color:#fff;">{{ article.title }}</div>
+              <a href="{{ article.url }}">
+                <button class="btn">READ MORE</button>
+              </a>
+            </div>
+          </responsive-container>
+        {%- endif -%}
+      {%- endfor -%}
+
+      <div class="other-article__container">
+        {%- for article in articles offset: 1 -%}
+          {%- if articles.size > 1 -%}
+            <div class="my-article-card__container">
+              <responsive-container class="article-image__container">
+                {{ 
+                  article.image
+                  | image_url: width: 388, height: 290
+                  | image_tag:
+                      alt: article.image.alt
+                }}
+              </responsive-container>
+              <div class="article-info">
+                <p>{{ handle }}</p>
+                <p>{{ article.title }}</p>
+                <p>{{ article.content | truncatewords:30 }}</p>
+                <a href="{{ article.url }}" style="color:#000;">Read more</a>
+              </div>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+</responsive-container>
+
+{% schema %}
+  {
+    "name": "my-main-blog",
+    "tag": "section",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "banner_image",
+            "label": "Banner Image"
+        }
+    ],
+    "presets": [
+      {
+        "name": "my-main-blog",
+        "settings": {
+        }
+      }
+    ]
+  }
+{% endschema %}

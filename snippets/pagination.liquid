@@ -9,6 +9,8 @@
   Accepts:
   - paginate: {Object}
   - anchor: {String} (optional) This can be added so that on page reload it takes you to wherever you've placed your anchor tag.
+  - showPrevious: {Boolean} (optional) Whether to show the previous link if there are not previous page. Defaults to false.
+  - showNext: {Boolean} (optional) Whether to show the next link if there are not next page. Defaults to false.
 {% endcomment %}
 
 {{ 'component-pagination.css' | asset_url | stylesheet_tag }}
@@ -17,7 +19,7 @@
   <div class="pagination-wrapper" data-page="{{ paginate.current_page }}">
     <nav class="pagination" role="navigation" aria-label="{{ 'general.pagination.label' | t }}">
       <ul class="pagination__list list-unstyled" role="list">
-        {%- if paginate.previous -%}
+        {%- if paginate.previous or showPrevious-%}
           <li>
             <a
               href="{{ paginate.previous.url }}{{ anchor }}"
@@ -59,7 +61,7 @@
           </li>
         {%- endfor -%}
 
-        {%- if paginate.next -%}
+        {%- if paginate.next or showNext-%}
           <li>
             <a
               href="{{ paginate.next.url }}{{ anchor }}"
