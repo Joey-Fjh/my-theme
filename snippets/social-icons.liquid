@@ -2,15 +2,53 @@
   Renders social icons.
   Accepts:
   - class: {String} a class to be added to the <ul> element (optional).
-
+  - showFacebook: {Boolean} whether to show Facebook icon (default: true).
+  - showTwitter: {Boolean} whether to show Twitter icon (default: true).
+  - showInstagram: {Boolean} whether to show Instagram icon (default: true).
+  - show_youtube: {Boolean} whether to show Youtube icon (default: true).
+  - showPinterest: {Boolean} whether to show Pinterest icon (default: true).
+  - showTiktok: {Boolean} whether to show LinkedIn icon (default: true).
+  - showSnapchat: {Boolean} whether to show Github icon (default: true).
+  - showTumblr: {Boolean} whether to show LinkedIn icon (default: true).
+  - showVimeo: {Boolean} whether to show Github icon (default: true).
   Usage:
   {% render 'social-icons',
     class: 'my-class'
   %}
 {% endcomment %}
 
+{%- liquid
+  if show_facebook == nil
+    assign show_facebook = true    
+  endif
+  if show_twitter == nil
+    assign show_twitter = true    
+  endif
+  if show_instagram == nil
+    assign show_instagram = true
+  endif
+  if show_youtube == nil
+    assign show_youtube = true
+  endif
+  if show_pinterest == nil
+    assign show_pinterest = true
+  endif
+  if show_tiktok == nil
+    assign show_tiktok = true
+  endif
+  if show_snapchat == nil
+    assign show_snapchat = true
+  endif
+  if show_tumblr == nil
+    assign show_tumblr = true
+  endif
+  if show_vimeo == nil
+    assign show_vimeo = true
+  endif
+-%}
+
 <ul class="list-unstyled list-social{% if class %} {{ class}}{% endif %}" role="list">
-  {%- if settings.social_facebook_link != blank -%}
+  {%- if settings.social_facebook_link != blank and show_facebook -%}
     <li class="list-social__item">
       <a href="{{ settings.social_facebook_link }}" class="link list-social__link">
         <span class="svg-wrapper">
@@ -20,7 +58,7 @@
       </a>
     </li>
   {%- endif -%}
-  {%- if settings.social_instagram_link != blank -%}
+  {%- if settings.social_instagram_link != blank and show_instagram -%}
     <li class="list-social__item">
       <a href="{{ settings.social_instagram_link }}" class="link list-social__link">
         <span class="svg-wrapper">
@@ -30,7 +68,7 @@
       </a>
     </li>
   {%- endif -%}
-  {%- if settings.social_youtube_link != blank -%}
+  {%- if settings.social_youtube_link != blank and show_youtube -%}
     <li class="list-social__item">
       <a href="{{ settings.social_youtube_link }}" class="link list-social__link">
         <span class="svg-wrapper">
@@ -40,7 +78,7 @@
       </a>
     </li>
   {%- endif -%}
-  {%- if settings.social_tiktok_link != blank -%}
+  {%- if settings.social_tiktok_link != blank and show_tiktok -%}
     <li class="list-social__item">
       <a href="{{ settings.social_tiktok_link }}" class="link list-social__link">
         <span class="svg-wrapper">
@@ -50,7 +88,7 @@
       </a>
     </li>
   {%- endif -%}
-  {%- if settings.social_twitter_link != blank -%}
+  {%- if settings.social_twitter_link != blank and show_twitter -%}
     <li class="list-social__item">
       <a href="{{ settings.social_twitter_link }}" class="link list-social__link">
         <span class="svg-wrapper">
@@ -60,7 +98,7 @@
       </a>
     </li>
   {%- endif -%}
-  {%- if settings.social_pinterest_link != blank -%}
+  {%- if settings.social_pinterest_link != blank and show_pinterest -%}
     <li class="list-social__item">
       <a href="{{ settings.social_pinterest_link }}" class="link list-social__link">
         <span class="svg-wrapper">
@@ -70,7 +108,7 @@
       </a>
     </li>
   {%- endif -%}
-  {%- if settings.social_snapchat_link != blank -%}
+  {%- if settings.social_snapchat_link != blank and show_snapchat -%}
     <li class="list-social__item">
       <a href="{{ settings.social_snapchat_link }}" class="link list-social__link">
         <span class="svg-wrapper">
@@ -80,7 +118,7 @@
       </a>
     </li>
   {%- endif -%}
-  {%- if settings.social_tumblr_link != blank -%}
+  {%- if settings.social_tumblr_link != blank and show_tumblr -%}
     <li class="list-social__item">
       <a href="{{ settings.social_tumblr_link }}" class="link list-social__link">
         <span class="svg-wrapper">
@@ -90,7 +128,7 @@
       </a>
     </li>
   {%- endif -%}
-  {%- if settings.social_vimeo_link != blank -%}
+  {%- if settings.social_vimeo_link != blank and show_vimeo -%}
     <li class="list-social__item">
       <a href="{{ settings.social_vimeo_link }}" class="link list-social__link">
         <span class="svg-wrapper">
