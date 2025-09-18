@@ -23,6 +23,13 @@
           "type": "title",
           "settings": {}
         },
+        "text_fp4KLE": {
+          "type": "text",
+          "settings": {
+            "text": "A type of casual shorts, typically for men, with multiple pockets for function. Sundress with drawstring: A loose-fitting, sleeveless dress, often for women, with a drawstring at the waist for adjustability and a relaxed silhouette.",
+            "text_style": "body"
+          }
+        },
         "price": {
           "type": "price",
           "settings": {}
@@ -49,6 +56,7 @@
       "block_order": [
         "vendor",
         "title",
+        "text_fp4KLE",
         "price",
         "variant_picker",
         "quantity_selector",
