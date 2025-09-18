@@ -15,8 +15,8 @@
         "vendor": {
           "type": "text",
           "settings": {
-            "text": "{{ product.vendor }}",
-            "text_style": "uppercase"
+            "text": "<strong>SALE 70% OFF</strong>",
+            "text_style": "body"
           }
         },
         "title": {
