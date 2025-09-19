@@ -80,6 +80,20 @@
             "show_payment_shopify_pay": false,
             "show_payment_sofort": false
           }
+        },
+        "popup_YqhYP8": {
+          "type": "popup",
+          "settings": {
+            "text": "Size guide",
+            "page": ""
+          }
+        },
+        "popup_gPB6F8": {
+          "type": "popup",
+          "settings": {
+            "text": "Returns",
+            "page": ""
+          }
         }
       },
       "block_order": [
@@ -90,7 +104,9 @@
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
-        "payment_icons_xrXTrB"
+        "payment_icons_xrXTrB",
+        "popup_YqhYP8",
+        "popup_gPB6F8"
       ],
       "settings": {
         "enable_sticky_info": true,
