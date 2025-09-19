@@ -140,6 +140,150 @@
         "padding_bottom": 12
       }
     },
+    "my_product_content_zXjPzg": {
+      "type": "my-product-content",
+      "blocks": {
+        "product_multiple_columns_7ieem9": {
+          "type": "product-multiple-columns",
+          "name": "product-multiple-columns",
+          "settings": {
+            "title": "Multicolumn",
+            "columns_desktop": 4,
+            "column_alignment": "left"
+          },
+          "blocks": {
+            "column_7mzJg8": {
+              "type": "column",
+              "name": "column",
+              "settings": {
+                "title": "",
+                "description": ""
+              },
+              "blocks": {}
+            },
+            "column_mtfLUe": {
+              "type": "column",
+              "name": "column",
+              "settings": {
+                "title": "",
+                "description": ""
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "column_7mzJg8",
+            "column_mtfLUe"
+          ]
+        },
+        "product_multiple_columns_QLwwP4": {
+          "type": "product-multiple-columns",
+          "name": "product-multiple-columns",
+          "settings": {
+            "title": "Multicolumn",
+            "columns_desktop": 4,
+            "column_alignment": "left"
+          },
+          "blocks": {
+            "customer_comment_fcBKcK": {
+              "type": "customer-comment",
+              "name": "customer-comment",
+              "settings": {
+                "user_comments": []
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "customer_comment_fcBKcK"
+          ]
+        },
+        "product_multiple_columns_BbXQr9": {
+          "type": "product-multiple-columns",
+          "name": "product-multiple-columns",
+          "settings": {
+            "title": "Multicolumn",
+            "columns_desktop": 4,
+            "column_alignment": "left"
+          },
+          "blocks": {
+            "column_DEGmJU": {
+              "type": "column",
+              "name": "column",
+              "settings": {
+                "title": "",
+                "description": ""
+              },
+              "blocks": {}
+            },
+            "column_bEyebB": {
+              "type": "column",
+              "name": "column",
+              "settings": {
+                "title": "",
+                "description": ""
+              },
+              "blocks": {}
+            },
+            "column_4cqpTr": {
+              "type": "column",
+              "name": "column",
+              "settings": {
+                "title": "",
+                "description": ""
+              },
+              "blocks": {}
+            },
+            "column_w7QgAn": {
+              "type": "column",
+              "name": "column",
+              "settings": {
+                "title": "",
+                "description": ""
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "column_DEGmJU",
+            "column_bEyebB",
+            "column_4cqpTr",
+            "column_w7QgAn"
+          ]
+        },
+        "product_multiple_columns_fxJCnf": {
+          "type": "product-multiple-columns",
+          "name": "product-multiple-columns",
+          "settings": {
+            "title": "Multicolumn",
+            "columns_desktop": 4,
+            "column_alignment": "left"
+          },
+          "blocks": {
+            "column_3xriAw": {
+              "type": "column",
+              "name": "column",
+              "settings": {
+                "title": "",
+                "description": ""
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "column_3xriAw"
+          ]
+        }
+      },
+      "block_order": [
+        "product_multiple_columns_7ieem9",
+        "product_multiple_columns_QLwwP4",
+        "product_multiple_columns_BbXQr9",
+        "product_multiple_columns_fxJCnf"
+      ],
+      "name": "my-product-content",
+      "settings": {}
+    },
     "related-products": {
       "type": "related-products",
       "settings": {
@@ -161,6 +305,7 @@
   },
   "order": [
     "main",
+    "my_product_content_zXjPzg",
     "related-products"
   ]
 }
