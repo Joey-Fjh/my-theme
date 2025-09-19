@@ -147,8 +147,8 @@
           "type": "product-multiple-columns",
           "name": "product-multiple-columns",
           "settings": {
-            "title": "Multicolumn",
-            "columns_desktop": 4,
+            "title": "Description",
+            "columns_desktop": 2,
             "column_alignment": "left"
           },
           "blocks": {
@@ -180,8 +180,8 @@
           "type": "product-multiple-columns",
           "name": "product-multiple-columns",
           "settings": {
-            "title": "Multicolumn",
-            "columns_desktop": 4,
+            "title": "Customer Reviews",
+            "columns_desktop": 1,
             "column_alignment": "left"
           },
           "blocks": {
@@ -202,7 +202,7 @@
           "type": "product-multiple-columns",
           "name": "product-multiple-columns",
           "settings": {
-            "title": "Multicolumn",
+            "title": "Shipping & Returns",
             "columns_desktop": 4,
             "column_alignment": "left"
           },
@@ -255,8 +255,8 @@
           "type": "product-multiple-columns",
           "name": "product-multiple-columns",
           "settings": {
-            "title": "Multicolumn",
-            "columns_desktop": 4,
+            "title": "Return Policies",
+            "columns_desktop": 1,
             "column_alignment": "left"
           },
           "blocks": {
