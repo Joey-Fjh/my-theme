@@ -1,0 +1,30 @@
+<div class="column">
+  <h3>{{ block.settings.title }}</h3>
+  {{ block.settings.description }}
+</div>
+
+{% schema %}
+  {
+    "name": "column",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "richtext",
+        "id": "description",
+        "label": "Description"
+      }
+    ],
+    "presets": [
+      {
+        "name": "column",
+        "settings": {
+        }
+      }
+    ]
+  }
+{% endschema %}

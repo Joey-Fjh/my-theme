@@ -1,0 +1,50 @@
+<script src='{{ 'my-userComment-container.js' | asset_url }}'  type="module" defer></script>
+
+<my-user-comment-container>
+    <div class="swiper">
+        <div class="swiper-wrapper customer-comment">
+        {%- for comment in block.settings.user_comments -%}
+            <div class="comment__container swiper-slide">
+                <div class="star">
+                    {%- render 'icon-star',rating: comment.star.value | strip | times: 1 | round:0 -%}
+                </div>
+                <div class="product-name h3">
+                    {{ all_products[comment.product].title }}
+                </div>
+                <div class="comment">
+                    {{ comment.comment }}
+                </div>
+                <div class="divide"></div>
+                <div class="customer-name h4">
+                    {{ comment.customer_name }}
+                </div>
+                <div class="country">
+                    Customer from {{ comment.country }}
+                </div>
+            </div>
+        {%- endfor -%}
+    </div>
+    </div>
+</my-user-comment-container>
+
+{% schema %}
+  {
+    "name": "customer-comment",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "metaobject_list",
+        "id": "user_comments",
+        "label":"User Comments",
+        "metaobject_type": "user_comment",
+      }
+    ],
+    "presets": [
+      {
+        "name": "customer-comment",
+        "settings": {
+        }
+      }
+    ]
+  }
+{% endschema %}

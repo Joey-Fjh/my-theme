@@ -1,0 +1,28 @@
+{{ 'my-product-content.css' | asset_url | stylesheet_tag  }}
+<script src="{{ 'my-accordion-container.js' | asset_url}}" defer type="module"></script>
+
+<responsive-container class="my-product-content__container">
+   {% content_for 'blocks' %}
+</responsive-container>
+
+
+{% schema %}
+  {
+    "name": "my-product-content",
+    "tag": "section",
+    "settings": [
+    ],
+    "blocks": [
+      {
+        "type": "product-multiple-columns"
+      }
+    ],
+    "presets": [
+      {
+        "name": "my-product-content",
+        "settings": {
+        }
+      }
+    ]
+  }
+{% endschema %}

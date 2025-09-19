@@ -291,7 +291,13 @@
                     </quantity-input>
                   </div>
                 </div>    
-
+              {%- when 'payment_icons' -%}
+                {%- if block.settings.show_payment -%}
+                  <div class="payment-icons">
+                    <span>Guranteed safe checkout: </span>
+                    {%- render 'footer-payment',block: block-%}
+                  </div>
+                {%- endif -%}
             {%- endcase -%}
           {%- endfor -%}
 
@@ -561,6 +567,145 @@
           "id": "page",
           "type": "page",
           "label": "t:sections.main-product.blocks.popup.settings.page.label"
+        }
+      ]
+    },
+    {
+      "type": "payment_icons",
+      "name":"Payment icons",
+      "settings": [
+        {
+          "id": "show_payment",
+          "type": "checkbox",
+          "default": true,
+          "label": "show_payment"
+        },
+        {
+          "type": "select",
+          "id": "payment_type",
+          "label": "payment_type.option",
+          "default": "custom",
+          "options": [
+              {
+              "value": "default",
+              "label": "default"
+              },
+              {
+              "value": "custom",
+              "label": "custom"
+              }
+          ],
+          "info": "payment_typeinfo"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_visa",
+          "label": "Visa"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_master",
+          "label": "Master"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_maestro",
+          "label": "Maestro"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_american_express",
+          "label": "American Express"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_apple_pay",
+          "label": "Apple Pay"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_bitcoin",
+          "label": "Bitcoin"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_dankort",
+          "label": "Dankort"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_diners_club",
+          "label": "Diners Club"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_discover",
+          "label": "Discover"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_paypal",
+          "label": "Paypal"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_dogecoin",
+          "label": "Dogecoin"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_dwolla",
+          "label": "Dwolla"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_forbrugsforeningen",
+          "label": "Forbrugsforeningen"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_jcb",
+          "label": "JCB"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_litecoin",
+          "label": "Litecoin"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_afterpay",
+          "label": "Afterpay"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_google_pay",
+          "label": "Googlepay"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_ideal",
+          "label": "Ideal"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_klarna",
+          "label": "Klarna"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_klarna-pay-later",
+          "label": "Klarnapay Later"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_shopify_pay",
+          "label": "Shopifypay"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_sofort",
+          "label": "Sofort"
         }
       ]
     }
