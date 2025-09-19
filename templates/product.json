@@ -94,6 +94,13 @@
             "text": "Returns",
             "page": ""
           }
+        },
+        "popup_8PFaiN": {
+          "type": "popup",
+          "settings": {
+            "text": "Shipping",
+            "page": ""
+          }
         }
       },
       "block_order": [
@@ -106,7 +113,8 @@
         "buy_buttons",
         "payment_icons_xrXTrB",
         "popup_YqhYP8",
-        "popup_gPB6F8"
+        "popup_gPB6F8",
+        "popup_8PFaiN"
       ],
       "settings": {
         "enable_sticky_info": true,
