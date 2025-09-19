@@ -101,6 +101,13 @@
             "text": "Shipping",
             "page": ""
           }
+        },
+        "popup_XGAcjX": {
+          "type": "popup",
+          "settings": {
+            "text": "Contact us",
+            "page": "contact-us1"
+          }
         }
       },
       "block_order": [
@@ -114,7 +121,8 @@
         "payment_icons_xrXTrB",
         "popup_YqhYP8",
         "popup_gPB6F8",
-        "popup_8PFaiN"
+        "popup_8PFaiN",
+        "popup_XGAcjX"
       ],
       "settings": {
         "enable_sticky_info": true,
