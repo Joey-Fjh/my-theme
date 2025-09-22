@@ -30,6 +30,19 @@
     },
     "my_merchant_info_QKEPTe": {
       "type": "my-merchant-info",
+      "blocks": {
+        "merchant_info_CH8Q6Y": {
+          "type": "merchant-info",
+          "settings": {
+            "country": "Paris",
+            "address": "Reach out to us in case of any queries or concerns.",
+            "hours": "Monday – Friday: 9:00 – 21:00\nSaturday: 11:00 – 21:00"
+          }
+        }
+      },
+      "block_order": [
+        "merchant_info_CH8Q6Y"
+      ],
       "name": "my-merchant-info",
       "settings": {
         "title": "Get in touch with us at our stores",
