@@ -46,11 +46,20 @@
             "address": "123 Atlantic, Brooklyn, New York, USA +403 374 748 3839",
             "hours": "Monday – Friday: 9:00 – 21:00\nSaturday: 11:00 – 21:00"
           }
+        },
+        "merchant_info_7wxLTg": {
+          "type": "merchant-info",
+          "settings": {
+            "country": "London",
+            "address": "123 Atlantic, Brooklyn, New York, USA +403 374 748 3839",
+            "hours": "Monday – Friday: 9:00 – 21:00\nSaturday: 11:00 – 21:00"
+          }
         }
       },
       "block_order": [
         "merchant_info_CH8Q6Y",
-        "merchant_info_yL6dU4"
+        "merchant_info_yL6dU4",
+        "merchant_info_7wxLTg"
       ],
       "name": "my-merchant-info",
       "settings": {
