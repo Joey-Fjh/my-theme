@@ -1,0 +1,1 @@
+.contact{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-justify-content:space-around;-ms-flex-pack:distribute;justify-content:space-around;gap:1rem}.contact .head__container,.contact .form__container{-webkit-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1}@media screen and (min-width: 1200px){.contact{max-width:120rem}}

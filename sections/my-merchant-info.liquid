@@ -1,0 +1,67 @@
+{{ 'my-merchant-info.css' | asset_url | stylesheet_tag }}
+
+<responsive-container class="my-merchant-info__container">
+  <div class="section-title">
+    <h2 class="h1">{{ section.settings.title }}</h2>
+    <p>{{ section.settings.description }}</p>
+  </div>
+
+  <div class="stores-container">
+    {%- for store_block in section.blocks -%}
+      <div class="store-card">
+        <h3>{{ store_block.settings.country }}</h3>
+        <div class="store-address">{{ store_block.settings.address }}</div>
+        <div class="store-hours">{{ store_block.settings.hours | newline_to_br }}</div>
+      </div>
+    {%- endfor -%}
+  </div>
+</responsive-container>
+
+{% schema %}
+  {
+    "name": "my-merchant-info",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "description",
+        "label": "Description"
+      }
+    ],
+    "blocks": [
+        {
+            "type": "merchant-info",
+            "name":"Merchant Info",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "country",
+                    "label": "Country"
+                },
+                {
+                    "type": "text",
+                    "id": "address",
+                    "label": "Address"
+                },
+                {
+                    "type": "textarea",
+                    "id": "hours",
+                    "label": "Times"
+                }
+            ]
+        }
+    ],
+    "presets": [
+      {
+        "name": "my-merchant-info",
+        "settings": {
+        }
+      }
+    ]
+  }
+{% endschema %}
