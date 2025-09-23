@@ -4,75 +4,172 @@
 <sticky-header data-sticky-header="on-srcoll-up" class="header-wrapper gradient header-wrapper--border-bottom">
   <responsive-container class="header-container">
       <div class="header-menu__container">
-        <ul class="menu">        
-          {% for link in linklists.main-menu.links %}
-            <li class="menu-link">
-              <a href="{{ link.url }}">{{ link.title }}</a> 
+        {%- if section.settings.menu_type == 'default' -%}
+          <nav class="desktop-nav">  
+            {% for link in linklists.main-menu.links %}
+              {%- assign has_submenu = false -%}
               {%- if link.links.size > 0 -%}
-                <ul class="menu dropdown-child">
-                  {% for child_link in link.links %}
-                    <li class="menu-link">
-                      <a href="{{ child_link.url }}">{{ child_link.title }}</a>
-                      
-                      {%- if child_link.links.size > 0 -%}
-                        <ul class="menu dropdown-grandChild">
-                          {% for grandChild_link in child_link.links %}
-                            <li class="menu-link">
-                              <a href="{{ grandChild_link.url }}">{{ grandChild_link.title }}</a>
-                            </li>
-                          {% endfor %}
-                        </ul>
-                      {%- endif -%}
-                    </li>
-                  {% endfor %}
-                </ul>
+                {%- assign has_submenu = true -%}
               {%- endif -%}
-            </li>
-          {% endfor %}
-        </ul>
+              <div class="nav-item">
+                <a href="{{ link.url }}" class="nav-link">
+                  {{ link.title }}
+                  {%- if has_submenu == true %}
+                    {{- 'icon-nav-arrow.svg' | inline_asset_content -}}
+                  {%- endif -%}
+                </a>
 
-        <my-mobile-menu>
-          <div class="mobile-menu">
+                {% comment %} sendary-menu {% endcomment %}
+                {%- if link.links.size > 0 -%}
+                  <div class="submenu">
+                    {%- for child_link in link.links -%}
+                      {%- assign has_third = false -%}
+                      {%- if child_link.links.size > 0 -%}
+                        {%- assign has_third = true -%}
+                      {%- endif -%}
+                      <div class="submenu-item {% if has_third == true %} has-child {% endif %}">
+                        <a href="{{ child_link.url }}" style="display:flex;justify-content:space-between;align-items: center;">
+                          {{ child_link.title }}
+                          {%- if has_third == true %}
+                            <div class="arrow-right">
+                              {{- 'icon-nav-arrow.svg' | inline_asset_content -}}
+                            </div>
+                          {%- endif -%}
+                        </a>
+                        {%- if has_third == true %}
+                          {% comment %} third-menu {% endcomment %}
+                          <div class="thirdmenu">
+                            {%- for grandChild_link in child_link.links -%}
+                              <div class="submenu-item">
+                                <a href="{{ grandChild_link.url }}">{{ grandChild_link.title }}</a>
+                              </div>
+                            {%- endfor -%}
+                          </div>
+                        {%- endif -%}
+                      </div>
+                    {%- endfor -%}
+                  </div> 
+                {%- endif -%}
+              </div>
+            {% endfor %}
+          </nav>
+        {%- else -%}
+          <nav class="desktop-supernav">
+            {%- for link in linklists.main-menu.links -%}
+              <div class="nav-item">
+                <a href="{{ link.url }}" class="nav-link">
+                  {{ link.title }}
+                  {{- 'icon-nav-arrow.svg' | inline_asset_content -}}
+                </a> 
+              </div> 
+            {%- endfor -%}
+            <div class="supermenu">
+              <div class="inner">
+                <div class="supermenu-columns">
+                  {%- for link in linklists.main-menu.links -%}
+                    {%- for child_link in link.links -%}
+                      {%- unless child_link == nil  -%}
+                        <div class="supermenu-column">
+                          <a href="{{ child_link.url }}">{{ child_link.title }}</a>
+
+                          {%- for grand_link in child_link.links -%}
+                            <a href="{{ grand_link.url }}">{{ grand_link.title }}</a>
+                          {%- endfor -%}
+                        </div>
+                      {%- endunless -%}
+                    {%- endfor -%}
+                  {%- endfor -%}
+                </div>
+                <div class="supermenu-image">
+                  {% for i in (1..3) %}
+                    {% assign collection_key = "collection_" | append: i %}
+                    {% assign collection = section.settings[collection_key] %}
+
+                    {% if collection %}
+                        <a href="{{ collection.url }}">
+                          <responsive-container>
+                            {{ 
+                              collection.featured_image
+                              | image_url: width: 200, height: 200
+                              | image_tag:
+                                  alt: collection.title
+                            }}  
+                          </responsive-container>                           
+                          <span>{{ collection.title }}</span>
+                        </a>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </nav>
+        {% endif %}
+
+        <my-mobile-menu class="mobile-nav">
+          <button class="mobile-menu-button">
             <img
               width="32"
               height="32" 
               src="{{ 'icon-menu.svg' | asset_url }}" 
               alt="icon-menu"
             />
-            <div class="menu-drawer">
-              <ul class="menu">
-                {%- for link in linklists.main-menu.links -%}
-                  <li class="menu-link">
-                    <a href="{{ link.url }}">
-                      {{ link.title }}
-                    </a>
-                    {%- if link.links.size > 0 -%}
-                      {%- for child_link in link.links -%}
-                        <li class="menu-link child">
-                          <a href="{{ child_link.url }}">
-                            {{ child_link.title }}
-                          </a>
-                          {%- if child_link.links.size > 0 -%}
-                            {%- for grandChild_link in child_link.links -%}
-                              <li class="menu-link grandChild">
-                                <a href="{{ grandChild_link.url }}">
-                                  {{ grandChild_link.title }}
-                                </a>
-                              </li>
-                            {%- endfor -%}
-                          {%- endif -%}
-                        </li>
-                      {%- endfor -%}
+          </button>
+
+          {% comment %} mobile menu drawer {% endcomment %}
+          <div id="mobile-menu" class="mobile-menu">
+            {%- for link in linklists.main-menu.links -%}
+              {%- assign has_sub = false -%}
+              {%- if link.links.size > 0 -%}
+                {%- assign has_sub = true -%}
+              {%- endif -%}
+
+              <div class="mobile-menu-item">
+                {%- if has_sub -%}
+                  <button class="mobile-menu-toggle">
+                    {{ link.title }}    
+                    {{ 'icon-nav-arrow.svg' | inline_asset_content }}
+                  </button>
+                {%- else -%}
+                  <a href="{{ link.url }}" class="nav-link">
+                    {{ link.title }}
+                  </a>
+                {%- endif -%}
+                
+                {% comment %} mobile menu second {% endcomment %}
+               <div class="mobile-submenu">
+                  {%- for child_link in link.links -%}
+                    {%- assign has_third = false -%}
+                    {%- if child_link.links.size > 0 -%}
+                      {%- assign has_third = true -%}
                     {%- endif -%}
-                  </li>
-                {%- endfor -%}
-              </ul>
-            </div>
+
+                    <div class="mobile-submenu-item">
+                      {%- if has_third -%}
+                        <button class="mobile-submenu-toggle">
+                          {{ child_link.title }}
+                          {{ 'icon-nav-arrow.svg' | inline_asset_content }}
+                        </button>
+                      {%- else -%}
+                        <a href="{{ child_link.url }}">
+                          {{ child_link.title }}
+                        </a>  
+                      {%- endif -%}
+
+                      {% comment %} mobile menu third {% endcomment %}
+                      <div class="mobile-thirdmenu"> 
+                        {%- for grandChild_link in child_link.links -%}
+                          <a href="{{ grandChild_link.url }}">{{ grandChild_link.title }}</a>
+                        {%- endfor -%}
+                      </div>
+                    </div>
+                  {%- endfor -%}
+                </div>
+              </div>
+            {%- endfor -%}
           </div>
         </my-mobile-menu>
       </div>
-
-      
+ 
       <div class="header-logo__container">
         {%- if section.settings.logo_image %}
           {{  
@@ -87,8 +184,7 @@
             <span class="heder-logo__text">{{ section.settings.logo_text }}</span>  
         {%- endif -%}
       </div>
-      
-        
+
       <div class="header-navigator__container">
         <div class="search-container">
           <form action="{{ routes.search_url }}" method="get" class="search-form">
@@ -264,6 +360,37 @@
   "tag": "section",
   "class": "section-header",
   "settings": [
+    {
+      "type": "select",
+      "id": "menu_type",
+      "label": "Menu Type",
+      "options": [
+        {
+          "value": "default",
+          "label": "Default"
+        },
+        {
+          "value": "super_menu",
+          "label": "Super Menu"
+        }
+      ],
+      "info":"Only type is supermenu,you can setting the collection"
+    },
+    {
+      "type": "collection",
+      "id": "collection_1",
+      "label": "Collection1"
+    },
+    {
+      "type": "collection",
+      "id": "collection_2",
+      "label": "Collection2"
+    },
+    {
+      "type": "collection",
+      "id": "collection_3",
+      "label": "Collection3"
+    },
     {
       "type": "text",
       "id": "logo_text",
