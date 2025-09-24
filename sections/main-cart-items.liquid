@@ -27,8 +27,14 @@
 
 <cart-items class="gradient color-{{ section.settings.color_scheme }} isolate{% if cart == empty %} is-empty{% else %} section-{{ section.id }}-padding{% endif %}">
   <div class="page-width">
-    <div class="title-wrapper-with-link">
-      <h1 class="title title--primary">{{ 'sections.cart.title' | t }}</h1>
+    <div class="title-wrapper-with-link my-title-wrapper-with-link">
+      <div>
+        <h1 class="title title--primary">Shopping Bag</h1>
+        <p class="wrapper">
+          <span>{{ 'icon-my-cart.svg' | inline_asset_content }}</span>
+          <span>Congratulations! You are eligible for free shipping!</span>
+        </p>
+      </div>
       <a href="{{ routes.all_products_collection_url }}" class="underlined-link">
         {{- 'general.continue_shopping' | t -}}
       </a>
@@ -58,20 +64,20 @@
               </caption>
               <thead>
                 <tr>
-                  <th class="caption-with-letter-spacing" colspan="2" scope="col">
+                  <th class="caption-with-letter-spacing my-caption-with-letter-spacing" colspan="2" scope="col">
                     {{ 'sections.cart.headings.product' | t }}
                   </th>
-                  <th class="medium-hide large-up-hide right caption-with-letter-spacing" colspan="1" scope="col">
+                  <th class="medium-hide large-up-hide right caption-with-letter-spacing my-caption-with-letter-spacing" colspan="1" scope="col">
                     {{ 'sections.cart.headings.total' | t }}
                   </th>
                   <th
-                    class="cart-items__heading--wide cart-items__heading--quantity small-hide caption-with-letter-spacing"
+                    class="cart-items__heading--wide cart-items__heading--quantity small-hide caption-with-letter-spacing my-caption-with-letter-spacing"
                     colspan="1"
                     scope="col"
                   >
                     {{ 'sections.cart.headings.quantity' | t }}
                   </th>
-                  <th class="small-hide right caption-with-letter-spacing" colspan="1" scope="col">
+                  <th class="small-hide right caption-with-letter-spacing my-caption-with-letter-spacing" colspan="1" scope="col">
                     {{ 'sections.cart.headings.total' | t }}
                   </th>
                 </tr>
@@ -93,11 +99,11 @@
                         <div class="cart-item__image-container gradient {% if item.parent_relationship.parent == null %}global-media-settings{% endif %}">
                           <img
                             src="{{ item.image | image_url: width: 300 }}"
-                            class="cart-item__image {% if item.parent_relationship.parent != null %}global-media-settings{% endif %}"
+                            class="cart-item__image my-cart-item__image {% if item.parent_relationship.parent != null %}global-media-settings{% endif %}"
                             alt="{{ item.image.alt | escape }}"
                             loading="lazy"
                             width="150"
-                            height="{{ 150 | divided_by: item.image.aspect_ratio | ceil }}"
+                            height="150"
                           >
                         </div>
                       {% endif %}
@@ -108,8 +114,7 @@
                         <p class="caption-with-letter-spacing">{{ item.product.vendor }}</p>
                       {%- endif -%}
 
-                      <a href="{{ item.url }}" class="cart-item__name h4 break">{{ item.product.title | escape }}</a>
-
+                      <a href="{{ item.url }}" class="cart-item__name h2 break">{{ item.product.title | escape }}</a>
                       {%- if item.original_price != item.final_price -%}
                         <div class="cart-item__discounted-prices">
                           <span class="visually-hidden">
@@ -130,7 +135,7 @@
                           {{ item.original_price | money }}
                         </div>
                       {%- endif -%}
-
+            
                       {%- if item.product.has_only_default_variant == false
                         or item.properties.size != 0
                         or item.selling_plan_allocation != null

@@ -365,3 +365,32 @@ cart-remove-button .icon-remove {
     padding-left: 0;
   }
 }
+
+
+.my-title-wrapper-with-link{
+  .wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  border-bottom: 1px solid gainsboro;
+  padding-bottom: 40px;
+  margin-bottom: 40px;
+}
+
+.cart-items .my-caption-with-letter-spacing{
+  font-weight: 700;
+  color: black;
+  text-transform: none;
+  font-size: 20px;
+}
+
+
+.my-cart-item__image{
+  object-fit: contain;
+  max-width: none;
+  width: 150px;
+  height: 150px;
+}
