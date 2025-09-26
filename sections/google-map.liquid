@@ -1,0 +1,35 @@
+{{ 'google-map.css' | asset_url | stylesheet_tag }}
+
+<responsive-container class="google-map__container">
+  {%- if section.settings.show_google_map  -%}
+    {{ section.settings.block_content }}
+  {%- endif -%}
+</responsive-container>
+
+{% schema %}
+  {
+    "name": "goole-map",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_google_map",
+        "label": "Is show google map?",
+        "default": true
+      },
+      {
+        "type": "html",
+        "id": "block_content",
+        "label": "Inset Map",
+        "info": "You can insert map from google map"
+      }  
+    ],
+    "presets": [
+      {
+        "name": "goole-map",
+        "settings": {
+        }
+      }
+    ]
+  }
+{% endschema %}
