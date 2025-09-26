@@ -26,7 +26,7 @@
 <script src="{{ 'quantity-popover.js' | asset_url }}" defer="defer"></script>
 
 <cart-items class="gradient color-{{ section.settings.color_scheme }} isolate{% if cart == empty %} is-empty{% else %} section-{{ section.id }}-padding{% endif %}">
-  <div class="page-width">
+  <div class="page-width my-page-width">
     <div class="title-wrapper-with-link my-title-wrapper-with-link">
       <div>
         <h1 class="title title--primary">Shopping Bag</h1>
@@ -56,9 +56,9 @@
 
     <form action="{{ routes.cart_url }}" class="cart__contents critical-hidden" method="post" id="cart">
       <div class="cart__items" id="main-cart-items" data-id="{{ section.id }}">
-        <div class="js-contents">
+        <div class="js-contents my-cart__container">
           {%- if cart != empty -%}
-            <table class="cart-items">
+            <table class="cart-items my-cart-items">
               <caption class="visually-hidden">
                 {{ 'sections.cart.title' | t }}
               </caption>
@@ -240,7 +240,7 @@
                                 {{- 'icon-info.svg' | inline_asset_content -}}
                               </button>
                             {%- endif -%}
-                            <quantity-input class="quantity cart-quantity">
+                            <quantity-input class="quantity cart-quantity my-quantity">
                               {% assign can_update_quantity = item.instructions.can_update_quantity | default: true %}
                               <button
                                 class="quantity__button"
@@ -258,7 +258,7 @@
                                 </span>
                               </button>
                               <input
-                                class="quantity__input"
+                                class="quantity__input my-quantity__input"
                                 data-quantity-variant-id="{{ item.variant.id }}"
                                 type="number"
                                 name="updates[]"
@@ -309,8 +309,8 @@
                               class="button button--tertiary"
                               aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
                             >
-                              <span class="svg-wrapper">
-                                {{- 'icon-remove.svg' | inline_asset_content -}}
+                              <span class="svg-wrapper my-svg-wrapper">
+                                {{- 'my-icon-remove.svg' | inline_asset_content -}}
                               </span>
                             </a>
                           </cart-remove-button>
@@ -444,6 +444,35 @@
                 {%- endfor -%}
               </tbody>
             </table>
+            <div class="my-cart-info">
+              <cart-note>
+                <h2>
+                  <label for="Cart-note">
+                    Order Special Instructions
+                  </label>
+                </h2>
+                <textarea
+                  onchange="event.stopPropagation()"
+                  name="note"
+                  form="cart"
+                  id="Cart-note" 
+                  placeholder="Enter Order special instructions"
+                >{{ cart.note }}</textarea>
+              </cart-note>
+              <div>
+                <h2 class="my-cart-total">
+                  <span>Total</span>
+                  <span>{{ cart.total_price | money }}</span>
+                </h2>
+              </div>
+              <button
+                type="submit" 
+                class="button"
+                id="checkout"
+                name="checkout"
+                form="cart"
+              >Check out</button>
+            </div>
           {%- endif -%}
         </div>
       </div>
