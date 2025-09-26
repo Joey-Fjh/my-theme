@@ -20,13 +20,16 @@
                                     | image_tag:
                                         alt: product.title
                                 }}
-                                {% assign percent = product.price | times: 100 | divided_by: product.compare_at_price %}
-                                {% assign discount = 100 | minus: percent %}
-                                {%- if discount > 0 -%}
-                                    <div class="sale">
-                                        Sale -{{ discount | round }}%
-                                    </div>
+
+                                {%- if product.compare_at_price > product.price and product.compare_at_price > 0 -%}
+                                    {%- assign percent = product.price | times: 100 | divided_by: product.compare_at_price -%}
+                                    {%- assign discount = 100 | minus: percent | prepend: '-' | append: '%' -%}
+                                {%- else -%}
+                                    {%- assign discount = 0 | append: '%' -%}
                                 {%- endif -%}
+                                <div class="sale">
+                                    SALE {{ discount }} OFF
+                                </div>
                                 
                                 <modal-opener 
                                     class="opener"

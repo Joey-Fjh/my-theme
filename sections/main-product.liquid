@@ -87,6 +87,16 @@
         >
           {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
+          <p> 
+            {%- if product.compare_at_price > product.price and product.compare_at_price > 0 -%}
+              {%- assign percent = product.price | times: 100 | divided_by: product.compare_at_price -%}
+              {%- assign discount = 100 | minus: percent | prepend: '-' | append: '%' -%}
+            {%- else -%}
+              {%- assign discount = 0 | append: '%' -%}
+            {%- endif -%}
+            <strong>SALE {{ discount }} OFF</strong>
+          </p>
+
           {%- for block in section.blocks -%}
             {%- case block.type -%}
               {%- when '@app' -%}
