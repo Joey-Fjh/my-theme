@@ -622,45 +622,12 @@
         "show_author": false
       }
     },
-    "1757915684b6136201": {
-      "type": "apps",
-      "blocks": {
-        "sc_store_locator_map_map_3G8PUh": {
-          "type": "shopify://apps/sc-store-locator-map/blocks/map/4ca379c6-722c-49d3-b6ec-a7fe7c1061a5",
-          "settings": {
-            "map_layout": "",
-            "show_on_map_btn_txt": "VIEW ON MAP",
-            "user_marker_text": "You're here",
-            "user_marker_color": "#000000",
-            "store_marker_color": "#87ceeb",
-            "distance_unit": "KM",
-            "initial_zoom": 5,
-            "map_theme": "default",
-            "google_maps_language": "en",
-            "display_title": true,
-            "display_header_html": false,
-            "display_footer_html": false,
-            "show_website": false,
-            "display_search": true,
-            "search_text": "#121212",
-            "search_background": "linear-gradient(180deg, rgba(245, 245, 245, 1), rgba(243, 243, 243, 1) 100%)",
-            "display_addresses_sidebar": true,
-            "search_placeholder": "Search for a store",
-            "distance_label": "Distance",
-            "limit_label": "Limit",
-            "no_limit_label": "No limit",
-            "use_my_location_text": "Use my current location",
-            "get_directions_text": "Get directions",
-            "hide_directions_text": "Hide directions",
-            "no_stores_found_text": "No stores found"
-          }
-        }
-      },
-      "block_order": [
-        "sc_store_locator_map_map_3G8PUh"
-      ],
+    "google_map_mGDGqr": {
+      "type": "google-map",
+      "name": "goole-map",
       "settings": {
-        "include_margins": true
+        "show_google_map": true,
+        "block_content": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3266.8199736752226!2d110.98820107634748!3d35.03623336513483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x367a23d3d72fcac5%3A0xccd5a48c910b129d!2z6buE5rKz5LiW57qq5bm_5Zy677yS5Y-35YWs5a-T!5e0!3m2!1szh-CN!2ssg!4v1758866697815!5m2!1szh-CN!2ssg\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>"
       }
     }
   },
@@ -687,6 +654,6 @@
     "my_blog_carousel_Pb9fHn",
     "my_user_comment_w84MEY",
     "my_featured_blog_Wa7B4H",
-    "1757915684b6136201"
+    "google_map_mGDGqr"
   ]
 }
