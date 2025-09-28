@@ -12,6 +12,35 @@ class FacetFiltersForm extends HTMLElement {
 
     const facetWrapper = this.querySelector('#FacetsWrapperDesktop');
     if (facetWrapper) facetWrapper.addEventListener('keyup', onKeyUpEscape);
+    
+    if(this.querySelector(".dropdown-container")){
+      this.initDropDown();
+    }
+  }
+
+  initDropDown(){
+    const dropdownItems = this.querySelectorAll('.dropdown-item');
+    const selectedText = this.querySelector('.dropdown-button span:last-of-type');
+    const sortByInput = document.getElementById('SortBy');
+    const dropdownToggle = document.getElementById('dropdownToggle');
+
+    dropdownToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      dropdownToggle.classList.toggle('active');
+    });
+    
+    dropdownItems.forEach(item => {
+        item.addEventListener('click', () => {
+          dropdownItems.forEach(i => i.classList.remove('active'));
+          item.classList.add('active');
+          dropdownToggle.classList.toggle('active');
+
+          selectedText.textContent = item.textContent;
+          sortByInput.value = item.dataset.value;
+          sortByInput.dispatchEvent(new Event('change'),{bubbles: true});
+        });
+    });
   }
 
   static setListeners() {
@@ -39,6 +68,7 @@ class FacetFiltersForm extends HTMLElement {
     );
     loadingSpinners.forEach((spinner) => spinner.classList.remove('hidden'));
     document.getElementById('ProductGridContainer').querySelector('.collection').classList.add('loading');
+    
     if (countContainer) {
       countContainer.classList.add('loading');
     }
@@ -304,7 +334,7 @@ class PriceRange extends HTMLElement {
     super();
     this.querySelectorAll('input').forEach((element) => {
       element.addEventListener('change', this.onRangeChange.bind(this));
-      element.addEventListener('keydown', this.onKeyDown.bind(this));
+      element.addEventListener('keydown', this.onKeyDown.bind(this)); 
     });
     this.setMinAndMaxValues();
   }
@@ -363,3 +393,5 @@ class FacetRemove extends HTMLElement {
 }
 
 customElements.define('facet-remove', FacetRemove);
+
+
