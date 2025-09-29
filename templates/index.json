@@ -539,56 +539,6 @@
         "countdown_end_date": "2024-12-31 23:59:59"
       }
     },
-    "my_product_detail_dPQr3z": {
-      "type": "my-product-detail",
-      "blocks": {
-        "title_rDAX6E": {
-          "type": "title",
-          "settings": {
-            "heading_size": "h1"
-          }
-        },
-        "description_zhEN6R": {
-          "type": "description",
-          "settings": {}
-        },
-        "price_WWCgFb": {
-          "type": "price",
-          "settings": {}
-        },
-        "quantity_selector_xzEPLW": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
-        "variant_picker_JnAJHD": {
-          "type": "variant_picker",
-          "settings": {
-            "picker_type": "button",
-            "swatch_shape": "circle"
-          }
-        },
-        "buy_buttons_CgNH4f": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
-          }
-        }
-      },
-      "block_order": [
-        "title_rDAX6E",
-        "description_zhEN6R",
-        "price_WWCgFb",
-        "quantity_selector_xzEPLW",
-        "variant_picker_JnAJHD",
-        "buy_buttons_CgNH4f"
-      ],
-      "name": "my-product-detail",
-      "settings": {
-        "featured_product": "casual-knitted-shirt3",
-        "image_type": "grid"
-      }
-    },
     "my_blog_carousel_Pb9fHn": {
       "type": "my-blog-carousel",
       "name": "my-blog-carousel",
@@ -650,7 +600,6 @@
     "my_color_comparison_aRQifX",
     "my_promo_split_JYmjBz",
     "my_deals_carousel_fwtLbn",
-    "my_product_detail_dPQr3z",
     "my_blog_carousel_Pb9fHn",
     "my_user_comment_w84MEY",
     "my_featured_blog_Wa7B4H",
