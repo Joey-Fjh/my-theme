@@ -1,4 +1,5 @@
 {{ 'my-product-list.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
 
 {%- liquid
   assign title = section.settings.title
@@ -21,7 +22,32 @@
                             alt: product.title, 
                             class:'image' 
                     }}
+                    {%- if product.compare_at_price > product.price and product.compare_at_price > 0 -%}
+                        {%- assign percent = product.price | times: 100 | divided_by: product.compare_at_price -%}
+                        {%- assign discount = 100 | minus: percent | prepend: '-' | append: '%' -%}
+                    {%- else -%}
+                        {%- assign discount = 0 | append: '%' -%}
+                    {%- endif -%}
+                    <div class="sale">
+                        SALE {{ discount }} OFF
+                    </div>
+                    
+                    <modal-opener 
+                        class="opener"
+                        data-modal="#my-product-list-PopupModal"
+                    >
+                        <button
+                            class="quick-view-btn"
+                            type="button"
+                            aria-haspopup="dialog"
+                            data-product-url="{{ product.url }}"
+                        >
+                            Quick View
+                            {%- render 'loading-spinner' -%}
+                        </button>
+                    </modal-opener>
                 </responsive-container> 
+
                 <div class="product-card__title h2">
                     <a
                         href="{{ product.url }}"
@@ -43,6 +69,28 @@
             </div>
         {% endfor %}
     </div>
+    <quick-add-modal
+        id="my-product-list-PopupModal"
+        class="product-list-modal"
+    >
+        <div
+            role="dialog"
+            aria-modal="true"
+            class="content"
+            tabindex="-1"
+        >
+            <button
+                id="ModalClose-"
+                type="button"
+                class="toggle-btn"
+                aria-label="close"
+            >
+                {{ 'icon-close.svg' | inline_asset_content }}
+            </button>
+            <div id="QuickAddInfo-" class="content-info">
+            </div>
+        </div>
+    </quick-add-modal>
 </responsive-container>
 
 {% schema %}
