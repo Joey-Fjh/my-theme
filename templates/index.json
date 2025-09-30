@@ -457,31 +457,6 @@
     },
     "my_promo_split_JYmjBz": {
       "type": "my-promo-split",
-      "blocks": {
-        "product_Dm8zt6": {
-          "type": "product",
-          "settings": {
-            "product": "chequered-red-shirt"
-          }
-        },
-        "product_T8XL4q": {
-          "type": "product",
-          "settings": {
-            "product": "classic-leather-jacket"
-          }
-        },
-        "product_KiGFdF": {
-          "type": "product",
-          "settings": {
-            "product": "floral-white-top"
-          }
-        }
-      },
-      "block_order": [
-        "product_Dm8zt6",
-        "product_T8XL4q",
-        "product_KiGFdF"
-      ],
       "name": "my-promo-split",
       "settings": {
         "lifestyle_image": "shopify://shop_images/Frame_48122.png",
