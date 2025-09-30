@@ -73,3 +73,41 @@
     z-index: 1;
   }
 }
+
+
+.featured-product{
+  .quantity__input:focus{
+    border-top: 1px solid #7d7d7d;
+    border-bottom: 1px solid #7d7d7d;
+    outline: none;
+    box-shadow: none;
+    outline-offset: 0;
+  }
+
+  .share-and-question,.share{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .share ul li {
+    display: none;
+  }
+
+  .share ul li:nth-child(-n+3) {
+    display: block;
+  }
+
+  .list-social__link{
+    padding: 0;
+  }
+
+  .product__info-wrapper{
+    position: sticky;
+    top: 0;
+    height: fit-content;
+  }
+}
+
+

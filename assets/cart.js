@@ -214,7 +214,10 @@ class CartItems extends HTMLElement {
       .catch(() => {
         this.querySelectorAll('.loading__spinner').forEach((overlay) => overlay.classList.add('hidden'));
         const errors = document.getElementById('cart-errors') || document.getElementById('CartDrawer-CartErrors');
-        errors.textContent = window.cartStrings.error;
+        
+        if(errors){
+          errors.textContent = window.cartStrings.error;
+        }
       })
       .finally(() => {
         this.disableLoading(line);

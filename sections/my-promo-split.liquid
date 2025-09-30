@@ -3,70 +3,78 @@
 
 <responsive-container>
   <my-promo-split-container class="my-promo-split__container">
-  <!-- Left Side - Lifestyle Image -->
-  <div class="promo-split-left">
-    <div class="lifestyle-image-container">
-      {% if section.settings.lifestyle_image %}
-        <img
-          width="720"
-          height="703" 
-          src="{{ section.settings.lifestyle_image | image_url: width:720 }}" 
-          alt="{{ section.settings.lifestyle_image.alt | default: 'Lifestyle Image' }}"
-          class="lifestyle-image" />
-      {% endif %}
-        
-      <div class="text-overlay">
-        {% for i in (1..3) %}
-          <h2 class="overlay-text overlay-text-{{ i }}">
-            {{ section.settings.overlay_text | default: 'Dress' }}
-          </h2>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
-    
-  <!-- Right Side - Product Showcase -->
-  <div class="promo-split-right">
-    
-      <!-- Promotion Header -->
-      <div class="promo-header">
-        <p class="promo-badge">{{ section.settings.promo_badge | default: 'SAVE 50% OFF' }}</p>
-        <h2 class="promo-title">{{ section.settings.promo_title | default: 'Products to Proceed & Save' }}</h2>
-      </div>
-      
-      <!-- Products -->
-      <div class="swiper">
-        <div class="products-grid swiper-wrapper">
+    <!-- Left Side - Lifestyle Image -->
+    <div class="promo-split-left">
+      <div class="lifestyle-image-container">
+        {% if section.settings.lifestyle_image %}
+          <img
+            width="720"
+            height="703" 
+            src="{{ section.settings.lifestyle_image | image_url: width:720 }}" 
+            alt="{{ section.settings.lifestyle_image.alt | default: 'Lifestyle Image' }}"
+            class="lifestyle-image" />
+        {% endif %}
+          
+        <div class="text-overlay">
           {% for block in section.blocks %}
-            {% if block.type == 'product' %}
-              <div class="product-item swiper-slide" data-product-id="{{ block.settings.product.id }}">
-                {% if block.settings.product %}
-                  <div class="product-image-container">
-                    <img
-                      width="216"
-                      height="300" 
-                      src="{{ block.settings.product.featured_image | image_url: width:216 }}" 
-                      alt="{{ block.settings.product.title }}"
-                      class="product-image"/>
-                    </div>
-                    <div class="product-info">
-                      <h3 class="product-title">{{ block.settings.product.title }}</h3>
-                      <p class="product-price">{{ block.settings.product.price | money }}</p>
-                    </div>
-                {% endif %}
-              </div>
-            {% endif %}
+            <h2 class="overlay-text" data-index="{{ forloop.index }}">
+              {{ section.settings.overlay_text | default: 'Dress' }}
+            </h2>
           {% endfor %}
         </div>
       </div>
+    </div>
+      
+    <!-- Right Side - Product Showcase -->
+    <div class="promo-split-right">
+      
+        <!-- Promotion Header -->
+        <div class="promo-header">
+          <p class="promo-badge">{{ section.settings.promo_badge | default: 'SAVE 50% OFF' }}</p>
+          <h2 class="promo-title">{{ section.settings.promo_title | default: 'Products to Proceed & Save' }}</h2>
+        </div>
         
-      <!-- CTA Button -->
-      <div class="promo-cta">
-        <button class="add-to-cart-btn">
-          {{ section.settings.cta_text | default: 'ADD TO CART' }}
-        </button>
-      </div>
-  </div>
+        <!-- Products -->
+        {%- for block in section.blocks -%}
+          <div class="swiper product-selected"
+            data-index="{{ forloop.index }}" 
+            style="{% if forloop.first %} display:block {% else %} display:none {% endif %}" 
+          >
+            <div class="products-grid swiper-wrapper">
+              {%- for i in (1..3) -%}
+                {% assign product_setting = 'product_' | append: forloop.index %}
+                {% assign product = block.settings[product_setting] %}
+
+                <div class="product-item swiper-slide"
+                  data-product-id="{{ product.selected_or_first_available_variant.id }}"
+                >
+                  {%- if product -%}
+                    <div class="product-image-container">
+                      <img
+                        width="216"
+                        height="300" 
+                        src="{{ product.featured_image | image_url: width:216 }}" 
+                        alt="{{ product.title }}"
+                        class="product-image"/>
+                    </div>
+                    <div class="product-info">
+                      <h3 class="product-title">{{ product.title }}</h3>
+                      <p class="product-price">{{ product.price | money }}</p>
+                    </div>
+                  {%- endif -%}
+                </div>
+              {%- endfor -%}  
+            </div>
+          </div>
+        {%- endfor -%}
+          
+        <!-- CTA Button -->
+        <div class="promo-cta">
+          <button class="add-to-cart-btn">
+            {{ section.settings.cta_text | default: 'ADD TO CART' }}
+          </button>
+        </div>
+    </div>
   </my-promo-split-container>
 </responsive-container>
 
@@ -113,12 +121,23 @@
         "settings": [
           {
             "type": "product",
-            "id": "product",
+            "id": "product_1",
+            "label": "Select Product"
+          },
+          {
+            "type": "product",
+            "id": "product_2",
+            "label": "Select Product"
+          },
+          {
+            "type": "product",
+            "id": "product_3",
             "label": "Select Product"
           }
         ]
       }
     ],
+    "max_blocks": 3,
     "presets": [
       {
         "name": "my-promo-split",
