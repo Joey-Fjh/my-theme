@@ -286,16 +286,6 @@
         "button_link": ""
       }
     },
-    "my_product_highlight_r4acHR": {
-      "type": "my-product-highlight",
-      "name": "my-product-highlight",
-      "settings": {
-        "title": "MIX & MAX",
-        "description": "LAYERING WITH BASIC PIECES DESIGNED",
-        "image_show": "shopify://shop_images/Frame_48014.png",
-        "product_collection": "睡衣"
-      }
-    },
     "my_video_player_CfFJqU": {
       "type": "my-video-player",
       "name": "my-video-player",
@@ -565,7 +555,6 @@
     "my_fashion_highlights_jtVAje",
     "my_luxury_collection_iFCwkU",
     "my_hero_banner_6JCMYw",
-    "my_product_highlight_r4acHR",
     "my_video_player_CfFJqU",
     "my_image_with_text_6RV9t9",
     "my_fashion_grid_layout_MtAfQU",
