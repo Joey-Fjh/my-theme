@@ -9,74 +9,74 @@
 -%}
 
 <responsive-container class="my-featured-blog__container">
-    <div class="wrapper">
-        <div class="top">
-            <h2
-            id="SectionHeading-{{ section.id }}"
-            class="inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-            {% if settings.animations_reveal_on_scroll %}
-                data-cascade
-            {% endif %}
-            >
-                {{ section.settings.heading }}
-            </h2>
+    {% comment %} <div class="top">
+        <h2
+        id="SectionHeading-{{ section.id }}"
+        class="inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+        {% if settings.animations_reveal_on_scroll %}
+            data-cascade
+        {% endif %}
+        >
+            {{ section.settings.heading }}
+        </h2>
+    </div> {% endcomment %}
+    <div class="bottom">
+        <div class="left">
+            <responsive-container class="image__container">
+                {{ 
+                    left_article.image
+                    | image_url: width: 751, height: 500
+                    | image_tag:
+                        alt: left_article.image.alt,
+                        class:"left-image"
+                }}
+                <div class="content">
+                    <div class="title h2">
+                        {{ left_article.title }}
+                    </div>
+                    <div class="description h3">
+                        {{ left_article.content }}
+                    </div>
+                    <a class="link" href="{{ left_article.url }}">Read more</a>
+                </div>
+            </responsive-container>
         </div>
-        <div class="bottom">
-            <div class="left">
-                <responsive-container class="image__container">
-                    {{ 
-                        left_article.image
-                        | image_url: width: 751, height: 500
-                        | image_tag:
-                            alt: left_article.image.alt 
-                    }}
+        <div class="right">
+            {%- for i in (2..articles.size) limit: 2 -%}
+                {% assign idx = i | minus: 1 %}
+                {% assign article = articles[idx] %}
+                <div class="card">
+                    {%- if show_image -%}
+                        <responsive-container class="image__container">
+                            {{ 
+                                article.image
+                                | image_url: width: 238, height: 238
+                                | image_tag:
+                                    alt:article.image.alt,
+                                    class:"right-image" 
+                            }}
+                        </responsive-container>
+                    {%- endif -%}
                     <div class="content">
-                        <div class="title h2">
-                            {{ left_article.title }}
+                        <div class="info">
+                            {%- if show_date -%}
+                                <span>{{ article.published_at | time_tag: format: 'date' }}</span>
+                            {%- endif -%}
+                            {%- if show_author -%}
+                                <span>{{ article.author }}</span>
+                            {%- endif -%}
+                            <span>{{ article.comments_count }} comments</span>
                         </div>
-                        <div class="description h3">
-                            {{ left_article.content }}
+                        <div class="title h3">
+                            {{ article.title }}
                         </div>
-                        <a class="link" href="{{ left_article.url }}">Read more</a>
+                        <div class="description h5">
+                            {{ article.content }}
+                        </div>
+                        <a class="link h4" href="{{ article.url }}">Read more</a>
                     </div>
-                </responsive-container>
-            </div>
-            <div class="right">
-                {%- for i in (2..articles.size) limit: 2-%}
-                    {% assign idx = i | minus: 1 %}
-                    {% assign article = articles[idx] %}
-                    <div class="card">
-                        {%- if show_image -%}
-                            <responsive-container class="image__container">
-                                {{ 
-                                    article.image
-                                    | image_url: width: 238, height: 238
-                                    | image_tag:
-                                        alt:article.image.alt 
-                                }}
-                            </responsive-container>
-                        {%- endif -%}
-                        <div class="content">
-                            <div class="info">
-                                {%- if show_date -%}
-                                    <span>{{ article.published_at | time_tag: format: 'date' }}</span>
-                                {%- endif -%}
-                                {%- if show_author -%}
-                                    <span>{{ article.author }}</span>
-                                {%- endif -%}
-                                <span>{{ article.comments_count }} comments</span>
-                            </div>
-                            <div class="title h3">
-                                {{ article.title }}
-                            </div>
-                            <div class="description h5">
-                                {{ article.content }}
-                            </div>
-                            <a class="link h4" href="{{ article.url }}">Read more</a>
-                        </div>
-                    </div>
-                {%- endfor -%}
-            </div>
+                </div>
+            {%- endfor -%}
         </div>
     </div>
 </responsive-container>

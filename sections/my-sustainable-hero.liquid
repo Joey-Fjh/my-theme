@@ -1,6 +1,6 @@
 {{ 'my-sustainable-hero.css' | asset_url | stylesheet_tag }}
 
-<responsive-container class="my-sustainable-hero__container my-sustainable-hero__container-{{ section.id }}">
+<responsive-container class="my-sustainable-hero__container my-sustainable-hero__container-{{ section.id }} page-width">
   <style>
     {%- if section.settings.reverse_layout -%}
       .my-sustainable-hero__container-{{ section.id }} { 

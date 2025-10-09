@@ -170,7 +170,7 @@
         </my-mobile-menu>
       </div>
  
-      <div class="header-logo__container">
+      <a class="header-logo__container" href="{{ routes.root_url }}">
         {%- if section.settings.logo_image %}
           {{  
             section.settings.logo_image |
@@ -183,7 +183,7 @@
           {%- else -%}
             <span class="heder-logo__text">{{ section.settings.logo_text }}</span>  
         {%- endif -%}
-      </div>
+      </a>
 
       <div class="header-navigator__container">
         <div class="search-container">
