@@ -1,52 +1,34 @@
 {{ 'my-team-showcase.css' | asset_url | stylesheet_tag }}
 
-<responsive-container class="my-team-showcase__container">
-    <div class="top">
-        <div class="content__container">
-            <div class="title h1">
-                {{ section.settings.text }}
-            </div>
-            <div class="description h3">
-                {{ section.settings.description }}
-            </div>
-            <a href="{{ section.settings.btn_url }}">
-                <button class="button">
-                    {{ section.settings.btn_text }}
-                </button>
-            </a>
+<div class="my-team-showcase__container">
+    <div class="content__container">
+        <div class="title h1">
+            {{ section.settings.text }}
         </div>
-        {%- for block in section.blocks limit: 2 -%}
-            <div class="member__container">
-                <responsive-container>
-                    {{ 
-                        block.settings.image
-                        | image_url: width: 288, height: 288
-                        | image_tag:
-                            alt: block.settings.image.alt
-                    }}    
-                </responsive-container>
-                <div class="name h3" style="font-weight:700;">{{ block.settings.name }}</div>
-                <div class="job h5">{{ block.settings.job }}</div>
-            </div>
-        {%- endfor -%}
+        <div class="description h3">
+            {{ section.settings.description }}
+        </div>
+        <a href="{{ section.settings.btn_url }}">
+            <button class="button">
+                {{ section.settings.btn_text }}
+            </button>
+        </a>
     </div>
-    <div class="bottom">
-        {%- for block in section.blocks offset: 2 -%}
-            <div class="member__container">
-                <responsive-container>
-                    {{ 
-                        block.settings.image
-                        | image_url: width: 288, height: 288
-                        | image_tag:
-                            alt: block.settings.image.alt
-                    }}    
-                </responsive-container>
-                <div class="name h3" style="font-weight:700;">{{ block.settings.name }}</div>
-                <div class="job h5">{{ block.settings.job }}</div>
-            </div>
-        {%- endfor -%}
-    </div>
-</responsive-container>
+    {%- for block in section.blocks -%}
+        <div class="member__container">
+            <responsive-container>
+                {{ 
+                    block.settings.image
+                    | image_url: width: 288, height: 288
+                    | image_tag:
+                        alt: block.settings.image.alt
+                }}    
+            </responsive-container>
+            <div class="name h3" style="font-weight:700;">{{ block.settings.name }}</div>
+            <div class="job h5">{{ block.settings.job }}</div>
+        </div>
+    {%- endfor -%}
+</div>
 
 {% schema %}
   {

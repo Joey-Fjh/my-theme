@@ -19,19 +19,22 @@
       <span class="h3" style="font-weight:500;">Return On Investment</span>
     </div>
   </div>
+
   <div class="banner__container">
     <responsive-container class="banner-image__container">
-      {{ banner_image_block.settings.banner_image 
+      {{ 
+        banner_image_block.settings.banner_image 
         | image_url: width: 1440 , height: 600 
         | image_tag:
             alt: banner_image_block.settings.banner_image.title
       }}
+
       <div class="title h0">{{ banner_image_block.settings.title }}</div>
-      <div class="banner-info">
+    </responsive-container>
+    <div class="banner-info">
         <div class="info-title h1">{{ banner_info_block.settings.title }}</div>
         <div class="description h3">{{ banner_info_block.settings.description }}</div>
       </div>
-    </responsive-container>
   </div>
 </responsive-container>
 
