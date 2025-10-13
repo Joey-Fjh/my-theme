@@ -456,54 +456,6 @@
         "cta_text": "ADD TO CART"
       }
     },
-    "my_deals_carousel_fwtLbn": {
-      "type": "my-deals-carousel",
-      "blocks": {
-        "slide_3jtEVx": {
-          "type": "slide",
-          "settings": {
-            "slide_image": "shopify://shop_images/image_1.png",
-            "slide_title": "",
-            "slide_number": "01",
-            "slide_category": "Spring Sale",
-            "slide_discount": "30% OFF"
-          }
-        },
-        "slide_VKfnHz": {
-          "type": "slide",
-          "settings": {
-            "slide_image": "shopify://shop_images/image_e47bd244-1fd3-408f-97c8-8763e4625654.png",
-            "slide_title": "",
-            "slide_number": "01",
-            "slide_category": "Spring Sale",
-            "slide_discount": "30% OFF"
-          }
-        },
-        "slide_xFEMLz": {
-          "type": "slide",
-          "settings": {
-            "slide_title": "",
-            "slide_number": "01",
-            "slide_category": "Spring Sale",
-            "slide_discount": "30% OFF"
-          }
-        }
-      },
-      "block_order": [
-        "slide_3jtEVx",
-        "slide_VKfnHz",
-        "slide_xFEMLz"
-      ],
-      "name": "my-deals-carousel",
-      "settings": {
-        "deals_title": "Deals Of The Month",
-        "deals_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque duis ultrices sollicitudin aliquam sem. Scelerisque duis ultrices sollicitudin",
-        "cta_text": "Buy Now",
-        "cta_link": "",
-        "countdown_title": "Hurry, Before It's Too Late!",
-        "countdown_end_date": "2024-12-31 23:59:59"
-      }
-    },
     "my_blog_carousel_Pb9fHn": {
       "type": "my-blog-carousel",
       "name": "my-blog-carousel",
@@ -563,7 +515,6 @@
     "my_media_carousel_8nNGTd",
     "my_color_comparison_aRQifX",
     "my_promo_split_JYmjBz",
-    "my_deals_carousel_fwtLbn",
     "my_blog_carousel_Pb9fHn",
     "my_user_comment_w84MEY",
     "my_featured_blog_Wa7B4H",

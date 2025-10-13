@@ -65,7 +65,8 @@ var p=Object.defineProperty;var h=(t,e,o)=>e in t?p(t,e,{enumerable:!0,configura
 
     .accordion-content {
       max-height: 0;
-      overflow: hidden;
+      overflow-x: hidden;                    
+      overflow-y: var(--my-accordion-overflow-y, hidden);
       transition: max-height 0.3s ease, padding 0.3s ease;
     }
 
