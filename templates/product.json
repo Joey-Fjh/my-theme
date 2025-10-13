@@ -12,13 +12,6 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "vendor": {
-          "type": "text",
-          "settings": {
-            "text": "<strong>SALE 70% OFF</strong>",
-            "text_style": "body"
-          }
-        },
         "title": {
           "type": "title",
           "settings": {}
@@ -111,7 +104,6 @@
         }
       },
       "block_order": [
-        "vendor",
         "title",
         "text_fp4KLE",
         "price",
