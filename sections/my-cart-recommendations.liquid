@@ -12,24 +12,34 @@
         <div class="swiper">
             <div class="swiper-wrapper bottom">   
                 {%- for product in section.settings.collection.products -%}
-                    {%- unless product == nil  -%}             
+                    {%- unless product == nil  -%}
+                        {%- assign placeholder_image_index = forloop.index0 | modulo: 4 | plus: 1 -%}
+                        {%- assign placeholder_image = "product-apparel-" | append: placeholder_image_index -%}
+
+
                         <div class="my-product-card swiper-slide">
                             <responsive-container class="image__container">
-                                {{ product.featured_image
-                                    | image_url: width: 388, height: 564
-                                    | image_tag:
-                                        alt: product.title
-                                }}
-
-                                {%- if product.compare_at_price > product.price and product.compare_at_price > 0 -%}
-                                    {%- assign percent = product.price | times: 100 | divided_by: product.compare_at_price -%}
-                                    {%- assign discount = 100 | minus: percent | prepend: '-' | append: '%' -%}
+                                {%- if product.featured_image != blank -%}
+                                    {{ product.featured_image
+                                        | image_url: width: 388, height: 564
+                                        | image_tag:
+                                            alt: product.title
+                                    }}
                                 {%- else -%}
-                                    {%- assign discount = 0 | append: '%' -%}
+                                    {{ placeholder_image | placeholder_svg_tag:"placeholder-svg" }}
                                 {%- endif -%}
-                                <div class="sale">
-                                    SALE {{ discount }} OFF
-                                </div>
+
+                                {%- if product.price != blank or product.compare_at_price != blank -%}
+                                    {%- if product.compare_at_price > product.price and product.compare_at_price > 0 -%}
+                                        {%- assign percent = product.price | times: 100 | divided_by: product.compare_at_price -%}
+                                        {%- assign discount = 100 | minus: percent | prepend: '-' | append: '%' -%}
+                                    {%- else -%}
+                                        {%- assign discount = 0 | append: '%' -%}
+                                    {%- endif -%}
+                                    <div class="sale">
+                                        SALE {{ discount }} OFF
+                                    </div>
+                                {% endif %}
                                 
                                 <modal-opener 
                                     class="opener"
@@ -47,14 +57,15 @@
                                 </modal-opener>
                             </responsive-container>
                             
-                            <h2>{{ product.title }}</h2>
-                            <div>
-                                <span class="my-price h2">{{ product.price | money }}</span>
-                                <span class="my-compare-price h4">{{ product.compare_at_price | money }}</span>
-                            </div>
-                            <div class="color_variants">
-                                
-                            </div>
+                            {%- if product.title != blank -%}
+                                <h2>{{ product.title }}</h2>
+                            {%- endif -%}
+                            {%- if product.price != blank or product.compare_at_price != blank -%}
+                                <div>
+                                    <span class="my-price h2">{{ product.price | money }}</span>
+                                    <span class="my-compare-price h4">{{ product.compare_at_price | money }}</span>
+                                </div>
+                            {%- endif -%}
                         </div>    
                     {%- endunless -%}
                 {%- endfor -%}
@@ -62,28 +73,30 @@
         </div>
     </my-cart-recommendations-container>
 
-    <quick-add-modal
-        id="my-cart-recommendations-PopupModal"
-        class="cart-recommendations-modal"
-    >
-        <div
-            role="dialog"
-            aria-modal="true"
-            class="content"
-            tabindex="-1"
+    {%- if section.settings.collection != nil and section.settings.collection.products_count > 0 -%}
+        <quick-add-modal
+            id="my-cart-recommendations-PopupModal"
+            class="cart-recommendations-modal"
         >
-            <button
-                id="ModalClose-"
-                type="button"
-                class="toggle-btn"
-                aria-label="close"
+            <div
+                role="dialog"
+                aria-modal="true"
+                class="content"
+                tabindex="-1"
             >
-                {{ 'icon-close.svg' | inline_asset_content }}
-            </button>
-            <div id="QuickAddInfo-" class="content-info">
+                <button
+                    id="ModalClose-"
+                    type="button"
+                    class="toggle-btn"
+                    aria-label="close"
+                >
+                    {{ 'icon-close.svg' | inline_asset_content }}
+                </button>
+                <div id="QuickAddInfo-" class="content-info">
+                </div>
             </div>
-        </div>
-    </quick-add-modal>
+        </quick-add-modal>
+    {%- endif -%}
 </responsive-container>
 
 {% schema %}
@@ -105,9 +118,7 @@
     ],
     "presets": [
       {
-        "name": "my-cart-recommendations",
-        "settings": {
-        }
+        "name": "my-cart-recommendations"
       }
     ]
   }

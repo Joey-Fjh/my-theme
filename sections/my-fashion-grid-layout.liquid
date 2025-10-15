@@ -2,82 +2,117 @@
 
 <responsive-container class="my-fashion-grid-layout__container">
     <responsive-container class="grid-1-1">
+      {%- if section.settings.image1-1 != blank -%}
         {{ 
-            section.settings.image1-1 
-            | image_url: height:592
-            | image_tag: 
-                alt:section.settings.image1-1.alt
+          section.settings.image1-1 
+          | image_url: height:592
+          | image_tag: 
+              alt:section.settings.image1-1.alt
         }}
-        <div class="content-overlay">
-          <h2 class="overlay-title">Color of Summer Outfit</h2>
-          <p class="overlay-description">100+ Collections for your outfit inspirations this summer</p>
-          <button class="overlay-button">VIEW COLLECTIONS</button>
-        </div>
+      {%- else -%}
+        {{  'hero-apparel-1' | placeholder_svg_tag:"placeholder-svg" }}          
+      {%- endif -%}
+  
+      <div class="content-overlay">
+        <h2 class="overlay-title">{{ section.settings.fisrt-title }}</h2>
+        <p class="overlay-description">{{ section.settings.fisrt-description }}</p>
+        <a href="{{ section.settings.fisrt-button-url }}">
+          <button class="overlay-button">{{ section.settings.fisrt-button }}</button>
+        </a>
+      </div>
     </responsive-container>
     <responsive-container class="grid-1-4">
+      {%- if section.settings.image1-4 != blank -%}
         {{ 
-            section.settings.image1-4 
-            | image_url: height:290
-            | image_tag: 
-                alt:section.settings.image1-4.alt
+          section.settings.image1-4 
+          | image_url: height:290
+          | image_tag: 
+              alt:section.settings.image1-4.alt
         }}
+      {%- else -%}
+        {{ 'product-apparel-1' | placeholder_svg_tag:"placeholder-svg" }}
+      {%- endif -%}
     </responsive-container>
     <responsive-container class="grid-2-4">
+      {%- if section.settings.image2-4 != blank -%}
         {{ 
-            section.settings.image2-4 
-            | image_url: height:290
-            | image_tag: 
-                alt:section.settings.image2-4.alt
+          section.settings.image2-4 
+          | image_url: height:290
+          | image_tag: 
+              alt:section.settings.image2-4.alt
         }}
+      {%- else -%}
+        {{  'product-apparel-1' | placeholder_svg_tag:"placeholder-svg" }}
+      {%- endif -%}
     </responsive-container>
 
     {% comment %} second part  {% endcomment %}
     <div class="grid-3-1">
-        <div class="grid-3-1__title">Casual Inspirations</div>
-        <div class="grid-3-1__subtitle">Our favorite combinations for casual outfit that can inspire you to apply on your daily activity</div>
-        <div class="grid-3-1__button">BROWSE INPIRATIONS</div>
+        <div class="grid-3-1__title">{{ section.settings.second-title }}</div>
+        <div class="grid-3-1__subtitle">{{ section.settings.second-description }}</div>
+        <a href="{{ section.settings.seconde-button-url }}">
+          <div class="grid-3-1__button">{{ section.settings.second-button }}</div>
+        </a>
     </div>
     <responsive-container class="grid-3-3">
+      {%- if section.settings.image3-3 != blank -%}
         {{ 
-            section.settings.image3-3 
-            | image_url: height:324
-            | image_tag: 
-                alt:section.settings.image3-3.alt
+          section.settings.image3-3 
+          | image_url: height:324
+          | image_tag: 
+              alt:section.settings.image3-3.alt
         }}
+      {%- else -%}
+        {{ 'product-apparel-2' | placeholder_svg_tag:"placeholder-svg" }}
+      {%- endif -%}
     </responsive-container>
     <responsive-container class="grid-3-4">
+      {%- if section.settings.image3-4 != blank -%}
         {{ 
-            section.settings.image3-4 
-            | image_url: height:324
-            | image_tag: 
-                alt:section.settings.image3-4.alt
+          section.settings.image3-4 
+          | image_url: height:324
+          | image_tag: 
+              alt:section.settings.image3-4.alt
         }}
+      {%- else -%}
+        {{ 'product-apparel-2' | placeholder_svg_tag:"placeholder-svg" }}
+      {%- endif -%}
     </responsive-container>
 
     {% comment %} third part {% endcomment %}
     <responsive-container class="grid-4-1">
         <div class="product-info" style="background-color: #ffeee4;">
-          <h2 class="product-title">100% Authentic Product</h2>
-          <p class="product-description">Prominently display a clear "100% Authentic Guarantee" on your product</p>
-          <button class="product-button">SEE MORE</button>
+          <h2 class="product-title">{{ section.settings.third-title1 }}</h2>
+          <p class="product-description">{{ section.settings.third-description1 }}</p>
+          <a href="{{ section.settings.third-button-url1 }}">
+            <button class="product-button">{{ section.settings.third-button1 }}</button>
+          </a>
         </div>
         <div class="product-info" style="background-color: #f6f6f6;">
-          <h2 class="product-title">100% Authentic Product</h2>
-          <p class="product-description">Prominently display a clear "100% Authentic Guarantee" on your product</p>
-          <button class="product-button">SEE MORE</button>
+          <h2 class="product-title">{{ section.settings.third-title2 }}</h2>
+          <p class="product-description">{{ section.settings.third-description2 }}</p>
+          <a href="{{ section.settings.third-button-url2 }}">
+            <button class="product-button">{{ section.settings.third-button2 }}</button>
+          </a>
         </div>
         <div class="product-info" style="background-color: #f6f6f6;">
-          <h2 class="product-title">100% Authentic Product</h2>
-          <p class="product-description">Prominently display a clear "100% Authentic Guarantee" on your product</p>
-          <button class="product-button">SEE MORE</button>
+          <h2 class="product-title">{{ section.settings.third-title3 }}</h2>
+          <p class="product-description">{{ section.settings.third-description3 }}</p>
+          <a href="{{ section.settings.third-button-url3 }}">
+            <button class="product-button">{{ section.settings.third-button3 }}</button>
+          </a>
         </div>
         <responsive-container class="last-image">
+          {%- if section.settings.image4-4 != blank -%}
             {{ 
-                section.settings.image4-4 
-                | image_url: height:300,width:400
-                | image_tag: 
-                    alt:section.settings.image4-4.alt
+              section.settings.image4-4 
+              | image_url: height:300,width:400
+              | image_tag: 
+                  alt:section.settings.image4-4.alt
             }}
+          {%- else -%}
+            {{ 'product-apparel-3' | placeholder_svg_tag:"placeholder-svg" }}
+          {%- endif -%}
         </responsive-container>
     </responsive-container>
 </responsive-container>
@@ -89,42 +124,167 @@
     "class": "section",
     "settings": [
       {
+        "type": "header",
+        "content": "First Part"
+      },
+      {
+        "type": "text",
+        "id": "fisrt-title",
+        "label": "Title",
+        "default": "Color of Summer Outfit"
+      },
+      {
+        "type": "text",
+        "id": "fisrt-description",
+        "label": "Description",
+        "default": "100+ Collections for you outfit inspirations this summer"
+      },
+      {
+        "type": "text",
+        "id": "fisrt-button",
+        "label": "Button Text",
+        "default": "VIEW COLLECTIONS"
+      },
+      {
+        "type": "url",
+        "id": "fisrt-button-url",
+        "label": "Button URL"
+      },
+      {
         "type": "image_picker",
         "id": "image1-1",
-        "label": "Image"
+        "label": "Image1"
       },
       {
         "type": "image_picker",
         "id": "image1-4",
-        "label": "Image"
+        "label": "Image2"
       },
       {
         "type": "image_picker",
         "id": "image2-4",
-        "label": "Image"
+        "label": "Image3"
+      },
+      {
+        "type": "header",
+        "content": "Second Part"
+      },
+      {
+        "type": "text",
+        "id": "second-title",
+        "label": "Title",
+        "default": "Casual Inspirations"
+      },
+      {
+        "type": "text",
+        "id": "second-description",
+        "label": "Description",
+        "default": "Our favorite combinations for casual outfit that can inspire you to apply on your daily activity"
+      },
+      {
+        "type": "text",
+        "id": "second-button",
+        "label": "Button Text",
+        "default": "BROWSE INPIRATIONS"
+      },
+      {
+        "type": "url",
+        "id": "seconde-button-url",
+        "label": "Button URL"
       },
       {
         "type": "image_picker",
         "id": "image3-3",
-        "label": "Image"
+        "label": "Image4"
       },
       {
         "type": "image_picker",
         "id": "image3-4",
-        "label": "Image"
+        "label": "Image5"
+      },
+      {
+        "type": "header",
+        "content": "Third Part"
+      },
+      {
+        "type": "text",
+        "id": "third-title1",
+        "label": "Title",
+        "default": "100% Authentic Product"
+      },
+      {
+        "type": "text",
+        "id": "third-description1",
+        "label": "Description",
+        "default": "Prominently display a clear \"100% Authentic Guarantee\" on your product"
+      },
+      {
+        "type": "text",
+        "id": "third-button1",
+        "label": "Button Text",
+        "default": "SEE MORE"
+      },
+      {
+        "type": "url",
+        "id": "third-button-url1",
+        "label": "Button URL"
+      },
+      {
+        "type": "text",
+        "id": "third-title2",
+        "label": "Title",
+        "default": "100% Authentic Product"
+      },
+      {
+        "type": "text",
+        "id": "third-description2",
+        "label": "Description",
+        "default": "Prominently display a clear \"100% Authentic Guarantee\" on your product"
+      },
+      {
+        "type": "text",
+        "id": "third-button2",
+        "label": "Button Text",
+        "default": "SEE MORE"
+      },
+      {
+        "type": "url",
+        "id": "third-button-url2",
+        "label": "Button URL"
+      },
+      {
+        "type": "text",
+        "id": "third-title3",
+        "label": "Title",
+        "default": "100% Authentic Product"
+      },
+      {
+        "type": "text",
+        "id": "third-description3",
+        "label": "Description",
+        "default": "Prominently display a clear \"100% Authentic Guarantee\" on your product"
+      },
+      {
+        "type": "text",
+        "id": "third-button3",
+        "label": "Button Text",
+        "default": "SEE MORE"
+      },
+      {
+        "type": "url",
+        "id": "third-button-url3",
+        "label": "Button URL"
       },
       {
         "type": "image_picker",
         "id": "image4-4",
-        "label": "Image"
+        "label": "Image6"
       }
     ],
-    "presets": [
+    "presets":[
       {
-        "name": "my-fashion-grid-layout",
-        "settings": {
-        }
+        "name": "my-fashion-grid-layout"
       }
-    ]
+    ] 
   }
 {% endschema %}

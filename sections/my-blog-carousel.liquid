@@ -8,6 +8,7 @@
             {{ section.settings.title }}
         </div>
     </div>
+
     <div class="bottom">
         <my-blog-carousel-container class="my-swiper-container">
             <div class="swiper">
@@ -15,12 +16,16 @@
                     {%- for article in section.settings.blog.articles -%}
                         <div class="swiper-slide slide">
                             <responsive-container class="image__container">
-                                {{ 
-                                    article.image 
-                                    | image_url: width: 278, height: 278
-                                    | image_tag:
-                                        alt: article.title
-                                }}
+                                {%- if article.image != blank -%}
+                                    {{ 
+                                        article.image 
+                                        | image_url: width: 278, height: 278
+                                        | image_tag:
+                                            alt: article.title
+                                    }}
+                                {%- else -%}
+                                    {{ 'blog-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                                {%- endif -%}
                                 <div class="category">{{ section.settings.blog.title }}</div>
                             </responsive-container>
 
@@ -75,9 +80,7 @@
     ],
     "presets": [
       {
-        "name": "my-blog-carousel",
-        "settings": {
-        }
+        "name": "my-blog-carousel"
       }
     ]
   }

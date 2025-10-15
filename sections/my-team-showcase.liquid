@@ -17,12 +17,16 @@
     {%- for block in section.blocks -%}
         <div class="member__container">
             <responsive-container>
-                {{ 
-                    block.settings.image
-                    | image_url: width: 288, height: 288
-                    | image_tag:
-                        alt: block.settings.image.alt
-                }}    
+                {%- if block.settings.image != blank -%}
+                    {{ 
+                        block.settings.image
+                        | image_url: width: 288, height: 288
+                        | image_tag:
+                            alt: block.settings.image.alt
+                    }}
+                {%- else -%}
+                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                {%- endif -%}    
             </responsive-container>
             <div class="name h3" style="font-weight:700;">{{ block.settings.name }}</div>
             <div class="job h5">{{ block.settings.job }}</div>
@@ -91,7 +95,12 @@
       {
         "name": "my-team-showcase",
         "settings": {
-        }
+        },
+        "blocks": [
+            {
+                "type": "team_member"
+            }
+        ]
       }
     ]
   }

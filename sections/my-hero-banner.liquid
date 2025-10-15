@@ -3,12 +3,16 @@
 
 <responsive-container class="my-hero-banner__container">
     <responsive-container class="img__container" style="height:auto;">
-      {{ section.settings.image_url
-        | image_url: width: 825, height: 435
-        | image_tag:
-            alt: section.settings.image_url.alt,
-            class: 'img' 
-      }}
+      {%- if section.settings.image_url != blank -%}
+        {{ section.settings.image_url
+          | image_url: width: 825, height: 435
+          | image_tag:
+              alt: section.settings.image_url.alt,
+              class: 'img' 
+        }}
+      {%- else -%}
+        {{ 'image' | placeholder_svg_tag:"placeholder-svg" }}
+      {%- endif -%}
     </responsive-container>
 
     <div class="content__container">
@@ -38,12 +42,14 @@
       {
         "type": "text",
         "id": "title",
-        "label": "Title"
+        "label": "Title",
+        "default": "ONLINE ONLY!"
       },
       {
         "type": "text",
         "id": "sub_title",
-        "label": "Sub Title"
+        "label": "Sub Title",
+        "default":"UP TO 50% OFF EVERYTHING"
       },
       {
         "type": "text",
@@ -55,7 +61,8 @@
       {
         "type": "text",
         "id": "button_text",
-        "label": "Button Text"
+        "label": "Button Text",
+        "default": "Shop Now"
       },
       {
         "type": "url",

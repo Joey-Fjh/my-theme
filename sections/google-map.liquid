@@ -1,8 +1,13 @@
 {{ 'google-map.css' | asset_url | stylesheet_tag }}
 
 <responsive-container class="google-map__container {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
-  {%- if section.settings.show_google_map  -%}
+  {%- if section.settings.show_google_map  and section.settings.block_content != blank-%}
     {{ section.settings.block_content }}
+  {%- else -%}
+    <img src="{{ 'google-map-empty.jpg' | asset_url }}" 
+      alt="Google Map Empty" width="1440" height="580"
+      class="google-map"
+    />
   {%- endif -%}
 </responsive-container>
 

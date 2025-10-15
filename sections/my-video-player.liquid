@@ -19,7 +19,7 @@
           alt: alt
       }}
     {%- else -%}
-      {{ 'hero-apparel-3' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
+      {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
     {%- endif -%}
   </responsive-container>
 
@@ -76,12 +76,12 @@
       {
         "type": "image_picker",
         "id": "cover_image",
-        "label": "t:sections.video.settings.cover_image.label"
+        "label": "Select Cover Image"
       },
       {
         "type": "text",
         "id": "description",
-        "label": "t:sections.video.settings.description.label",
+        "label": "Description",
         "info": "t:sections.video.settings.description.info"
       },
       {

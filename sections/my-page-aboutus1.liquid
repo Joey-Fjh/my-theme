@@ -6,21 +6,23 @@
 -%}
 
 <responsive-container class="my-page-aboutus1__container color-{{ section.settings.color_scheme }}">
-  {%- if banner_image_block.settings.banner_image != blank -%}
-    <responsive-container class="banner-image__container">
+  <responsive-container class="banner-image__container">
+    {%- if banner_image_block.settings.banner_image != blank -%}
       {{ banner_image_block.settings.banner_image 
         | image_url: width: 1440 , height: 600 
         | image_tag:
             alt: banner_image_block.settings.banner_image.title
       }}
-      <div class="wrapper">
-        <div class="content">
-          <div class="title h0">{{ banner_image_block.settings.title }}</div>
-          <div class="subtitle">{{ banner_image_block.settings.subtitle }}</div>
-        </div>
+    {%- else -%}
+      {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+    {%- endif -%}
+    <div class="wrapper">
+      <div class="content">
+        <div class="title h0">{{ banner_image_block.settings.title }}</div>
+        <div class="subtitle">{{ banner_image_block.settings.subtitle }}</div>
       </div>
-    </responsive-container>
-  {%- endif -%}
+    </div>
+  </responsive-container>
 
   <div class="block__wrapper">
     {%- for block in section.blocks -%}
@@ -143,6 +145,11 @@
               "default": "center"
           }
         ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "my-page-aboutus1"
       }
     ]
   }

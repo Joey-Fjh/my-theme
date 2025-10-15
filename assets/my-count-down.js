@@ -54,7 +54,7 @@ var p=Object.defineProperty;var h=(s,t,e)=>t in s?p(s,t,{enumerable:!0,configura
     }
 
     .countdown-label {
-      font-size: 2rem;
+      font-size: 1.2rem;
     }
   }
 `,f=a`

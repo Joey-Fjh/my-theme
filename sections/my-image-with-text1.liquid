@@ -9,12 +9,16 @@
 
 <responsive-container class="my-image-with-text1__container">
     <responsive-container class="image__container">
-      {{ 
-        section.settings.image
-        | image_url: width: 552, height:552 
-        | image_tag: 
-            alt: section.settings.image.alt
-      }}
+      {%- if section.settings.image != blank -%}
+        {{ 
+          section.settings.image
+          | image_url: width: 552, height:552 
+          | image_tag: 
+              alt: section.settings.image.alt
+        }}
+      {%- else -%}
+        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+      {%- endif -%}
     </responsive-container>
 
     <div class="content">
@@ -26,11 +30,15 @@
       </div>
       <div class="avator__container">
         <responsive-container class="avator-image__container">
-          {{ 
-            avator_block.settings.avatar
-            | image_url: width: 88, height:88 
-            | image_tag: avator_block.settings.avator.alt
-          }}
+          {%- if avator_block.settings.avatar != blank -%}
+            {{ 
+              avator_block.settings.avatar
+              | image_url: width: 88, height:88 
+              | image_tag: avator_block.settings.avator.alt
+            }}
+          {%- else -%}
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+          {%- endif -%}
         </responsive-container>
         <div class="avator__info"> 
           <div class="name h3" style="font-weight:700;margin-bottom:5px;">{{ avator_block.settings.name }}</div>
@@ -60,7 +68,8 @@
           {
             "type": "text",
             "id": "title",
-            "label": "Title"
+            "label": "Title",
+            "default":"Example Title"
           }
         ]
       },
@@ -72,7 +81,8 @@
           {
             "type": "richtext",
             "id": "description",
-            "label": "Description"
+            "label": "Description",
+            "default":"<p>Example Description</p>"
           }
         ]
       },
@@ -89,12 +99,14 @@
           {
             "type": "text",
             "id": "name",
-            "label": "Name"
+            "label": "Name",
+            "default":"Example Name"
           },
           {
             "type": "text",
             "id": "job",
-            "label": "Job"
+            "label": "Job",
+            "default":"Example Job"
           }
         ]
       }
@@ -102,8 +114,17 @@
     "presets": [
       {
         "name": "my-image-with-text1",
-        "settings": {
-        }
+        "blocks": [
+          {
+            "type": "title"
+          },
+          {
+            "type": "description"
+          },
+          {
+            "type": "avatar"
+          }
+        ]
       }
     ]
   }

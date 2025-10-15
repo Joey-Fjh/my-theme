@@ -8,12 +8,16 @@
 
 <responsive-container class="my-main-blog__container">
     <responsive-container class="top">
-      {{ 
-        section.settings.banner_image
-        | image_url: width: 1440, height: 338
-        | image_tag:
-            alt: section.settings.banner_image.alt
-      }}
+      {%- if section.settings.banner_image != blank -%}
+        {{ 
+          section.settings.banner_image
+          | image_url: width: 1440, height: 338
+          | image_tag:
+              alt: section.settings.banner_image.alt
+        }}
+      {%- else -%}
+        {{ 'blog-apparel-3' | placeholder_svg_tag: 'placeholder-svg' }}
+      {%- endif -%}
       <div class="title h0">Blog</div>
     </responsive-container>
     <div class="bottom">
@@ -41,12 +45,16 @@
           {%- if articles.size > 1 -%}
             <div class="my-article-card__container">
               <responsive-container class="article-image__container">
-                {{ 
-                  article.image
-                  | image_url: width: 388, height: 290
-                  | image_tag:
-                      alt: article.image.alt
-                }}
+                {%- if article.image != blank -%}
+                  {{ 
+                    article.image
+                    | image_url: width: 388, height: 290
+                    | image_tag:
+                        alt: article.image.alt
+                  }}
+                {%- else -%}
+                  {{ 'blog-apparel-2' | placeholder_svg_tag: 'placeholder-svg' }}
+                {%- endif -%}
               </responsive-container>
               <div class="article-info">
                 <p>{{ handle }}</p>

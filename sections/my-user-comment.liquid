@@ -8,13 +8,18 @@
         {%- for comment in section.settings.user_comments -%}
           <div class="swiper-slide card">
             <responsive-container>
-              {{ 
-                all_products[comment.product].featured_image
-                | image_url: width: 329, height:410
-                | image_tag:
-                  alt: all_products[comment.product].featured_image.alt 
-              }}
+              {%- if all_products[comment.product].featured_image != blank-%}
+                {{ 
+                  all_products[comment.product].featured_image
+                  | image_url: width: 329, height:410
+                  | image_tag:
+                    alt: all_products[comment.product].featured_image.alt 
+                }}
+              {%- else -%}
+                {{ 'product-apparel-3' | placeholder_svg_tag: 'placeholder-svg' }}
+              {%- endif -%}
             </responsive-container>
+
             <div class="product-name">
               {{ all_products[comment.product].title }}
             </div>
@@ -48,9 +53,7 @@
     ],
     "presets": [
       {
-        "name": "my-user-comment",
-        "settings": {
-        }
+        "name": "my-user-comment"
       }
     ]
   }

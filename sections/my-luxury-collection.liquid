@@ -4,62 +4,30 @@
     <div class="top__container h2">{{ section.settings.title }}</div>
 
     <div class="content__container">
-        <div class="item__container">    
-            <responsive-container class="img__container">
-                {{ 
-                    section.settings.image_1 
-                    | image_url: width:326
-                    | image_tag:
-                        alt: section.settings.alt,
-                        class: "img"
-                }}
-            </responsive-container>
-            <div class="img_info h2">
-                {{ section.settings.image_info1 }}
-            </div>
-        </div>
-        <div class="item__container">    
-            <responsive-container class="img__container">
-                {{ 
-                    section.settings.image_2 
-                    | image_url: width:326
-                    | image_tag:
-                        alt: section.settings.alt,
-                        class: "img"
-                }}
-            </responsive-container>
-            <div class="img_info h2">
-                {{ section.settings.image_info2 }}
-            </div>
-        </div>
-        <div class="item__container">    
-            <responsive-container class="img__container">
-                {{ 
-                    section.settings.image_3 
-                    | image_url: width:326
-                    | image_tag:
-                        alt: section.settings.alt,
-                        class: "img"
-                }}
-            </responsive-container>
-            <div class="img_info h2">
-                {{ section.settings.image_info3 }}
-            </div>
-        </div>
-        <div class="item__container">    
-            <responsive-container class="img__container">
-                {{ 
-                    section.settings.image_4 
-                    | image_url: width:326
-                    | image_tag:
-                        alt: section.settings.alt,
-                        class: "img"
-                }}
-            </responsive-container>
-            <div class="img_info h2">
-                {{ section.settings.image_info4 }}
-            </div>
-        </div>
+        {%- for block in section.blocks -%}      
+            {%- assign collection = collections[block.settings.collection] -%}
+            <a href="{{ collection.url }}" class="item__container"> 
+                <responsive-container class="img__container">
+                    {%- if collection.image != blank -%}
+                        {{ 
+                            collection.image 
+                            | image_url: width:326
+                            | image_tag:
+                                alt: collection.title,
+                                class: "img"
+                        }}
+                    {%- else -%}
+                        {%- assign placeholder_image_index  = forloop.index0 | modulo: 4 | plus: 1 -%}
+                        {%- assign placeholder_image  = "collection-apparel-" | append: placeholder_image_index -%}
+
+                        {{ placeholder_image | placeholder_svg_tag:"placeholder-svg" }}
+                    {%- endif -%}
+                </responsive-container>
+                <div class="img_info h2">
+                    {{ collection.title | default: "Collection" }}
+                </div>
+            </a>  
+        {%- endfor -%}
     </div>
 </responsive-container>
 
@@ -72,70 +40,41 @@
         {
             "type": "text",
             "id": "title",
-            "label": "Title"
-        },
-        {
-            "type": "header",
-            "content": "Item 1"
-        },
-        {
-            "type": "image_picker",
-            "id": "image_1",
-            "label": "Image1"
-        },
-        {
-            "type": "text",
-            "id": "image_info1",
-            "label": "Image Info1"
-        },
-        {
-            "type": "header",
-            "content": "Item 2"
-        },
-        {
-            "type": "image_picker",
-            "id": "image_2",
-            "label": "Image2"
-        },
-        {
-            "type": "text",
-            "id": "image_info2",
-            "label": "Image Info2"
-        },
-        {
-            "type": "header",
-            "content": "Item 3"
-        },
-        {
-            "type": "image_picker",
-            "id": "image_3",
-            "label": "Image3"
-        },
-        {
-            "type": "text",
-            "id": "image_info3",
-            "label": "Image Info3"
-        },
-        {
-            "type": "header",
-            "content": "Item 4"
-        },
-        {
-            "type": "image_picker",
-            "id": "image_4",
-            "label": "Image4"
-        },
-        {
-            "type": "text",
-            "id": "image_info4",
-            "label": "Image Info4"
+            "label": "Title",
+            "default": "EXPERIENCE OPULENCE LIKE NEVER BEFORE"
         }
     ],
+    "blocks": [
+        {
+            "type": "collection",
+            "name": "Collection",
+            "settings": [
+                {
+                    "type": "collection",
+                    "id": "collection",
+                    "label": "Select collection"
+                }
+            ]
+        }
+    ],
+    "max_blocks": 4,
     "presets": [
       {
         "name": "my-luxury-collection",
         "settings": {
-        }
+            "title": "EXPERIENCE OPULENCE LIKE NEVER BEFORE"
+        },
+        "blocks": [
+            {
+                "type": "collection"
+            },
+            {
+                "type": "collection"
+            },
+            {
+                "type": "collection"
+            }
+        ]
       }
     ]
   }

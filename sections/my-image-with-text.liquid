@@ -3,12 +3,16 @@
 
 <responsive-container class="my-image-with-text__container">
     <responsive-container class="image__container">
-        {{ 
-            section.settings.image 
-            | image_url: width: 676, height: 688 
-            | image_tag:
-                alt: section.settings.image.alt
-        }}
+        {%- if section.settings.image != blank-%}
+            {{ 
+                section.settings.image 
+                | image_url: width: 676, height: 688 
+                | image_tag:
+                    alt: section.settings.image.alt
+            }}
+        {%- else -%}
+            {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+        {%- endif -%}
     </responsive-container>
 
     <div class="content__container">
@@ -59,21 +63,32 @@
                 {
                     "type": "text",
                     "id": "title",
-                    "label": "Title"
+                    "label": "Title",
+                    "default":"Example Title",
                 },
                 {
                     "type": "textarea",
                     "id": "content",
-                    "label": "Content"
+                    "label": "Content",
+                    "default":"Example Content"
                 }
             ]
         }
     ],
     "presets": [
         {
-        "name": "my-image-with-text",
-        "settings": {
-        }
+            "name": "my-image-with-text",
+            "blocks": [
+                {
+                    "type": "accordion_item"
+                },
+                {
+                    "type": "accordion_item"
+                },
+                {
+                    "type": "accordion_item"
+                }
+            ]
         }
     ]
 }

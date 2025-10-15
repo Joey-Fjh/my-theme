@@ -22,12 +22,16 @@
 
   <div class="banner__container">
     <responsive-container class="banner-image__container">
-      {{ 
-        banner_image_block.settings.banner_image 
-        | image_url: width: 1440 , height: 600 
-        | image_tag:
-            alt: banner_image_block.settings.banner_image.title
-      }}
+      {%- if banner_image_block.settings.banner_image != blank -%}
+        {{ 
+          banner_image_block.settings.banner_image 
+          | image_url: width: 1440 , height: 600 
+          | image_tag:
+              alt: banner_image_block.settings.banner_image.title
+        }}
+      {%- else -%}
+        {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      {%- endif -%}
 
       <div class="title h0">{{ banner_image_block.settings.title }}</div>
     </responsive-container>
@@ -98,6 +102,11 @@
             "label":"Description"
           }
         ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "my-page-aboutus2"
       }
     ]
   }

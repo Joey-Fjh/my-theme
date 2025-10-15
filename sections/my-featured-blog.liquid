@@ -9,7 +9,7 @@
 -%}
 
 <responsive-container class="my-featured-blog__container">
-    {% comment %} <div class="top">
+    <div class="top">
         <h2
         id="SectionHeading-{{ section.id }}"
         class="inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
@@ -19,17 +19,23 @@
         >
             {{ section.settings.heading }}
         </h2>
-    </div> {% endcomment %}
+    </div>
+
     <div class="bottom">
         <div class="left">
             <responsive-container class="image__container">
-                {{ 
-                    left_article.image
-                    | image_url: width: 751, height: 500
-                    | image_tag:
-                        alt: left_article.image.alt,
-                        class:"left-image"
-                }}
+                {%- if left_article.image != blank -%}
+                    {{ 
+                        left_article.image
+                        | image_url: width: 751, height: 500
+                        | image_tag:
+                            alt: left_article.image.alt,
+                            class:"left-image"
+                    }}
+                {%- else -%}
+                   {{ 'blog-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }} 
+                {%- endif -%}
+
                 <div class="content">
                     <div class="title h2">
                         {{ left_article.title }}
@@ -45,16 +51,21 @@
             {%- for i in (2..articles.size) limit: 2 -%}
                 {% assign idx = i | minus: 1 %}
                 {% assign article = articles[idx] %}
+
                 <div class="card">
                     {%- if show_image -%}
                         <responsive-container class="image__container">
-                            {{ 
-                                article.image
-                                | image_url: width: 238, height: 238
-                                | image_tag:
-                                    alt:article.image.alt,
-                                    class:"right-image" 
-                            }}
+                            {%- if article.image != blank -%}
+                                {{ 
+                                    article.image
+                                    | image_url: width: 238, height: 238
+                                    | image_tag:
+                                        alt:article.image.alt,
+                                        class:"right-image" 
+                                }}
+                            {%- else -%}
+                                {{ 'blog-apparel-2' | placeholder_svg_tag: 'placeholder-svg' }}
+                            {%- endif -%}
                         </responsive-container>
                     {%- endif -%}
                     <div class="content">

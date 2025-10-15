@@ -11,22 +11,31 @@
   <!-- Left side - Two overlapping images -->
   <div class="hero-images">
     <div class="image-primary">
-      <img 
+      {%- if section.settings.primary_image != blank -%}
+        <img 
           width="400"
           height="400"
           src="{{ section.settings.primary_image | image_url: width:400 }}" 
           alt="{{ section.settings.primary_image.alt | default: 'Sustainable fashion model' }}"
           loading="lazy"
-      />
+        />
+      {%- else -%}
+        {{ 'image' | placeholder_svg_tag: 'placeholder-svg'  }}
+      {%- endif -%}
     </div>
+
     <div class="image-secondary">
-      <img
+      {%- if section.settings.secondary_image != blank -%}
+        <img
           width="400"
           height="400" 
           src="{{ section.settings.secondary_image | image_url: width:400 }}" 
           alt="{{ section.settings.secondary_image.alt | default: 'Fashion accessory' }}"
           loading="lazy"
-      />
+        />
+      {%- else -%}
+        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}  
+      {%- endif -%}
     </div>
   </div>
   <!-- Right side - Content -->

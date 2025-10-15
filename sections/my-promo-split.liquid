@@ -13,6 +13,8 @@
             src="{{ section.settings.lifestyle_image | image_url: width:720 }}" 
             alt="{{ section.settings.lifestyle_image.alt | default: 'Lifestyle Image' }}"
             class="lifestyle-image" />
+        {%- else -%}
+          {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
         {% endif %}
           
         <div class="text-overlay">
@@ -44,22 +46,30 @@
               {%- for i in (1..3) -%}
                 {% assign product_setting = 'product_' | append: forloop.index %}
                 {% assign product = block.settings[product_setting] %}
+                {%- assign placeholder_image_index  = forloop.index -%}
+                {%- assign placeholder_image  = "product-apparel-" | append: placeholder_image_index -%}
 
                 <div class="product-item swiper-slide"
                   data-product-id="{{ product.selected_or_first_available_variant.id }}"
                 >
                   {%- if product -%}
                     <div class="product-image-container">
-                      <img
-                        width="216"
-                        height="300" 
-                        src="{{ product.featured_image | image_url: width:216 }}" 
-                        alt="{{ product.title }}"
-                        class="product-image"/>
-                    </div>
-                    <div class="product-info">
-                      <h3 class="product-title">{{ product.title }}</h3>
-                      <p class="product-price">{{ product.price | money }}</p>
+                      {%- if product.featured_image -%}
+                        <img
+                          width="216"
+                          height="300" 
+                          src="{{ product.featured_image | image_url: width:216 }}" 
+                          alt="{{ product.title }}"
+                          class="product-image"
+                        />
+
+                        <div class="product-info">
+                          <h3 class="product-title">{{ product.title }}</h3>
+                          <p class="product-price">{{ product.price | money }}</p>
+                        </div>
+                      {%- else -%} 
+                        {{ placeholder_image | placeholder_svg_tag:"placeholder-svg" }}
+                      {%- endif -%}
                     </div>
                   {%- endif -%}
                 </div>
@@ -137,17 +147,11 @@
         ]
       }
     ],
-    "max_blocks": 3,
+    "max_blocks": 1,
     "presets": [
       {
         "name": "my-promo-split",
         "blocks": [
-          {
-            "type": "product"
-          },
-          {
-            "type": "product"
-          },
           {
             "type": "product"
           }

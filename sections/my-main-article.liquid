@@ -2,13 +2,17 @@
 
 <responsive-container class="my-main-article__container">
     <responsive-container class="banner-image__container">
+      {%- if section.settings.image != blank -%}
         {{ 
-            section.settings.image
-            | image_url: width: 1440, height: 600
-            | image_tag:
-                alt: section.settings.image.alt
+          section.settings.image
+          | image_url: width: 1440, height: 600
+          | image_tag:
+              alt: section.settings.image.alt
         }}
-        <div class="title h0">Blog Details</div>
+      {%- else -%}
+        {{  'blog-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      {%- endif -%}s
+      <div class="title h0">Blog Details</div>
     </responsive-container>
     <div class="content__container">
       <div class="content">

@@ -2,7 +2,7 @@
 
 <responsive-container class="my-newsletter-hero__container">
   <div class="newsletter-hero__background">
-    {% if section.settings.background_image %}
+    {% if section.settings.background_image != blank %}
      <img 
         width="1440"
         height="435"
@@ -11,6 +11,8 @@
         class="newsletter-hero__bg-image"
         loading="lazy"
       />
+    {%- else -%}
+      {{ "hero-apparel-1" | placeholder_svg_tag:"placeholder-svg" }}
     {% endif %}
     <div class="newsletter-hero__overlay"></div>
   </div>
