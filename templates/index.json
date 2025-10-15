@@ -194,66 +194,6 @@
     },
     "my_fashion_highlights_jtVAje": {
       "type": "my-fashion-highlights",
-      "blocks": {
-        "fashion_highlight_7kq6hh": {
-          "type": "fashion_highlight",
-          "settings": {
-            "info_text1": "Black solid dress",
-            "info_text2": "Casual shirt",
-            "info_text3": "Crop top",
-            "info_text4": "Cut Rib Top",
-            "info_text5": "Fedora hat",
-            "title": "Cozy Styles to Warm",
-            "button_text": "SHOP NOW",
-            "button_url": ""
-          }
-        },
-        "fashion_highlight_RRahxi": {
-          "type": "fashion_highlight",
-          "settings": {
-            "info_text1": "",
-            "info_text2": "",
-            "info_text3": "",
-            "info_text4": "",
-            "info_text5": "",
-            "title": "Styling Brown Bags",
-            "button_text": "SHOP NOW",
-            "button_url": ""
-          }
-        },
-        "fashion_highlight_xndF3V": {
-          "type": "fashion_highlight",
-          "settings": {
-            "info_text1": "",
-            "info_text2": "",
-            "info_text3": "",
-            "info_text4": "",
-            "info_text5": "",
-            "title": "Most Winter Dresses",
-            "button_text": "SHOP NOW",
-            "button_url": ""
-          }
-        },
-        "fashion_highlight_kEGjcq": {
-          "type": "fashion_highlight",
-          "settings": {
-            "info_text1": "",
-            "info_text2": "",
-            "info_text3": "",
-            "info_text4": "",
-            "info_text5": "",
-            "title": "Swim Wears Trends",
-            "button_text": "SHOP NOW",
-            "button_url": ""
-          }
-        }
-      },
-      "block_order": [
-        "fashion_highlight_7kq6hh",
-        "fashion_highlight_RRahxi",
-        "fashion_highlight_xndF3V",
-        "fashion_highlight_kEGjcq"
-      ],
       "name": "my-fashion-highlights",
       "settings": {
         "bgc_img": "shopify://shop_images/image_62.png"

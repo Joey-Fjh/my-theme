@@ -10,54 +10,41 @@
   {{ section.settings.background_color }}
 {%- endcapture -%}
 
+{%- capture image_slide_placeholder -%}
+  {% for block in section.blocks %}
+    {%- if block.settings.image -%}
+      {{
+          block.settings.image
+          | image_url: width: 200
+          | image_tag:
+              alt: block.settings.image.alt,
+              class: 'image'
+      }}
+    {%- else -%}
+      {{ 'image' | placeholder_svg_tag: 'my-placeholder-svg' }}
+    {%- endif -%}
+  {% endfor %}
+{%- endcapture -%}
+
 <my-brand-banner class="brand-banner__container" data-scroll-direction="{{ scroll_direction }}" 
   data-is-scroll="{{ is_scroll }}"
 >
   <div class="wrapper" style="background-color: {{ background_color }};">
     <div class="brand-banner__bgd" id="bannerTrack">
       {%- if is_scroll and scroll_direction == 'right' -%}
-        <div class="image-wrapper image-slide right">
-          {% for block in section.blocks %}
-              {%- if block.settings.image -%}
-                  {{
-                      block.settings.image
-                      | image_url: width: 200
-                      | image_tag:
-                          alt: block.settings.image.alt,
-                          class: 'image'
-                  }}
-              {%- endif -%}
-          {% endfor %}
+        <div class="image-wrapper image-slide right"
+        >
+          {{ image_slide_placeholder }}
         </div>
       {%- endif -%}
       
       <div class="image-wrapper">
-          {% for block in section.blocks %}
-              {%- if block.settings.image -%}
-                  {{
-                      block.settings.image
-                      | image_url: width: 200
-                      | image_tag:
-                          alt: block.settings.image.alt,
-                          class: 'image'
-                  }}
-              {%- endif -%}
-          {% endfor %}
+        {{ image_slide_placeholder }}
       </div>
 
       {%- if is_scroll and scroll_direction == 'left' -%}
         <div class="image-wrapper image-slide">
-          {% for block in section.blocks %}
-              {%- if block.settings.image -%}
-                  {{
-                      block.settings.image
-                      | image_url: width: 200
-                      | image_tag:
-                          alt: block.settings.image.alt,
-                          class: 'image'
-                  }}
-              {%- endif -%}
-          {% endfor %}
+          {{ image_slide_placeholder }}
         </div>
       {%- endif -%}
     </div>
@@ -86,8 +73,8 @@
         "id": "scroll_direction",
         "label": "Scroll Direction",
         "options": [
-            { "value": "left", "label": "向左" },
-            { "value": "right", "label": "向右" }
+            { "value": "left", "label": "left" },
+            { "value": "right", "label": "right" }
           ],
         "default": "left"
       }
@@ -109,7 +96,27 @@
       {
         "name": "brand-banner",
         "settings": {
-        }
+          "background_color": "#ffffff",
+          "is_scroll": false,
+          "scroll_direction": "left"
+        },
+        "blocks": [
+          {
+            "type": "image"
+          },
+          {
+            "type": "image"
+          },
+          {
+            "type": "image"
+          },
+          {
+            "type": "image"
+          },
+          {
+            "type": "image"
+          }
+        ]
       }
     ]
   }

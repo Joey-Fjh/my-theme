@@ -6,68 +6,103 @@
   assign sub_title = section.settings.sub_title
 -%}
 
+{%- capture has_products -%}
+    {%- if section.settings.product_collection.products.size > 0 -%}
+        true
+    {%- else -%}
+        false    
+    {%- endif -%}
+{%- endcapture -%}
+
 <responsive-container class="my-product-list__container">
     <div class="title__container">
         <div class="title h4">{{ title }}</div>
         <div class="sub-title h3">{{ sub_title }}</div>
     </div>
     <div class="content__container">
-        {% for product in section.settings.product_collection.products %}
-            <div class="product-card__container">
-                <responsive-container class="product-card__image">
-                    {{ 
-                        product.featured_image
-                        | image_url: width: 443
-                        | image_tag:
-                            alt: product.title, 
-                            class:'image' 
-                    }}
-                    {%- if product.compare_at_price > product.price and product.compare_at_price > 0 -%}
-                        {%- assign percent = product.price | times: 100 | divided_by: product.compare_at_price -%}
-                        {%- assign discount = 100 | minus: percent | prepend: '-' | append: '%' -%}
-                    {%- else -%}
-                        {%- assign discount = 0 | append: '%' -%}
-                    {%- endif -%}
-                    <div class="sale">
-                        SALE {{ discount }} OFF
-                    </div>
-                    
-                    <modal-opener 
-                        class="opener"
-                        data-modal="#my-product-list-PopupModal"
-                    >
-                        <button
-                            class="quick-view-btn"
-                            type="button"
-                            aria-haspopup="dialog"
-                            data-product-url="{{ product.url }}"
-                        >
-                            Quick View
-                            {%- render 'loading-spinner' -%}
-                        </button>
-                    </modal-opener>
-                </responsive-container> 
+        {%- if has_products == 'false' -%}
+            {%- for i in (1..6) -%}
+                <div class="product-card__container">
+                    <responsive-container class="product-card__image">
+                        {%- assign placeholder_image_index = forloop.index0 | modulo: 4 | plus: 1 -%}
+                        {%- assign placeholder_image = 'product-apparel-' | append: placeholder_image_index -%}
 
-                <div class="product-card__title h2">
-                    <a
-                        href="{{ product.url }}"
-                        id="StandardCardNoMediaLink-{{ section.id }}-{{ product.id }}"
-                        class="full-unstyled-link"
-                        aria-labelledby="StandardCardNoMediaLink-{{ section.id }}-{{ product.id }} NoMediaStandardBadge-{{ section.id }}-{{ product.id }}"
-                    >
-                        {{ product.title | escape }}
-                    </a>
+                        {{ placeholder_image | placeholder_svg_tag: "placeholder-svg" }}
+                    </responsive-container>
+                    <div class="product-card__title h2" style="align-self:center;">
+                        <a
+                            role="link"
+                            class="full-unstyled-link"
+                            style="cursor:not-allowed;"
+                        >
+                            {{ 'Example product title' | escape }}
+                        </a>
+                    </div>
+                    <div class="product-card__price h4" style="align-self:center;">
+                        {{ '1999' | money }}
+                    </div>
                 </div>
-                <div class="product-card__price h4">
-                    {{ product.price | money }}
-                    {%- if product.compare_at_price > product.price -%}
-                        <span class="old-price" style="text-decoration: line-through;">
-                            {{ product.compare_at_price | money }}
-                        </span>
-                {%- endif -%}
+            {%- endfor -%}
+        {%- else -%}       
+            {% for product in section.settings.product_collection.products %}
+                <div class="product-card__container">
+                    <responsive-container class="product-card__image">
+                        {{ 
+                            product.featured_image
+                            | image_url: width: 443
+                            | image_tag:
+                                alt: product.title, 
+                                class:'image' 
+                        }}
+
+                        {%- if product.compare_at_price > product.price and product.compare_at_price > 0 -%}
+                            {%- assign percent = product.price | times: 100 | divided_by: product.compare_at_price -%}
+                            {%- assign discount = 100 | minus: percent | prepend: '-' | append: '%' -%}
+                        {%- else -%}
+                            {%- assign discount = 0 | append: '%' -%}
+                        {%- endif -%}
+                        <div class="sale">
+                            SALE {{ discount }} OFF
+                        </div>
+                        
+                        <modal-opener 
+                            class="opener"
+                            data-modal="#my-product-list-PopupModal"
+                        >
+                            <button
+                                class="quick-view-btn"
+                                type="button"
+                                aria-haspopup="dialog"
+                                data-product-url="{{ product.url }}"
+                            >
+                                Quick View
+                                {%- render 'loading-spinner' -%}
+                            </button>
+                        </modal-opener>
+                    </responsive-container> 
+
+                    <div class="product-card__title h2">
+                        <a
+                            href="{{ product.url }}"
+                            id="StandardCardNoMediaLink-{{ section.id }}-{{ product.id }}"
+                            class="full-unstyled-link"
+                            aria-labelledby="StandardCardNoMediaLink-{{ section.id }}-{{ product.id }} NoMediaStandardBadge-{{ section.id }}-{{ product.id }}"
+                        >
+                            {{ product.title | escape }}
+                        </a>
+                    </div>
+                    <div class="product-card__price h4">
+                        {{ product.price | money }}
+
+                        {%- if product.compare_at_price > product.price -%}
+                            <span class="old-price" style="text-decoration: line-through;">
+                                {{ product.compare_at_price | money }}
+                            </span>
+                        {%- endif -%}
+                    </div>
                 </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
+        {%- endif -%}
     </div>
     <quick-add-modal
         id="my-product-list-PopupModal"
@@ -105,12 +140,14 @@
         {
             "type": "text",
             "id": "title",
-            "label": "Title"
+            "label": "Title",
+            "default":"OUR BEST SELLERS"
         },
         {
             "type": "text",
             "id": "sub_title",
-            "label": "Subtitle"
+            "label": "Subtitle",
+            "default":"MOST LOVED BY YOU"
         },
         {
             "type": "collection",
@@ -118,7 +155,6 @@
             "label": "Products"
         }
     ],
-    "blocks": [],
     "presets": [
       {
         "name": "my-product-list",

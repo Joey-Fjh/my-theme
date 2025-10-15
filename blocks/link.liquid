@@ -1,0 +1,40 @@
+{%- if block.settings.info_text != null -%}
+    <a 
+        {% if block.settings.link_url == blank %}
+          role="link"
+        {%- else -%}
+          href="{{ block.settings.link_url }}"
+        {%- endif -%}
+        class="link"
+        style="{% if block.settings.link_url == blank %} cursor:not-allowed; {% endif %}"
+    >
+        {{block.settings.info_text}}
+    </a>
+{%- endif -%}
+
+{% schema %}
+{
+    "name": "link",
+    "tag": "section",
+    "settings": [
+        {
+            "type": "text",
+            "id": "info_text",
+            "label": "Info Text",
+            "default":"Link Text"
+        },
+        {
+            "type": "url",
+            "id": "link_url",
+            "label": "Link URL"
+        }
+    ],
+    "presets": [
+        {
+            "name": "link",
+            "settings": {
+            }
+        }
+    ]
+}
+{% endschema %}
