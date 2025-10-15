@@ -14,15 +14,11 @@
       "blocks": {
         "image_JCxJVM": {
           "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/image.png"
-          }
+          "settings": {}
         },
         "image_VEUJVh": {
           "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/person-fishing-on-the-beach-is-silhouetted-at-sunset.jpg"
-          }
+          "settings": {}
         }
       },
       "block_order": [
@@ -44,33 +40,23 @@
       "blocks": {
         "image_aNMmwW": {
           "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/logo.png"
-          }
+          "settings": {}
         },
         "image_KVgiLg": {
           "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/logo_be09af97-1f15-4148-8d01-1b404a716a96.png"
-          }
+          "settings": {}
         },
         "image_bhG8Rw": {
           "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/logo_e7eddfab-fb47-404e-b12d-4b6e5a5c9333.png"
-          }
+          "settings": {}
         },
         "image_TcVp6E": {
           "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/logo_a97c0391-195b-470c-948e-3722838e411a.png"
-          }
+          "settings": {}
         },
         "image_P7gWiC": {
           "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/logo_11cea99c-09af-49bb-9a2c-7e1a889a89fa.png"
-          }
+          "settings": {}
         }
       },
       "block_order": [
@@ -93,7 +79,7 @@
       "settings": {
         "title": "OUR BEST SELLERS",
         "sub_title": "MOST LOVED BY YOU",
-        "product_collection": "女士衣服"
+        "product_collection": ""
       }
     },
     "brand_banner_UHKtHB": {
