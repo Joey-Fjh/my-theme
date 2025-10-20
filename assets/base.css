@@ -3595,3 +3595,16 @@ details-disclosure > details {
     transform: translateX(100%) scaleX(0);
   }
 }
+
+.my-page-width{
+  box-sizing: border-box !important;
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media screen and (min-width: 750px) {
+  .my-page-width {
+    padding: 0 2rem;
+  }
+}

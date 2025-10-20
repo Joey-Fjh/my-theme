@@ -2,16 +2,33 @@
 {{ 'my-image-banner.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'my-swiper-container.js' | asset_url }}" type='module' defer></script>
 
-<responsive-container class="my-image-banner__container">
+<responsive-container 
+  class="my-image-banner__container 
+    {% if section.settings.layout == 'page_width' %} my-page-width {% endif %}
+  "
+  aria-label="{{ section.settings.accessibility_info | escape }}"
+>
   <my-swiper-container
-    class="my-swiper-container"
+    style="display:flex;"
+    class="my-swiper-container swiper--{{ section.settings.slide_height }}"
     speed="{{ section.settings.autoplay_speed }}"
+    {%- if section.settings.auto_slide -%}
+      autoplay
+    {%- endif -%}
   >
-    <div class="swiper">
+    <div class="swiper" style="flex:1;height:100%;">
       <div class="swiper-wrapper">
+
         {% for block in section.blocks %}
-          <div class="swiper-slide">
-            <responsive-container>
+          <style>
+            #Slide-{{ section.id }}-{{ forloop.index }} .slide__container {
+              opacity: {{ block.settings.image_overlay_opacity | divided_by: 100.0 }};
+            }
+          </style>
+          <div class="swiper-slide" 
+            id="Slide-{{ section.id }}-{{ forloop.index }}"
+          >
+            <responsive-container class="slide__container">
               {%- if block.settings.image != blank -%}
                 {{
                   block.settings.image
@@ -27,6 +44,43 @@
                 {{ placeholder_image | placeholder_svg_tag:'placeholder-svg' }}
               {%- endif -%}
             </responsive-container>
+
+            <div 
+              class="slide-content my-page-width
+              slide-content--{{ block.settings.content_position }} 
+              {% if block.settings.show_text_box == true %} {% endif %}"
+            >
+              <div class="content__container
+                color-{{ block.settings.color_scheme }}
+                text--{{ block.settings.text_alignment }}
+                slide__box"
+              >
+                {%- if block.settings.title != blank -%}
+                  <h2 class="slide__heading inline-richtext {{ block.settings.heading_size }}">
+                    {{ block.settings.title }}
+                  </h2>
+                {%- endif -%}
+                {%- if block.settings.sub_title != blank -%}
+                  <div class="slide__text rte">
+                    <p>{{ block.settings.sub_title }}</p>
+                  </div>
+                {%- endif -%}
+                {%- if block.settings.button_text != blank -%}
+                  <div class="slide__buttons">
+                    <a
+                      {% if block.settings.button_url %}
+                        href="{{ block.settings.button_url }}"
+                      {% else %}
+                        role="link" aria-disabled="true"
+                      {% endif %}
+                      class="button"
+                    >
+                      {{- block.settings.button_text | escape -}}
+                    </a>
+                  </div>
+                {%- endif -%}
+              </div>
+            </div>
           </div>
         {% endfor %}
         
@@ -39,28 +93,6 @@
       <div class="swiper-button-next"></div>
     </div>
   </my-swiper-container>
-  
-  <div class="banner__content banner__content--{{ section.settings.desktop_content_position }} {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-    <div class="banner__box content-container content-container--full-width-mobile">
-      {%- if section.settings.title != blank -%}
-        <h2 class="banner__heading inline-richtext h0">
-          {{ section.settings.title }}
-        </h2>  
-      {%- endif -%}
-      {%- if section.settings.sub-title != blank -%}
-        <div class="banner__text rte subtitle">
-          <p>{{ section.settings.sub-title }}</p>
-        </div>  
-      {%- endif -%}
-      {%- if section.settings.button-text != blank -%}
-        <div class="banner__buttons">
-          <a href="{{ routes.all_products_collection_url }}" class="button button--secondary">
-            {{ section.settings.button-text }}
-          </a>
-        </div>  
-      {%- endif -%}
-    </div>
-  </div>
 </responsive-container>
 
 {% schema %}
@@ -73,6 +105,48 @@
     },
     "settings": [
       {
+        "type": "select",
+        "id": "layout",
+        "options": [
+          {
+            "value": "full_bleed",
+            "label": "Full Bleed"
+          },
+          {
+            "value": "page_width",
+            "label": "Page Width"
+          }
+        ],
+        "default": "full_bleed",
+        "label": "Layout"
+      },
+      {
+        "type": "select",
+        "id": "slide_height",
+        "options": [
+          {
+            "value": "small",
+            "label": "Small"
+          },
+          {
+            "value": "medium",
+            "label": "Medium"
+          },
+          {
+            "value": "large",
+            "label": "Large"
+          }
+        ],
+        "default": "medium",
+        "label": "Height"
+      },
+      {
+        "type": "checkbox",
+        "id": "auto_slide",
+        "label": "Auto Slide",
+        "default": false
+      },
+      {
         "type": "range",
         "id": "autoplay_speed",
         "label": "Autoplay Speed",
@@ -82,87 +156,174 @@
         "default": 5
       },
       {
-      "type": "header",
-      "content": "t:sections.image-banner.settings.content.content"
+        "type": "header",
+        "content": "Mobile Layout"
       },
       {
-        "type": "select",
-        "id": "desktop_content_position",
-        "options": [
-          {
-            "value": "top-left",
-            "label": "t:sections.image-banner.settings.desktop_content_position.options__1.label"
-          },
-          {
-            "value": "top-center",
-            "label": "t:sections.image-banner.settings.desktop_content_position.options__2.label"
-          },
-          {
-            "value": "top-right",
-            "label": "t:sections.image-banner.settings.desktop_content_position.options__3.label"
-          },
-          {
-            "value": "middle-left",
-            "label": "t:sections.image-banner.settings.desktop_content_position.options__4.label"
-          },
-          {
-            "value": "middle-center",
-            "label": "t:sections.image-banner.settings.desktop_content_position.options__5.label"
-          },
-          {
-            "value": "middle-right",
-            "label": "t:sections.image-banner.settings.desktop_content_position.options__6.label"
-          },
-          {
-            "value": "bottom-left",
-            "label": "t:sections.image-banner.settings.desktop_content_position.options__7.label"
-          },
-          {
-            "value": "bottom-center",
-            "label": "t:sections.image-banner.settings.desktop_content_position.options__8.label"
-          },
-          {
-            "value": "bottom-right",
-            "label": "t:sections.image-banner.settings.desktop_content_position.options__9.label"
-          }
-        ],
-        "default": "middle-center",
-        "label": "t:sections.image-banner.settings.desktop_content_position.label"
-      },
-      {
-        "type": "inline_richtext",
-        "id": "title",
-        "label": "Title",
-        "default":"Wear the Moment,Own the Style"
-      },
-      {
-        "type": "inline_richtext",
-        "id": "sub-title",
-        "label": "Sub Title",
-        "default":"Embrace every moment with confidence and let your fashion reflect your personality.Style is more than just clothing."
+        "type": "header",
+        "content": "Accessibility Content"
       },
       {
         "type": "text",
-        "id": "button-text",
-        "label": "button-label",
-        "info":"t:sections.rich-text.blocks.buttons.settings.button_label_1.info",
-        "default": "Shop Now"
-      },
-      {
-        "type": "url",
-        "id": "button-url",
-        "label": "button-url"
+        "id": "accessibility_info",
+        "label": "Slide Text",
+        "info": "For use screen readers describing the slide",
+        "default": "Slideshow about our brand"
       }
     ],
     "blocks": [
       {
-        "type": "image",
+        "type": "image-banner",
         "name": "Image",
         "settings": [
           {
             "type": "image_picker",
             "id": "image",
-            "label": "Image",
+            "label": "Image"
+          },
+          {
+            "type": "range",
+            "id": "image_overlay_opacity",
+            "min": 0,
+            "max": 100,
+            "step": 10,
+            "unit": "%",
+            "label": "Image Opcaity",
+            "default": 100
+          },
+          {
+            "type": "header",
+            "content": "Text"
+          },
+          {
+            "type": "inline_richtext",
+            "id": "title",
+            "label": "Title",
+            "default":"Wear the Moment,Own the Style"
+          },
+          {
+            "type": "select",
+            "id": "heading_size",
+            "options": [
+              {
+                "value": "h2",
+                "label": "sm"
+              },
+              {
+                "value": "h1",
+                "label": "m"
+              },
+              {
+                "value": "h0",
+                "label": "l"
+              },
+              {
+                "value": "hxl",
+                "label": "xl"
+              },
+              {
+                "value": "hxxl",
+                "label": "xxl"
+              }
+            ],
+            "default": "h1",
+            "label": "Title Size"
+          },
+          {
+            "type": "inline_richtext",
+            "id": "sub_title",
+            "label": "Sub Title",
+            "default":"Embrace every moment with confidence and let your fashion reflect your personality.Style is more than just clothing."
+          },
+          {
+            "type": "header",
+            "content": "Button"
+          },
+          {
+            "type": "text",
+            "id": "button_text",
+            "label": "Button Text",
+            "info":"The content will be hide if the content is empty.",
+            "default": "Shop Now",
+          },
+          {
+            "type": "url",
+            "id": "button_url",
+            "label": "Button URL"
+          },
+          {
+            "type": "header",
+            "content": "Layout Content"
+          },
+          {
+            "type": "select",
+            "id": "content_position",
+            "options": [
+              {
+                "value": "top-left",
+                "label": "Top Left"
+              },
+              {
+                "value": "top-center",
+                "label": "Top Center"
+              },
+              {
+                "value": "top-right",
+                "label": "Top Right"
+              },
+              {
+                "value": "middle-left",
+                "label": "Middle Left"
+              },
+              {
+                "value": "middle-center",
+                "label": "Middle Center"
+              },
+              {
+                "value": "middle-right",
+                "label": "Middle Right"
+              },
+              {
+                "value": "bottom-left",
+                "label": "Bottom Left"
+              },
+              {
+                "value": "bottom-center",
+                "label": "Bottom Center"
+              },
+              {
+                "value": "bottom-right",
+                "label": "Bottom Right"
+              }
+            ],
+            "default": "middle-center",
+            "label": "Content Position"
+          },
+          {
+            "type": "select",
+            "id": "text_alignment",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Center"
+              },
+              {
+                "value": "right",
+                "label": "Right"
+              }
+            ],
+            "default": "center",
+            "label": "Content Alignment"
+          },      
+          {
+            "type": "color_scheme",
+            "id": "color_scheme",
+            "label": "Color Scheme",
+            "default": "scheme-1"
           }
         ]
       }

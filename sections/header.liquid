@@ -1,9 +1,38 @@
 {{ 'header.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'my-mobile-menu.js' | asset_url }}" type='module' defer></script>
 
-<sticky-header data-sticky-header="on-srcoll-up" class="header-wrapper gradient header-wrapper--border-bottom">
-  <responsive-container class="header-container">
-      <div class="header-menu__container">
+{%- style -%}
+  .header {
+    padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 1rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 1rem;
+  }
+
+  .section-header {
+    position: sticky; /* This is for fixing a Safari z-index issue. PR #2147 */
+    margin-bottom: {{ section.settings.margin_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-header {
+      margin-bottom: {{ section.settings.margin_bottom }}px;
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .header {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<sticky-header 
+  data-sticky-header="on-srcoll-up" 
+  class="header-wrapper color-{{ section.settings.color_scheme }} gradient {% if section.settings.show_line_separator %} header-wrapper--border-bottom {% endif %}"
+>
+  <responsive-container 
+    class="header-container my-page-width header"
+  >
+      <div class="header-menu__container" style="flex:1;">
         {%- if section.settings.menu_type == 'default' -%}
           <nav class="desktop-nav">  
             {% for link in linklists.main-menu.links %}
@@ -12,7 +41,7 @@
                 {%- assign has_submenu = true -%}
               {%- endif -%}
               <div class="nav-item">
-                <a href="{{ link.url }}" class="nav-link">
+                <a href="{{ link.url }}" class="nav-link header__menu-item">
                   {{ link.title }}
                   {%- if has_submenu == true %}
                     {{- 'icon-nav-arrow.svg' | inline_asset_content -}}
@@ -21,14 +50,15 @@
 
                 {% comment %} sendary-menu {% endcomment %}
                 {%- if link.links.size > 0 -%}
-                  <div class="submenu">
+                  <div class="submenu color-{{ section.settings.menu_color_scheme }}">
                     {%- for child_link in link.links -%}
                       {%- assign has_third = false -%}
                       {%- if child_link.links.size > 0 -%}
                         {%- assign has_third = true -%}
                       {%- endif -%}
+
                       <div class="submenu-item {% if has_third == true %} has-child {% endif %}">
-                        <a href="{{ child_link.url }}" style="display:flex;justify-content:space-between;align-items: center;">
+                        <a href="{{ child_link.url }}" class="header__menu-item" style="display:flex;justify-content:space-between;align-items: center;">
                           {{ child_link.title }}
                           {%- if has_third == true %}
                             <div class="arrow-right">
@@ -36,12 +66,13 @@
                             </div>
                           {%- endif -%}
                         </a>
+
                         {%- if has_third == true %}
                           {% comment %} third-menu {% endcomment %}
-                          <div class="thirdmenu">
+                          <div class="thirdmenu color-{{ section.settings.menu_color_scheme }}">
                             {%- for grandChild_link in child_link.links -%}
                               <div class="submenu-item">
-                                <a href="{{ grandChild_link.url }}">{{ grandChild_link.title }}</a>
+                                <a href="{{ grandChild_link.url }}" class="header__menu-item">{{ grandChild_link.title }}</a>
                               </div>
                             {%- endfor -%}
                           </div>
@@ -57,51 +88,33 @@
           <nav class="desktop-supernav">
             {%- for link in linklists.main-menu.links -%}
               <div class="nav-item">
-                <a href="{{ link.url }}" class="nav-link">
+                <a href="{{ link.url }}" class="nav-link header__menu-item">
                   {{ link.title }}
-                  {{- 'icon-nav-arrow.svg' | inline_asset_content -}}
-                </a> 
+                  {%- if link.links.size > 0 -%}
+                    {{- 'icon-nav-arrow.svg' | inline_asset_content -}}
+                  {%- endif -%}
+                </a>
+                {%- if link.links.size > 0 -%}
+                  <div class="supermenu color-{{ section.settings.menu_color_scheme }}">
+                    <div class="inner">
+                      <div class="supermenu-columns">
+                          {%- for child_link in link.links -%}
+                            {%- unless child_link == nil  -%}
+                              <div class="supermenu-column">
+                                <a href="{{ child_link.url }}" class="header__menu-item">{{ child_link.title }}</a>
+
+                                {%- for grand_link in child_link.links -%}
+                                  <a href="{{ grand_link.url }}" class="header__menu-item">{{ grand_link.title }}</a>
+                                {%- endfor -%}
+                              </div>
+                            {%- endunless -%}
+                          {%- endfor -%}
+                      </div>
+                    </div>
+                  </div>
+                {% endif %} 
               </div> 
             {%- endfor -%}
-            <div class="supermenu">
-              <div class="inner">
-                <div class="supermenu-columns">
-                  {%- for link in linklists.main-menu.links -%}
-                    {%- for child_link in link.links -%}
-                      {%- unless child_link == nil  -%}
-                        <div class="supermenu-column">
-                          <a href="{{ child_link.url }}">{{ child_link.title }}</a>
-
-                          {%- for grand_link in child_link.links -%}
-                            <a href="{{ grand_link.url }}">{{ grand_link.title }}</a>
-                          {%- endfor -%}
-                        </div>
-                      {%- endunless -%}
-                    {%- endfor -%}
-                  {%- endfor -%}
-                </div>
-                <div class="supermenu-image">
-                  {% for i in (1..3) %}
-                    {% assign collection_key = "collection_" | append: i %}
-                    {% assign collection = section.settings[collection_key] %}
-
-                    {% if collection %}
-                        <a href="{{ collection.url }}">
-                          <responsive-container>
-                            {{ 
-                              collection.featured_image
-                              | image_url: width: 200, height: 200
-                              | image_tag:
-                                  alt: collection.title
-                            }}  
-                          </responsive-container>                           
-                          <span>{{ collection.title }}</span>
-                        </a>
-                    {% endif %}
-                  {% endfor %}
-                </div>
-              </div>
-            </div>
           </nav>
         {% endif %}
 
@@ -116,76 +129,110 @@
           </button>
 
           {% comment %} mobile menu drawer {% endcomment %}
-          <div id="mobile-menu" class="mobile-menu">
-            {%- for link in linklists.main-menu.links -%}
-              {%- assign has_sub = false -%}
-              {%- if link.links.size > 0 -%}
-                {%- assign has_sub = true -%}
-              {%- endif -%}
-
-              <div class="mobile-menu-item">
-                {%- if has_sub -%}
-                  <button class="mobile-menu-toggle">
-                    {{ link.title }}    
-                    {{ 'icon-nav-arrow.svg' | inline_asset_content }}
-                  </button>
-                {%- else -%}
-                  <a href="{{ link.url }}" class="nav-link">
-                    {{ link.title }}
-                  </a>
+          <div id="mobile-menu" class="mobile-menu color-{{ section.settings.menu_color_scheme }}">
+            <div class="link__container">
+              {%- for link in linklists.main-menu.links -%}
+                {%- assign has_sub = false -%}
+                {%- if link.links.size > 0 -%}
+                  {%- assign has_sub = true -%}
                 {%- endif -%}
-                
-                {% comment %} mobile menu second {% endcomment %}
-               <div class="mobile-submenu">
-                  {%- for child_link in link.links -%}
-                    {%- assign has_third = false -%}
-                    {%- if child_link.links.size > 0 -%}
-                      {%- assign has_third = true -%}
-                    {%- endif -%}
 
-                    <div class="mobile-submenu-item">
-                      {%- if has_third -%}
-                        <button class="mobile-submenu-toggle">
-                          {{ child_link.title }}
-                          {{ 'icon-nav-arrow.svg' | inline_asset_content }}
-                        </button>
-                      {%- else -%}
-                        <a href="{{ child_link.url }}">
-                          {{ child_link.title }}
-                        </a>  
+                <div class="mobile-menu-item">
+                  {%- if has_sub -%}
+                    <button class="mobile-menu-toggle header__menu-item mobile-menu__menu-item">
+                      {{ link.title }}    
+                      {{ 'icon-nav-arrow.svg' | inline_asset_content }}
+                    </button>
+                  {%- else -%}
+                    <a href="{{ link.url }}" class="nav-link header__menu-item mobile-menu__menu-item">
+                      {{ link.title }}
+                    </a>
+                  {%- endif -%}
+                  
+                  {% comment %} mobile menu second {% endcomment %}
+                <div class="mobile-submenu">
+                    {%- for child_link in link.links -%}
+                      {%- assign has_third = false -%}
+                      {%- if child_link.links.size > 0 -%}
+                        {%- assign has_third = true -%}
                       {%- endif -%}
 
-                      {% comment %} mobile menu third {% endcomment %}
-                      <div class="mobile-thirdmenu"> 
-                        {%- for grandChild_link in child_link.links -%}
-                          <a href="{{ grandChild_link.url }}">{{ grandChild_link.title }}</a>
-                        {%- endfor -%}
+                      <div class="mobile-submenu-item">
+                        {%- if has_third -%}
+                          <button class="mobile-submenu-toggle header__menu-item">
+                            {{ child_link.title }}
+                            {{ 'icon-nav-arrow.svg' | inline_asset_content }}
+                          </button>
+                        {%- else -%}
+                          <a href="{{ child_link.url }}" class="header__menu-item">
+                            {{ child_link.title }}
+                          </a>  
+                        {%- endif -%}
+
+                        {% comment %} mobile menu third {% endcomment %}
+                        <div class="mobile-thirdmenu"> 
+                          {%- for grandChild_link in child_link.links -%}
+                            <a href="{{ grandChild_link.url }}" class="header__menu-item">{{ grandChild_link.title }}</a>
+                          {%- endfor -%}
+                        </div>
                       </div>
-                    </div>
-                  {%- endfor -%}
+                    {%- endfor -%}
+                  </div>
                 </div>
-              </div>
-            {%- endfor -%}
+              {%- endfor -%}
+            </div>
+            <div class="bottom__container">
+              <a href="{{ routes.account_url }}" class="nav-icon" 
+                style="display:inline-flex;align-items:center;text-decoration:none;padding:10px 0;color:rgb(var(--color-foreground));gap:10px;"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                <span>Log in</span>
+              </a>
+            </div>
           </div>
         </my-mobile-menu>
       </div>
- 
-      <a class="header-logo__container" href="{{ routes.root_url }}">
-        {%- if section.settings.logo_image %}
-          {{  
-            section.settings.logo_image |
-            image_url: width: 48,height: 48 | 
-            image_tag:
-              alt: "logo",
-              class:'header-logo__image',
-              preload:true
-          }}
-          {%- else -%}
-            <span class="heder-logo__text">{{ section.settings.logo_text }}</span>  
+
+      <a 
+        class="header__heading-link link link--text focus-inset" href="{{ routes.root_url }}"
+        style="
+          {%- if section.settings.logo_position == 'center' -%}
+            order:0;
+          {% elsif section.settings.logo_position == 'left' %}
+            order:-1;
+          {% elsif section.settings.logo_position == 'right' %}
+            order: 1;
+          {%- endif -%}
+        "
+      >
+        {%- if settings.logo != blank -%}
+          <div class="header__heading-logo-wrapper">
+            {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
+            {%- assign logo_height = settings.logo_width | divided_by: settings.logo.aspect_ratio -%}
+            {% capture sizes %}(max-width: {{ settings.logo_width | times: 2 }}px) 50vw, {{ settings.logo_width }}px{% endcapture %}
+            {% capture widths %}{{ settings.logo_width }}, {{ settings.logo_width | times: 1.5 | round }}, {{ settings.logo_width | times: 2 }}{% endcapture %}
+            {{
+              settings.logo
+              | image_url: width: 600
+              | image_tag:
+                class: 'header__heading-logo motion-reduce',
+                widths: widths,
+                height: logo_height,
+                width: settings.logo_width,
+                alt: logo_alt,
+                sizes: sizes,
+                preload: true
+            }}
+          </div>
+        {%- else -%}
+          <span class="h2">{{ shop.name }}</span>
         {%- endif -%}
       </a>
 
-      <div class="header-navigator__container">
+      <div class="header-navigator__container" style="flex:1;">
         <div class="search-container">
           <form action="{{ routes.search_url }}" method="get" class="search-form">
             <input 
@@ -350,14 +397,71 @@
   }
 
   customElements.define('sticky-header', StickyHeader);
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const menuType =  document.querySelector(".desktop-supernav");
+
+    if(!menuType) return;
+
+    let hideTimer = null;
+    const navItems = document.querySelectorAll('.nav-item');
+    const megaMenus = document.querySelectorAll('.supermenu'); 
+
+    navItems.forEach(item=>{
+      if(!item.querySelector('.supermenu')) return;
+
+      const megaMenu = item.querySelector('.supermenu');
+      
+      item.addEventListener('mouseenter',()=>{
+        clearTimeout(hideTimer);
+
+        megaMenus.forEach(menu => (menu.style.display = 'none'));
+        megaMenu.style.display = 'block';
+      });
+
+      item.addEventListener('mouseleave',()=>{
+        hideTimer = setTimeout(()=>{
+          megaMenu.style.display = 'none';
+        },300);
+      });
+
+      megaMenu.addEventListener('mouseenter',()=>{
+        clearTimeout(hideTimer);
+      });
+
+      megaMenu.addEventListener('mouseleave',()=>{
+        megaMenu.style.display = 'none'; 
+      });
+    });
+  });
 {% endjavascript %}
 
 {% schema %}
 {
-  "name": "t:sections.header.name",
-  "tag": "section",
+  "name": "Header",
   "class": "section-header",
   "settings": [
+    {
+      "type": "select",
+      "id": "logo_position",
+      "options": [
+        {
+          "value": "left",
+          "label": "left"
+        },
+        {
+          "value": "center",
+          "label": "center"
+        },
+        {
+          "value": "right",
+          "label": "right"
+        }
+      ],
+      "default": "center",
+      "label": "Logo Position",
+      "info": "Edit your logo in [theme settings](/editor?context=theme&category=logo)"
+    },
     {
       "type": "select",
       "id": "menu_type",
@@ -372,34 +476,93 @@
           "label": "Super Menu"
         }
       ],
-      "info":"Only type is supermenu,you can setting the collection"
+      "default":"default"
+    },
+     {
+      "type": "checkbox",
+      "id": "show_line_separator",
+      "default": true,
+      "label": "Show Line Separator"
     },
     {
-      "type": "collection",
-      "id": "collection_1",
-      "label": "Collection1"
+      "type": "header",
+      "content": "Color"
     },
     {
-      "type": "collection",
-      "id": "collection_2",
-      "label": "Collection2"
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
     },
     {
-      "type": "collection",
-      "id": "collection_3",
-      "label": "Collection3"
+      "type": "color_scheme",
+      "id": "menu_color_scheme",
+      "label": "Menu Color Scheme",
+      "default": "scheme-1"
     },
     {
-      "type": "text",
-      "id": "logo_text",
-      "label": "logo_text",
-      "default":"LOGO"
+      "type": "header",
+      "content": "Public Utilities"
     },
     {
-      "type": "image_picker",
-      "id": "logo_image",
-      "label": "logo_image"
+      "type": "checkbox",
+      "id": "enable_country_selector",
+      "default": true,
+      "label": "Enable Country Selector",
+      "info": "[Manage countries/regions](/admin/settings/markets)"
     },
+    {
+      "type": "checkbox",
+      "id": "enable_language_selector",
+      "default": true,
+      "label": "Enable Language Selector",
+      "info": "[Manage languages](/admin/settings/languages)"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_customer_avatar",
+      "default": true,
+      "label": "Enable Customer Avatar",
+      "info": "Only visible when customers are signed in with Shop. [Manage customer accounts](/admin/settings/customer_accounts)"
+    },
+    {
+      "type": "header",
+      "content": "Space"
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 36,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 36,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 20
+    }
   ]
 }
 {% endschema %}
