@@ -1,10 +1,19 @@
 {{ 'my-product-list.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
 
-{%- liquid
-  assign title = section.settings.title
-  assign sub_title = section.settings.sub_title
--%}
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
 
 {%- capture has_products -%}
     {%- if section.settings.product_collection.products.size > 0 -%}
@@ -14,12 +23,49 @@
     {%- endif -%}
 {%- endcapture -%}
 
-<responsive-container class="my-product-list__container">
+<responsive-container 
+    class="my-product-list__container color-{{ section.settings.color_scheme }} section-{{ section.id }}-padding"
+>
     <div class="title__container">
-        <div class="title h4">{{ title }}</div>
-        <div class="sub-title h3">{{ sub_title }}</div>
+        {%- if section.settings.title != blank -%}
+            <h2 class="title inline-richtext {{ section.settings.heading_size }}
+                {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            >
+                {{ section.settings.title }}
+            </h2>
+        {%- endif -%}
+        {%- if section.settings.description != blank
+            or section.settings.show_description
+            and section.settings.collection.description != empty
+        -%}
+            <div class="subtitle rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+            {%- if section.settings.show_description -%}
+                {{ section.settings.collection.description }}
+            {%- else -%}
+                {{ section.settings.description -}}
+            {%- endif %}
+            </div>
+        {%- endif -%}
     </div>
-    <div class="content__container">
+
+    <div class="
+        content__container my-page-width
+        {% if section.settings.full_width %} content-full-width {% endif %} 
+        "
+    >
+        <style>
+            .content__container{
+                grid-template-columns: repeat({{ section.settings.columns_mobile }},1fr);
+                gap:12px;
+            }
+
+            @media screen and (min-width: 750px) {
+                .content__container{
+                    grid-template-columns: repeat({{ section.settings.columns_desktop }},minmax(0,1fr));
+                    gap:50px;
+                }
+            }
+        </style>
         {%- if has_products == 'false' -%}
             {%- for i in (1..6) -%}
                 <div class="product-card__container">
@@ -91,6 +137,7 @@
                             {{ product.title | escape }}
                         </a>
                     </div>
+
                     <div class="product-card__price h4">
                         {{ product.price | money }}
 
@@ -104,6 +151,7 @@
             {% endfor %}
         {%- endif -%}
     </div>
+
     <quick-add-modal
         id="my-product-list-PopupModal"
         class="product-list-modal"
@@ -141,15 +189,6 @@
             "type": "collection",
             "id": "product_collection",
             "label": "Product Collection"
-        },
-        {
-            "type": "range",
-            "id": "products_to_show",
-            "min": 2,
-            "max": 25,
-            "step": 1,
-            "default": 4,
-            "label": "Products to show"
         },
         {
             "type": "header",
@@ -191,8 +230,8 @@
         },
         {
             "type": "richtext",
-            "id": "sub_title",
-            "label": "Subtitle",
+            "id": "description",
+            "label": "Description",
             "default":"<p>MOST LOVED BY YOU</p>"
         },
         {
@@ -204,6 +243,15 @@
         {
             "type": "header",
             "content": "Product Collection Layout"
+        },
+        {
+            "type": "range",
+            "id": "products_to_show",
+            "min": 2,
+            "max": 25,
+            "step": 1,
+            "default": 4,
+            "label": "Products to show"
         },
         {
             "type": "range",
@@ -229,7 +277,13 @@
             ],
             "default": "2",
             "label": "Columns Mobile"
-        },  
+        }, 
+        {
+            "type": "checkbox",
+            "id": "full_width",
+            "label": "Full Width",
+            "default": false
+        }, 
         {
             "type": "color_scheme",
             "id": "color_scheme",

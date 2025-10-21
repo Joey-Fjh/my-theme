@@ -34,8 +34,8 @@
   >
       <div class="header-menu__container" style="flex:1;">
         {%- if section.settings.menu_type == 'default' -%}
-          <nav class="desktop-nav">  
-            {% for link in linklists.main-menu.links %}
+          <nav class="desktop-nav" style="flex-wrap:wrap;">  
+            {% for link in section.settings.menu.links %}
               {%- assign has_submenu = false -%}
               {%- if link.links.size > 0 -%}
                 {%- assign has_submenu = true -%}
@@ -85,8 +85,8 @@
             {% endfor %}
           </nav>
         {%- else -%}
-          <nav class="desktop-supernav">
-            {%- for link in linklists.main-menu.links -%}
+          <nav class="desktop-supernav" style="flex-wrap:wrap;">
+            {%- for link in section.settings.menu.links -%}
               <div class="nav-item">
                 <a href="{{ link.url }}" class="nav-link header__menu-item">
                   {{ link.title }}
@@ -131,7 +131,7 @@
           {% comment %} mobile menu drawer {% endcomment %}
           <div id="mobile-menu" class="mobile-menu color-{{ section.settings.menu_color_scheme }}">
             <div class="link__container">
-              {%- for link in linklists.main-menu.links -%}
+              {%- for link in section.settings.menu.links -%}
                 {%- assign has_sub = false -%}
                 {%- if link.links.size > 0 -%}
                   {%- assign has_sub = true -%}
@@ -461,6 +461,12 @@
       "default": "center",
       "label": "Logo Position",
       "info": "Edit your logo in [theme settings](/editor?context=theme&category=logo)"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "default": "main-menu",
+      "label": "Menu"
     },
     {
       "type": "select",
