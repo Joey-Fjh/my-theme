@@ -138,28 +138,132 @@
     },
     "settings": [
         {
-            "type": "text",
+            "type": "collection",
+            "id": "product_collection",
+            "label": "Product Collection"
+        },
+        {
+            "type": "range",
+            "id": "products_to_show",
+            "min": 2,
+            "max": 25,
+            "step": 1,
+            "default": 4,
+            "label": "Products to show"
+        },
+        {
+            "type": "header",
+            "content": "Text"
+        },    
+        {
+            "type": "inline_richtext",
             "id": "title",
             "label": "Title",
             "default":"OUR BEST SELLERS"
         },
         {
-            "type": "text",
-            "id": "sub_title",
-            "label": "Subtitle",
-            "default":"MOST LOVED BY YOU"
+            "type": "select",
+            "id": "heading_size",
+            "options": [
+                {
+                "value": "h2",
+                "label": "small"
+                },
+                {
+                "value": "h1",
+                "label": "medium"
+                },
+                {
+                "value": "h0",
+                "label": "large"
+                },
+                {
+                "value": "hxl",
+                "label": "xl"
+                },
+                {
+                "value": "hxxl",
+                "label": "xxl"
+                }
+            ],
+            "default": "h1",
+            "label": "Title Size"
         },
         {
-            "type": "collection",
-            "id": "product_collection",
-            "label": "Products"
+            "type": "richtext",
+            "id": "sub_title",
+            "label": "Subtitle",
+            "default":"<p>MOST LOVED BY YOU</p>"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_description",
+            "label": "Show Product Description",
+            "default": false   
+        },
+        {
+            "type": "header",
+            "content": "Product Collection Layout"
+        },
+        {
+            "type": "range",
+            "id": "columns_desktop",
+            "min": 1,
+            "max": 6,
+            "step": 1,
+            "default": 4,
+            "label": "Columns Desktop"
+        },
+        {
+            "type": "select",
+            "id": "columns_mobile",
+            "options": [
+                {
+                    "value": "1",
+                    "label": "1"
+                },
+                {
+                    "value": "2",
+                    "label": "2"
+                }
+            ],
+            "default": "2",
+            "label": "Columns Mobile"
+        },  
+        {
+            "type": "color_scheme",
+            "id": "color_scheme",
+            "label": "Color Scheme",
+            "default": "scheme-1"
+        },
+        {
+            "type": "header",
+            "content": "Padding"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "Padding Top",
+            "default": 36
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "Padding Bottom",
+            "default": 36
         }
     ],
     "presets": [
       {
-        "name": "my-product-list",
-        "settings": {
-        }
+        "name": "my-product-list"
       }
     ]
   }
