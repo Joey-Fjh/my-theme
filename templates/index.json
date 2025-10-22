@@ -12,27 +12,31 @@
     "my_image_banner_qe9VB7": {
       "type": "my-image-banner",
       "blocks": {
-        "image_JCxJVM": {
-          "type": "image",
-          "settings": {}
-        },
-        "image_VEUJVh": {
-          "type": "image",
-          "settings": {}
+        "image_banner_GgTW6L": {
+          "type": "image-banner",
+          "settings": {
+            "image_overlay_opacity": 100,
+            "title": "Wear the Moment,Own the Style",
+            "heading_size": "h1",
+            "sub_title": "Embrace every moment with confidence and let your fashion reflect your personality.Style is more than just clothing.",
+            "button_text": "Shop Now",
+            "button_url": "",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "color_scheme": "scheme-1"
+          }
         }
       },
       "block_order": [
-        "image_JCxJVM",
-        "image_VEUJVh"
+        "image_banner_GgTW6L"
       ],
       "name": "my-image-banner",
       "settings": {
+        "layout": "full_bleed",
+        "slide_height": "medium",
+        "auto_slide": false,
         "autoplay_speed": 10,
-        "desktop_content_position": "top-right",
-        "title": "DFSDF",
-        "sub-title": "FSD",
-        "button-text": "SHOP NOW",
-        "button-url": ""
+        "accessibility_info": "Slideshow about our brand"
       }
     },
     "brand_banner_yNHUrN": {
@@ -77,9 +81,18 @@
       "type": "my-product-list",
       "name": "my-product-list",
       "settings": {
+        "product_collection": "",
         "title": "OUR BEST SELLERS",
-        "sub_title": "MOST LOVED BY YOU",
-        "product_collection": ""
+        "heading_size": "h1",
+        "description": "<p>MOST LOVED BY YOU</p>",
+        "show_description": false,
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "full_width": false,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "brand_banner_UHKtHB": {
@@ -189,15 +202,7 @@
       "type": "my-luxury-collection",
       "name": "my-luxury-collection",
       "settings": {
-        "title": "EXPERIENCE OPULENCE LIKE NEVER BEFORE",
-        "image_1": "shopify://shop_images/image_41.png",
-        "image_info1": "Imperial Icons",
-        "image_2": "shopify://shop_images/42_df82998f-c90c-41ac-95ba-7826aba0ca78.png",
-        "image_info2": "Elysian Elegance",
-        "image_3": "shopify://shop_images/43_8f7a49ea-c4d2-468a-bf67-bb528fed0e0f.png",
-        "image_info3": "Prestige Line",
-        "image_4": "shopify://shop_images/image_44.png",
-        "image_info4": "Eternal Grace"
+        "title": "EXPERIENCE OPULENCE LIKE NEVER BEFORE"
       }
     },
     "my_hero_banner_6JCMYw": {
@@ -271,11 +276,31 @@
       "type": "my-fashion-grid-layout",
       "name": "my-fashion-grid-layout",
       "settings": {
+        "fisrt-title": "Color of Summer Outfit",
+        "fisrt-description": "100+ Collections for you outfit inspirations this summer",
+        "fisrt-button": "VIEW COLLECTIONS",
+        "fisrt-button-url": "",
         "image1-1": "shopify://shop_images/image_2.png",
         "image1-4": "shopify://shop_images/image_73.png",
         "image2-4": "shopify://shop_images/H526Y04WFA_5100_1F_1.png",
+        "second-title": "Casual Inspirations",
+        "second-description": "Our favorite combinations for casual outfit that can inspire you to apply on your daily activity",
+        "second-button": "BROWSE INPIRATIONS",
+        "seconde-button-url": "",
         "image3-3": "shopify://shop_images/3ad03d4385b40c98bce5e371ed85d9b_1.png",
         "image3-4": "shopify://shop_images/image_74.png",
+        "third-title1": "100% Authentic Product",
+        "third-description1": "Prominently display a clear \"100% Authentic Guarantee\" on your product",
+        "third-button1": "SEE MORE",
+        "third-button-url1": "",
+        "third-title2": "100% Authentic Product",
+        "third-description2": "Prominently display a clear \"100% Authentic Guarantee\" on your product",
+        "third-button2": "SEE MORE",
+        "third-button-url2": "",
+        "third-title3": "100% Authentic Product",
+        "third-description3": "Prominently display a clear \"100% Authentic Guarantee\" on your product",
+        "third-button3": "SEE MORE",
+        "third-button-url3": "",
         "image4-4": "shopify://shop_images/image_62.png"
       }
     },
