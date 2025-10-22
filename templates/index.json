@@ -12,27 +12,64 @@
     "my_image_banner_qe9VB7": {
       "type": "my-image-banner",
       "blocks": {
-        "image_JCxJVM": {
-          "type": "image",
-          "settings": {}
+        "image_banner_WL9CtN": {
+          "type": "image-banner",
+          "settings": {
+            "image": "shopify://shop_images/1-1_6863609e-5ef9-44d9-b449-3fd24fb4b9ed.png",
+            "image_overlay_opacity": 100,
+            "title": "Wear the Moment,Own the Style",
+            "heading_size": "h2",
+            "sub_title": "Embrace every moment with confidence and let your fashion reflect your personality.Style is more than just clothing.",
+            "button_text": "Shop Now",
+            "button_url": "",
+            "content_position": "middle-right",
+            "text_alignment": "left",
+            "color_scheme": "scheme-1"
+          }
         },
-        "image_VEUJVh": {
-          "type": "image",
-          "settings": {}
+        "image_banner_UBiDLA": {
+          "type": "image-banner",
+          "settings": {
+            "image_overlay_opacity": 100,
+            "title": "Wear the Moment,Own the Style",
+            "heading_size": "h2",
+            "sub_title": "Embrace every moment with confidence and let your fashion reflect your personality.Style is more than just clothing.",
+            "button_text": "Shop Now",
+            "button_url": "",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "color_scheme": "scheme-1"
+          }
+        },
+        "image_banner_ihGMki": {
+          "type": "image-banner",
+          "settings": {
+            "image": "shopify://shop_images/1-1.png",
+            "image_overlay_opacity": 100,
+            "title": "Wear the Moment,Own the Style1123",
+            "heading_size": "h1",
+            "sub_title": "Embrace every moment with confidence and let your fashion reflect your personality.Style is more than just clothing.",
+            "button_text": "Shop Now",
+            "button_url": "",
+            "content_position": "bottom-right",
+            "text_alignment": "center",
+            "color_scheme": "scheme-1"
+          }
         }
       },
       "block_order": [
-        "image_JCxJVM",
-        "image_VEUJVh"
+        "image_banner_WL9CtN",
+        "image_banner_UBiDLA",
+        "image_banner_ihGMki"
       ],
+      "disabled": true,
       "name": "my-image-banner",
       "settings": {
-        "autoplay_speed": 10,
-        "desktop_content_position": "top-right",
-        "title": "DFSDF",
-        "sub-title": "FSD",
-        "button-text": "SHOP NOW",
-        "button-url": ""
+        "layout": "page_width",
+        "slide_height": "medium",
+        "auto_slide": true,
+        "autoplay_speed": 2,
+        "accessibility_info": "Slideshow about our brand"
       }
     },
     "brand_banner_yNHUrN": {
@@ -40,7 +77,9 @@
       "blocks": {
         "image_aNMmwW": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/9022a705161ff42b7879d88f1fd6d0e8_682e269a-e516-47cf-a736-19e9bb045b52.png"
+          }
         },
         "image_KVgiLg": {
           "type": "image",
@@ -66,6 +105,7 @@
         "image_TcVp6E",
         "image_P7gWiC"
       ],
+      "disabled": true,
       "name": "brand-banner",
       "settings": {
         "background_color": "#ffffff",
@@ -77,9 +117,22 @@
       "type": "my-product-list",
       "name": "my-product-list",
       "settings": {
+        "product_collection": "女士衣服",
         "title": "OUR BEST SELLERS",
-        "sub_title": "MOST LOVED BY YOU",
-        "product_collection": ""
+        "heading_size": "h2",
+        "description": "<p>MOST LOVED BY YOU</p>",
+        "show_description": false,
+        "text_align": "center",
+        "products_to_show": 8,
+        "columns_desktop": 6,
+        "columns_mobile": "1",
+        "full_width": false,
+        "show_view_all": true,
+        "color_scheme": "scheme-1",
+        "image_ratio": "4-3",
+        "image_shape": "default",
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "brand_banner_UHKtHB": {
@@ -123,6 +176,7 @@
         "image_8Khnj3",
         "image_hwxTdi"
       ],
+      "disabled": true,
       "name": "brand-banner",
       "settings": {
         "background_color": "#00d27d",
@@ -171,6 +225,7 @@
         "image_PY3PbY",
         "image_cGckWx"
       ],
+      "disabled": true,
       "name": "brand-banner",
       "settings": {
         "background_color": "#dedede",
@@ -180,6 +235,34 @@
     },
     "my_fashion_highlights_jtVAje": {
       "type": "my-fashion-highlights",
+      "blocks": {
+        "fashion_highlight_a4b9ee": {
+          "type": "fashion-highlight",
+          "name": "fashion-highlight",
+          "settings": {
+            "title": "Example Title",
+            "button_text": "Example Button",
+            "button_url": ""
+          },
+          "blocks": {
+            "link_HcXdHP": {
+              "type": "link",
+              "settings": {
+                "info_text": "Link Text",
+                "link_url": ""
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "link_HcXdHP"
+          ]
+        }
+      },
+      "block_order": [
+        "fashion_highlight_a4b9ee"
+      ],
+      "disabled": true,
       "name": "my-fashion-highlights",
       "settings": {
         "bgc_img": "shopify://shop_images/image_62.png"
@@ -187,21 +270,15 @@
     },
     "my_luxury_collection_iFCwkU": {
       "type": "my-luxury-collection",
+      "disabled": true,
       "name": "my-luxury-collection",
       "settings": {
-        "title": "EXPERIENCE OPULENCE LIKE NEVER BEFORE",
-        "image_1": "shopify://shop_images/image_41.png",
-        "image_info1": "Imperial Icons",
-        "image_2": "shopify://shop_images/42_df82998f-c90c-41ac-95ba-7826aba0ca78.png",
-        "image_info2": "Elysian Elegance",
-        "image_3": "shopify://shop_images/43_8f7a49ea-c4d2-468a-bf67-bb528fed0e0f.png",
-        "image_info3": "Prestige Line",
-        "image_4": "shopify://shop_images/image_44.png",
-        "image_info4": "Eternal Grace"
+        "title": "EXPERIENCE OPULENCE LIKE NEVER BEFORE"
       }
     },
     "my_hero_banner_6JCMYw": {
       "type": "my-hero-banner",
+      "disabled": true,
       "name": "my-hero-banner",
       "settings": {
         "image_url": "shopify://shop_images/Frame_48036.png",
@@ -214,6 +291,7 @@
     },
     "my_video_player_CfFJqU": {
       "type": "my-video-player",
+      "disabled": true,
       "name": "my-video-player",
       "settings": {
         "cover_image": "shopify://shop_images/video.png",
@@ -260,6 +338,7 @@
         "accordion_item_VJXPCT",
         "accordion_item_i4WQXw"
       ],
+      "disabled": true,
       "name": "my-image-with-text",
       "settings": {
         "image": "shopify://shop_images/image_69.png",
@@ -269,18 +348,40 @@
     },
     "my_fashion_grid_layout_MtAfQU": {
       "type": "my-fashion-grid-layout",
+      "disabled": true,
       "name": "my-fashion-grid-layout",
       "settings": {
+        "fisrt-title": "Color of Summer Outfit",
+        "fisrt-description": "100+ Collections for you outfit inspirations this summer",
+        "fisrt-button": "VIEW COLLECTIONS",
+        "fisrt-button-url": "",
         "image1-1": "shopify://shop_images/image_2.png",
         "image1-4": "shopify://shop_images/image_73.png",
         "image2-4": "shopify://shop_images/H526Y04WFA_5100_1F_1.png",
+        "second-title": "Casual Inspirations",
+        "second-description": "Our favorite combinations for casual outfit that can inspire you to apply on your daily activity",
+        "second-button": "BROWSE INPIRATIONS",
+        "seconde-button-url": "",
         "image3-3": "shopify://shop_images/3ad03d4385b40c98bce5e371ed85d9b_1.png",
         "image3-4": "shopify://shop_images/image_74.png",
+        "third-title1": "100% Authentic Product",
+        "third-description1": "Prominently display a clear \"100% Authentic Guarantee\" on your product",
+        "third-button1": "SEE MORE",
+        "third-button-url1": "",
+        "third-title2": "100% Authentic Product",
+        "third-description2": "Prominently display a clear \"100% Authentic Guarantee\" on your product",
+        "third-button2": "SEE MORE",
+        "third-button-url2": "",
+        "third-title3": "100% Authentic Product",
+        "third-description3": "Prominently display a clear \"100% Authentic Guarantee\" on your product",
+        "third-button3": "SEE MORE",
+        "third-button-url3": "",
         "image4-4": "shopify://shop_images/image_62.png"
       }
     },
     "my_newsletter_hero_EHJQF4": {
       "type": "my-newsletter-hero",
+      "disabled": true,
       "name": "my-newsletter-hero",
       "settings": {
         "background_image": "shopify://shop_images/image_35.png",
@@ -308,6 +409,7 @@
       "block_order": [
         "eyebrow_FipE49"
       ],
+      "disabled": true,
       "name": "my-sustainable-hero",
       "settings": {
         "reverse_layout": false,
@@ -350,6 +452,7 @@
         "slide_zFza3h",
         "slide_y7Hz8g"
       ],
+      "disabled": true,
       "name": "my-media-carousel",
       "settings": {
         "autoplay": false,
@@ -358,6 +461,7 @@
     },
     "my_color_comparison_aRQifX": {
       "type": "my-color-comparison",
+      "disabled": true,
       "name": "my-color-comparison",
       "settings": {
         "show_header": true,
@@ -373,6 +477,7 @@
     },
     "my_promo_split_JYmjBz": {
       "type": "my-promo-split",
+      "disabled": true,
       "name": "my-promo-split",
       "settings": {
         "lifestyle_image": "shopify://shop_images/Frame_48122.png",
@@ -384,6 +489,7 @@
     },
     "my_blog_carousel_Pb9fHn": {
       "type": "my-blog-carousel",
+      "disabled": true,
       "name": "my-blog-carousel",
       "settings": {
         "title": "Read Our Blogs",
@@ -393,6 +499,7 @@
     },
     "my_user_comment_w84MEY": {
       "type": "my-user-comment",
+      "disabled": true,
       "name": "my-user-comment",
       "settings": {
         "user_comments": [
@@ -405,10 +512,11 @@
     },
     "my_featured_blog_Wa7B4H": {
       "type": "my-featured-blog",
+      "disabled": true,
       "name": "my-featured-blog",
       "settings": {
         "blog": "news",
-        "heading": "Blog posts",
+        "heading": "<strong>Blog posts</strong>",
         "heading_size": "h1",
         "show_image": true,
         "show_date": true,
@@ -417,6 +525,7 @@
     },
     "google_map_mGDGqr": {
       "type": "google-map",
+      "disabled": true,
       "name": "goole-map",
       "settings": {
         "show_google_map": true,
