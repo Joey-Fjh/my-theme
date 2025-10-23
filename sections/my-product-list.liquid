@@ -23,6 +23,24 @@
     {%- endif -%}
 {%- endcapture -%}
 
+{%- liquid
+    if section.settings.product_collection.all_products_count > section.settings.products_to_show
+        assign has_more_product = true
+    endif
+
+    assign ratio = "1 / 1" 
+    if section.settings.image_ratio == '3-4'
+        assign ratio = "3 / 4"
+    elsif section.settings.image_ratio == '4-3'
+        assign ratio = "4 / 3"
+    endif
+
+    assign has_quick_add = false
+    if section.settings.quick_add == 'standard'
+      assign has_quick_add = true
+    endif
+-%}
+
 <responsive-container 
     class="my-product-list__container color-{{ section.settings.color_scheme }} section-{{ section.id }}-padding"
 >
@@ -70,30 +88,38 @@
         {%- if has_products == 'false' -%}
             {%- for i in (1..6) -%}
                 <div class="product-card__container">
-                    <responsive-container class="product-card__image">
+                    <responsive-container class="product-card__image"
+                        style="aspect-ratio: {{ ratio }};"
+                    >
                         {%- assign placeholder_image_index = forloop.index0 | modulo: 4 | plus: 1 -%}
                         {%- assign placeholder_image = 'product-apparel-' | append: placeholder_image_index -%}
 
                         {{ placeholder_image | placeholder_svg_tag: "placeholder-svg" }}
                     </responsive-container>
-                    <div class="product-card__title h5" style="align-self:center;">
-                        <a
-                            role="link"
-                            class="full-unstyled-link"
-                            style="cursor:not-allowed;"
-                        >
-                            {{ 'Example product title' | escape }}
-                        </a>
-                    </div>
-                    <div class="product-card__price h4" style="align-self:center;">
-                        {{ '1999' | money }}
+
+                    <div class="product-card__content">
+                        <div class="product-card__title">
+                            <a
+                                role="link"
+                                class="full-unstyled-link"
+                                style="cursor:not-allowed;"
+                            >
+                                {{ 'Example product title' | escape }}
+                            </a>
+                        </div>
+                        <div class="product-card__price">
+                            {{ '1999' | money }}
+                        </div>
                     </div>
                 </div>
             {%- endfor -%}
         {%- else -%}       
-            {% for product in section.settings.product_collection.products %}
-                <div class="product-card__container">
-                    <responsive-container class="product-card__image">
+            {% for product in section.settings.product_collection.products limit: section.settings.products_to_show %}    
+                <div class="product-card__container"
+                >
+                    <responsive-container class="product-card__image"
+                        style="aspect-ratio: {{ ratio }};"
+                    >
                         {{ 
                             product.featured_image
                             | image_url: width: 443
@@ -108,73 +134,96 @@
                         {%- else -%}
                             {%- assign discount = 0 | append: '%' -%}
                         {%- endif -%}
+
                         <div class="sale">
                             SALE {{ discount }} OFF
                         </div>
                         
-                        <modal-opener 
-                            class="opener"
-                            data-modal="#my-product-list-PopupModal"
-                        >
-                            <button
-                                class="quick-view-btn"
-                                type="button"
-                                aria-haspopup="dialog"
-                                data-product-url="{{ product.url }}"
+                        {%- if has_quick_add -%}
+                            <modal-opener 
+                                class="opener"
+                                data-modal="#my-product-list-PopupModal"
                             >
-                                Quick View
-                                {%- render 'loading-spinner' -%}
-                            </button>
-                        </modal-opener>
+                                <button
+                                    class="quick-view-btn"
+                                    type="button"
+                                    aria-haspopup="dialog"
+                                    data-product-url="{{ product.url }}"
+                                >
+                                    Quick View
+                                    {%- render 'loading-spinner' -%}
+                                </button>
+                            </modal-opener>
+                        {%- endif -%}
                     </responsive-container> 
 
-                    <div class="product-card__title h2">
-                        <a
-                            href="{{ product.url }}"
-                            id="StandardCardNoMediaLink-{{ section.id }}-{{ product.id }}"
-                            class="full-unstyled-link"
-                            aria-labelledby="StandardCardNoMediaLink-{{ section.id }}-{{ product.id }} NoMediaStandardBadge-{{ section.id }}-{{ product.id }}"
-                        >
-                            {{ product.title | escape }}
-                        </a>
+                    <div class="product-card__content">
+                        <div class="product-card__title">
+                            <a
+                                href="{{ product.url }}"
+                                id="StandardCardNoMediaLink-{{ section.id }}-{{ product.id }}"
+                                class="full-unstyled-link"
+                                aria-labelledby="StandardCardNoMediaLink-{{ section.id }}-{{ product.id }} NoMediaStandardBadge-{{ section.id }}-{{ product.id }}"
+                            >
+                                {{ product.title | escape }}
+                            </a>
+                        </div>
+
+                        <div class="product-card__price h4">
+                            {{ product.price | money }}
+
+                            {%- if product.compare_at_price > product.price -%}
+                                <span class="old-price" style="text-decoration: line-through;">
+                                    {{ product.compare_at_price | money }}
+                                </span>
+                            {%- endif -%}
+                        </div>
                     </div>
 
-                    <div class="product-card__price h4">
-                        {{ product.price | money }}
-
-                        {%- if product.compare_at_price > product.price -%}
-                            <span class="old-price" style="text-decoration: line-through;">
-                                {{ product.compare_at_price | money }}
-                            </span>
-                        {%- endif -%}
-                    </div>
+                    <slider-component>
+                        
+                    </slider-component>
                 </div>
             {% endfor %}
         {%- endif -%}
     </div>
-
-    <quick-add-modal
-        id="my-product-list-PopupModal"
-        class="product-list-modal"
-    >
-        <div
-            role="dialog"
-            aria-modal="true"
-            class="content"
-            tabindex="-1"
-        >
-            <button
-                id="ModalClose-"
-                type="button"
-                class="toggle-btn"
-                aria-label="close"
+    
+    {%- if section.settings.show_view_all and has_more_product -%}
+        <div class="center collection__view-all{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+            <a
+                href="{{ section.settings.product_collection.url }}"
+                class="button"
+                aria-label="{{ 'sections.featured_collection.view_all_label' | t: collection_name: section.settings.collection.title | escape }}"
             >
-                {{ 'icon-close.svg' | inline_asset_content }}
-            </button>
-            <div id="QuickAddInfo-" class="content-info">
-            </div>
+                {{ 'sections.featured_collection.view_all' | t }}
+            </a>
         </div>
-    </quick-add-modal>
+    {%- endif -%}
+
+    {%- if has_quick_add -%}
+        <quick-add-modal
+            id="my-product-list-PopupModal"
+            class="product-list-modal"
+        >
+            <div
+                role="dialog"
+                aria-modal="true"
+                class="content"
+                tabindex="-1"
+            >
+                <button
+                    id="ModalClose-"
+                    type="button"
+                    class="toggle-btn"
+                    aria-label="close"
+                >
+                    {{ 'icon-close.svg' | inline_asset_content }}
+                </button>
+                <div id="QuickAddInfo-" class="content-info">
+                </div>
+            </div>
+        </quick-add-modal>
+    {%- endif -%}
 </responsive-container>
 
 {% schema %}
@@ -341,22 +390,6 @@
             ],
             "default": "4-3",
             "label": "Image Ratio"
-        },
-        {
-            "type": "select",
-            "id": "image_shape",
-            "options": [
-                {
-                "value": "default",
-                "label": "Default"
-                },
-                {
-                "value": "circle",
-                "label": "Circle"
-                }
-            ],
-            "default": "default",
-            "label": "Image Shape"
         },
         {
             "type": "select",
