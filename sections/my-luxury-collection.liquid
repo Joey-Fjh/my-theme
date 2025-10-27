@@ -1,31 +1,85 @@
 {{ 'my-luxury-collection.css' | asset_url | stylesheet_tag }}
 
-<responsive-container class="my-luxury-collection__container" direction='column'>
-    <div class="top__container h2">{{ section.settings.title }}</div>
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<responsive-container 
+    class="my-luxury-collection__container 
+        {% if section.settings.full_width %}
+           content-full-width   
+        {% else %}
+            my-page-width
+        {% endif %} 
+        color-{{ section.settings.color_scheme }} 
+        section-{{ section.id }}-padding
+    " 
+    direction='column'
+>
+    {%- if section.settings.show_title and section.settings.title != blank -%}
+        <div class="top__container 
+            {{ section.settings.heading_size }}
+            text-{{  section.settings.text_align }}
+        "
+        >
+            {{ section.settings.title }}
+        </div>
+    {%- endif -%}
 
     <div class="content__container">
+        <style>
+            .section-{{ section.id }}-padding{
+                .content__container{
+                    grid-template-columns: repeat({{ section.settings.columns_mobile }},1fr);
+                    gap:clamp(8px,2vw,24px);
+                }
+
+                @media screen and (min-width: 750px) {
+                    .content__container{
+                        grid-template-columns: repeat({{ section.settings.columns_desktop }},1fr);
+                    }
+                }
+            }
+        </style>
+
         {%- for block in section.blocks -%}      
             {%- assign collection = collections[block.settings.collection] -%}
+
             <a href="{{ collection.url }}" class="item__container"> 
                 <responsive-container class="img__container">
-                    {%- if collection.image != blank -%}
-                        {{ 
-                            collection.image 
-                            | image_url: width:326
-                            | image_tag:
-                                alt: collection.title,
-                                class: "img"
-                        }}
-                    {%- else -%}
-                        {%- assign placeholder_image_index  = forloop.index0 | modulo: 4 | plus: 1 -%}
-                        {%- assign placeholder_image  = "collection-apparel-" | append: placeholder_image_index -%}
+                    <div class="img__wrapper">
+                        {%- if collection.image != blank -%}
+                            {{ 
+                                collection.image 
+                                | image_url: width:326
+                                | image_tag:
+                                    alt: collection.title,
+                                    class: "img"
+                            }}
+                        {%- else -%}
+                            {%- assign placeholder_image_index  = forloop.index0 | modulo: 4 | plus: 1 -%}
+                            {%- assign placeholder_image  = "collection-apparel-" | append: placeholder_image_index -%}
 
-                        {{ placeholder_image | placeholder_svg_tag:"placeholder-svg" }}
-                    {%- endif -%}
+                            {{ placeholder_image | placeholder_svg_tag:"placeholder-svg" }}
+                        {%- endif -%}
+                    </div>
                 </responsive-container>
-                <div class="img_info h2">
-                    {{ collection.title | default: "Collection" }}
-                </div>
+
+                {%- if section.settings.show_collection_title and collection.title != blank -%}
+                    <div class="img_info h2">
+                        {{ collection.title | default: "Collection" }}
+                    </div>
+                {%- endif -%}
             </a>  
         {%- endfor -%}
     </div>
@@ -38,10 +92,139 @@
     "class": "section",
     "settings": [
         {
+            "type": "color_scheme",
+            "id": "color_scheme",
+            "label": "Color Scheme",
+            "default": "scheme-1"
+        },
+        {
+            "type": "header",
+            "content": "Text"
+        }, 
+        {
+            "type": "checkbox",
+            "id": "show_title",
+            "label": "Show Title",
+            "default": true   
+        },
+        {
             "type": "text",
             "id": "title",
             "label": "Title",
             "default": "EXPERIENCE OPULENCE LIKE NEVER BEFORE"
+        },
+        {
+            "type": "select",
+            "id": "heading_size",
+            "options": [
+                {
+                "value": "h2",
+                "label": "small"
+                },
+                {
+                "value": "h1",
+                "label": "medium"
+                },
+                {
+                "value": "h0",
+                "label": "large"
+                },
+                {
+                "value": "hxl",
+                "label": "xl"
+                },
+                {
+                "value": "hxxl",
+                "label": "xxl"
+                }
+            ],
+            "default": "h1",
+            "label": "Title Size"
+        },
+        {
+            "type": "select",
+            "id": "text_align",
+            "label": "Text Align",
+            "options": [
+                {
+                    "value": "left",
+                    "label": "Left"
+                },
+                {
+                    "value": "center",
+                    "label": "Center"
+                },
+                {
+                    "value": "right",
+                    "label": "Right"
+                }
+            ],
+            "default":"center"
+        },
+        {
+            "type": "header",
+            "content": "Layout"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_collection_title",
+            "label": "Show Collection Title",
+            "default": true   
+        },
+        {
+            "type": "range",
+            "id": "columns_desktop",
+            "min": 1,
+            "max": 4,
+            "step": 1,
+            "default": 4,
+            "label": "Columns Desktop"
+        },
+        {
+            "type": "select",
+            "id": "columns_mobile",
+            "options": [
+                {
+                    "value": "1",
+                    "label": "1"
+                },
+                {
+                    "value": "2",
+                    "label": "2"
+                }
+            ],
+            "default": "2",
+            "label": "Columns Mobile"
+        }, 
+        {
+            "type": "checkbox",
+            "id": "full_width",
+            "label": "Full Width",
+            "default": false
+        },
+        {
+            "type": "header",
+            "content": "Padding"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "Padding Top",
+            "default": 36
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "Padding Bottom",
+            "default": 36
         }
     ],
     "blocks": [
@@ -65,12 +248,6 @@
             "title": "EXPERIENCE OPULENCE LIKE NEVER BEFORE"
         },
         "blocks": [
-            {
-                "type": "collection"
-            },
-            {
-                "type": "collection"
-            },
             {
                 "type": "collection"
             }

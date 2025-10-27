@@ -3608,3 +3608,8 @@ details-disclosure > details {
     padding: 0 2rem;
   }
 }
+
+.content-full-width{
+  max-width: none;
+  margin: 0;
+}

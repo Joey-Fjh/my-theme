@@ -1,0 +1,83 @@
+<script src="{{ 'search-drawer.js' | asset_url }}" defer='defer'></script>
+{{ 'search-drawer.css' | asset_url | stylesheet_tag }}
+<script src='{{ 'my-accordion-container.js' | asset_url }}' type='module' defer></script>
+
+<search-drawer class="search-container">
+    <div id="SearchDrawer-Overlay" class="search-drawer__overlay"></div>
+    <div id="SearchDrawer" class="search-drawer">
+        <div class="drawer__content"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Search"
+            tabindex="-1"
+        >
+            <div class="search__header">
+                 <button
+                    class="search__close"
+                    type="button"
+                    onclick="this.closest('search-drawer').close()"
+                    aria-label="{{ 'accessibility.close' | t }}"
+                >
+                    <span class="svg-wrapper" style="width:15px;height:15px;">
+                        {{- 'icon-close.svg' | inline_asset_content -}}
+                    </span>
+                </button>
+                <h2 class="search__heading" style="font-weight:700;">Search</h2>
+            </div>
+
+            <div class="search__main">
+                <div class="input__field">
+                    <form action="{{ routes.search_url }}" method="get" role="search" class="search__form">
+                        <input
+                            id="Search-In-Drawer"
+                            class="search__input"
+                            type="search"
+                            name="q"
+                            value="{{ search.terms | escape }}"
+                            placeholder="What are looking for?"
+                            autocomplete="off"
+                            autocapitalize="off"
+                            spellcheck="false"
+                        >
+                        <button
+                            type="reset"
+                            class="reset__button field__button
+                            {% if search.terms == blank %} hidden {% endif %}
+                            "
+                            aria-label="{{ 'general.search.reset' | t }}"
+                        >
+                            <span class="svg-wrapper">
+                                {{- 'icon-reset.svg' | inline_asset_content -}}
+                            </span>
+                        </button>
+                        <button class="search__button field__button" aria-label="{{ 'general.search.search' | t }}">
+                            <span class="svg-wrapper">
+                                {{- 'icon-search.svg' | inline_asset_content -}}
+                            </span>
+                        </button>
+                    </form>
+                </div>
+                <div class="input__result">
+                    {%- render 'loading-spinner', class: 'search__loading hidden' -%}
+                    
+                    <div class="default">
+                        <h2 class="menu__name">
+                            {{ settings.search_menu | remove: '"' | escape }}
+                        </h2>
+                        <div class="menu__links">
+                            {%- for link in settings.search_menu.links -%}
+                                <a href="{{ link.url }}" class="menu__link h3">{{ link.title }}</a>
+                            {%- endfor -%}
+                        </div>
+                    </div>
+                    <div class="results">
+                    </div>
+                </div>
+            </div>
+
+            <a href="{{ routes.search_url }}" class="search__footer">
+                View Search Results
+            </a>
+        </div>
+    </div>
+</search-drawer>

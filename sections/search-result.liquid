@@ -1,0 +1,122 @@
+{%- if predictive_search.performed -%}
+    {%- assign queries = predictive_search.resources.queries -%}
+    {%- assign articles = predictive_search.resources.articles -%}
+    {%- assign collections = predictive_search.resources.collections -%}
+    {%- assign pages = predictive_search.resources.pages -%}
+    {%- assign products = predictive_search.resources.products -%}
+
+    {% assign total_results = products.size
+    | plus: collections.size
+    | plus: pages.size
+    | plus: articles.size
+    | plus: queries.size %}
+    
+    {%- assign has_result = true -%}
+    {%- if total_results == 0 -%}
+        {%- assign has_result = false -%}
+    {%- endif -%}
+{%- endif -%}
+
+<div class="serach-result__container">
+    {%- if has_result -%}
+        <div class="queries__container">
+            <span style="font-weight:700;">Suggestions: </span>
+            <div class="words">
+                {% for query in queries %}
+                    <a href="{{ query.url }}" tabindex="-1">
+                        {{ query.styled_text }}
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+
+        <my-accordion-container 
+            class="product__container" 
+            style="--my-accordion-overflow-y:auto;"
+        >
+            {%- unless products.size == 0 -%}
+                <my-accordion-item
+                    title="Products"
+                >
+                        {%- for product in products -%}
+                            <div class="product" style="margin-top:20px">
+                                <a href="{{ product.url }}" style="display:flex;justify-content:space-between;">
+                                    <img 
+                                        class="product__image"
+                                        src="{{ product.featured_media | image_url: width: 150 }}"
+                                        alt="{{ product.featured_media.alt | escape }}"
+                                        width="100"
+                                        height="{{ 100 | divided_by: product.featured_media.preview_image.aspect_ratio }}"
+                                    >
+                                    <div class="product__info">
+                                        <div class="product__title">{{ product.title }}</div>
+                                        <div class="product__price">{{ product.price | money }}</div>
+                                    </div>
+                                </a>
+                            </div>
+                        {%- endfor -%}
+                </my-accordion-item>
+            {%- endunless -%}
+
+            {%- unless collections.size == 0 -%}
+                <my-accordion-item
+                    title="Collections"
+                >   
+                    {%- for collection in collections -%}
+                        <div class="collection" style="margin-top:20px">
+                            <a href="{{ collection.url }}" style="display:flex;justify-content:space-between;">
+                                <img 
+                                    class="collection__image"
+                                    src="{{ collection.featured_media | image_url: width: 150 }}"
+                                    alt="{{ collection.featured_media.alt | escape }}"
+                                    width="100"
+                                    height="{{ 100 | divided_by: product.featured_media.preview_image.aspect_ratio }}"
+                                >
+                                <div class="collection__info">
+                                    <div class="collection__title">{{ collection.title | escape }}</div>
+                                    <div class="collection__body">{{ collection.body | escape }}</div>
+                                </div>
+                            </a>
+                        </div>
+                    {%- endfor -%}
+                </my-accordion-item>
+            {% endunless %}
+
+            {%- unless pages.size == 0 -%}  
+                <my-accordion-item
+                    title="Pages"
+                >   
+                    {%- for page in pages -%}
+                        <div class="page" style="margin-top:20px;">
+                            <a href="{{ page.url }}">
+                                <div class="page__info" style="display:flex;justify-content:space-between;">
+                                    <div class="page__title">{{ page.title | escape }}</div>
+                                    <div class="page__body">{{ page.body | escape }}</div>
+                                </div>
+                            </a>
+                        </div>
+                    {%- endfor -%}
+                </my-accordion-item>
+            {% endunless %}
+
+            {%-unless articles == nil or articles.size == 0 -%}
+                <my-accordion-item
+                    title="Articles"
+                >
+                    {%- for article in articles -%}
+                        <div class="articles" style="margin-top:20px;">
+                            <a href="{{ articles.url }}" style="display:flex;justify-content:space-between;">
+                                <div class="articles__info">
+                                    <div class="articles__title">{{ articles.title | escape }}</div>
+                                    <div class="articles__body">{{ articles.body | escape }}</div>
+                                </div>
+                            </a>
+                        </div>
+                    {%- endfor -%}
+                </my-accordion-item>
+            {%- endunless -%}
+        </my-accordion-container>
+    {%- else -%}
+        <div class="not-found">Not Found</div>
+    {%- endif -%}
+</div>

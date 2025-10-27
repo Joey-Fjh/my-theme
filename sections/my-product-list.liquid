@@ -74,14 +74,16 @@
         "
     >
         <style>
-            .content__container{
-                grid-template-columns: repeat({{ section.settings.columns_mobile }},1fr);
-                gap:clamp(8px,2vw,24px);
-            }
-
-            @media screen and (min-width: 750px) {
+            .section-{{ section.id }}-padding{
                 .content__container{
-                    grid-template-columns: repeat({{ section.settings.columns_desktop }},1fr);
+                    grid-template-columns: repeat({{ section.settings.columns_mobile }},1fr);
+                    gap:clamp(8px,2vw,24px);
+                }
+
+                @media screen and (min-width: 750px) {
+                    .content__container{
+                        grid-template-columns: repeat({{ section.settings.columns_desktop }},1fr);
+                    }
                 }
             }
         </style>

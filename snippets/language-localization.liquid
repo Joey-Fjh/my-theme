@@ -5,8 +5,12 @@
     - localPosition: pass in the position in which the form is coming up to create specific IDs
 {%- endcomment -%}
 
-<div class="disclosure">
+<div class="disclosure" style="display:flex;align-items:center;">
+  <span style="width:20px;height:20px">
+    {{- 'icon-earth.svg' | inline_asset_content -}}
+  </span>
   <button
+    style="padding-left:4px"
     type="button"
     class="disclosure__button localization-form__select localization-selector link link--text caption-large"
     aria-expanded="false"

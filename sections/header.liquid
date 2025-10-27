@@ -31,8 +31,11 @@
 >
   <responsive-container 
     class="header-container my-page-width header"
+    style="{% if section.settings.logo_position == 'top' %} flex-wrap:wrap; {% endif %}"
   >
-      <div class="header-menu__container" style="flex:1;">
+      <div class="header-menu__container" 
+        style="{% if section.settings.logo_position == 'top' %} flex-basis:100%;order:4;justify-content:center; {% endif %}"
+      >
         {%- if section.settings.menu_type == 'default' -%}
           <nav class="desktop-nav" style="flex-wrap:wrap;">  
             {% for link in section.settings.menu.links %}
@@ -205,6 +208,8 @@
             order:-1;
           {% elsif section.settings.logo_position == 'right' %}
             order: 1;
+          {% elsif section.settings.logo_position == 'top' %}
+            position:relative;left:50%;transform:translateX(-50%);
           {%- endif -%}
         "
       >
@@ -232,36 +237,23 @@
         {%- endif -%}
       </a>
 
-      <div class="header-navigator__container" style="flex:1;">
-        <div class="search-container">
-          <form action="{{ routes.search_url }}" method="get" class="search-form">
-            <input 
-              type="text" 
-              name="q" 
-              class="search-input" 
-              placeholder="Search..." 
-              value="{{ search.terms | escape }}"
-              autocomplete="off"
-            />
-            <button type="submit" class="search-btn">
-              <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <circle cx="11" cy="11" r="8"></circle>
-                <path d="m21 21-4.35-4.35"></path>
-              </svg>
-            </button>
-          </form>
-        </div>
+      <div class="header-navigator__container">
         <div class="nav-icons">
-          <!-- User Account Icon -->
-          <a href="{{ routes.account_url }}" class="nav-icon user-icon">
+          <a href="{{ routes.search_url }}" class="nav-icon" id="search-icon-drawer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.35-4.35"></path>
+            </svg>
+          </a>
+        
+          <a href="{{ routes.account_url }}" class="nav-icon account-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
               <circle cx="12" cy="7" r="4"></circle>
             </svg>
           </a>
 
-          <!-- Shopping Cart Icon -->
-          <a href="{{ routes.cart_url }}" class="nav-icon cart-icon" id="cart-icon-bubble">
+          <a href="{{ routes.cart_url }}" class="nav-icon" id="cart-icon-bubble">
             {% if cart == empty %}
               <span class="svg-wrapper">{{ 'icon-cart-empty.svg' | inline_asset_content }}</span>
             {% else %}
@@ -447,15 +439,19 @@
       "options": [
         {
           "value": "left",
-          "label": "left"
+          "label": "Left"
         },
         {
           "value": "center",
-          "label": "center"
+          "label": "Center"
         },
         {
           "value": "right",
-          "label": "right"
+          "label": "Right"
+        },
+        {
+          "value": "top",
+          "label": "Top"
         }
       ],
       "default": "center",
@@ -505,31 +501,6 @@
       "id": "menu_color_scheme",
       "label": "Menu Color Scheme",
       "default": "scheme-1"
-    },
-    {
-      "type": "header",
-      "content": "Public Utilities"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_country_selector",
-      "default": true,
-      "label": "Enable Country Selector",
-      "info": "[Manage countries/regions](/admin/settings/markets)"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_language_selector",
-      "default": true,
-      "label": "Enable Language Selector",
-      "info": "[Manage languages](/admin/settings/languages)"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_customer_avatar",
-      "default": true,
-      "label": "Enable Customer Avatar",
-      "info": "Only visible when customers are signed in with Shop. [Manage customer accounts](/admin/settings/customer_accounts)"
     },
     {
       "type": "header",
