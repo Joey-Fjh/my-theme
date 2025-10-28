@@ -280,7 +280,6 @@
     },
     "my_hero_banner_6JCMYw": {
       "type": "my-hero-banner",
-      "disabled": true,
       "name": "my-hero-banner",
       "settings": {
         "image_url": "shopify://shop_images/Frame_48036.png",
