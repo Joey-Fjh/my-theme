@@ -35,7 +35,8 @@
                   | image_url: width: 1376
                   | image_tag:
                       alt: block.settings.image.alt,
-                      preload: forloop.first
+                      preload: forloop.first,
+                      sizes:"100vw"
                 }}
               {%- else -%}
                 {%- assign placeholder_index = forloop.index0 | modulo: 3 | plus: 1 -%}
