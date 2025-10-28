@@ -15,7 +15,7 @@
         "image_banner_WL9CtN": {
           "type": "image-banner",
           "settings": {
-            "image": "shopify://shop_images/1-1_6863609e-5ef9-44d9-b449-3fd24fb4b9ed.png",
+            "image": "shopify://shop_images/20251027174416_19_94.jpg",
             "image_overlay_opacity": 100,
             "title": "Wear the Moment,Own the Style",
             "heading_size": "h2",
@@ -26,41 +26,10 @@
             "text_alignment": "left",
             "color_scheme": "scheme-1"
           }
-        },
-        "image_banner_UBiDLA": {
-          "type": "image-banner",
-          "settings": {
-            "image_overlay_opacity": 100,
-            "title": "Wear the Moment,Own the Style",
-            "heading_size": "h2",
-            "sub_title": "Embrace every moment with confidence and let your fashion reflect your personality.Style is more than just clothing.",
-            "button_text": "Shop Now",
-            "button_url": "",
-            "content_position": "middle-center",
-            "text_alignment": "center",
-            "color_scheme": "scheme-1"
-          }
-        },
-        "image_banner_ihGMki": {
-          "type": "image-banner",
-          "settings": {
-            "image": "shopify://shop_images/1-1.png",
-            "image_overlay_opacity": 100,
-            "title": "Wear the Moment,Own the Style1123",
-            "heading_size": "h1",
-            "sub_title": "Embrace every moment with confidence and let your fashion reflect your personality.Style is more than just clothing.",
-            "button_text": "Shop Now",
-            "button_url": "",
-            "content_position": "bottom-right",
-            "text_alignment": "center",
-            "color_scheme": "scheme-1"
-          }
         }
       },
       "block_order": [
-        "image_banner_WL9CtN",
-        "image_banner_UBiDLA",
-        "image_banner_ihGMki"
+        "image_banner_WL9CtN"
       ],
       "name": "my-image-banner",
       "settings": {
