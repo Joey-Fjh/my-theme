@@ -124,7 +124,7 @@
                     >
                         {{ 
                             product.featured_image
-                            | image_url: width: 443
+                            | image_url: width: product.featured_image.width
                             | image_tag:
                                 alt: product.title, 
                                 class:'image',
