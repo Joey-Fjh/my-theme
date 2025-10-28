@@ -1,6 +1,20 @@
 {{ 'my-hero-banner.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'my-count-down.js' | asset_url }}" type="module" defer></script>
 
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
 <responsive-container class="my-hero-banner__container">
     <responsive-container class="img__container" style="height:auto;">
       {%- if section.settings.image_url != blank -%}
