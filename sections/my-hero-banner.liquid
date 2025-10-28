@@ -16,8 +16,14 @@
 {%- endstyle -%}
 
 <responsive-container class="my-hero-banner__container 
-  color-{{ section.settings.color_scheme }} 
-  section-{{ section.id }}-padding"
+    color-{{ section.settings.color_scheme }} 
+    section-{{ section.id }}-padding
+    {% if section.settings.full_width %}
+      content-full-width   
+    {% else %}
+      my-page-width
+    {% endif %} 
+  "
 >
     <responsive-container class="img__container" style="height:auto;">
       {%- if section.settings.image_url != blank -%}
@@ -63,26 +69,36 @@
         "label": "Image"
       },
       {
-        "type": "text",
+        "type": "checkbox",
+        "id": "full_width",
+        "label": "Full Width",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content":"Text"
+      },
+      {
+        "type": "inline_richtext",
         "id": "title",
         "label": "Title",
         "default": "ONLINE ONLY!"
       },
       {
-        "type": "text",
+        "type": "inline_richtext",
         "id": "sub_title",
         "label": "Sub Title",
         "default":"UP TO 50% OFF EVERYTHING"
       },
       {
-        "type": "text",
+        "type": "inline_richtext",
         "id": "target_date",
         "label": "Target Date",
         "info": "Format: YYYY-MM-DD HH:MM:SS (e.g., 2024-12-31 23:59:59)",
         "default": "2025-9-15 23:59:59"
       },
       {
-        "type": "text",
+        "type": "inline_richtext",
         "id": "button_text",
         "label": "Button Text",
         "default": "Shop Now"

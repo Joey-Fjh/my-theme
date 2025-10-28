@@ -1,11 +1,29 @@
 {{ 'my-fashion-highlights.css' | asset_url | stylesheet_tag }}
 
-<responsive-container class="my-fashion-highlights__container">
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<responsive-container class="my-fashion-highlights__container 
+    section-{{ section.id }}-padding
+  "
+  style="color:{{ section.settings.font_color }}"
+>
     <div class="fashion__wrapper"
       {%- if section.settings.bgc_img != blank -%}
         style="background-image: url('{{ 
           section.settings.bgc_img 
-          | image_url: width:1440,height:676 
+            | image_url: section.settings.bgc_img.width
         }}');"
       {%- else -%}
         style="background-image: url('{{ 'hero1.svg' | asset_url }}');"
@@ -21,11 +39,41 @@
     "tag": "section",
     "class": "section",
     "settings": [
-        {
-          "type": "image_picker",
-          "id": "bgc_img",
-          "label": "Background Image"
-        }  
+      {
+        "type": "color",
+        "id": "font_color",
+        "label": "Font color",
+        "default": "#fff"
+      },
+      {
+        "type": "image_picker",
+        "id": "bgc_img",
+        "label": "Background Image"
+      },
+      {
+        "type": "header",
+        "content": "Padding"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding Top",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding Bottom",
+        "default": 0
+      }
     ],
     "blocks":[
         {
@@ -39,15 +87,6 @@
         "settings": {
         },
         "blocks": [
-          {
-            "type": "fashion-highlight"
-          },
-          {
-            "type": "fashion-highlight"
-          },
-          {
-            "type": "fashion-highlight"
-          },
           {
             "type": "fashion-highlight"
           }
