@@ -298,7 +298,6 @@
     },
     "my_video_player_CfFJqU": {
       "type": "my-video-player",
-      "disabled": true,
       "name": "my-video-player",
       "settings": {
         "cover_image": "shopify://shop_images/video.png",
