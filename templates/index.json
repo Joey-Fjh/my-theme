@@ -282,7 +282,7 @@
       "type": "my-hero-banner",
       "name": "my-hero-banner",
       "settings": {
-        "color_scheme": "",
+        "color_scheme": "scheme-3",
         "image_url": "shopify://shop_images/Frame_48036.png",
         "title": "ONLINE ONLY!",
         "sub_title": "UP TO 50% OFF EVERYTHING",
