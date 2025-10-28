@@ -238,7 +238,17 @@
     },
     "my_luxury_collection_iFCwkU": {
       "type": "my-luxury-collection",
-      "disabled": true,
+      "blocks": {
+        "collection_Ha7Htt": {
+          "type": "collection",
+          "settings": {
+            "collection": "女士衣服"
+          }
+        }
+      },
+      "block_order": [
+        "collection_Ha7Htt"
+      ],
       "name": "my-luxury-collection",
       "settings": {
         "color_scheme": "",
