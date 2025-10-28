@@ -5,7 +5,7 @@
     <responsive-container class="img__container" style="height:auto;">
       {%- if section.settings.image_url != blank -%}
         {{ section.settings.image_url
-          | image_url: width: 825, height: 435
+          | image_url: width: section.settings.image_url.width
           | image_tag:
               alt: section.settings.image_url.alt,
               class: 'img' 
