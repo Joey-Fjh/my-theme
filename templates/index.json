@@ -62,7 +62,6 @@
         "image_banner_UBiDLA",
         "image_banner_ihGMki"
       ],
-      "disabled": true,
       "name": "my-image-banner",
       "settings": {
         "layout": "page_width",
