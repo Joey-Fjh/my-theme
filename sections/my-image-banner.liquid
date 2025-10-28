@@ -32,7 +32,7 @@
               {%- if block.settings.image != blank -%}
                 {{
                   block.settings.image
-                  | image_url: width: block.settings.image
+                  | image_url: width: block.settings.image.width
                   | image_tag:
                       alt: block.settings.image.alt,
                       preload: forloop.first,
