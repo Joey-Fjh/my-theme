@@ -61,7 +61,7 @@
                         {%- if collection.image != blank -%}
                             {{ 
                                 collection.image 
-                                | image_url: width:326
+                                | image_url: width:collection.image.width
                                 | image_tag:
                                     alt: collection.title,
                                     class: "img"
