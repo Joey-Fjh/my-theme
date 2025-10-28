@@ -230,10 +230,12 @@
       "block_order": [
         "fashion_highlight_a4b9ee"
       ],
-      "disabled": true,
       "name": "my-fashion-highlights",
       "settings": {
-        "bgc_img": "shopify://shop_images/image_62.png"
+        "font_color": "#ffffff",
+        "bgc_img": "shopify://shop_images/image_62.png",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "my_luxury_collection_iFCwkU": {
@@ -284,6 +286,7 @@
       "settings": {
         "color_scheme": "scheme-1",
         "image_url": "shopify://shop_images/Frame_48036.png",
+        "full_width": true,
         "title": "ONLINE ONLY!",
         "sub_title": "UP TO 50% OFF EVERYTHING",
         "target_date": "2025-9-15 23:59:59",
