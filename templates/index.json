@@ -124,7 +124,7 @@
         "show_description": false,
         "text_align": "center",
         "products_to_show": 8,
-        "columns_desktop": 4,
+        "columns_desktop": 3,
         "columns_mobile": "1",
         "full_width": false,
         "show_view_all": true,
