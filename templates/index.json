@@ -282,12 +282,15 @@
       "type": "my-hero-banner",
       "name": "my-hero-banner",
       "settings": {
+        "color_scheme": "",
         "image_url": "shopify://shop_images/Frame_48036.png",
         "title": "ONLINE ONLY!",
         "sub_title": "UP TO 50% OFF EVERYTHING",
         "target_date": "2025-9-15 23:59:59",
         "button_text": "SHOPNOW",
-        "button_link": ""
+        "button_link": "",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "my_video_player_CfFJqU": {
