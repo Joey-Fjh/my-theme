@@ -129,8 +129,8 @@
         "full_width": false,
         "show_view_all": true,
         "color_scheme": "scheme-1",
-        "image_ratio": "4-3",
-        "image_shape": "default",
+        "image_ratio": "3-4",
+        "quick_add": "none",
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -273,7 +273,17 @@
       "disabled": true,
       "name": "my-luxury-collection",
       "settings": {
-        "title": "EXPERIENCE OPULENCE LIKE NEVER BEFORE"
+        "color_scheme": "",
+        "show_title": true,
+        "title": "EXPERIENCE OPULENCE LIKE NEVER BEFORE",
+        "heading_size": "h1",
+        "text_align": "center",
+        "show_collection_title": true,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "full_width": false,
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "my_hero_banner_6JCMYw": {
