@@ -15,8 +15,10 @@
   }
 {%- endstyle -%}
 
-<responsive-container class="my-hero-banner__container color-{{ section.settings.color_scheme }} 
-        section-{{ section.id }}-padding">
+<responsive-container class="my-hero-banner__container 
+  color-{{ section.settings.color_scheme }} 
+  section-{{ section.id }}-padding"
+>
     <responsive-container class="img__container" style="height:auto;">
       {%- if section.settings.image_url != blank -%}
         {{ section.settings.image_url
