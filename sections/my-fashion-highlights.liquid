@@ -23,7 +23,7 @@
       {%- if section.settings.bgc_img != blank -%}
         style="background-image: url('{{ 
           section.settings.bgc_img 
-            | image_url: section.settings.bgc_img.width
+            | image_url: width:1440
         }}');"
       {%- else -%}
         style="background-image: url('{{ 'hero1.svg' | asset_url }}');"
