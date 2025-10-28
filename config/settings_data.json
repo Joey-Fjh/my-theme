@@ -119,15 +119,15 @@
     "social_pinterest_link": "https://pinterest.com/shopify",
     "social_tumblr_link": "https://shopify/tumblr.com",
     "social_vimeo_link": "https://vimeo.com/shopify",
-    "predictive_search_enabled": true,
-    "predictive_search_show_vendor": false,
-    "predictive_search_show_price": false,
     "currency_code_enabled": false,
     "cart_type": "drawer",
     "show_vendor": false,
     "show_cart_note": false,
     "cart_drawer_collection": "",
     "cart_color_scheme": "scheme-1",
+    "predictive_search_enabled": true,
+    "predictive_search_show_vendor": false,
+    "predictive_search_show_price": false,
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
@@ -196,6 +196,17 @@
           "button": "#ffffff",
           "button_label": "#334fb4",
           "secondary_button_label": "#ffffff",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-30266982-ad4a-4cf4-9995-be836753faa4": {
+        "settings": {
+          "background": "#ffffff",
+          "background_gradient": "",
+          "text": "#50b948",
+          "button": "#f3f3f3",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#00d27d",
           "shadow": "#121212"
         }
       }
