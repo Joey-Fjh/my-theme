@@ -232,7 +232,7 @@
       ],
       "name": "my-fashion-highlights",
       "settings": {
-        "font_color": "#781919",
+        "font_color": "#50b948",
         "bgc_img": "shopify://shop_images/20251027174416_19_94.jpg",
         "padding_top": 0,
         "padding_bottom": 0
@@ -284,7 +284,7 @@
       "type": "my-hero-banner",
       "name": "my-hero-banner",
       "settings": {
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-2",
         "image_url": "shopify://shop_images/Frame_48036.png",
         "full_width": true,
         "title": "ONLINE ONLY!",
