@@ -21,8 +21,8 @@
   assign poster = section.settings.video.preview_image | default: section.settings.cover_image
 -%}
 
-<responsive-container class="my-video-player__container section-{{ section.id }}-padding
-    {%- if section.settings.is_fullWidth = 'false' -%} my-page-width {%- endif -%}
+<responsive-container class="my-video-player__container section-{{ section.id }}-padding 
+  {%- if section.settings.is_fullWidth == 'false' -%} my-page-width {%- endif -%}
   " 
   data-media-id="{{ video_id }}"
 > 
@@ -138,7 +138,7 @@
       {
         "type": "checkbox",
         "id": "is_fullWidth",
-        "label": "Is Full Width",
+        "label": "Full Width",
         "default": false
       },
       {
