@@ -56,11 +56,12 @@
           <div class="grid-3-1__button">{{ section.settings.second-button }}</div>
         </a>
     </div>
+    
     <responsive-container class="grid-3-3">
       {%- if section.settings.image3-3 != blank -%}
         {{ 
           section.settings.image3-3 
-          | image_url: height:324
+          | image_url: width: section.settings.image3-3.width
           | image_tag: 
               alt:section.settings.image3-3.alt
         }}
