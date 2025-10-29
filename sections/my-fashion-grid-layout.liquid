@@ -34,12 +34,12 @@
         {{ 'product-apparel-1' | placeholder_svg_tag:"placeholder-svg" }}
       {%- endif -%}
     </responsive-container>
-    
+
     <responsive-container class="grid-2-4">
       {%- if section.settings.image2-4 != blank -%}
         {{ 
           section.settings.image2-4 
-          | image_url: height:290
+          | image_url: width: section.settings.image2-4.width
           | image_tag: 
               alt:section.settings.image2-4.alt
         }}
