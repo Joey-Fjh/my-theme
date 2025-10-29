@@ -6,7 +6,7 @@
      <img 
         width="1440"
         height="435"
-        src="{{ section.settings.background_image | image_url: width: 1440 }}" 
+        src="{{ section.settings.background_image | image_url: width: section.settings.background_image.width }}" 
         alt="{{ section.settings.background_image.alt | escape }}"
         class="newsletter-hero__bg-image"
         loading="lazy"
