@@ -31,10 +31,12 @@
   <div class="mask"></div>
   
   <deferred-media
+    style="width:100%;height:100%;"
     {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %} 
     data-media-id="{{ video_id }}"
   >
     <button
+      style="width:100%;height:100%;padding:0;border:0;cursor:pointer;"
       id="Deferred-Poster-Modal-{{ video_id }}"
       type="button"
       aria-label="{{ alt }}"
@@ -51,7 +53,6 @@
         {%- endif -%}
       </responsive-container>
 
-
       <div class="my-video-player__controls">
         <div class="my-video-player__info h2">
           {{ section.settings.title }}
@@ -65,13 +66,44 @@
       </div>
     </button>
 
-    {% comment %} <div class="video__container">
-      {% if section.settings.my_video %}
-        {{ section.settings.my_video 
-            | video_tag: controls: true, autoplay: false, loop: false, muted: false 
+    <template>
+      {%- if section.settings.video == null and section.settings.video_url != null -%}
+        {%- liquid
+          assign loop = ''
+          if section.settings.enable_video_looping
+            assign loop = '&loop=1&playlist=' | append: video_id
+          endif
+        -%}
+
+        {%- if section.settings.video_url.type == 'youtube' -%}
+          <iframe
+            src="https://www.youtube.com/embed/{{ video_id }}?enablejsapi=1&autoplay=1{{ loop }}"
+            class="js-youtube"
+            allow="autoplay; encrypted-media"
+            allowfullscreen
+            title="{{ section.settings.description | escape }}"
+          ></iframe>
+        {%- else -%}
+          <iframe
+            src="https://player.vimeo.com/video/{{ video_id }}?autoplay=1{{ loop }}"
+            class="js-vimeo"
+            allow="autoplay; encrypted-media"
+            allowfullscreen
+            title="{{ section.settings.description | escape }}"
+          ></iframe>
+        {%- endif -%}
+      {%- else -%}
+        {{
+          section.settings.my_video
+          | video_tag:
+            image_size: '3840x',
+            autoplay: true,
+            loop: section.settings.enable_video_looping,
+            controls: true,
+            muted: false
         }}
-      {% endif %}
-    </div> {% endcomment %}
+      {%- endif -%}
+    </template>
 
     {% comment %} <div class="my-video-player__social-share">
       <span class="social-media">
