@@ -284,12 +284,11 @@
     },
     "my_hero_banner_6JCMYw": {
       "type": "my-hero-banner",
-      "disabled": true,
       "name": "my-hero-banner",
       "settings": {
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
         "image_url": "shopify://shop_images/Frame_48036.png",
-        "full_width": true,
+        "full_width": false,
         "title": "ONLINE ONLY!",
         "sub_title": "UP TO 50% OFF EVERYTHING",
         "target_date": "2025-9-15 23:59:59",
