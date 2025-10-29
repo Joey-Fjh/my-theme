@@ -44,7 +44,7 @@
   <!-- Right side - Content -->
   <div class="hero-content">
     {%- if section.blocks.size == 0 -%}
-      <div class="content">
+      <div class="content color-{{ section.settings.color_scheme }}">
         <div class="title h1">
           {{ section.settings.title }}
         </div>
@@ -62,7 +62,7 @@
         {%- endcase -%}
     {%- endif -%}
   </div>
-  
+
   <div class="image-primary image-mobile-behavior">
       <img 
           width="400"
