@@ -19,7 +19,9 @@
     my-image-with-text__container
     section-{{ section.id }}-padding
     color-{{ section.settings.color_scheme }}
+    {%- unless section.settings.is_fullWidth -%} my-page-width {%- endunless -%}   
     "
+    style="background-color:rgb(var(--color-background),.5)"
 >
     <responsive-container class="image__container">
         {%- if section.settings.image != blank-%}
@@ -83,6 +85,12 @@
             "id": "color_scheme",
             "label": "Color Scheme",
             "default": "scheme-1"
+        },
+        {
+            "type": "checkbox",
+            "id": "is_fullWidth",
+            "label": "Is Full Width",
+            "default": false
         },
         {
             "type": "image_picker",
