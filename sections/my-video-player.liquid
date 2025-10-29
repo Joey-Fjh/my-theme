@@ -21,8 +21,7 @@
   assign poster = section.settings.video.preview_image | default: section.settings.cover_image
 -%}
 
-<responsive-container class="
-    my-video-player__container 
+<responsive-container class="my-video-player__container 
     section-{{ section.id }}-padding
     {%- unless section.settings.is_fullWidth -%} my-page-width {%- endunless -%}
   " 
