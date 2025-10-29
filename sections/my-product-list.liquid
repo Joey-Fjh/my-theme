@@ -141,7 +141,7 @@
                             {%- assign discount = 0 | append: '%' -%}
                         {%- endif -%}
 
-                        {%- unless discount == 0 -%}
+                        {%- unless discount == '0%' -%}
                             <div class="sale ">
                                 SALE {{ discount }} OFF
                             </div>
