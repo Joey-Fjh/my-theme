@@ -358,6 +358,7 @@
         "accordion_item_VJXPCT",
         "accordion_item_i4WQXw"
       ],
+      "disabled": true,
       "name": "my-image-with-text",
       "settings": {
         "color_scheme": "scheme-2",
@@ -374,11 +375,10 @@
     },
     "my_fashion_grid_layout_MtAfQU": {
       "type": "my-fashion-grid-layout",
-      "disabled": true,
       "name": "my-fashion-grid-layout",
       "settings": {
         "fisrt-title": "Color of Summer Outfit",
-        "fisrt-description": "100+ Collections for you outfit inspirations this summer",
+        "fisrt-description": "<p>100+ Collections for you outfit inspirations this summer</p>",
         "fisrt-button": "VIEW COLLECTIONS",
         "fisrt-button-url": "",
         "image1-1": "shopify://shop_images/image_2.png",
