@@ -25,6 +25,7 @@
       "block_order": [
         "announcement-bar-0"
       ],
+      "disabled": true,
       "settings": {
         "auto_rotate": false,
         "change_slides_speed": 5,
@@ -37,12 +38,17 @@
     },
     "header": {
       "type": "header",
+      "disabled": true,
       "settings": {
+        "logo_position": "center",
+        "menu": "main-menu",
         "menu_type": "super_menu",
-        "collection_1": "",
-        "collection_2": "",
-        "collection_3": "",
-        "logo_text": "LOGO"
+        "show_line_separator": true,
+        "color_scheme": "",
+        "menu_color_scheme": "",
+        "margin_bottom": 0,
+        "padding_top": 20,
+        "padding_bottom": 20
       }
     }
   },
