@@ -303,7 +303,8 @@
       "type": "my-video-player",
       "name": "my-video-player",
       "settings": {
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-3",
+        "is_fullWidth": true,
         "title": "Watch the Full Video About Our Concept Store",
         "button_text": "Watch Now",
         "enable_video_looping": true,
@@ -321,28 +322,28 @@
           "type": "accordion_item",
           "settings": {
             "title": "Unrivaled Quality",
-            "content": "We believe in offering great value"
+            "content": "<p>We believe in offering great value</p>"
           }
         },
         "accordion_item_6K8PCD": {
           "type": "accordion_item",
           "settings": {
             "title": "Unrivaled Variety",
-            "content": "We believe in offering great value"
+            "content": "<p>We believe in offering great value</p>"
           }
         },
         "accordion_item_VJXPCT": {
           "type": "accordion_item",
           "settings": {
             "title": "Sustains bullous",
-            "content": "We believe in offering great value"
+            "content": "<p>We believe in offering great value</p>"
           }
         },
         "accordion_item_i4WQXw": {
           "type": "accordion_item",
           "settings": {
             "title": "Legacy Of Excellence",
-            "content": "We believe in offering great value"
+            "content": "<p>We believe in offering great value</p>"
           }
         }
       },
@@ -354,12 +355,12 @@
       ],
       "name": "my-image-with-text",
       "settings": {
-        "color_scheme": "scheme-3",
+        "color_scheme": "scheme-2",
         "image": "shopify://shop_images/image_69.png",
         "title": "Why Choose Us",
         "text-size": "h2",
         "text-align": "center",
-        "subtitle": "We pride ourselves on offering products that meet the highest standards of quality.",
+        "subtitle": "<p>We pride ourselves on offering products that meet the highest standards of quality.</p>",
         "padding_top": 0,
         "padding_bottom": 0
       }
