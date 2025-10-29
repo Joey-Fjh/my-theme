@@ -304,7 +304,7 @@
       "name": "my-video-player",
       "settings": {
         "color_scheme": "scheme-3",
-        "is_fullWidth": true,
+        "is_fullWidth": false,
         "title": "Watch the Full Video About Our Concept Store",
         "button_text": "Watch Now",
         "enable_video_looping": true,
@@ -357,6 +357,7 @@
       "settings": {
         "color_scheme": "scheme-2",
         "is_fullWidth": false,
+        "is_swapLocation": false,
         "image": "shopify://shop_images/image_69.png",
         "title": "Why Choose Us",
         "text-size": "h1",
