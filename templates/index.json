@@ -355,7 +355,8 @@
       ],
       "name": "my-image-with-text",
       "settings": {
-        "color_scheme": "scheme-2",
+        "color_scheme": "scheme-3",
+        "is_fullWidth": true,
         "image": "shopify://shop_images/image_69.png",
         "title": "Why Choose Us",
         "text-size": "h2",
