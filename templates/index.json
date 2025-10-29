@@ -413,11 +413,13 @@
     },
     "my_newsletter_hero_EHJQF4": {
       "type": "my-newsletter-hero",
+      "disabled": true,
       "name": "my-newsletter-hero",
       "settings": {
         "is_fullWidth": false,
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
         "background_image": "shopify://shop_images/image_35.png",
+        "text-size": "h2",
         "subtitle": "KEEP ME UPDATED",
         "title": "NEWSLETTER",
         "description": "<p>Subscribe to get notified about product launches, special offers and company news.</p>",
@@ -444,7 +446,6 @@
       "block_order": [
         "eyebrow_FipE49"
       ],
-      "disabled": true,
       "name": "my-sustainable-hero",
       "settings": {
         "reverse_layout": false,
