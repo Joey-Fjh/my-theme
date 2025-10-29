@@ -54,7 +54,13 @@
             {{ section.settings.subtitle }}
         </div>
 
-        <my-accordion-container class="accordion__container">
+        <my-accordion-container class="accordion__container"
+            style="
+                --my-accordion-foreground-color: rgb(--color-foreground);
+                --my-accordion-background-color: rgb(--color-background);
+                --my-accordion-text-color: rgb(--color-foreground,.5);
+            "
+        >
             {%- for block in section.blocks -%}
                 <my-accordion-item
                     title="{{ block.settings.title }}"
@@ -134,10 +140,10 @@
             "default": "left"
         },
         {
-            "type": "textarea",
+            "type": "richtext",
             "id": "subtitle",
             "label": "Subtitle",
-            "default":"We pride ourselves on offering products that meet the highest standards of quality."
+            "default":"<p>We pride ourselves on offering products that meet the highest standards of quality.</p>"
         },
         {
             "type": "header",
@@ -176,10 +182,10 @@
                     "default":"Example Title",
                 },
                 {
-                    "type": "textarea",
+                    "type": "richtext",
                     "id": "content",
                     "label": "Content",
-                    "default":"Example Content"
+                    "default":"<p>Example Content</p>"
                 }
             ]
         }

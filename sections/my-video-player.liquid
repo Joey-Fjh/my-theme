@@ -25,6 +25,7 @@
     my-video-player__container 
     section-{{ section.id }}-padding
     color-{{ section.settings.color_scheme }}
+    {%- unless section.settings.is_fullWidth -%} my-page-width {%- endunless -%}
   " 
   data-media-id="{{ video_id }}"
 > 
@@ -136,6 +137,16 @@
         "id": "color_scheme",
         "label": "Color Scheme",
         "default": "scheme-1"
+      },
+      {
+        "type": "checkbox",
+        "id": "is_fullWidth",
+        "label": "Is Full Width",
+        "default": false
+      },
+      {
+        "type": "header",
+        "content": "Text"
       },
       {
         "type": "inline_richtext",
