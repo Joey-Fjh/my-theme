@@ -5,7 +5,7 @@
       {%- if section.settings.image1-1 != blank -%}
         {{ 
           section.settings.image1-1 
-          | image_url: height:592
+          | image_url: width: section.settings.image1-1.width
           | image_tag: 
               alt:section.settings.image1-1.alt
         }}
@@ -21,6 +21,7 @@
         </a>
       </div>
     </responsive-container>
+    
     <responsive-container class="grid-1-4">
       {%- if section.settings.image1-4 != blank -%}
         {{ 
