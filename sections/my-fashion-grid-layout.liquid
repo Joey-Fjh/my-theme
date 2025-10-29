@@ -110,7 +110,7 @@
           {%- if section.settings.image4-4 != blank -%}
             {{ 
               section.settings.image4-4 
-              | image_url: height:300,width:400
+              | image_url: width: section.settings.image4-4
               | image_tag: 
                   alt:section.settings.image4-4.alt
             }}
@@ -132,7 +132,7 @@
         "content": "First Part"
       },
       {
-        "type": "text",
+        "type": "inline_richtext",
         "id": "fisrt-title",
         "label": "Title",
         "default": "Color of Summer Outfit"
