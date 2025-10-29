@@ -15,10 +15,9 @@
   }
 {%- endstyle -%}
 
-<responsive-container class="
-        my-image-with-text__container
-        section-{{ section.id }}-padding
-        {%- unless section.settings.is_fullWidth -%} my-page-width {%- endunless -%}   
+<responsive-container class="my-image-with-text__container 
+    section-{{ section.id }}-padding
+    {%- unless section.settings.is_fullWidth -%} my-page-width {%- endunless -%}   
     "
     style="
         background-color:rgb(var(--color-background),.5);

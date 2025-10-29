@@ -15,8 +15,7 @@
   }
 {%- endstyle -%}
 
-<responsive-container class="my-hero-banner__container 
-    color-{{ section.settings.color_scheme }} 
+<responsive-container class="my-hero-banner__container  
     section-{{ section.id }}-padding
     {% if section.settings.full_width %}
       content-full-width   
@@ -38,7 +37,7 @@
       {%- endif -%}
     </responsive-container>
 
-    <div class="content__container">
+    <div class="content__container color-{{ section.settings.color_scheme }}">
       <div class="text__container">
         <div class="title h4">{{ section.settings.title }}</div>
         <div class="sub-title h1">{{ section.settings.sub_title }}</div>

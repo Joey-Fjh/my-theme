@@ -24,7 +24,6 @@
 <responsive-container class="
     my-video-player__container 
     section-{{ section.id }}-padding
-    color-{{ section.settings.color_scheme }}
     {%- unless section.settings.is_fullWidth -%} my-page-width {%- endunless -%}
   " 
   data-media-id="{{ video_id }}"
@@ -33,7 +32,7 @@
     style="width:100%;height:100%;"
     {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %} 
     data-media-id="{{ video_id }}"
-    class="deferred-media"
+    class="deferred-media color-{{ section.settings.color_scheme }}"
   >
     <button
       style="width:100%;height:100%;padding:0;border:0;cursor:pointer;"
