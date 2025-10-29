@@ -41,15 +41,15 @@
       {% assign size_desc = number | plus:2 %}
 
       {% if section.settings.subtitle %}
-        <p class="newsletter-hero__subtitle" style="font-size:{{ section.settings.text-size | slice:0 | append: size_subtitle }}">{{ section.settings.subtitle }}</p>
+        <p class="newsletter-hero__subtitle {{ section.settings.text-size | slice:0 | append: size_subtitle }}">{{ section.settings.subtitle }}</p>
       {% endif %}
       
       {% if section.settings.title %}
-        <h2 class="newsletter-hero__title" style="font-size:{{ section.settings.text-size }}">{{ section.settings.title }}</h2>
+        <h2 class="newsletter-hero__title {{ section.settings.text-size }}">{{ section.settings.title }}</h2>
       {% endif %}
       
       {% if section.settings.description %}
-        <p class="newsletter-hero__description" style="font-size:{{ section.settings.text-size | slice:0 | append: size_desc }}">{{ section.settings.description }}</p>
+        <p class="newsletter-hero__description {{ section.settings.text-size | slice:0 | append: size_desc }}">{{ section.settings.description }}</p>
       {% endif %}
       
       <form class="newsletter-hero__form" action="{{ routes.root_url }}contact#contact_form" method="post" accept-charset="UTF-8">
