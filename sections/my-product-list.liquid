@@ -99,7 +99,7 @@
                         {{ placeholder_image | placeholder_svg_tag: "placeholder-svg" }}
                     </responsive-container>
 
-                    <div class="product-card__content" 
+                    <div class="product-card__content text-{{ section.settings.alignment }}" 
                         style="product-{{ section.settings.alignment }}"
                     >
                         <div class="product-card__title">
@@ -165,7 +165,7 @@
                         {%- endif -%}
                     </responsive-container> 
 
-                    <div class="product-card__content">
+                    <div class="product-card__content product-{{ section.settings.alignment }}">
                         <div class="product-card__title">
                             <a
                                 href="{{ product.url }}"
