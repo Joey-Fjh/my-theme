@@ -304,7 +304,7 @@
       "type": "my-video-player",
       "name": "my-video-player",
       "settings": {
-        "color_scheme": "scheme-3",
+        "color_scheme": "scheme-1",
         "title": "Watch the Full Video About Our Concept Store",
         "button_text": "Watch Now",
         "enable_video_looping": true,
