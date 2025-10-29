@@ -32,7 +32,9 @@
     <div class="newsletter-hero__overlay"></div>
   </div>
   
-  <div class="newsletter-hero__content section-{{ section.id }}-padding color-{{ section.settings.color_scheme }}">
+  <div class="newsletter-hero__content section-{{ section.id }}-padding color-{{ section.settings.color_scheme }}"
+    style="background-color:transparent;"
+  >
     <div class="newsletter-hero__container">
       {% if section.settings.subtitle %}
         <p class="newsletter-hero__subtitle">{{ section.settings.subtitle }}</p>
