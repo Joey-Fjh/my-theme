@@ -307,7 +307,7 @@
         "color_scheme": "scheme-3",
         "title": "Watch the Full Video About Our Concept Store",
         "button_text": "Watch Now",
-        "enable_video_looping": false,
+        "enable_video_looping": true,
         "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
         "cover_image": "shopify://shop_images/video.png",
         "description": "",
