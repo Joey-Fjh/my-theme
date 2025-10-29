@@ -56,9 +56,11 @@
       {%- assign block = section.blocks.first -%}
       {%- case block.type -%}
         {%- when "eyebrow" -%}
-          {%- render 'my-sustainable-hero__eyebrow', block:block , class: 'color-' | append: block.settings.color_scheme_eyebrow -%}
+          {% assign eyebrow_classes = 'color-' | append: block.settings.color_scheme_eyebrow %}
+          {%- render 'my-sustainable-hero__eyebrow', block:block , class: eyebrow_classes -%}
         {%- when 'comment' -%}
-          {%- render 'my-sustainable-hero__comment', block:block, class: 'color-' | append: block.settings.color_scheme_comment -%}
+          {% assign comment_classes = 'color-' | append: block.settings.color_scheme_comment %}
+          {%- render 'my-sustainable-hero__comment', block:block, class: comment_classes -%}
         {%- endcase -%}
     {%- endif -%}
   </div>
