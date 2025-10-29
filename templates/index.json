@@ -288,6 +288,7 @@
     },
     "my_hero_banner_6JCMYw": {
       "type": "my-hero-banner",
+      "disabled": true,
       "name": "my-hero-banner",
       "settings": {
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
@@ -304,6 +305,7 @@
     },
     "my_video_player_CfFJqU": {
       "type": "my-video-player",
+      "disabled": true,
       "name": "my-video-player",
       "settings": {
         "color_scheme": "scheme-3",
