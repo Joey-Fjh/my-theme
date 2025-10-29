@@ -37,11 +37,11 @@
   >
     <div class="newsletter-hero__container">
       {% assign number = section.settings.text-size | slice:1 %}
-      {% assign size_subTitle = number | plus:1 %}
+      {% assign size_subtitle = number | plus:1 %}
       {% assign size_desc = number | plus:2 %}
 
       {% if section.settings.subtitle %}
-        <p class="newsletter-hero__subtitle" style="font-size:{{ section.settings.text-size | slice:0 | append: size_subTitle }}">{{ section.settings.subtitle }}</p>
+        <p class="newsletter-hero__subtitle" style="font-size:{{ section.settings.text-size | slice:0 | append: size_subtitle }}">{{ section.settings.subtitle }}</p>
       {% endif %}
       
       {% if section.settings.title %}
