@@ -110,7 +110,7 @@
           {%- if section.settings.image4-4 != blank -%}
             {{ 
               section.settings.image4-4 
-              | image_url: width: section.settings.image4-4
+              | image_url: width: section.settings.image4-4.width
               | image_tag: 
                   alt:section.settings.image4-4.alt
             }}
