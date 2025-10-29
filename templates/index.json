@@ -84,7 +84,6 @@
     },
     "my_product_list_BMjQet": {
       "type": "my-product-list",
-      "disabled": true,
       "name": "my-product-list",
       "settings": {
         "color_scheme": "scheme-1",
@@ -111,7 +110,7 @@
         "image_y7wUQ6": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/logo.png"
+            "image": "shopify://shop_images/20251027174416_19_94.jpg"
           }
         },
         "image_XMjbPH": {
@@ -146,11 +145,10 @@
         "image_8Khnj3",
         "image_hwxTdi"
       ],
-      "disabled": true,
       "name": "brand-banner",
       "settings": {
         "background_color": "#00d27d",
-        "is_scroll": true,
+        "is_scroll": false,
         "scroll_direction": "left"
       }
     },
@@ -305,10 +303,10 @@
       "type": "my-video-player",
       "name": "my-video-player",
       "settings": {
-        "color_scheme": "scheme-3",
+        "color_scheme": "scheme-1",
         "title": "Watch the Full Video About Our Concept Store",
         "button_text": "Watch Now",
-        "enable_video_looping": false,
+        "enable_video_looping": true,
         "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
         "cover_image": "shopify://shop_images/video.png",
         "description": "",
@@ -354,7 +352,6 @@
         "accordion_item_VJXPCT",
         "accordion_item_i4WQXw"
       ],
-      "disabled": true,
       "name": "my-image-with-text",
       "settings": {
         "image": "shopify://shop_images/image_69.png",
