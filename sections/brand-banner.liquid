@@ -15,7 +15,7 @@
     {%- if block.settings.image -%}
       {{
           block.settings.image
-          | image_url: width: 200
+          | image_url: width: block.settings.image.width
           | image_tag:
               alt: block.settings.image.alt,
               class: 'image'
@@ -102,18 +102,6 @@
           "scroll_direction": "left"
         },
         "blocks": [
-          {
-            "type": "image"
-          },
-          {
-            "type": "image"
-          },
-          {
-            "type": "image"
-          },
-          {
-            "type": "image"
-          },
           {
             "type": "image"
           }

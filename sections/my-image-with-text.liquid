@@ -1,12 +1,31 @@
 {{ 'my-image-with-text.css' | asset_url | stylesheet_tag }}
 <script src='{{ 'my-accordion-container.js' | asset_url }}' type='module' defer></script>
 
-<responsive-container class="my-image-with-text__container">
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<responsive-container class="
+    my-image-with-text__container
+    section-{{ section.id }}-padding
+    color-{{ section.settings.color_scheme }}
+    "
+>
     <responsive-container class="image__container">
         {%- if section.settings.image != blank-%}
             {{ 
                 section.settings.image 
-                | image_url: width: 676, height: 688 
+                | image_url: section.settings.image.width
                 | image_tag:
                     alt: section.settings.image.alt
             }}
@@ -16,8 +35,24 @@
     </responsive-container>
 
     <div class="content__container">
-        <div class="title">{{ section.settings.title }}</div>
-        <div class="subtitle">{{ section.settings.subtitle }}</div>
+        <div class="
+            title 
+            text-{{ section.settings.text-align }}
+            {{ section.settings.text-size }}
+            "
+        >
+            {{ section.settings.title }}
+        </div>
+        <div class="
+            subtitle 
+            text-{{ section.settings.text-align }}
+            {% assign number = section.settings.text-size | slice:1 %}
+            {% assign size = number | plus:2 %}
+            {{ section.settings.text-size | slice:0 | append: size }}
+            "
+        >
+            {{ section.settings.subtitle }}
+        </div>
 
         <my-accordion-container class="accordion__container">
             {%- for block in section.blocks -%}
@@ -38,15 +73,65 @@
     "class": "section",
     "settings": [
         {
+            "type": "color_scheme",
+            "id": "color_scheme",
+            "label": "Color Scheme",
+            "default": "scheme-1"
+        },
+        {
             "type": "image_picker",
             "id": "image",
             "label": "Image"
         },
         {
-            "type": "text",
+            "type": "header",
+            "content": "Text"
+        },
+        {
+            "type": "inline_richtext",
             "id": "title",
             "label": "Title",
             "default":"Why Choose Us",
+        },
+        {
+            "type": "select",
+            "id": "text-size",
+            "label": "Text Size",
+            "options": [
+                {
+                    "value": "h2",
+                    "label": "Small"
+                },
+                {
+                    "value": "h1",
+                    "label": "Medium"
+                },
+                {
+                    "value": "h0",
+                    "label": "Large"
+                }
+            ],
+            "default": "medium"
+        },
+        {
+            "type": "select",
+            "id": "text-align",
+            "label": "Text Align",
+            "options": [
+                {
+                    "value": "left",
+                    "label": "Left"
+                },
+                {
+                    "value": "center",
+                    "label": "Center"
+                },
+                {
+                    "value": "right",
+                    "label": "Right"
+                }
+            ],
+            "default": "left"
         },
         {
             "type": "textarea",
@@ -54,6 +139,30 @@
             "label": "Subtitle",
             "default":"We pride ourselves on offering products that meet the highest standards of quality."
         },
+        {
+            "type": "header",
+            "content": "Padding"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "Padding Top",
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "Padding Bottom",
+            "default": 0
+        }
     ],
     "blocks": [
         {
@@ -61,7 +170,7 @@
             "name": "Accordion Item",
             "settings": [
                 {
-                    "type": "text",
+                    "type": "inline_richtext",
                     "id": "title",
                     "label": "Title",
                     "default":"Example Title",
@@ -79,12 +188,6 @@
         {
             "name": "my-image-with-text",
             "blocks": [
-                {
-                    "type": "accordion_item"
-                },
-                {
-                    "type": "accordion_item"
-                },
                 {
                     "type": "accordion_item"
                 }
