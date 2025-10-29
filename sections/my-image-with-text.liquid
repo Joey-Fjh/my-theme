@@ -16,11 +16,14 @@
 {%- endstyle -%}
 
 <responsive-container class="
-    my-image-with-text__container
-    section-{{ section.id }}-padding
-    {%- unless section.settings.is_fullWidth -%} my-page-width {%- endunless -%}   
+        my-image-with-text__container
+        section-{{ section.id }}-padding
+        {%- unless section.settings.is_fullWidth -%} my-page-width {%- endunless -%}   
     "
-    style="background-color:rgb(var(--color-background),.5)"
+    style="
+        background-color:rgb(var(--color-background),.5);
+        flex-direction: {%- if section.settings.is_swapLocation -%} row-reverse {%- endif -%};
+    "
 >
     <responsive-container class="image__container">
         {%- if section.settings.image != blank-%}
@@ -89,6 +92,12 @@
             "type": "checkbox",
             "id": "is_fullWidth",
             "label": "Is Full Width",
+            "default": false
+        },
+        {
+            "type": "checkbox",
+            "id": "is_swapLocation",
+            "label": "Is Swap Location",
             "default": false
         },
         {
