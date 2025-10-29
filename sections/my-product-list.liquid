@@ -99,7 +99,9 @@
                         {{ placeholder_image | placeholder_svg_tag: "placeholder-svg" }}
                     </responsive-container>
 
-                    <div class="product-card__content">
+                    <div class="product-card__content" 
+                        style="product-{{ section.settings.alignment }}"
+                    >
                         <div class="product-card__title">
                             <a
                                 role="link"
@@ -119,7 +121,9 @@
             {% for product in section.settings.product_collection.products limit: section.settings.products_to_show %}    
                 <div class="product-card__container"
                 >
-                    <responsive-container class="product-card__image"
+                    <responsive-container class="product-card__image 
+                        {% if section.settings.show_operation == 'hover' %} product-card__image-hover {% endif %}
+                        "
                         style="aspect-ratio: {{ ratio }};"
                     >
                         {{ 
@@ -132,14 +136,16 @@
 
                         {%- if product.compare_at_price > product.price and product.compare_at_price > 0 -%}
                             {%- assign percent = product.price | times: 100 | divided_by: product.compare_at_price -%}
-                            {%- assign discount = 100 | minus: percent | prepend: '-' | append: '%' -%}
+                            {%- assign discount = 100 | minus: percent | append: '%' -%}
                         {%- else -%}
                             {%- assign discount = 0 | append: '%' -%}
                         {%- endif -%}
 
-                        <div class="sale">
-                            SALE {{ discount }} OFF
-                        </div>
+                        {%- unless discount == 0 -%}
+                            <div class="sale ">
+                                SALE {{ discount }} OFF
+                            </div>
+                        {%- endunless -%}
                         
                         {%- if has_quick_add -%}
                             <modal-opener 
@@ -408,6 +414,42 @@
                     "label": "Standard"
                 }
             ]
+        },
+        {
+            "type": "select",
+            "id": "show_operation",
+            "label": "Show Operation",
+            "options": [
+                {
+                    "value": "none",
+                    "label": "None"
+                },
+                {
+                    "value": "hover",
+                    "label": "Hover"
+                }
+            ],
+            "default": "none"
+        },
+        {
+            "type": "select",
+            "id":"alignment",
+            "label": "Alignment",
+            "options": [
+                {
+                    "value": "left",
+                    "label": "Left"
+                },
+                {
+                    "value": "center",
+                    "label": "Center"
+                },
+                {
+                    "value": "right",
+                    "label": "Right"
+                }
+            ],
+            "default":"center"
         },
         {
             "type": "header",
