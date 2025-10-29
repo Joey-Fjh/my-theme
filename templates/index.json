@@ -354,9 +354,14 @@
       ],
       "name": "my-image-with-text",
       "settings": {
+        "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
         "image": "shopify://shop_images/image_69.png",
         "title": "Why Choose Us",
-        "subtitle": "We pride ourselves on offering products that meet the highest standards of quality."
+        "text-size": "h2",
+        "text-align": "center",
+        "subtitle": "We pride ourselves on offering products that meet the highest standards of quality.",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "my_fashion_grid_layout_MtAfQU": {
