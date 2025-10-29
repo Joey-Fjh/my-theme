@@ -15,6 +15,7 @@
         "image_banner_WL9CtN": {
           "type": "image-banner",
           "settings": {
+            "color_scheme": "scheme-1",
             "image": "shopify://shop_images/20251027174416_19_94.jpg",
             "image_overlay_opacity": 100,
             "title": "Wear the Moment,Own the Style",
@@ -23,8 +24,7 @@
             "button_text": "Shop Now",
             "button_url": "",
             "content_position": "middle-right",
-            "text_alignment": "left",
-            "color_scheme": "scheme-1"
+            "text_alignment": "left"
           }
         }
       },
@@ -85,6 +85,7 @@
       "type": "my-product-list",
       "name": "my-product-list",
       "settings": {
+        "color_scheme": "scheme-1",
         "product_collection": "女士衣服",
         "title": "OUR BEST SELLERS",
         "heading_size": "h2",
@@ -96,7 +97,6 @@
         "columns_mobile": "1",
         "full_width": false,
         "show_view_all": true,
-        "color_scheme": "scheme-1",
         "image_ratio": "3-4",
         "quick_add": "none",
         "padding_top": 36,
@@ -300,10 +300,15 @@
       "type": "my-video-player",
       "name": "my-video-player",
       "settings": {
+        "color_scheme": "scheme-3",
+        "title": "Watch the Full Video About Our Concept Store",
+        "button_text": "Watch Now",
+        "enable_video_looping": false,
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
         "cover_image": "shopify://shop_images/video.png",
         "description": "",
-        "title": "Watch the Full Video About Our Concept Store",
-        "button_text": "Watch Now"
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "my_image_with_text_6RV9t9": {
