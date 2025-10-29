@@ -148,6 +148,7 @@
         "image_8Khnj3",
         "image_hwxTdi"
       ],
+      "disabled": true,
       "name": "brand-banner",
       "settings": {
         "background_color": "#00d27d",
