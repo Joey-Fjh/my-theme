@@ -65,7 +65,7 @@
       <img 
           width="400"
           height="400"
-          src="{{ section.settings.primary_image | image_url: width:400 }}" 
+          src="{{ section.settings.primary_image | image_url: width: section.settings.primary_image.width}}" 
           alt="{{ section.settings.primary_image.alt | default: 'Sustainable fashion model' }}"
           loading="lazy"
       />
