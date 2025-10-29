@@ -31,6 +31,7 @@
       "block_order": [
         "image_banner_WL9CtN"
       ],
+      "disabled": true,
       "name": "my-image-banner",
       "settings": {
         "layout": "page_width",
@@ -83,6 +84,7 @@
     },
     "my_product_list_BMjQet": {
       "type": "my-product-list",
+      "disabled": true,
       "name": "my-product-list",
       "settings": {
         "color_scheme": "scheme-1",
@@ -230,6 +232,7 @@
       "block_order": [
         "fashion_highlight_a4b9ee"
       ],
+      "disabled": true,
       "name": "my-fashion-highlights",
       "settings": {
         "font_color": "#50b948",
@@ -265,6 +268,7 @@
         "collection_myQf8T",
         "collection_VJ3Jig"
       ],
+      "disabled": true,
       "name": "my-luxury-collection",
       "settings": {
         "color_scheme": "",
@@ -282,6 +286,7 @@
     },
     "my_hero_banner_6JCMYw": {
       "type": "my-hero-banner",
+      "disabled": true,
       "name": "my-hero-banner",
       "settings": {
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
