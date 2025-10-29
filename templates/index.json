@@ -375,6 +375,7 @@
     },
     "my_fashion_grid_layout_MtAfQU": {
       "type": "my-fashion-grid-layout",
+      "disabled": true,
       "name": "my-fashion-grid-layout",
       "settings": {
         "is_fullWidth": false,
@@ -412,7 +413,6 @@
     },
     "my_newsletter_hero_EHJQF4": {
       "type": "my-newsletter-hero",
-      "disabled": true,
       "name": "my-newsletter-hero",
       "settings": {
         "background_image": "shopify://shop_images/image_35.png",
