@@ -27,19 +27,19 @@
     color-{{ section.settings.color_scheme }}
   " 
   data-media-id="{{ video_id }}"
->
-  <div class="mask"></div>
-  
+> 
   <deferred-media
     style="width:100%;height:100%;"
     {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %} 
     data-media-id="{{ video_id }}"
+    class="deferred-media"
   >
     <button
       style="width:100%;height:100%;padding:0;border:0;cursor:pointer;"
       id="Deferred-Poster-Modal-{{ video_id }}"
       type="button"
       aria-label="{{ alt }}"
+      class="deferred-media__poster"
     >
       <responsive-container>
         {%- if poster != null -%}
@@ -78,7 +78,7 @@
         {%- if section.settings.video_url.type == 'youtube' -%}
           <iframe
             src="https://www.youtube.com/embed/{{ video_id }}?enablejsapi=1&autoplay=1{{ loop }}"
-            class="js-youtube"
+            class="iframe"
             allow="autoplay; encrypted-media"
             allowfullscreen
             title="{{ section.settings.description | escape }}"
@@ -86,7 +86,7 @@
         {%- else -%}
           <iframe
             src="https://player.vimeo.com/video/{{ video_id }}?autoplay=1{{ loop }}"
-            class="js-vimeo"
+            class="iframe"
             allow="autoplay; encrypted-media"
             allowfullscreen
             title="{{ section.settings.description | escape }}"
@@ -105,7 +105,7 @@
       {%- endif -%}
     </template>
 
-    {% comment %} <div class="my-video-player__social-share">
+    <div class="my-video-player__social-share">
       <span class="social-media">
           {{- 'facebook.svg' | inline_asset_content -}}
       </span>
@@ -121,7 +121,7 @@
       <div class="social-badge">
         <span class="social-text">GET 20% OFF</span>
       </div>
-    </div>  {% endcomment %}
+    </div>
   </deferred-media>
 </responsive-container>
 
