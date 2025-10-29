@@ -56,9 +56,9 @@
       {%- assign block = section.blocks.first -%}
       {%- case block.type -%}
         {%- when "eyebrow" -%}
-          {%- render 'my-sustainable-hero__eyebrow', block:block , class:"{{ block.settings.color_scheme_eyebrow }}"-%}
+          {%- render 'my-sustainable-hero__eyebrow', block:block , class: block.settings.color_scheme_eyebrow -%}
         {%- when 'comment' -%}
-           {%- render 'my-sustainable-hero__comment', block:block, class:"{{ block.settings.color_scheme_comment }}" -%}
+           {%- render 'my-sustainable-hero__comment', block:block, class: block.settings.color_scheme_comment -%}
         {%- endcase -%}
     {%- endif -%}
   </div>
