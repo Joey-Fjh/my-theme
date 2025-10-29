@@ -18,7 +18,6 @@
 <responsive-container class="
     my-image-with-text__container
     section-{{ section.id }}-padding
-    color-{{ section.settings.color_scheme }}
     {%- unless section.settings.is_fullWidth -%} my-page-width {%- endunless -%}   
     "
     style="background-color:rgb(var(--color-background),.5)"
@@ -36,7 +35,7 @@
         {%- endif -%}
     </responsive-container>
 
-    <div class="content__container">
+    <div class="content__container color-{{ section.settings.color_scheme }}">
         <div class="
             title 
             text-{{ section.settings.text-align }}
@@ -58,9 +57,9 @@
 
         <my-accordion-container class="accordion__container"
             style="
-                --my-accordion-foreground-color: rgb(--color-foreground);
-                --my-accordion-background-color: rgb(--color-background);
-                --my-accordion-text-color: rgb(--color-foreground,.5);
+                --my-accordion-foreground-color: rgb(var(--color-foreground));
+                --my-accordion-background-color: rgb(var(--color-background));
+                --my-accordion-text-color: rgb(var(--color-foreground),.5);
             "
         >
             {%- for block in section.blocks -%}

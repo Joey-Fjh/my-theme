@@ -1,4 +1,4 @@
-var p=Object.defineProperty;var h=(t,e,o)=>e in t?p(t,e,{enumerable:!0,configurable:!0,writable:!0,value:o}):t[e]=o;var n=(t,e,o)=>h(t,typeof e!="symbol"?e+"":e,o);import{i as r,a as c,x as l}from"./lit-element.js";class i extends r{constructor(){super(),this.title="",this.open=!1}toggle(){this.open=!this.open,this.dispatchEvent(new CustomEvent("accordion-toggle",{detail:{open:this.open},bubbles:!0}))}render(){return l`
+var p=Object.defineProperty;var h=(t,e,o)=>e in t?p(t,e,{enumerable:!0,configurable:!0,writable:!0,value:o}):t[e]=o;var i=(t,e,o)=>h(t,typeof e!="symbol"?e+"":e,o);import{i as r,a as l,x as c}from"./lit-element.js";class n extends r{constructor(){super(),this.title="",this.open=!1}toggle(){this.open=!this.open,this.dispatchEvent(new CustomEvent("accordion-toggle",{detail:{open:this.open},bubbles:!0}))}render(){return c`
       <button 
         class="accordion-header"
         @click="${this.toggle}"
@@ -14,7 +14,7 @@ var p=Object.defineProperty;var h=(t,e,o)=>e in t?p(t,e,{enumerable:!0,configura
           <slot></slot>
         </div>
       </div>
-    `}}n(i,"properties",{title:{type:String},open:{type:Boolean,reflect:!0}}),n(i,"styles",c`
+    `}}i(n,"properties",{title:{type:String},open:{type:Boolean,reflect:!0}}),i(n,"styles",l`
     :host {
       display: block;
       border-bottom: 1px solid #e5e5e5;
@@ -22,10 +22,6 @@ var p=Object.defineProperty;var h=(t,e,o)=>e in t?p(t,e,{enumerable:!0,configura
 
     :host(:last-child) {
       border-bottom: none;
-    }
-
-    button{
-        background-color: var(--my-accordion-background-color, #f5f5f5);
     }
 
     .accordion-header {
@@ -38,10 +34,6 @@ var p=Object.defineProperty;var h=(t,e,o)=>e in t?p(t,e,{enumerable:!0,configura
       border: none;
       width: 100%;
       text-align: left;
-    }
-
-    .accordion-header:hover {
-      background: #fff;
     }
 
     .accordion-title {
@@ -85,10 +77,10 @@ var p=Object.defineProperty;var h=(t,e,o)=>e in t?p(t,e,{enumerable:!0,configura
       line-height: 1.5;
       margin: 0;
     }
-  `);class s extends r{constructor(){super(),this.allowMultiple=!0,this.defaultOpen=0}connectedCallback(){super.connectedCallback(),this.addEventListener("accordion-toggle",this.handleToggle.bind(this)),this.setDefaultOpen()}setDefaultOpen(){const e=this.querySelectorAll("my-accordion-item");this.defaultOpen>=0&&this.defaultOpen<e.length&&(e[this.defaultOpen].open=!0)}handleToggle(e){if(!this.allowMultiple){const o=this.querySelectorAll("my-accordion-item"),d=e.target;o.forEach(a=>{a!==d&&(a.open=!1)})}}render(){return l`<slot></slot>`}}n(s,"properties",{allowMultiple:{type:Boolean,attribute:"allow-multiple"},defaultOpen:{type:Number,attribute:"default-open"}}),n(s,"styles",c`
+  `);class s extends r{constructor(){super(),this.allowMultiple=!0,this.defaultOpen=0}connectedCallback(){super.connectedCallback(),this.addEventListener("accordion-toggle",this.handleToggle.bind(this)),this.setDefaultOpen()}setDefaultOpen(){const e=this.querySelectorAll("my-accordion-item");this.defaultOpen>=0&&this.defaultOpen<e.length&&(e[this.defaultOpen].open=!0)}handleToggle(e){if(!this.allowMultiple){const o=this.querySelectorAll("my-accordion-item"),d=e.target;o.forEach(a=>{a!==d&&(a.open=!1)})}}render(){return c`<slot></slot>`}}i(s,"properties",{allowMultiple:{type:Boolean,attribute:"allow-multiple"},defaultOpen:{type:Number,attribute:"default-open"}}),i(s,"styles",l`
     :host {
       display: block;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       overflow: hidden;
     }
-  `);customElements.define("my-accordion-item",i);customElements.define("my-accordion-container",s);
+  `);customElements.define("my-accordion-item",n);customElements.define("my-accordion-container",s);
