@@ -8,6 +8,7 @@
       }
     {%- endif -%}
   </style>
+  
   <!-- Left side - Two overlapping images -->
   <div class="hero-images">
     <div class="image-primary">
@@ -29,7 +30,7 @@
         <img
           width="400"
           height="400" 
-          src="{{ section.settings.secondary_image | image_url: width:400 }}" 
+          src="{{ section.settings.secondary_image | image_url: width: section.settings.secondary_image.width }}" 
           alt="{{ section.settings.secondary_image.alt | default: 'Fashion accessory' }}"
           loading="lazy"
         />
@@ -38,6 +39,7 @@
       {%- endif -%}
     </div>
   </div>
+
   <!-- Right side - Content -->
   <div class="hero-content">
     {%- if section.blocks.size == 0 -%}
