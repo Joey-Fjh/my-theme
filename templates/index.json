@@ -101,7 +101,7 @@
         "image_ratio": "3-4",
         "quick_add": "none",
         "show_operation": "none",
-        "alignment": "right",
+        "alignment": "center",
         "padding_top": 36,
         "padding_bottom": 36
       }
