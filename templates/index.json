@@ -434,10 +434,12 @@
       "blocks": {
         "eyebrow_FipE49": {
           "type": "eyebrow",
+          "disabled": true,
           "settings": {
+            "color_scheme_eyebrow": "",
             "eyebrow_text": "EVERYDAY ESSENTIALS",
             "main_heading": "Sustainable Trends You'll Love Forever.",
-            "value_points": "We believe that fashion should be stylish, affordable and accessible to everyone.|Body positivity and inclusivity are values that are at the heart of our brand.|We want everyone to look and feel good, while also doing our part to help the environment.",
+            "value_points": "<p>We believe that fashion should be stylish, affordable and accessible to everyone.|Body positivity and inclusivity are values that are at the heart of our brand.|We want everyone to look and feel good, while also doing our part to help the environment.</p>",
             "cta_text": "OUR STORY",
             "cta_url": ""
           }
@@ -448,11 +450,13 @@
       ],
       "name": "my-sustainable-hero",
       "settings": {
+        "is_fullWidth": true,
+        "color_scheme": "",
         "reverse_layout": false,
         "primary_image": "shopify://shop_images/Frame_47827.png",
         "secondary_image": "shopify://shop_images/image_30.png",
         "title": "Sustainable Trends You'll Love Forever.",
-        "description": "We believe that fashion should be stylish, affordable and accessible to everyone. Body positivity and inclusivity are values that are at the heart of our brand. We want everyone to look and feel good, while also doing our part to help the environment."
+        "description": "<p>We believe that fashion should be stylish, affordable and accessible to everyone. Body positivity and inclusivity are values that are at the heart of our brand. We want everyone to look and feel good, while also doing our part to help the environment.</p>"
       }
     },
     "my_media_carousel_8nNGTd": {
