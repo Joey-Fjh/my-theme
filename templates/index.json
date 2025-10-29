@@ -415,12 +415,16 @@
       "type": "my-newsletter-hero",
       "name": "my-newsletter-hero",
       "settings": {
+        "is_fullWidth": false,
+        "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
         "background_image": "shopify://shop_images/image_35.png",
         "subtitle": "KEEP ME UPDATED",
         "title": "NEWSLETTER",
-        "description": "Subscribe to get notified about product launches, special offers and company news.",
+        "description": "<p>Subscribe to get notified about product launches, special offers and company news.</p>",
         "email_placeholder": "E-mail",
-        "button_text": "SUBSCRIBE"
+        "button_text": "SUBSCRIBE",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "my_sustainable_hero_cHgtTK": {
