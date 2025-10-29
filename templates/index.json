@@ -84,7 +84,6 @@
     },
     "my_product_list_BMjQet": {
       "type": "my-product-list",
-      "disabled": true,
       "name": "my-product-list",
       "settings": {
         "color_scheme": "scheme-1",
