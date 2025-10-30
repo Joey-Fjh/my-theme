@@ -23,7 +23,7 @@
 >
     {% if section.settings.is_showTitle %}
         <div class="top">
-            <div class="title " style="text-align:{{ section.settings.alignment }}">
+            <div class="title {{ section.settings.text_size }}" style="text-align:{{ section.settings.alignment }}">
                 {{ section.settings.title }}
             </div>
         </div>
@@ -113,6 +113,26 @@
             }
             ],
             "default": "center"
+        },
+        {
+            "type": "select",
+            "id": "text_size",
+            "label": "Text Size",
+            "options": [
+                {
+                    "value": "h2",
+                    "label": "Small"
+                },
+                {
+                    "value": "h1",
+                    "label": "Medium"
+                },
+                {
+                    "value": "h0",
+                    "label": "Large"
+                }
+            ],
+            "default":"h1"
         },
         {
             "type": "header",
