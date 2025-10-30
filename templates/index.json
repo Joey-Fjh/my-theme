@@ -453,7 +453,7 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/image_2.png",
-            "video_url": "",
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
             "link_url": ""
           }
         },
@@ -479,6 +479,7 @@
         "slide_zFza3h",
         "slide_y7Hz8g"
       ],
+      "disabled": true,
       "name": "my-media-carousel",
       "settings": {
         "autoplay": false,
@@ -487,7 +488,6 @@
     },
     "my_color_comparison_aRQifX": {
       "type": "my-color-comparison",
-      "disabled": true,
       "name": "my-color-comparison",
       "settings": {
         "show_header": true,
