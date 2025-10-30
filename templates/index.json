@@ -448,6 +448,7 @@
     },
     "my_color_comparison_aRQifX": {
       "type": "my-color-comparison",
+      "disabled": true,
       "name": "my-color-comparison",
       "settings": {
         "is_fullWidth": false,
@@ -467,21 +468,8 @@
         "padding_bottom": 0
       }
     },
-    "my_promo_split_JYmjBz": {
-      "type": "my-promo-split",
-      "disabled": true,
-      "name": "my-promo-split",
-      "settings": {
-        "lifestyle_image": "shopify://shop_images/Frame_48122.png",
-        "overlay_text": "Dress",
-        "promo_badge": "SAVE 50% OFF",
-        "promo_title": "Products to Proceed & Save",
-        "cta_text": "ADD TO CART"
-      }
-    },
     "my_blog_carousel_Pb9fHn": {
       "type": "my-blog-carousel",
-      "disabled": true,
       "name": "my-blog-carousel",
       "settings": {
         "title": "Read Our Blogs",
@@ -555,6 +543,18 @@
         "autoplay_speed": 5000
       }
     },
+    "my_promo_split_JYmjBz": {
+      "type": "my-promo-split",
+      "disabled": true,
+      "name": "my-promo-split",
+      "settings": {
+        "lifestyle_image": "shopify://shop_images/Frame_48122.png",
+        "overlay_text": "Dress",
+        "promo_badge": "SAVE 50% OFF",
+        "promo_title": "Products to Proceed & Save",
+        "cta_text": "ADD TO CART"
+      }
+    },
     "google_map_mGDGqr": {
       "type": "google-map",
       "disabled": true,
@@ -580,11 +580,11 @@
     "my_newsletter_hero_EHJQF4",
     "my_sustainable_hero_cHgtTK",
     "my_color_comparison_aRQifX",
-    "my_promo_split_JYmjBz",
     "my_blog_carousel_Pb9fHn",
     "my_user_comment_w84MEY",
     "my_featured_blog_Wa7B4H",
     "my_media_carousel_8nNGTd",
+    "my_promo_split_JYmjBz",
     "google_map_mGDGqr"
   ]
 }
