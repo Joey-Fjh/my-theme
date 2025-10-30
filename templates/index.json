@@ -506,9 +506,11 @@
       "type": "my-featured-blog",
       "name": "my-featured-blog",
       "settings": {
+        "color_scheme": "scheme-3",
+        "is_fullWidth": false,
         "blog": "news",
         "heading": "<strong>Blog posts</strong>",
-        "heading_size": "h1",
+        "heading_size": "h2",
         "show_image": true,
         "show_date": true,
         "show_author": false
