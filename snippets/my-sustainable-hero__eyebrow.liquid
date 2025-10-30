@@ -1,5 +1,5 @@
 <div class="eyebrow__content {{ class }}">
-    {%- assign number = section.settings.text_size | split: 1 -%}
+    {%- assign number = block.settings.text_size | split: 1 -%}
     {%- assign size = number | plus: 1 -%}
 
     {% if block.settings.eyebrow_text != blank %}
