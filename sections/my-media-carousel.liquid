@@ -17,7 +17,6 @@
 {%- endstyle -%}
 
 <responsive-container class="my-media-carousel__container section-{{ section.id }}-padding
-  {% unless section.settings.is_fullWidth %} my-page-width {% endunless %}
   "
 >
   <my-media-carousel-container class="my-swiper-container">
@@ -106,12 +105,6 @@
   "tag": "section",
   "class": "section",
   "settings": [
-    {
-      "type": "checkbox",
-      "id": "is_fullWidth",
-      "label": "Full Width",
-      "default": false
-    },
     {
       "type": "checkbox",
       "id": "autoplay",
