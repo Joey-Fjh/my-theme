@@ -31,9 +31,10 @@
         <h2
             id="SectionHeading-{{ section.id }}"
             class="inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-        {% if settings.animations_reveal_on_scroll %}
-            data-cascade
-        {% endif %}
+            {% if settings.animations_reveal_on_scroll %}
+                data-cascade
+            {% endif %}
+            style="text-align:{{ section.settings.text_align }};"
         >
             {{ section.settings.heading }}
         </h2>
@@ -140,6 +141,26 @@
             "id": "heading",
             "default": "Blog Posts",
             "label": "Title"
+        },
+        {
+            "type": "select",
+            "id": "text_align",
+            "label": "Text Align",
+            "options": [
+                {
+                    "value": "left",
+                    "label": "Left"
+                },
+                {
+                    "value": "center",
+                    "label": "Center"
+                },
+                {
+                    "value": "right",
+                    "label": "Right"
+                }
+            ],
+            "default":"center"
         },
         {
             "type": "select",
