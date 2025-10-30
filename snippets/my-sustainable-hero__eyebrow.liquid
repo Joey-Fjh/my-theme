@@ -26,7 +26,7 @@
 
     {% if block.settings.cta_text != blank and block.settings.cta_url != blank %}
         <div class="cta-wrapper">
-            <a href="{{ block.settings.cta_url }}" class="cta-link {{ block.settings.text_size }}">
+            <a href="{{ block.settings.cta_url }}" class="cta-link {{ block.settings.text_size | split:0 | append: size }}">
                 {{ block.settings.cta_text }}
             </a>
         </div>
