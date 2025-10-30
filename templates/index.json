@@ -434,13 +434,14 @@
       "blocks": {
         "eyebrow_FipE49": {
           "type": "eyebrow",
+          "disabled": true,
           "settings": {
             "color_scheme_eyebrow": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
             "eyebrow_text": "EVERYDAY ESSENTIALS",
             "main_heading": "Sustainable Trends You'll Love Forever.",
             "value_points": "<p>We believe that fashion should be stylish, affordable and accessible to everyone.|Body positivity and inclusivity are values that are at the heart of our brand.|We want everyone to look and feel good, while also doing our part to help the environment.</p>",
             "cta_text": "OUR STORY",
-            "cta_url": ""
+            "cta_url": "shopify://collections/睡衣"
           }
         }
       },
