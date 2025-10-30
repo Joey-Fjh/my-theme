@@ -2,7 +2,7 @@
 {{ 'my-blog-carousel.css' | asset_url | stylesheet_tag  }}
 <script src="{{ 'my-blogCarousel-container.js' | asset_url }}" defer type="module"></script>
 
-<responsive-container class="my-blog-carousel__container page-width">
+<responsive-container class="my-blog-carousel__container">
     <div class="top">
         <div class="title h2" style="text-align:{{ section.settings.alignment }}">
             {{ section.settings.title }}
