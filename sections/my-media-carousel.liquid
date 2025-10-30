@@ -26,55 +26,48 @@
           {%- assign placeholder_image_index  = forloop.index0 | modulo:3 | plus: 1 -%}
           {%- assign placeholder_image = "hero-apparel-" | append: placeholder_image_index -%}
 
-          <div class="carousel-slide swiper-slide">
-            {% if block.settings.video_url != blank %}
-              <!-- Video slide -->
-              <div class="media-container video-container">
-                <video 
-                  class="carousel-video" 
-                  poster="
-                    {% if block.settings.image != blank %}
-                      {{ block.settings.image }}
-                    {% else %} 
-                      {{ placeholder_image | placeholder_svg_tag:"placeholder-svg" }} 
-                    {% endif %}"
-                  preload="metadata"
-                  data-video-url="{{ block.settings.video_url }}"
-                >
-                  <source src="{{ block.settings.video_url | asset_url }}" type="video/mp4">
-                </video>
+          {%- liquid 
+            assign video_id = block.settings.my_video.id | default: block.settings.video_url.id
+            assign video_alt = block.settings.my_video.alt | default: block.settings.description
+            assign alt = 'sections.video.load_video' | t: description: video_alt | escape
+            assign poster = block.settings.video.preview_image | default: block.settings.cover_image
+          -%}
 
-                <button class="play-button" aria-label="Play video">
-                  <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
-                    <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
-                    <path d="M23 20L40 30L23 40V20Z" fill="#000"/>
-                  </svg>
-                </button>
+          <div class="carousel-slide swiper-slide">
+            <button
+              style="width:100%;height:100%;padding:0;border:0;cursor:pointer;"
+              id="Deferred-Poster-Modal-{{ video_id }}"
+              type="button"
+              aria-label="{{ alt }}"
+              class="media-container"
+            >
+              <responsive-container>
+                {%- if poster != null -%}
+                    {{
+                      poster
+                      | image_url: width: 3840
+                      | image_tag: sizes: '100vw', widths: '375, 750, 1100, 1500, 1780, 2000, 3000, 3840', alt: alt
+                }}
+                {%- else -%}
+                  {{ placeholder_image | placeholder_svg_tag: 'placeholder-svg' }}
+                {%- endif -%}
+              </responsive-container>
+
+              
+              <div class="play-button h2" aria-label="{{ alt }}">
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="currentColor">
+                  <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)" />
+                  <path d="M23 20L40 30L23 40V20Z" fill="#000" />
+                </svg>
               </div>
-            {% else %}
-              <!-- Image slide -->
-              <div class="media-container image-container">
-                {% if block.settings.image != blank %}
-                  <img 
-                    width="700"
-                    height="400"
-                    src="{{ block.settings.image | image_url: width:block.settings.image.width  }}" 
-                    alt="{{ block.settings.image.alt | default: 'Carousel image' }}"
-                    class="carousel-image"
-                    loading="lazy"
-                  >
-                {% else %}
-                  {{ placeholder_image | placeholder_svg_tag: 'placeholder-svg' }} 
-                {% endif %}
-              </div>
-            {% endif %}
+            </button>
           </div>
         {% endfor %}
       </div>
     </div>
 
     <!-- Navigation arrows -->
-    {% if section.blocks.size > 1 %}
+    {% comment %} {% if section.blocks.size > 1 %}
       <button class="carousel-nav prev-btn" aria-label="Previous slide">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
           <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -95,7 +88,7 @@
           ></button>
         {% endfor %}
       </div>
-    {% endif %}
+    {% endif %} {% endcomment %}
   </my-media-carousel-container>
 </responsive-container>
 
@@ -135,6 +128,48 @@
       "type": "slide",
       "name": "Carousel Slide",
       "settings": [
+        {
+          "type": "checkbox",
+          "id": "enable_video_looping",
+          "label": "Enable Video Looping",
+          "default": false
+        },
+        {
+          "type": "header",
+          "content": "Video on Shopify"
+        },
+        {
+          "type": "video",
+          "id": "my_video",
+          "label": "Select Video"
+        },
+        {
+          "type": "header",
+          "content": "Video iframe URL"
+        },
+        {
+          "type": "paragraph",
+          "content": "Display a video when not select video on shopify"
+        },
+        {
+          "type": "video_url",
+          "id": "video_url",
+          "accept": ["youtube", "vimeo"],
+          "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+          "label": "URL",
+          "info": "Use youtube or vimeo video url"
+        },
+        {
+          "type": "image_picker",
+          "id": "cover_image",
+          "label": "Select Cover Image"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+          "info": "t:sections.video.settings.description.info"
+        },
         {
           "type": "image_picker",
           "id": "image",
