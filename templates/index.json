@@ -567,17 +567,17 @@
         "product_YHgxCF": {
           "type": "product",
           "settings": {
-            "product_1": "",
-            "product_2": "",
-            "product_3": ""
+            "product_1": "black-leather-bag",
+            "product_2": "blue-silk-tuxedo",
+            "product_3": "casual-knitted-shirt"
           }
         },
         "product_DL4p64": {
           "type": "product",
           "settings": {
-            "product_1": "",
-            "product_2": "",
-            "product_3": ""
+            "product_1": "casual-knitted-shirt2",
+            "product_2": "casual-knitted-shirt3",
+            "product_3": "casual-knitted-shirt4"
           }
         }
       },
