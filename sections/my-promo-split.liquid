@@ -16,7 +16,7 @@
 {%- endstyle -%}
 
 <responsive-container>
-  <my-promo-split-container class="my-promo-split__container">
+  <my-promo-split-container class="my-promo-split__container {% unless section.settings.is_fullWidth %} my-page-width {% endunless %} ">
     <!-- Left Side - Lifestyle Image -->
     <div class="promo-split-left">
       <div class="lifestyle-image-container">
