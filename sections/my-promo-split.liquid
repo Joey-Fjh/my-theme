@@ -80,14 +80,13 @@
                           alt="{{ product.title }}"
                           class="product-image"
                         />
-
-                        <div class="product-info">
-                          <h3 class="product-title">{{ product.title }}</h3>
-                          <p class="product-price">{{ product.price | money }}</p>
-                        </div>
                       {%- else -%} 
                         {{ placeholder_image | placeholder_svg_tag:"placeholder-svg" }}
                       {%- endif -%}
+                    </div>
+                    <div class="product-info">
+                      <h3 class="product-title">{{ product.title }}</h3>
+                      <p class="product-price">{{ product.price | money }}</p>
                     </div>
                   {%- endif -%}
                 </div>
@@ -205,6 +204,7 @@
         ]
       }
     ],
+    "max_blocks": 3,
     "presets": [
       {
         "name": "my-promo-split",
