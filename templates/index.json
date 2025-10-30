@@ -451,7 +451,7 @@
       "name": "my-color-comparison",
       "settings": {
         "is_fullWidth": false,
-        "font_color": "#000000",
+        "font_color": "#873434",
         "show_header": true,
         "title": "CHOOSE YOUR COLOUR",
         "subtitle": "OUR BEST SELLERS",
@@ -462,7 +462,9 @@
         "left_link": "",
         "right_image": "shopify://shop_images/image_81.png",
         "right_label": "MILK",
-        "right_link": ""
+        "right_link": "",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "my_promo_split_JYmjBz": {
