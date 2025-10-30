@@ -571,10 +571,19 @@
             "product_2": "",
             "product_3": ""
           }
+        },
+        "product_DL4p64": {
+          "type": "product",
+          "settings": {
+            "product_1": "",
+            "product_2": "",
+            "product_3": ""
+          }
         }
       },
       "block_order": [
-        "product_YHgxCF"
+        "product_YHgxCF",
+        "product_DL4p64"
       ],
       "name": "my-promo-split",
       "settings": {
