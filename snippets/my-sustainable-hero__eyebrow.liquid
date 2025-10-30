@@ -17,7 +17,7 @@
 
             {% for point in points %}
                 {% if point != blank %}
-                    <div class="value-point {{ block.settings.text_size | slice:0 | append: size }}">
+                    <div class="value-point {{ block.settings.text_size | slice:0 | append: content_size }}">
                         <span class="diamond">♦</span>
                         {{ point | strip }}
                     </div>
@@ -28,7 +28,7 @@
 
     {% if block.settings.cta_text != blank and block.settings.cta_url != blank %}
         <div class="cta-wrapper">
-            <a href="{{ block.settings.cta_url }}" class="cta-link {{ block.settings.text_size | split:0 | append: size }}">
+            <a href="{{ block.settings.cta_url }}" class="cta-link {{ block.settings.text_size | slice:0 | append: content_size }}">
                 {{ block.settings.cta_text }}
             </a>
         </div>
