@@ -470,7 +470,6 @@
     },
     "my_blog_carousel_Pb9fHn": {
       "type": "my-blog-carousel",
-      "disabled": true,
       "name": "my-blog-carousel",
       "settings": {
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
@@ -504,7 +503,6 @@
     },
     "my_featured_blog_Wa7B4H": {
       "type": "my-featured-blog",
-      "disabled": true,
       "name": "my-featured-blog",
       "settings": {
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
@@ -555,9 +553,6 @@
       ],
       "name": "my-media-carousel",
       "settings": {
-        "is_fullWidth": true,
-        "autoplay": false,
-        "autoplay_speed": 5000,
         "padding_top": 36,
         "padding_bottom": 36
       }
