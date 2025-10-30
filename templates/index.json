@@ -507,13 +507,15 @@
       "name": "my-featured-blog",
       "settings": {
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
-        "is_fullWidth": true,
+        "is_fullWidth": false,
         "heading": "<strong>Blog posts</strong>",
         "heading_size": "h2",
         "blog": "news",
         "show_image": true,
         "show_date": true,
-        "show_author": false
+        "show_author": false,
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "my_media_carousel_8nNGTd": {
