@@ -431,6 +431,7 @@
     },
     "my_sustainable_hero_cHgtTK": {
       "type": "my-sustainable-hero",
+      "disabled": true,
       "name": "my-sustainable-hero",
       "settings": {
         "is_fullWidth": false,
@@ -478,7 +479,6 @@
         "slide_zFza3h",
         "slide_y7Hz8g"
       ],
-      "disabled": true,
       "name": "my-media-carousel",
       "settings": {
         "autoplay": false,
