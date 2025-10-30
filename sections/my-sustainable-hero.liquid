@@ -62,10 +62,12 @@
   <div class="hero-content">
     {%- if section.blocks.size == 0 -%}
       <div class="content color-{{ section.settings.color_scheme }}">
-        <div class="title h1">
+        {%- assign number = section.settings.text_size | split: 1 -%}
+        {%- assign size = number | plus: 1 -%}
+        <div class="title {{ section.settings.text_size }}">
           {{ section.settings.title }}
         </div>
-        <div class="descript.ion h3">
+        <div class="description {{ section.settings.text_size | split:0 | append: size }}">
           {{ section.settings.description }}
         </div>
       </div>
