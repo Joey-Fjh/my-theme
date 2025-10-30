@@ -472,9 +472,15 @@
       "type": "my-blog-carousel",
       "name": "my-blog-carousel",
       "settings": {
+        "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
+        "is_fullWidth": false,
+        "is_showTitle": true,
         "title": "Read Our Blogs",
         "alignment": "center",
-        "blog": "news"
+        "text_size": "h1",
+        "blog": "news",
+        "padding_top": 60,
+        "padding_bottom": 28
       }
     },
     "my_user_comment_w84MEY": {
