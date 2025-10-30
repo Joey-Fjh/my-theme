@@ -38,16 +38,19 @@
               {%- endif -%}
             </responsive-container>
 
-            <div class="product-name">
+            {% assign number = section.settings.text_size | slice:1 %}
+            {% assign size = number | plus: 1 %}
+
+            <div class="product-name {{ section.settings.text_size }}">
               {{ all_products[comment.product].title }}
             </div>
             <div class="star">
               {%- render 'icon-star',rating: comment.star.value | strip | times: 1 | round:0 -%}
             </div>
-            <div class="customer-name">
+            <div class="customer-name {{ section.settings.text_size }}">
               {{ comment.customer_name }}
             </div>
-            <div class="comment">
+            <div class="comment {{ section.settings.text_size | slice:0 | append: size }}">
               {{ comment.comment }}
             </div>
           </div>
