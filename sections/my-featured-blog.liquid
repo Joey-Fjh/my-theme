@@ -8,7 +8,25 @@
   assign show_author = section.settings.show_author
 -%}
 
-<responsive-container class="my-featured-blog__container">
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<responsive-container class="my-featured-blog__container section-{{ section.id }}-padding
+    {% unless section.settings.is_fullWidth %} my-page-width {% endunless %}
+    color-{{ section.settings.color_scheme }}
+    "
+>
     <div class="top">
         <h2
             id="SectionHeading-{{ section.id }}"
