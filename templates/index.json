@@ -449,13 +449,15 @@
       ],
       "name": "my-sustainable-hero",
       "settings": {
-        "is_fullWidth": true,
+        "is_fullWidth": false,
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
         "reverse_layout": false,
         "primary_image": "shopify://shop_images/Frame_47827.png",
         "secondary_image": "shopify://shop_images/image_30.png",
         "title": "Sustainable Trends You'll Love Forever.",
-        "description": "<p>We believe that fashion should be stylish, affordable and accessible to everyone. Body positivity and inclusivity are values that are at the heart of our brand. We want everyone to look and feel good, while also doing our part to help the environment.</p>"
+        "description": "<p>We believe that fashion should be stylish, affordable and accessible to everyone. Body positivity and inclusivity are values that are at the heart of our brand. We want everyone to look and feel good, while also doing our part to help the environment.</p>",
+        "padding_top": 48,
+        "padding_bottom": 0
       }
     },
     "my_media_carousel_8nNGTd": {
