@@ -473,7 +473,7 @@
       "name": "my-blog-carousel",
       "settings": {
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
-        "is_fullWidth": true,
+        "is_fullWidth": false,
         "is_showTitle": true,
         "title": "Read Our Blogs",
         "alignment": "center",
