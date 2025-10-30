@@ -24,7 +24,7 @@
       <div class="swiper-wrapper wrapper">
         {%- for comment in section.settings.user_comments -%}
           <div class="swiper-slide my-card color-{{ section.settings.color_scheme }}">
-            <responsive-container>
+            <responsive-container class="image__contaienr">
               {%- if all_products[comment.product].featured_image != blank-%}
                 {{ 
                   all_products[comment.product].featured_image
