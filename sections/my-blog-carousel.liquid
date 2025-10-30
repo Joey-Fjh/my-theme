@@ -2,12 +2,32 @@
 {{ 'my-blog-carousel.css' | asset_url | stylesheet_tag  }}
 <script src="{{ 'my-blogCarousel-container.js' | asset_url }}" defer type="module"></script>
 
-<responsive-container class="my-blog-carousel__container">
-    <div class="top">
-        <div class="title h2" style="text-align:{{ section.settings.alignment }}">
-            {{ section.settings.title }}
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<responsive-container class="my-blog-carousel__container
+    color-{{ section.settings.color_scheme }} 
+    {% unless section.settings.is_fullWidth %} my-page-width {% endunless %}
+    "
+>
+    {% if section.settings.is_showTitle %}
+        <div class="top">
+            <div class="title " style="text-align:{{ section.settings.alignment }}">
+                {{ section.settings.title }}
+            </div>
         </div>
-    </div>
+    {% endif %}
 
     <div class="bottom">
         <my-blog-carousel-container class="my-swiper-container">
@@ -47,7 +67,29 @@
     "tag": "section",
     "settings": [
         {
-            "type": "text",
+            "type": "color_scheme",
+            "id": "color_scheme",
+            "label": "Color Scheme",
+            "default": "scheme-1"
+        },
+        {
+            "type": "checkbox",
+            "id": "is_fullWidth",
+            "label": "Full Width",
+            "default": false
+        },
+        {
+            "type": "header",
+            "content": "Text"
+        },
+        {
+            "type": "checkbox",
+            "id": "is_showTitle",
+            "label": "Show Title",
+            "default":true
+        },
+        {
+            "type": "inline_richtext",
             "id": "title",
             "label": "Title",
             "default":"Read Our Blogs"
@@ -55,27 +97,55 @@
         {
             "type": "select",
             "id": "alignment",
-            "label": "Page Title Alignment",
+            "label": "Title Alignment",
             "options": [
             {
                 "value": "left",
-                "label": "left"
+                "label": "Left"
             },
             {
                 "value": "center",
-                "label": "center"
+                "label": "Center"
             },
             {
                 "value": "right",
-                "label": "right"
+                "label": "Right"
             }
             ],
             "default": "center"
         },
         {
+            "type": "header",
+            "content": "Blog Card"
+        },
+        {
             "type": "blog",
             "id": "blog",
             "label": "t:sections.featured-blog.settings.blog.label"
+        },
+        {
+            "type": "header",
+            "content": "Padding"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "Padding Top",
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "Padding Bottom",
+            "default": 0
         }
     ],
     "presets": [
