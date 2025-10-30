@@ -434,6 +434,7 @@
       "blocks": {
         "eyebrow_j4gJPM": {
           "type": "eyebrow",
+          "disabled": true,
           "settings": {
             "color_scheme_eyebrow": "scheme-1",
             "text_size": "h2",
