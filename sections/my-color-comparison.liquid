@@ -16,7 +16,7 @@
 {%- endstyle -%}
 
 <responsive-container class="my-color-comparison__container section-{{ section.id }}-padding
-  {% unless section.settings.is_fullWidth %} my-page-width {% endunless %}
+{% unless section.settings.is_fullWidth %} my-page-width {% endunless %}
   "
 >
   {% if section.settings.show_header %}
