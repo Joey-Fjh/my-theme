@@ -62,12 +62,13 @@
   <div class="hero-content">
     {%- if section.blocks.size == 0 -%}
       <div class="content color-{{ section.settings.color_scheme }}">
-        {%- assign number = section.settings.text_size | split: 1 -%}
+        {%- assign number = section.settings.text_size | slice: 1 -%}
         {%- assign size = number | plus: 1 -%}
+
         <div class="title {{ section.settings.text_size }}">
           {{ section.settings.title }}
         </div>
-        <div class="description {{ section.settings.text_size | split:0 | append: size }}">
+        <div class="description {{ section.settings.text_size | slice:0 | append: size }}">
           {{ section.settings.description }}
         </div>
       </div>
@@ -268,6 +269,30 @@
           "id": "color_scheme_comment",
           "label": "Color Scheme",
           "default": "scheme-1"
+        },
+        {
+          "type": "header",
+          "content": "Text"
+        },
+        {
+          "type": "select",
+          "id": "text_size",
+          "label": "Text Size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "Small"
+            },
+            {
+              "value": "h1",
+              "label": "Medium"
+            },
+            {
+              "value": "h0",
+              "label": "Large"
+            }
+          ],
+          "default":"h1"
         },
         {
           "type": "inline_richtext",

@@ -2,7 +2,7 @@
 <script src="{{ 'my-sustainableHero-comment.js' | asset_url }}" defer type="module"></script>
 
 <div class="comment__content {{ class }}">
-    {%- assign number = section.settings.text_size | split: 1 -%}
+    {%- assign number = block.settings.text_size | slice: 1 -%}
     {%- assign size = number | plus: 1 -%}
 
     <div class="title {{ block.settings.text_size }}">{{ block.settings.title }}</div>
@@ -13,14 +13,14 @@
         <div class="swiper">
             <div class="swiper-wrapper wrapper">
                 {%- for comment in block.settings.user_comments -%}
-                    <div class="swiper-slide slide {{ block.settings.text_size | slice:0 | append: size }}">
+                    <div class="swiper-slide slide">
                         <div class="star">
                             {%- render 'icon-star', rating:comment.star.value | strip | times:1 | round:0 -%}
                         </div>
-                        <div class="comment">
+                        <div class="comment {{ block.settings.text_size | slice:0 | append: size }}">
                             {{ comment.comment }}
                         </div>
-                        <div class="customer_name">
+                        <div class="customer_name {{ block.settings.text_size | slice:0 | append: size }}">
                             {{ comment.customer_name }}
                         </div>
                     </div>
