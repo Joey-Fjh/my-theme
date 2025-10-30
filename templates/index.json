@@ -431,23 +431,6 @@
     },
     "my_sustainable_hero_cHgtTK": {
       "type": "my-sustainable-hero",
-      "blocks": {
-        "comment_X33Yzr": {
-          "type": "comment",
-          "settings": {
-            "color_scheme_comment": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
-            "text_size": "h0",
-            "title": "Our Story",
-            "user_comments": [
-              "user-comment-ku1cxxnh",
-              "user-comment-fq1of1x3"
-            ]
-          }
-        }
-      },
-      "block_order": [
-        "comment_X33Yzr"
-      ],
       "name": "my-sustainable-hero",
       "settings": {
         "is_fullWidth": false,
@@ -455,7 +438,7 @@
         "reverse_layout": false,
         "primary_image": "shopify://shop_images/Frame_47827.png",
         "secondary_image": "shopify://shop_images/image_30.png",
-        "text_size": "h0",
+        "text_size": "h1",
         "title": "Sustainable Trends You'll Love Forever.",
         "description": "<p>We believe that fashion should be stylish, affordable and accessible to everyone. Body positivity and inclusivity are values that are at the heart of our brand. We want everyone to look and feel good, while also doing our part to help the environment.</p>",
         "padding_top": 0,
