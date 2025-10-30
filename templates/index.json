@@ -587,8 +587,8 @@
       ],
       "name": "my-promo-split",
       "settings": {
-        "color_scheme": "",
-        "is_fullWidth": true,
+        "color_scheme": "scheme-1",
+        "is_fullWidth": false,
         "lifestyle_image": "shopify://shop_images/Frame_48122.png",
         "overlay_text": "Dress",
         "promo_badge": "SAVE 50% OFF",
