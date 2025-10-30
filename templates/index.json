@@ -587,14 +587,14 @@
       ],
       "name": "my-promo-split",
       "settings": {
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
         "is_fullWidth": false,
         "lifestyle_image": "shopify://shop_images/Frame_48122.png",
         "overlay_text": "Dress",
         "promo_badge": "SAVE 50% OFF",
         "promo_title": "Products to Proceed & Save",
         "cta_text": "ADD TO CART",
-        "padding_top": 16,
+        "padding_top": 0,
         "padding_bottom": 0
       }
     },
