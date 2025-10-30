@@ -413,6 +413,7 @@
     },
     "my_newsletter_hero_EHJQF4": {
       "type": "my-newsletter-hero",
+      "disabled": true,
       "name": "my-newsletter-hero",
       "settings": {
         "is_fullWidth": false,
