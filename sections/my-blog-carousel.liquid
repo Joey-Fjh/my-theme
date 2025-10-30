@@ -17,12 +17,11 @@
 {%- endstyle -%}
 
 <responsive-container class="my-blog-carousel__container
-    color-{{ section.settings.color_scheme }} 
     {% unless section.settings.is_fullWidth %} my-page-width {% endunless %}
     "
 >
     {% if section.settings.is_showTitle %}
-        <div class="top">
+        <div class="top color-{{ section.settings.color_scheme }}">
             <div class="title {{ section.settings.text_size }}" style="text-align:{{ section.settings.alignment }}">
                 {{ section.settings.title }}
             </div>
