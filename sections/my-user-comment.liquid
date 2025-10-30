@@ -29,7 +29,7 @@
               {%- if all_products[comment.product].featured_image != blank-%}
                 {{ 
                   all_products[comment.product].featured_image
-                  | image_url: width: 329, height:410
+                  | image_url: width: all_products[comment.product].featured_image.width
                   | image_tag:
                     alt: all_products[comment.product].featured_image.alt 
                 }}
