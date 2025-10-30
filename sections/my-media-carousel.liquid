@@ -2,7 +2,24 @@
 {{ 'my-swiper-container.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'my-mediaCarousel-container.js' | asset_url }}" defer type="module"></script>
 
-<responsive-container class="my-media-carousel__container">
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<responsive-container class="my-media-carousel__container section-{{ section.id }}-padding
+  {% unless section.settings.is_fullWidth %} my-page-width {% endunless %}
+  "
+>
   <my-media-carousel-container class="my-swiper-container">
     <div class="carousel-container swiper">
       <div class="carousel-wrapper swiper-wrapper"> 
