@@ -523,35 +523,45 @@
     "my_media_carousel_8nNGTd": {
       "type": "my-media-carousel",
       "blocks": {
-        "slide_LMq9NE": {
+        "slide_VUMRk9": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/image_2.png",
-            "video_url": "",
-            "link_url": "shopify://products/black-leather-bag"
+            "enable_video_looping": false,
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "description": ""
           }
         },
-        "slide_zFza3h": {
+        "slide_3wKtXb": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/video.png",
-            "video_url": "",
-            "link_url": ""
+            "enable_video_looping": false,
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "description": ""
           }
         },
-        "slide_y7Hz8g": {
+        "slide_T7wA7E": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/Frame_48036.png",
-            "video_url": "",
-            "link_url": ""
+            "enable_video_looping": false,
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "description": ""
+          }
+        },
+        "slide_kXwTLA": {
+          "type": "slide",
+          "settings": {
+            "enable_video_looping": false,
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "cover_image": "shopify://shop_images/20251027174416_19_94.jpg",
+            "description": ""
           }
         }
       },
       "block_order": [
-        "slide_LMq9NE",
-        "slide_zFza3h",
-        "slide_y7Hz8g"
+        "slide_VUMRk9",
+        "slide_3wKtXb",
+        "slide_T7wA7E",
+        "slide_kXwTLA"
       ],
       "name": "my-media-carousel",
       "settings": {
