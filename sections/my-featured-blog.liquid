@@ -27,7 +27,7 @@
                 {%- if left_article.image != blank -%}
                     {{ 
                         left_article.image
-                        | image_url: width: 751, height: 500
+                        | image_url: width: left_article.image.width
                         | image_tag:
                             alt: left_article.image.alt,
                             class:"left-image"
