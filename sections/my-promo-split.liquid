@@ -1,6 +1,20 @@
 {{ 'my-promo-split.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'my-promoSplit-container.js' | asset_url }}" type="module"></script>
 
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
 <responsive-container>
   <my-promo-split-container class="my-promo-split__container">
     <!-- Left Side - Lifestyle Image -->
