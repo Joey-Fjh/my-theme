@@ -22,7 +22,7 @@
             <img
               width="1240"
               height="800" 
-              src="{{ section.settings.left_image | image_url: width:1240 }}" 
+              src="{{ section.settings.left_image | image_url: width:section.settings.left_image.width }}" 
               alt="{{ section.settings.left_label }}" 
               draggable="false"
             />
