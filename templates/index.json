@@ -455,7 +455,7 @@
         "show_header": true,
         "title": "CHOOSE YOUR COLOUR",
         "subtitle": "OUR BEST SELLERS",
-        "text_size": "h0",
+        "text_size": "h1",
         "text_align": "center",
         "left_image": "shopify://shop_images/image_82.png",
         "left_label": "GRAY",
