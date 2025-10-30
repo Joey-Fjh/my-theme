@@ -72,7 +72,7 @@
                         <img
                           width="216"
                           height="300" 
-                          src="{{ product.featured_image | image_url: width:216 }}" 
+                          src="{{ product.featured_image | image_url: width: product.featured_image.width  }}" 
                           alt="{{ product.title }}"
                           class="product-image"
                         />
