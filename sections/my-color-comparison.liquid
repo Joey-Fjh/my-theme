@@ -23,13 +23,18 @@
     {%- assign number = section.settings.text_size | slice:1 -%}
     {%- assign size = number | plus: 1 -%}
 
-    <div class="section-header text-{{ section.settings.text_align }}" style="color:{{ section.settings.font_color }}">
+    <div class="section-header" 
+      style="text-align:{{ section.settings.text_align }};">
       {% if section.settings.title != blank %}
-        <h2 class="title {{ section.settings.text_size }}">{{ section.settings.title }}</h2>
+        <h2 class="title {{ section.settings.text_size }}" style="color:{{ section.settings.font_color }};">
+          {{ section.settings.title }}
+        </h2>
       {% endif %}
 
       {% if section.settings.subtitle != blank %}
-        <p class="subtitle {{ section.settings.text_size | slice: 0 | append: size }}">{{ section.settings.subtitle }}</p>
+        <p class="subtitle {{ section.settings.text_size | slice: 0 | append: size }}" style="color:{{ section.settings.font_color }};">
+          {{ section.settings.subtitle }}
+        </p>
       {% endif %}
     </div>
   {% endif %}
