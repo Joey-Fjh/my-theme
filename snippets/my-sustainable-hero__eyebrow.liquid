@@ -13,7 +13,9 @@
 
     {% if block.settings.value_points != blank %}
         <div class="value-points">
+
         {% assign points = block.settings.value_points | split: '|' %}
+        
         {% for point in points %}
             {% if point != blank %}
             <div class="value-point">
