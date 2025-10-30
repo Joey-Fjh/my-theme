@@ -450,7 +450,7 @@
       "type": "my-color-comparison",
       "name": "my-color-comparison",
       "settings": {
-        "is_fullWidth": false,
+        "is_fullWidth": true,
         "font_color": "#873434",
         "show_header": true,
         "title": "CHOOSE YOUR COLOUR",
