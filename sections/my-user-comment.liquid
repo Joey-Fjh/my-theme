@@ -37,7 +37,7 @@
               {%- endif -%}
             </responsive-container>
 
-            {% comment %} {% assign number = section.settings.text_size | slice:1 %}
+            {% assign number = section.settings.text_size | slice:1 %}
             {% assign size = number | plus: 1 %}
 
             <div class="product-name {{ section.settings.text_size }}">
@@ -51,7 +51,7 @@
             </div>
             <div class="comment {{ section.settings.text_size | slice:0 | append: size }}">
               {{ comment.comment }}
-            </div> {% endcomment %}
+            </div>
           </div>
         {%- endfor -%}
       </div>
