@@ -554,6 +554,7 @@
         "slide_T7wA7E",
         "slide_kXwTLA"
       ],
+      "disabled": true,
       "name": "my-media-carousel",
       "settings": {
         "padding_top": 36,
@@ -562,7 +563,19 @@
     },
     "my_promo_split_JYmjBz": {
       "type": "my-promo-split",
-      "disabled": true,
+      "blocks": {
+        "product_YHgxCF": {
+          "type": "product",
+          "settings": {
+            "product_1": "",
+            "product_2": "",
+            "product_3": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_YHgxCF"
+      ],
       "name": "my-promo-split",
       "settings": {
         "lifestyle_image": "shopify://shop_images/Frame_48122.png",
