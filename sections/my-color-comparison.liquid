@@ -42,7 +42,7 @@
             <img
               width="1240"
               height="800" 
-              src="{{ section.settings.right_image | image_url: width:1240 }}" 
+              src="{{ section.settings.right_image | image_url: width:section.settings.right_image.width }}" 
               alt="{{ section.settings.right_label }}" 
               draggable="false"
             />
