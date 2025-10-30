@@ -13,17 +13,16 @@
 
     {% if block.settings.value_points != blank %}
         <div class="value-points">
+            {% assign points = block.settings.value_points | split: '|' %}
 
-        {% assign points = block.settings.value_points | split: '|' %}
-        
-        {% for point in points %}
-            {% if point != blank %}
-            <div class="value-point">
-                <span class="diamond">♦</span>
-                <p class="{{ block.settings.text_size | slice:0 | append: size }}">{{ point | strip }}</p>
-            </div>
-            {% endif %}
-        {% endfor %}
+            {% for point in points %}
+                {% if point != blank %}
+                    <div class="value-point {{ block.settings.text_size | slice:0 | append: size }}">
+                        <span class="diamond">♦</span>
+                        {{ point | strip }}
+                    </div>
+                {% endif %}
+            {% endfor %}
         </div>
     {% endif %}
 
