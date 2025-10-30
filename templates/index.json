@@ -523,14 +523,6 @@
     "my_media_carousel_8nNGTd": {
       "type": "my-media-carousel",
       "blocks": {
-        "slide_VUMRk9": {
-          "type": "slide",
-          "settings": {
-            "enable_video_looping": false,
-            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-            "description": ""
-          }
-        },
         "slide_3wKtXb": {
           "type": "slide",
           "settings": {
@@ -558,7 +550,6 @@
         }
       },
       "block_order": [
-        "slide_VUMRk9",
         "slide_3wKtXb",
         "slide_T7wA7E",
         "slide_kXwTLA"
