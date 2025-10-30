@@ -17,14 +17,13 @@
 
 <responsive-container class="my-user-comment__container section-{{ section.id }}-padding
   {% unless section.settings.is_fullWidth %} my-page-width {% endunless %}
-  color-{{ section.settings.color_scheme }}
   "
 >
   <my-user-comment-container>
     <div class="swiper">
       <div class="swiper-wrapper wrapper">
         {%- for comment in section.settings.user_comments -%}
-          <div class="swiper-slide card">
+          <div class="swiper-slide card color-{{ section.settings.color_scheme }}">
             <responsive-container>
               {%- if all_products[comment.product].featured_image != blank-%}
                 {{ 
