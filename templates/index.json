@@ -488,12 +488,17 @@
       "type": "my-user-comment",
       "name": "my-user-comment",
       "settings": {
+        "color_scheme": "scheme-1",
+        "is_fullWidth": false,
+        "text_size": "h1",
         "user_comments": [
           "user-comment-ku1cxxnh",
           "user-comment-fq1of1x3",
           "user-comment-0t7wsrqq",
           "user-comment-gs1wqfgi"
-        ]
+        ],
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "my_featured_blog_Wa7B4H": {
