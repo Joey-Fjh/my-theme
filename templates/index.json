@@ -489,8 +489,8 @@
       "name": "my-user-comment",
       "settings": {
         "color_scheme": "scheme-3",
-        "is_fullWidth": false,
-        "text_size": "h1",
+        "is_fullWidth": true,
+        "text_size": "h3",
         "user_comments": [
           "user-comment-ku1cxxnh",
           "user-comment-fq1of1x3",
