@@ -90,16 +90,36 @@
       "default": true
     },
     {
-      "type": "text",
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Title",
+      "default": "CHOOSE YOUR COLOUR"
+    },
+    {
+      "type": "inline_richtext",
       "id": "subtitle",
       "label": "Subtitle",
       "default": "OUR BEST SELLERS"
     },
     {
-      "type": "inline_richtext",
-      "id": "title",
-      "label": "Title",
-      "default": "CHOOSE YOUR COLOUR"
+      "type": "select",
+      "id": "text_align",
+      "label": "Text Align",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "middle",
+          "label": "Middle"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default":"middle"
     },
     {
       "type": "header",
