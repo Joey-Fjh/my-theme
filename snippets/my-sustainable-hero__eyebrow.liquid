@@ -1,9 +1,9 @@
 <div class="eyebrow__content {{ class }}">
-    {%- assign number = block.settings.text_size | split: 1 -%}
+    {%- assign number = block.settings.text_size | slice: 1 -%}
     {%- assign size = number | plus: 1 -%}
 
     {% if block.settings.eyebrow_text != blank %}
-        <p class="eyebrow {{ block.settings.text_size | split:0 | append: size }}">{{ block.settings.eyebrow_text }}</p>
+        <p class="eyebrow {{ block.settings.text_size | slice:0 | append: size }}">{{ block.settings.eyebrow_text }}</p>
     {% endif %}
 
     {% if block.settings.main_heading != blank %}
@@ -17,7 +17,7 @@
             {% if point != blank %}
             <div class="value-point">
                 <span class="diamond">♦</span>
-                <p class="{{ block.settings.text_size | split:0 | append: size }}">{{ point | strip }}</p>
+                <p class="{{ block.settings.text_size | slice:0 | append: size }}">{{ point | strip }}</p>
             </div>
             {% endif %}
         {% endfor %}
