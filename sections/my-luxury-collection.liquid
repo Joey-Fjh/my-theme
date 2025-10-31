@@ -1,4 +1,6 @@
 {{ 'my-luxury-collection.css' | asset_url | stylesheet_tag }}
+{{ 'my-swiper-container.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'my-swiper-container.js' | asset_url }}" type='module' defer></script>
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -52,36 +54,46 @@
             }
         </style>
 
-        {%- for block in section.blocks -%}      
-            {%- assign collection = collections[block.settings.collection] -%}
+        <my-swiper-container
+            style="display:flex;" 
+            class="my-swiper-container"
+            speed="{{ section.settings.autoplay_speed }}"
+            {%- if section.settings.auto_slide -%}
+                autoplay
+            {%- endif -%}
+            progress-bar="true"
+        >
+            {%- for block in section.blocks -%}      
+                {%- assign collection = collections[block.settings.collection] -%}
 
-            <a href="{{ collection.url }}" class="item__container"> 
-                <responsive-container class="img__container">
-                    <div class="img__wrapper">
-                        {%- if collection.image != blank -%}
-                            {{ 
-                                collection.image 
-                                | image_url: width:collection.image.width
-                                | image_tag:
-                                    alt: collection.title,
-                                    class: "img"
-                            }}
-                        {%- else -%}
-                            {%- assign placeholder_image_index  = forloop.index0 | modulo: 4 | plus: 1 -%}
-                            {%- assign placeholder_image  = "collection-apparel-" | append: placeholder_image_index -%}
+                <a href="{{ collection.url }}" class="item__container"> 
+                    <responsive-container class="img__container">
+                        <div class="img__wrapper">
+                            {%- if collection.image != blank -%}
+                                {{ 
+                                    collection.image 
+                                    | image_url: width:collection.image.width
+                                    | image_tag:
+                                        alt: collection.title,
+                                        class: "img"
+                                }}
+                            {%- else -%}
+                                {%- assign placeholder_image_index  = forloop.index0 | modulo: 4 | plus: 1 -%}
+                                {%- assign placeholder_image  = "collection-apparel-" | append: placeholder_image_index -%}
 
-                            {{ placeholder_image | placeholder_svg_tag:"placeholder-svg" }}
-                        {%- endif -%}
-                    </div>
-                </responsive-container>
+                                {{ placeholder_image | placeholder_svg_tag:"placeholder-svg" }}
+                            {%- endif -%}
+                        </div>
+                    </responsive-container>
 
-                {%- if section.settings.show_collection_title and collection.title != blank -%}
-                    <div class="img_info h2">
-                        {{ collection.title | default: "Collection" }}
-                    </div>
-                {%- endif -%}
-            </a>  
-        {%- endfor -%}
+                    {%- if section.settings.show_collection_title and collection.title != blank -%}
+                        <div class="img_info h2">
+                            {{ collection.title | default: "Collection" }}
+                        </div>
+                    {%- endif -%}
+                </a>  
+            {%- endfor -%}
+        </my-swiper-container>
     </div>
 </responsive-container>
 
@@ -96,6 +108,21 @@
             "id": "color_scheme",
             "label": "Color Scheme",
             "default": "scheme-1"
+        },
+        {
+            "type": "checkbox",
+            "id": "auto_slide",
+            "label": "Auto Slide",
+            "default": false
+        },
+        {
+            "type": "range",
+            "id": "autoplay_speed",
+            "label": "Autoplay Speed",
+            "min": 2,
+            "max": 10,
+            "step": 1,
+            "default": 5
         },
         {
             "type": "header",
@@ -240,7 +267,6 @@
             ]
         }
     ],
-    "max_blocks": 4,
     "presets": [
       {
         "name": "my-luxury-collection",
