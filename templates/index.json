@@ -31,7 +31,6 @@
       "block_order": [
         "image_banner_WL9CtN"
       ],
-      "disabled": true,
       "name": "my-image-banner",
       "settings": {
         "layout": "page_width",
