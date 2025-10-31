@@ -53,7 +53,7 @@
                 {%- for block in section.blocks -%}      
                     {%- assign collection = collections[block.settings.collection] -%}
 
-                    <a href="{{ collection.url }}" class="item__container swiper-slide"> 
+                    <div href="{{ collection.url }}" class="item__container swiper-slide"> 
                         <responsive-container class="img__container">
                             <div class="img__wrapper">
                                 {%- if collection.image != blank -%}
@@ -78,7 +78,7 @@
                                 {{ collection.title | default: "Collection" }}
                             </div>
                         {%- endif -%}
-                    </a>  
+                    </div>  
                 {%- endfor -%}
         </div>
         <div class="swiper-button-next"></div>
