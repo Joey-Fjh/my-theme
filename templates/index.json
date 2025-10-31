@@ -31,7 +31,6 @@
       "block_order": [
         "image_banner_WL9CtN"
       ],
-      "disabled": true,
       "name": "my-image-banner",
       "settings": {
         "layout": "page_width",
@@ -287,16 +286,16 @@
       "name": "my-luxury-collection",
       "settings": {
         "color_scheme": "",
-        "auto_slide": false,
-        "autoplay_speed": 5,
+        "auto_slide": true,
+        "autoplay_speed": 3,
         "show_title": true,
         "title": "EXPERIENCE OPULENCE LIKE NEVER BEFORE",
         "heading_size": "h1",
         "text_align": "center",
-        "show_collection_title": false,
+        "show_collection_title": true,
         "columns_desktop": 4,
         "columns_mobile": "2",
-        "full_width": true,
+        "full_width": false,
         "padding_top": 36,
         "padding_bottom": 36
       }
