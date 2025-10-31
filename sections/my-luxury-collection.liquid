@@ -50,37 +50,38 @@
         slidesPerViewMobile="{{ section.settings.columns_mobile }}"
     >
         <div class="content__container swiper-wrapper">
-                {%- for block in section.blocks -%}      
-                    {%- assign collection = collections[block.settings.collection] -%}
+            {%- for block in section.blocks -%}      
+                {%- assign collection = collections[block.settings.collection] -%}
 
-                    <div href="{{ collection.url }}" class="item__container swiper-slide"> 
-                        <responsive-container class="img__container">
-                            <div class="img__wrapper">
-                                {%- if collection.image != blank -%}
-                                    {{ 
-                                        collection.image 
-                                        | image_url: width:collection.image.width
-                                        | image_tag:
-                                            alt: collection.title,
-                                            class: "img"
-                                    }}
-                                {%- else -%}
-                                    {%- assign placeholder_image_index  = forloop.index0 | modulo: 4 | plus: 1 -%}
-                                    {%- assign placeholder_image  = "collection-apparel-" | append: placeholder_image_index -%}
+                <a href="{{ collection.url }}" class="item__container swiper-slide"> 
+                    <responsive-container class="img__container">
+                        <div class="img__wrapper">
+                            {%- if collection.image != blank -%}
+                                {{ 
+                                    collection.image 
+                                    | image_url: width:collection.image.width
+                                    | image_tag:
+                                        alt: collection.title,
+                                        class: "img"
+                                }}
+                            {%- else -%}
+                                {%- assign placeholder_image_index  = forloop.index0 | modulo: 4 | plus: 1 -%}
+                                {%- assign placeholder_image  = "collection-apparel-" | append: placeholder_image_index -%}
 
-                                    {{ placeholder_image | placeholder_svg_tag:"placeholder-svg" }}
-                                {%- endif -%}
-                            </div>
-                        </responsive-container>
+                                {{ placeholder_image | placeholder_svg_tag:"placeholder-svg" }}
+                            {%- endif -%}
+                        </div>
+                    </responsive-container>
 
-                        {%- if section.settings.show_collection_title and collection.title != blank -%}
-                            <div class="img_info h2">
-                                {{ collection.title | default: "Collection" }}
-                            </div>
-                        {%- endif -%}
-                    </div>  
-                {%- endfor -%}
+                    {%- if section.settings.show_collection_title and collection.title != blank -%}
+                        <div class="img_info h2">
+                            {{ collection.title | default: "Collection" }}
+                        </div>
+                    {%- endif -%}
+                </a>  
+            {%- endfor -%}
         </div>
+
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-pagination"></div>
