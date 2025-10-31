@@ -50,7 +50,7 @@
         slidesPerViewMobile="{{ section.settings.columns_mobile }}"
     >
         <div class="content__container swiper-wrapper">
-            <style>
+            {% comment %} <style>
                 .section-{{ section.id }}-padding{
                     .content__container{
                         grid-template-columns: repeat({{ section.settings.columns_mobile }},1fr);
@@ -63,7 +63,7 @@
                         }
                     }
                 }
-            </style>
+            </style> {% endcomment %}
                 {%- for block in section.blocks -%}      
                     {%- assign collection = collections[block.settings.collection] -%}
 
