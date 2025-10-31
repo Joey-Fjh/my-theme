@@ -35,7 +35,7 @@
                 <div class="swiper-wrapper wrapper">
                     {%- for article in section.settings.blog.articles -%}
                         <div class="swiper-slide slide">
-                            <responsive-container class="image__container">
+                            <responsive-container class="image__container" style="aspect-ratio: 1 / 1;">
                                 {%- if article.image != blank -%}
                                     {{ 
                                         article.image 
@@ -157,7 +157,7 @@
                     "label": "4"
                 }
             ],
-            "default": "4"
+            "default": "3"
         },
         {
             "type": "header",
