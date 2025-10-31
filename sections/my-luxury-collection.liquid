@@ -1,5 +1,4 @@
 {{ 'my-luxury-collection.css' | asset_url | stylesheet_tag }}
-{{ 'my-swiper-container.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'my-swiper-container.js' | asset_url }}" type='module' defer></script>
 
 {%- style -%}
@@ -46,6 +45,8 @@
             autoplay
         {%- endif -%}
         progressBar="true"
+        slidesPerView="{{ section.settings.columns_desktop }}"
+        slidesPerViewMobile="{{ section.settings.columns_mobile }}"
     >
         <div class="content__container swiper-wrapper">
             <style>
