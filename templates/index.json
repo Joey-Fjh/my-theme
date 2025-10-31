@@ -258,7 +258,19 @@
             "collection": "夏季产品系列"
           }
         },
+        "collection_HiHGHV": {
+          "type": "collection",
+          "settings": {
+            "collection": "夏季产品系列"
+          }
+        },
         "collection_VJ3Jig": {
+          "type": "collection",
+          "settings": {
+            "collection": "睡衣"
+          }
+        },
+        "collection_L7nMz8": {
           "type": "collection",
           "settings": {
             "collection": "睡衣"
@@ -268,11 +280,15 @@
       "block_order": [
         "collection_Ha7Htt",
         "collection_myQf8T",
-        "collection_VJ3Jig"
+        "collection_HiHGHV",
+        "collection_VJ3Jig",
+        "collection_L7nMz8"
       ],
       "name": "my-luxury-collection",
       "settings": {
         "color_scheme": "",
+        "auto_slide": false,
+        "autoplay_speed": 5,
         "show_title": true,
         "title": "EXPERIENCE OPULENCE LIKE NEVER BEFORE",
         "heading_size": "h1",
