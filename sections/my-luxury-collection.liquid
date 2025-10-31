@@ -39,7 +39,7 @@
     {%- endif -%}
 
     <my-swiper-container
-        style="display:flex;" 
+        style="display:flex;flex-direction:column;gap:20px;" 
         class="my-swiper-container"
         speed="{{ section.settings.autoplay_speed }}"
         {%- if section.settings.auto_slide -%}
@@ -49,7 +49,7 @@
         slidesPerView="{{ section.settings.columns_desktop }}"
         slidesPerViewMobile="{{ section.settings.columns_mobile }}"
     >
-        <div class="swiper">
+        <div class="swiper" style="width:100%">
             <div class="content__container swiper-wrapper">
                 {%- for block in section.blocks -%}      
                     {%- assign collection = collections[block.settings.collection] -%}
@@ -85,8 +85,8 @@
 
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
-            <div class="swiper-pagination"></div>
         </div>
+        <div class="swiper-pagination" style="position:relative;width:80%;align-self:center;--swiper-theme-color:#000;"></div>
     </my-swiper-container>
 </responsive-container>
 
