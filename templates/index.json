@@ -470,7 +470,6 @@
     },
     "my_blog_carousel_Pb9fHn": {
       "type": "my-blog-carousel",
-      "disabled": true,
       "name": "my-blog-carousel",
       "settings": {
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
@@ -585,6 +584,7 @@
         "product_YHgxCF",
         "product_DL4p64"
       ],
+      "disabled": true,
       "name": "my-promo-split",
       "settings": {
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
