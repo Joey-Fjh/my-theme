@@ -47,6 +47,7 @@
         "image_banner_WL9CtN",
         "image_banner_bYEryP"
       ],
+      "disabled": true,
       "name": "my-image-banner",
       "settings": {
         "layout": "page_width",
@@ -299,6 +300,7 @@
         "collection_VJ3Jig",
         "collection_L7nMz8"
       ],
+      "disabled": true,
       "name": "my-luxury-collection",
       "settings": {
         "color_scheme": "",
@@ -535,7 +537,6 @@
     },
     "my_featured_blog_Wa7B4H": {
       "type": "my-featured-blog",
-      "disabled": true,
       "name": "my-featured-blog",
       "settings": {
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
