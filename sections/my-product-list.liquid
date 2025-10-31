@@ -141,6 +141,12 @@
                             {%- assign discount = 0 | append: '%' -%}
                         {%- endif -%}
 
+                        {%- if section.settings.show_badge_text -%}
+                            <div class="badge color-{{ section.settings.badge_color }}">
+                                {{ section.settings.badge_text }}
+                            </div>
+                        {%- endif -%}
+
                         {%- unless discount == '0%' -%}
                             <div class="sale ">
                                 SALE {{ discount }} OFF
@@ -410,6 +416,24 @@
                     "label": "Standard"
                 }
             ]
+        },
+        {
+            "type": "color_scheme",
+            "id": "badge_color",
+            "label": "Badge Color Scheme",
+            "default": "scheme-1"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_badge_text",
+            "label": "Show Badge Text",
+            "default": true
+        },
+        {
+            "type": "inline_richtext",
+            "id": "badge_text",
+            "label": "Badge Text",
+            "default":"BEST SELLER"
         },
         {
             "type": "select",
