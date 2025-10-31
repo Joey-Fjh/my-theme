@@ -293,7 +293,7 @@
         "title": "EXPERIENCE OPULENCE LIKE NEVER BEFORE",
         "heading_size": "h1",
         "text_align": "center",
-        "show_collection_title": false,
+        "show_collection_title": true,
         "columns_desktop": 4,
         "columns_mobile": "2",
         "full_width": false,
