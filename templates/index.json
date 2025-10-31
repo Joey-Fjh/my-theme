@@ -115,7 +115,7 @@
         "full_width": false,
         "show_view_all": true,
         "image_ratio": "3-4",
-        "quick_add": "standard",
+        "quick_add": "none",
         "show_operation": "none",
         "alignment": "left",
         "padding_top": 36,
