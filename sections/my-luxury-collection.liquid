@@ -39,7 +39,7 @@
     {%- endif -%}
 
     <my-swiper-container
-        style="display:flex;" 
+        style="display:flex;flex-direction:column;" 
         class="my-swiper-container"
         speed="{{ section.settings.autoplay_speed }}"
         {%- if section.settings.auto_slide -%}
@@ -49,7 +49,7 @@
         slidesPerView="{{ section.settings.columns_desktop }}"
         slidesPerViewMobile="{{ section.settings.columns_mobile }}"
     >
-        <div class="swiper">
+        <div class="swiper" style="width:100%">
             <div class="content__container swiper-wrapper">
                 {%- for block in section.blocks -%}      
                     {%- assign collection = collections[block.settings.collection] -%}
