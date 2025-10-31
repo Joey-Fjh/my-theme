@@ -16,7 +16,8 @@
   }
 {%- endstyle -%}
 
-<responsive-container class="my-blog-carousel__container section-{{ section.id }}-padding
+<responsive-container class="my-blog-carousel__container 
+    section-{{ section.id }}-padding
     {% unless section.settings.is_fullWidth %} my-page-width {% endunless %}
     "
 >
@@ -29,7 +30,7 @@
     {% endif %}
 
     <div class="bottom">
-        <my-blog-carousel-container class="my-swiper-container">
+        <my-blog-carousel-container class="my-swiper-container" columns="{{ section.settings.blog_column }}">
             <div class="swiper">
                 <div class="swiper-wrapper wrapper">
                     {%- for article in section.settings.blog.articles -%}
@@ -38,7 +39,7 @@
                                 {%- if article.image != blank -%}
                                     {{ 
                                         article.image 
-                                        | image_url: width: 278, height: 278
+                                        | image_url: width: article.image.width
                                         | image_tag:
                                             alt: article.title
                                     }}
@@ -141,6 +142,22 @@
             "type": "blog",
             "id": "blog",
             "label": "t:sections.featured-blog.settings.blog.label"
+        },
+        {
+            "type": "select",
+            "id": "blog_column",
+            "label": "Descktop Blog Column",
+            "options": [
+                {
+                    "value": "3",
+                    "label": "3"
+                },
+                {
+                    "value": "4",
+                    "label": "4"
+                }
+            ],
+            "default": "4"
         },
         {
             "type": "header",
