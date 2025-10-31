@@ -42,7 +42,9 @@
 -%}
 
 <responsive-container 
-    class="my-product-list__container color-{{ section.settings.color_scheme }} section-{{ section.id }}-padding"
+    class="my-product-list__container color-{{ section.settings.color_scheme }} section-{{ section.id }}-padding
+    {% unless section.settings.is_fullWidth %} my-page-width {% endunless %}
+    "
 >
     <div class="title__container my-page-width
         text-{{  section.settings.text_align }}"
@@ -248,6 +250,12 @@
             "id": "color_scheme",
             "label": "Color Scheme",
             "default": "scheme-1"
+        },
+        {
+            "type": "checkbox",
+            "id": "is_fullWidth",
+            "label": "Full Width",
+            "default": false
         },
         {
             "type": "collection",
