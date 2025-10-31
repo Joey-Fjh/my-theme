@@ -42,9 +42,7 @@
 -%}
 
 <responsive-container 
-    class="my-product-list__container color-{{ section.settings.color_scheme }} section-{{ section.id }}-padding
-    {% unless section.settings.is_fullWidth %} my-page-width {% endunless %}
-    "
+    class="my-product-list__container color-{{ section.settings.color_scheme }} section-{{ section.id }}-padding"
 >
     <div class="title__container my-page-width
         text-{{  section.settings.text_align }}"
@@ -189,10 +187,6 @@
                             {%- endif -%}
                         </div>
                     </div>
-
-                    <slider-component>
-                        
-                    </slider-component>
                 </div>
             {% endfor %}
         {%- endif -%}
@@ -250,12 +244,6 @@
             "id": "color_scheme",
             "label": "Color Scheme",
             "default": "scheme-1"
-        },
-        {
-            "type": "checkbox",
-            "id": "is_fullWidth",
-            "label": "Full Width",
-            "default": false
         },
         {
             "type": "collection",
