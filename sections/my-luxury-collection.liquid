@@ -38,63 +38,65 @@
         </div>
     {%- endif -%}
 
-    <div class="content__container">
-        <style>
-            .section-{{ section.id }}-padding{
-                .content__container{
-                    grid-template-columns: repeat({{ section.settings.columns_mobile }},1fr);
-                    gap:clamp(8px,2vw,24px);
-                }
-
-                @media screen and (min-width: 750px) {
+    <my-swiper-container
+        style="display:flex;" 
+        class="my-swiper-container swiper"
+        speed="{{ section.settings.autoplay_speed }}"
+        {%- if section.settings.auto_slide -%}
+            autoplay
+        {%- endif -%}
+        progress-bar="true"
+    >
+        <div class="content__container swiper-wrapper">
+            <style>
+                .section-{{ section.id }}-padding{
                     .content__container{
-                        grid-template-columns: repeat({{ section.settings.columns_desktop }},1fr);
+                        grid-template-columns: repeat({{ section.settings.columns_mobile }},1fr);
+                        gap:clamp(8px,2vw,24px);
+                    }
+
+                    @media screen and (min-width: 750px) {
+                        .content__container{
+                            grid-template-columns: repeat({{ section.settings.columns_desktop }},1fr);
+                        }
                     }
                 }
-            }
-        </style>
+            </style>
+                {%- for block in section.blocks -%}      
+                    {%- assign collection = collections[block.settings.collection] -%}
 
-        <my-swiper-container
-            style="display:flex;" 
-            class="my-swiper-container"
-            speed="{{ section.settings.autoplay_speed }}"
-            {%- if section.settings.auto_slide -%}
-                autoplay
-            {%- endif -%}
-            progress-bar="true"
-        >
-            {%- for block in section.blocks -%}      
-                {%- assign collection = collections[block.settings.collection] -%}
+                    <a href="{{ collection.url }}" class="item__container swiper-slide"> 
+                        <responsive-container class="img__container">
+                            <div class="img__wrapper">
+                                {%- if collection.image != blank -%}
+                                    {{ 
+                                        collection.image 
+                                        | image_url: width:collection.image.width
+                                        | image_tag:
+                                            alt: collection.title,
+                                            class: "img"
+                                    }}
+                                {%- else -%}
+                                    {%- assign placeholder_image_index  = forloop.index0 | modulo: 4 | plus: 1 -%}
+                                    {%- assign placeholder_image  = "collection-apparel-" | append: placeholder_image_index -%}
 
-                <a href="{{ collection.url }}" class="item__container"> 
-                    <responsive-container class="img__container">
-                        <div class="img__wrapper">
-                            {%- if collection.image != blank -%}
-                                {{ 
-                                    collection.image 
-                                    | image_url: width:collection.image.width
-                                    | image_tag:
-                                        alt: collection.title,
-                                        class: "img"
-                                }}
-                            {%- else -%}
-                                {%- assign placeholder_image_index  = forloop.index0 | modulo: 4 | plus: 1 -%}
-                                {%- assign placeholder_image  = "collection-apparel-" | append: placeholder_image_index -%}
+                                    {{ placeholder_image | placeholder_svg_tag:"placeholder-svg" }}
+                                {%- endif -%}
+                            </div>
+                        </responsive-container>
 
-                                {{ placeholder_image | placeholder_svg_tag:"placeholder-svg" }}
-                            {%- endif -%}
-                        </div>
-                    </responsive-container>
-
-                    {%- if section.settings.show_collection_title and collection.title != blank -%}
-                        <div class="img_info h2">
-                            {{ collection.title | default: "Collection" }}
-                        </div>
-                    {%- endif -%}
-                </a>  
-            {%- endfor -%}
-        </my-swiper-container>
-    </div>
+                        {%- if section.settings.show_collection_title and collection.title != blank -%}
+                            <div class="img_info h2">
+                                {{ collection.title | default: "Collection" }}
+                            </div>
+                        {%- endif -%}
+                    </a>  
+                {%- endfor -%}
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+    </my-swiper-container>
 </responsive-container>
 
 {% schema %}
