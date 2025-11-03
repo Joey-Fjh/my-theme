@@ -93,17 +93,7 @@
         </div>
 
         <div class="product-card__variant">
-    
-            {% assign current_variant = product.selected_or_first_available_variant %}
-            <ul>
-            {% for option in current_variant.options %}
-                <li>{{ option }}</li>
-            {% endfor %}
-            </ul>
-
-            {%- for option in product.options_with_values -%}
-                {{ option.name }}
-            {%- endfor -%}
+            
         </div>
     </div>
 </div>
