@@ -117,101 +117,103 @@
                     </div>
                 </div>
             {%- endfor -%}
-        {%- else -%}       
-            {% for product in section.settings.product_collection.products limit: section.settings.products_to_show %}
-                {%- render 'my-product-card', product: product, ratio: ratio, has_quick_add: has_quick_add -%}    
-                {% comment %} <div class="product-card__container"
-                >
-                    <responsive-container class="product-card__image 
-                        {% if section.settings.show_operation == 'hover' %} product-card__image-hover {% endif %}
-                        "
-                        style="aspect-ratio: {{ ratio }};"
+        {%- else -%}
+            <my-product-card>       
+                {% for product in section.settings.product_collection.products limit: section.settings.products_to_show %}
+                    {%- render 'my-product-card', product: product, ratio: ratio, has_quick_add: has_quick_add -%}    
+                    {% comment %} <div class="product-card__container"
                     >
-                        {{ 
-                            product.featured_image
-                            | image_url: width: product.featured_image.width
-                            | image_tag:
-                                alt: product.title, 
-                                class:'image'
-                        }}
+                        <responsive-container class="product-card__image 
+                            {% if section.settings.show_operation == 'hover' %} product-card__image-hover {% endif %}
+                            "
+                            style="aspect-ratio: {{ ratio }};"
+                        >
+                            {{ 
+                                product.featured_image
+                                | image_url: width: product.featured_image.width
+                                | image_tag:
+                                    alt: product.title, 
+                                    class:'image'
+                            }}
 
-                        {%- if product.compare_at_price > product.price and product.compare_at_price > 0 -%}
-                            {%- assign percent = product.price | times: 100 | divided_by: product.compare_at_price -%}
-                            {%- assign discount = 100 | minus: percent | append: '%' -%}
-                        {%- else -%}
-                            {%- assign discount = 0 | append: '%' -%}
-                        {%- endif -%}
-
-                        <div class="left-top">
-                            {%- if section.settings.show_badge_text -%}
-                                <div class="badge color-{{ section.settings.badge_color }}">
-                                    {{ section.settings.badge_text }}
-                                </div>
+                            {%- if product.compare_at_price > product.price and product.compare_at_price > 0 -%}
+                                {%- assign percent = product.price | times: 100 | divided_by: product.compare_at_price -%}
+                                {%- assign discount = 100 | minus: percent | append: '%' -%}
+                            {%- else -%}
+                                {%- assign discount = 0 | append: '%' -%}
                             {%- endif -%}
 
-                            {%- unless discount == '0%' -%}
-                                <div class="sale ">
-                                    SALE {{ discount }} OFF
-                                </div>
-                            {%- endunless -%}
-                        </div>
+                            <div class="left-top">
+                                {%- if section.settings.show_badge_text -%}
+                                    <div class="badge color-{{ section.settings.badge_color }}">
+                                        {{ section.settings.badge_text }}
+                                    </div>
+                                {%- endif -%}
 
-                        {%- if has_quick_add -%}
-                            <modal-opener 
-                                class="opener"
-                                data-modal="#my-product-list-PopupModal"
-                            >
-                                <button
-                                    class="quick-view-btn"
-                                    type="button"
-                                    aria-haspopup="dialog"
-                                    data-product-url="{{ product.url }}"
+                                {%- unless discount == '0%' -%}
+                                    <div class="sale ">
+                                        SALE {{ discount }} OFF
+                                    </div>
+                                {%- endunless -%}
+                            </div>
+
+                            {%- if has_quick_add -%}
+                                <modal-opener 
+                                    class="opener"
+                                    data-modal="#my-product-list-PopupModal"
                                 >
-                                    Quick View
-                                    {%- render 'loading-spinner' -%}
-                                </button>
-                            </modal-opener>
-                        {%- endif -%}
-                    </responsive-container> 
-
-                    <div class="product-card__content product-{{ section.settings.alignment }}">
-                        <div class="product-card__title">
-                            <a
-                                href="{{ product.url }}"
-                                id="StandardCardNoMediaLink-{{ section.id }}-{{ product.id }}"
-                                class="full-unstyled-link"
-                                aria-labelledby="StandardCardNoMediaLink-{{ section.id }}-{{ product.id }} NoMediaStandardBadge-{{ section.id }}-{{ product.id }}"
-                            >
-                                {{ product.title | escape }}
-                            </a>
-                        </div>
-
-                        <div class="product-card__price h4">
-                            {{ product.price | money }}
-
-                            {%- if product.compare_at_price > product.price -%}
-                                <span class="old-price" style="text-decoration: line-through;">
-                                    {{ product.compare_at_price | money }}
-                                </span>
+                                    <button
+                                        class="quick-view-btn"
+                                        type="button"
+                                        aria-haspopup="dialog"
+                                        data-product-url="{{ product.url }}"
+                                    >
+                                        Quick View
+                                        {%- render 'loading-spinner' -%}
+                                    </button>
+                                </modal-opener>
                             {%- endif -%}
-                        </div>
+                        </responsive-container> 
 
-                        <div class="product-card__variant">
-                    
-                            {% assign current_variant = product.selected_or_first_available_variant %}
-                            <ul>
-                            {% for option in current_variant.options %}
-                                <li>{{ option }}</li>
-                            {% endfor %}
-                            </ul>
+                        <div class="product-card__content product-{{ section.settings.alignment }}">
+                            <div class="product-card__title">
+                                <a
+                                    href="{{ product.url }}"
+                                    id="StandardCardNoMediaLink-{{ section.id }}-{{ product.id }}"
+                                    class="full-unstyled-link"
+                                    aria-labelledby="StandardCardNoMediaLink-{{ section.id }}-{{ product.id }} NoMediaStandardBadge-{{ section.id }}-{{ product.id }}"
+                                >
+                                    {{ product.title | escape }}
+                                </a>
+                            </div>
 
-                            {%- for option in product.options_with_values -%}
-                                {{ option.name }}
-                            {%- endfor -%}
+                            <div class="product-card__price h4">
+                                {{ product.price | money }}
+
+                                {%- if product.compare_at_price > product.price -%}
+                                    <span class="old-price" style="text-decoration: line-through;">
+                                        {{ product.compare_at_price | money }}
+                                    </span>
+                                {%- endif -%}
+                            </div>
+
+                            <div class="product-card__variant">
+                        
+                                {% assign current_variant = product.selected_or_first_available_variant %}
+                                <ul>
+                                {% for option in current_variant.options %}
+                                    <li>{{ option }}</li>
+                                {% endfor %}
+                                </ul>
+
+                                {%- for option in product.options_with_values -%}
+                                    {{ option.name }}
+                                {%- endfor -%}
+                            </div>
                         </div>
-                    </div>
-                </div> {% endcomment %}
-            {% endfor %}
+                    </div> {% endcomment %}
+                {% endfor %}
+            </my-product-card>
         {%- endif -%}
     </div>
     
