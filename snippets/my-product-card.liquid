@@ -10,6 +10,14 @@
   {% render 'my-product-card' product: product, ratio: ratio, has_quick_add: has_quick_add %}
 {% endcomment %}
 
+{%- if ratio = nil -%}
+    ratio = "1 / 1"
+{%- endif -%}
+
+{%- if has_quick_add = nil -%}
+    has_quick_add = false
+{%- endif -%}
+
 <div class="product-card__container"
     product-id="{{ product.id }}"
 >
