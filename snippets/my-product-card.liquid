@@ -32,8 +32,8 @@
         style="aspect-ratio: {{ ratio }};"
     >
         {{ 
-            current_variant.featured_media.preview_image
-            | image_url: width: current_variant.featured_media.preview_image.width
+            current_variant.featured_image
+            | image_url: width: current_variant.featured_image.width
             | image_tag:
                 alt: current_variant.title, 
                 class:'image'
