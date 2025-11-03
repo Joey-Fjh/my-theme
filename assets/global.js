@@ -1342,6 +1342,10 @@ class MyProductCard extends HTMLElement {
     super.connectedCallback();
   }
 
+  updateVariantSelectMetaData({ target }) {
+    // set attribute or class 
+  }
+
   get sectionId(){
     return this.dataset.sectionId;
   }
