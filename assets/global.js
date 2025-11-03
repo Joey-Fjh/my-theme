@@ -1340,3 +1340,5 @@ class MyProductCard extends HTMLElement {
     super.connectedCallback();
   }
 }
+
+customElements.define('my-product-card',MyProductCard)
