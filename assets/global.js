@@ -1334,6 +1334,8 @@ class CartPerformance {
 class MyProductCard extends HTMLElement {
   constructor(){
     super();
+
+    this.a
   }
 
   connectedCallback(){
@@ -1342,6 +1344,12 @@ class MyProductCard extends HTMLElement {
 
   get sectionId(){
     return this.dataset.sectionId;
+  }
+
+  get selectedOptionValues() {
+    // return Array.from(this.querySelectorAll('select option[selected], fieldset input:checked')).map(
+    //   ({ dataset }) => dataset.optionValueId
+    // );
   }
 }
 
