@@ -115,7 +115,7 @@
         "full_width": false,
         "show_view_all": true,
         "image_ratio": "3-4",
-        "quick_add": "none",
+        "quick_add": "standard",
         "badge_color": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
         "show_badge_text": false,
         "badge_text": "BEST SELLER",
