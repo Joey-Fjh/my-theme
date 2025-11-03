@@ -51,7 +51,7 @@
       "settings": {
         "layout": "page_width",
         "slide_height": "large",
-        "auto_slide": false,
+        "auto_slide": true,
         "autoplay_speed": 2,
         "accessibility_info": "Slideshow about our brand"
       }
