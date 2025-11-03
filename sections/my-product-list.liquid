@@ -196,8 +196,10 @@
                         </div>
 
                         <div class="product-card__variant">
+                            {{ product.selected_or_first_available_variant.options.name }}
+                            {{ product.selected_or_first_available_variant.options.id }}
                             {%- for option in product.options_with_values -%}
-                                {{ option.name }} --- {{ product.selected_or_first_available_variant.options.name }}
+                                {{ option.name }}
                             {%- endfor -%}
                         </div>
                     </div>
