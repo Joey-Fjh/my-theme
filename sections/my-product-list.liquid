@@ -197,10 +197,12 @@
 
                         <div class="product-card__variant">
                     
-                            {{ product.selected_or_first_available_variant.options.id }}
-                            {{ product.selected_or_first_available_variant.options.name }}
-                            {{ product.selected_or_first_available_variant.options.swatch }}
-                            {{ product.selected_or_first_available_variant.options.variant }}
+                            {% assign current_variant = product.selected_or_first_available_variant %}
+                            <ul>
+                            {% for option in current_variant.options %}
+                                <li>{{ option }}</li>
+                            {% endfor %}
+                            </ul>
 
                             {%- for option in product.options_with_values -%}
                                 {{ option.name }}
