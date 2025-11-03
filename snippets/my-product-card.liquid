@@ -129,7 +129,9 @@
                 
                 {%- if is_swatch -%}
                     <ul class="product-card__swatch">
-                        颜色多属性        
+                        {% for value in option.values %}
+                            <li>{{ value }}</li>
+                        {% endfor %}        
                     </ul>
                 {%- elsif is_size -%}
                     尺寸多属性
