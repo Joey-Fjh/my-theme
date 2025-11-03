@@ -11,9 +11,9 @@
   <my-swiper-container
     style="display:flex;"
     class="my-swiper-container swiper--{{ section.settings.slide_height }}"
-    {%- if section.settings.auto_slide -%}
+    {% if section.settings.auto_slide %}
       autoplay
-    {%- endif -%}
+    {% endif %}
     speed="{{ section.settings.autoplay_speed }}"
   >
     <div class="swiper" style="flex:1;height:100%;">
