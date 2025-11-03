@@ -1346,6 +1346,29 @@ class MyProductCard extends HTMLElement {
     // set attribute or class 
   }
 
+  handleOptionValueChange({ data: { event, target, selectedOptionValues } }) {
+    if (!this.contains(event.target)) return;
+
+    // this.resetProductFormState();
+
+    // const productUrl = target.dataset.productUrl || this.pendingRequestUrl || this.dataset.url;
+    // this.pendingRequestUrl = productUrl;
+    // const shouldSwapProduct = this.dataset.url !== productUrl;
+    // const shouldFetchFullPage = this.dataset.updateUrl === 'true' && shouldSwapProduct;
+
+    // this.renderProductInfo({
+    //   requestUrl: this.buildRequestUrlWithParams(productUrl, selectedOptionValues, shouldFetchFullPage),
+    //   targetId: target.id,
+    //   callback: shouldSwapProduct
+    //     ? this.handleSwapProduct(productUrl, shouldFetchFullPage)
+    //     : this.handleUpdateProductInfo(productUrl),
+    // });
+  }
+
+  renderProductInfo(){
+    
+  }
+
   get sectionId(){
     return this.dataset.sectionId;
   }
