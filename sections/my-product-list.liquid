@@ -197,7 +197,7 @@
 
                         <div class="product-card__variant">
                             {%- for option in product.options_with_values -%}
-                                {{ option.values | join: ' ,--- ' }}
+                                {{ option.name | join: ' --- ' }}
                             {%- endfor -%}
                         </div>
                     </div>
