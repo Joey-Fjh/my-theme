@@ -31,9 +31,10 @@
         "
         style="aspect-ratio: {{ ratio }};"
     >
+        {% assign variant_image = current_variant.featured_image | default: product.featured_image %}
         {{ 
-            current_variant.featured_image
-            | image_url: width: current_variant.featured_image.width
+            variant_image
+            | image_url: width: variant_image.width
             | image_tag:
                 alt: current_variant.title, 
                 class:'image'
