@@ -18,6 +18,11 @@
     has_quick_add = false
 {%- endif -%}
 
+{%- assign current_variant = product -%}
+{%- if product != nil and product.has_only_default_variant == false -%}
+    {%- assign current_variant = product.selected_or_first_available_variant -%}
+{%- endif -%}
+
 <div class="product-card__container"
     product-id="{{ product.id }}"
 >
@@ -27,15 +32,15 @@
         style="aspect-ratio: {{ ratio }};"
     >
         {{ 
-            product.featured_image
-            | image_url: width: product.featured_image.width
+            current_variant.featured_image
+            | image_url: width: current_variant.featured_image.width
             | image_tag:
-                alt: product.title, 
+                alt: current_variant.title, 
                 class:'image'
         }}
 
-        {%- if product.compare_at_price > product.price and product.compare_at_price > 0 -%}
-            {%- assign percent = product.price | times: 100 | divided_by: product.compare_at_price -%}
+        {%- if current_variant.compare_at_price > current_variant.price and current_variant.compare_at_price > 0 -%}
+            {%- assign percent = current_variant.price | times: 100 | divided_by: current_variant.compare_at_price -%}
             {%- assign discount = 100 | minus: percent | append: '%' -%}
         {%- else -%}
             {%- assign discount = 0 | append: '%' -%}
@@ -64,7 +69,7 @@
                     class="quick-view-btn"
                     type="button"
                     aria-haspopup="dialog"
-                    data-product-url="{{ product.url }}"
+                    data-product-url="{{ product.url }}" 
                 >
                     Quick View
                     {%- render 'loading-spinner' -%}
@@ -81,22 +86,43 @@
                 class="full-unstyled-link"
                 aria-labelledby="StandardCardNoMediaLink-{{ section.id }}-{{ product.id }} NoMediaStandardBadge-{{ section.id }}-{{ product.id }}"
             >
-                {{ product.title | escape }}
+                {{ current_variant.title | escape }}
             </a>
         </div>
 
         <div class="product-card__price h4">
-            {{ product.price | money }}
+            {{ current_variant.price | money }}
 
-            {%- if product.compare_at_price > product.price -%}
+            {%- if current_variant.compare_at_price > current_variant.price -%}
                 <span class="old-price" style="text-decoration: line-through;">
-                    {{ product.compare_at_price | money }}
+                    {{ current_variant.compare_at_price | money }}
                 </span>
             {%- endif -%}
         </div>
 
-        <div class="product-card__variant">
-            
-        </div>
+        {%- unless product.has_only_default_variant -%}
+            {% assign swatch_triggers = section.settings.color_swatch_trigger | split: ',' %}
+            {% for option in product.options_with_values %}
+                {% assign option_name = option.name | strip | downcase %}
+                {% assign is_swatch = false %}
+
+                 {% for trigger in swatch_triggers %}
+                    {%- assign compare_option = trigger | strip | downcase -%}
+                    {%- if option_name == compare_option -%}
+                        {%- assign is_swatch = true -%}
+                    {%- endif -%}
+                {% endfor %}
+
+                {%- if is_swatch -%}
+                    {% comment %} render color or image {% endcomment %}
+                    <ul class="product-card__swatch">
+                        颜色多属性        
+                    </ul>
+                {%- else -%}
+                    {% comment %} render size , other multiple property is ignore. {% endcomment %}
+                    尺寸多属性
+                {%- endif -%}
+            {% endfor %}
+        {%- endunless -%}
     </div>
 </div>
