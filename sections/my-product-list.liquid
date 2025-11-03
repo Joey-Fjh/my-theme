@@ -119,7 +119,7 @@
             {%- endfor -%}
         {%- else -%}       
             {% for product in section.settings.product_collection.products limit: section.settings.products_to_show %}
-                {%- render 'my-product-card', product: product, ratio: ratio,has_quick_add:has_quick_add-%}    
+                {%- render 'my-product-card', product: product, ratio: ratio, has_quick_add: has_quick_add -%}    
                 {% comment %} <div class="product-card__container"
                 >
                     <responsive-container class="product-card__image 
