@@ -121,7 +121,8 @@
         "badge_text": "BEST SELLER",
         "show_operation": "hover",
         "alignment": "left",
-        "color_swatch_trigger": "",
+        "color_swatch_trigger": "Color",
+        "size_trigger": "Size",
         "padding_top": 36,
         "padding_bottom": 36
       }
