@@ -1330,3 +1330,13 @@ class CartPerformance {
     );
   }
 }
+
+class MyProductCard extends HTMLElement {
+  constructor(){
+    super();
+  }
+
+  connectedCallback(){
+    super.connectedCallback();
+  }
+}
