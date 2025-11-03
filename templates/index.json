@@ -47,12 +47,11 @@
         "image_banner_WL9CtN",
         "image_banner_bYEryP"
       ],
-      "disabled": true,
       "name": "my-image-banner",
       "settings": {
         "layout": "page_width",
         "slide_height": "large",
-        "auto_slide": true,
+        "auto_slide": false,
         "autoplay_speed": 2,
         "accessibility_info": "Slideshow about our brand"
       }
@@ -100,6 +99,7 @@
     },
     "my_product_list_BMjQet": {
       "type": "my-product-list",
+      "disabled": true,
       "name": "my-product-list",
       "settings": {
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
