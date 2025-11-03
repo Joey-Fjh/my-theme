@@ -141,18 +141,20 @@
                             {%- assign discount = 0 | append: '%' -%}
                         {%- endif -%}
 
-                        {%- if section.settings.show_badge_text -%}
-                            <div class="badge color-{{ section.settings.badge_color }}">
-                                {{ section.settings.badge_text }}
-                            </div>
-                        {%- endif -%}
+                        <div>
+                            {%- if section.settings.show_badge_text -%}
+                                <div class="badge color-{{ section.settings.badge_color }}">
+                                    {{ section.settings.badge_text }}
+                                </div>
+                            {%- endif -%}
 
-                        {%- unless discount == '0%' -%}
-                            <div class="sale ">
-                                SALE {{ discount }} OFF
-                            </div>
-                        {%- endunless -%}
-                        
+                            {%- unless discount == '0%' -%}
+                                <div class="sale ">
+                                    SALE {{ discount }} OFF
+                                </div>
+                            {%- endunless -%}
+                        </div>
+
                         {%- if has_quick_add -%}
                             <modal-opener 
                                 class="opener"
