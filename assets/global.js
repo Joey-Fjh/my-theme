@@ -1339,6 +1339,10 @@ class MyProductCard extends HTMLElement {
   connectedCallback(){
     super.connectedCallback();
   }
+
+  get sectionId(){
+    return this.dataset.sectionId;
+  }
 }
 
 customElements.define('my-product-card',MyProductCard)
