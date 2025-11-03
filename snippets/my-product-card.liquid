@@ -113,8 +113,8 @@
                     {%- endif -%}
                 {% endfor %}
 
-                {{ option.name }}
-                {% comment %} {%- if is_swatch -%}
+                
+                {%- if is_swatch -%}
                     {% comment %} render color or image {% endcomment %}
                     <ul class="product-card__swatch">
                         颜色多属性        
@@ -122,7 +122,7 @@
                 {%- else -%}
                     {% comment %} render size , other multiple property is ignore. {% endcomment %}
                     尺寸多属性
-                {%- endif -%} {% endcomment %}
+                {%- endif -%}
             {% endfor %}
         {%- endunless -%}
     </div>
