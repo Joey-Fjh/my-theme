@@ -101,30 +101,40 @@
             {%- endif -%}
         </div>
 
-        {% comment %} {%- unless product.has_only_default_variant -%}
+        {%- unless product.has_only_default_variant -%}
             {% assign swatch_triggers = section.settings.color_swatch_trigger | split: ',' %}
+            {% assign size_triggers = section.settings.size_trigger | split:"," %}
+
             {% for option in product.options_with_values %}
                 {% assign option_name = option.name | strip | downcase %}
                 {% assign is_swatch = false %}
+                {% assign is_size = false %}
 
-                 {% for trigger in swatch_triggers %}
+                {% for trigger in swatch_triggers %}
                     {%- assign compare_option = trigger | strip | downcase -%}
+                    
                     {%- if option_name == compare_option -%}
                         {%- assign is_swatch = true -%}
                     {%- endif -%}
                 {% endfor %}
 
+                {% for trigger in size_triggers %}
+                    {%- assign compare_option = trigger | strip | downcase -%}
+                    
+                    {%- if option_name == compare_option -%}
+                        {%- assign is_size = true -%}
+                    {%- endif -%}
+                {% endfor %}
+
                 
                 {%- if is_swatch -%}
-                    {% comment %} render color or image {% endcomment %}
                     <ul class="product-card__swatch">
                         颜色多属性        
                     </ul>
-                {%- else -%}
-                    {% comment %} render size , other multiple property is ignore. {% endcomment %}
+                {%- elsif is_size -%}
                     尺寸多属性
                 {%- endif -%}
             {% endfor %}
-        {%- endunless -%} {% endcomment %}
+        {%- endunless -%}
     </div>
 </div>
