@@ -100,7 +100,7 @@
             {%- endif -%}
         </div>
 
-        {%- unless product.has_only_default_variant -%}
+        {% comment %} {%- unless product.has_only_default_variant -%}
             {% assign swatch_triggers = section.settings.color_swatch_trigger | split: ',' %}
             {% for option in product.options_with_values %}
                 {% assign option_name = option.name | strip | downcase %}
@@ -124,6 +124,6 @@
                     尺寸多属性
                 {%- endif -%}
             {% endfor %}
-        {%- endunless -%}
+        {%- endunless -%} {% endcomment %}
     </div>
 </div>
