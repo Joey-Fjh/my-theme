@@ -10,11 +10,6 @@
   {% render 'my-product-card' product: product, ratio: ratio, has_quick_add: has_quick_add %}
 {% endcomment %}
 
-{% comment %} {% liquid
-    assign ratio = "1 / 1"
-    assign has_quick_add = false
-%} {% endcomment %}
-
 <div class="product-card__container"
     product-id="{{ product.id }}"
 >
