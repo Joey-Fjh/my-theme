@@ -1335,7 +1335,7 @@ class MyProductCard extends HTMLElement {
   constructor(){
     super();
 
-    this.a
+    this.abortController = undefined;
   }
 
   connectedCallback(){
