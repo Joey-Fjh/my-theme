@@ -128,13 +128,33 @@
 
                 
                 {%- if is_swatch -%}
-                    <ul class="product-card__swatch">
-                        {% for value in option.values %}
-                            <li>{{ value }}</li>
-                        {% endfor %}        
+                    <ul class="list-unstyled product-card__swatch">
+                        {% for value in option.values limit: 2 %}
+                            <li class="swatch">
+                                <a href="javascript:void(0);" 
+                                    class="color"
+                                    style="--swatch-bgc:{{ value.swatch }}"
+                                    aria-selected="{{ value.selected }}"
+                                >
+                                    {{ value }}
+                                </a>
+                            </li>
+                        {% endfor %}
+    
+                        {%- if  option.values.size > 2 -%}
+                            <li class="more">+{{ option.values.size | minus: 2 }}</li>
+                        {%- endif -%}        
                     </ul>
-                {%- elsif is_size -%}
-                    尺寸多属性
+                {% comment %} {%- elsif is_size -%}
+                    <ul class="list-unstyled product-card__size">
+                        {% for value in option.values limit: 2 %}
+                            <li class="size">{{ value }}</li>
+                        {% endfor %}
+    
+                        {%- if  option.values.size > 2 -%}
+                            <li class="more">+{{ option.values.size | minus: 2 }}</li>
+                        {%- endif -%}        
+                    </ul> {% endcomment %}
                 {%- endif -%}
             {% endfor %}
         {%- endunless -%}
