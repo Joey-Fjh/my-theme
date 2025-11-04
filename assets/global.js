@@ -1359,12 +1359,12 @@ class MyProductCard extends HTMLElement {
 
     if(image_src == this.image_src_cache) return;
 
-    this.product_image.setAttribute("src",image_src);
+    // this.product_image.setAttribute("src",image_src);
   }
 
   handleMouseOut(event){  
     event.relatedTarget.removeAttribute("aria-selected");
-    this.product_image.setAttribute("src",this.image_src_cache);
+    // this.product_image.setAttribute("src",this.image_src_cache);
   }
 
   getVariantImage(target){
