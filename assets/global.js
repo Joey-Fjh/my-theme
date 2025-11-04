@@ -1388,6 +1388,9 @@ class MyProductCard extends HTMLElement {
   }
 
   handleMouseOut(event){  
+    if (this.lastHovered != event.target) return;
+    this.lastHovered = null;
+
     if(event.target.tagName.toLowerCase() != 'a') return;
 
     event.target.removeAttribute("aria-selected");
