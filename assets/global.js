@@ -1366,8 +1366,8 @@ class MyProductCard extends HTMLElement {
     const runTransition = ()=>{
       this.product_image.classList.add("fade-out");
 
-      this.product_image.addEventListener("transitionEnd",()=>{
-
+      this.product_image.addEventListener("transitionend",()=>{
+        
       });
     };
 
