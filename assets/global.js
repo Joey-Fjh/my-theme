@@ -1359,6 +1359,8 @@ class MyProductCard extends HTMLElement {
   handleMouseOver(event){
     if(event.target.tagName.toLowerCase() != 'a') return;
 
+    console.log("-----------",event.target);
+
     event.target.setAttribute("aria-selected",true);
 
     const image_src = this.getVariantImage(event.target);
