@@ -135,6 +135,7 @@
                                     style="--swatch-bgc:{{ value.swatch.color }}"
                                     title="{{ value }}"
                                     data-variant-image="{{ color_image | image_url: width: color_image.width }}"
+                                    data-variant-image-srcset="{{ color_image | image_url: width: 352 }} 352w, {{ color_image | image_url: width: 832 }} 832w, {{ color_image | image_url: width: 1200 }} 1200w, {{ color_image | image_url: width: 1920 }} 1920w"
                                 >
                                 </a>
                             </li>
@@ -145,6 +146,7 @@
                                 <a href="{{ product.url }}" class="color more"
                                     style="color:rgba(var(--color-foreground));text-decoration:none;"
                                     data-variant-image="{{ product.featured_image | image_url: width:  product.featured_image.width }}"
+                                    data-variant-image-srcset="{{ product.featured_image | image_url: width: 352 }} 352w, {{product.featured_image | image_url: width: 832 }} 832w, {{ product.featured_image | image_url: width: 1200 }} 1200w, {{ product.featured_image | image_url: width: 1920 }} 1920w"
                                 >
                                     +{{ option.values.size | minus: 2 }}
                                 </a>
