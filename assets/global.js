@@ -1348,8 +1348,8 @@ class MyProductCard extends HTMLElement {
     
     if(!color_swatch) return;
 
-    color_swatch.addEventListener("mouseover",this.handleMouseEnter.bind(this));
-    color_swatch.addEventListener("mouseout",this.handleMouseLeave.bind(this));
+    color_swatch.addEventListener("mouseover",this.handleMouseOver.bind(this));
+    color_swatch.addEventListener("mouseout",this.handleMouseOut.bind(this));
   }
 
   handleMouseOver(event){
