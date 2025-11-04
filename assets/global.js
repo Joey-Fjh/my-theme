@@ -1366,9 +1366,9 @@ class MyProductCard extends HTMLElement {
 
   handleMouseOut(event){  
     if(event.target.tagName.toLowerCase() != 'a') return;
-    
+
     event.target.removeAttribute("aria-selected");
-    // this.product_image.setAttribute("src",this.image_src_cache);
+    this.product_image.setAttribute("src",this.image_src_cache);
   }
 
   getVariantImage(target){
