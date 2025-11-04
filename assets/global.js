@@ -1370,11 +1370,13 @@ class MyProductCard extends HTMLElement {
         this.product_image.setAttribute('src',image_src);
         this.product_image.setAttribute('srcset',image_srcset);
         this.product_image.classList.remove("fade-out");
-      });
+      },{once:true});
     };
 
-    this.product_image.setAttribute("src",image_src);
-    this.product_image.setAttribute("srcset",image_srcset);
+    // If support ViewTransition, use it to wrap logic
+    if(document.startViewTransition){
+      document.startViewTransition(()=> runTransition);
+    }
   }
 
   handleMouseOut(event){  
