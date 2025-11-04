@@ -1381,8 +1381,11 @@ class MyProductCard extends HTMLElement {
       this.product_image.addEventListener("transitionend",()=>{
         this.product_image.setAttribute('src',image_src);
         this.product_image.setAttribute('srcset',image_srcset);
-        this.product_image.classList.remove("fade-out");
+        
+        this.image_src_cache = image_src;
+        this.image_srcset_cache = image_srcset;
 
+        this.product_image.classList.remove("fade-out");
         this.product_image.style.viewTransitionName = "";
       },{once:true});
     });
@@ -1411,8 +1414,8 @@ class MyProductCard extends HTMLElement {
       this.product_image.addEventListener("transitionend",()=>{
         this.product_image.setAttribute('src',this.image_src_cache);
         this.product_image.setAttribute('srcset',this.image_srcset_cache);
-        this.product_image.classList.remove("fade-out");
 
+        this.product_image.classList.remove("fade-out");
         this.product_image.style.viewTransitionName = "";
       },{once:true});
     });
