@@ -1341,17 +1341,6 @@ class MyProductCard extends HTMLElement {
 
     this.transitioning = false;
     this.lastTransitionTime = 0;
-
-    this.initViewTransition();
-  }
-
-  initViewTransition() {
-    if (document.startViewTransition) {
-      // 空操作，仅生成快照
-      document.startViewTransition(() => {});
-    }
-    // 强制 cursor 固定
-    this.product_image.style.cursor = "pointer";
   }
 
   connectedCallback(){
