@@ -1358,6 +1358,7 @@ class MyProductCard extends HTMLElement {
     event.target.setAttribute("aria-selected",true);
 
     const image_src = this.getVariantImage(event.target);
+    const image_srcset = this.getVariantImageSrcset(event.target);
 
     if(image_src == this.image_src_cache) return;
 
