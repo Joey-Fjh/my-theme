@@ -1411,12 +1411,11 @@ class MyProductCard extends HTMLElement {
   runTransition(cb){
     const now = Date.now();
 
-    if (this.transitioning || (this.lastTransitionTime && now - this.lastTransitionTime < 150)) {
-      return;
-    }
+    if (this.transitioning || (this.lastTransitionTime && now - this.lastTransitionTime < 150)) return;
 
     this.lastTransitionTime = now;
     this.transitioning = true;
+    
     const finish = () => {
       this.transitioning = false;
     };
