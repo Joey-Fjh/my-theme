@@ -1354,7 +1354,6 @@ class MyProductCard extends HTMLElement {
 
   handleMouseOver(event){
     event.target.setAttribute("aria-selected",true);
-    console.log(event)
 
     const image_src = this.getVariantImage(event.target);
 
@@ -1364,8 +1363,7 @@ class MyProductCard extends HTMLElement {
   }
 
   handleMouseOut(event){  
-    console.log(event)
-    event.relatedTarget.removeAttribute("aria-selected");
+    event.target.removeAttribute("aria-selected");
     // this.product_image.setAttribute("src",this.image_src_cache);
   }
 
