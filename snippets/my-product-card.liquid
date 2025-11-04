@@ -153,7 +153,7 @@
                             </li>
                         {%- endif -%}        
                     </ul>
-                {% comment %} {%- elsif is_size -%}
+                {%- elsif is_size -%}
                     <ul class="list-unstyled product-card__size">
                         {% for value in option.values limit: 2 %}
                             <li class="size">{{ value }}</li>
@@ -162,7 +162,7 @@
                         {%- if  option.values.size > 2 -%}
                             <li class="more">+{{ option.values.size | minus: 2 }}</li>
                         {%- endif -%}        
-                    </ul> {% endcomment %}
+                    </ul>
                 {%- endif -%}
             {% endfor %}
         {%- endunless -%}
