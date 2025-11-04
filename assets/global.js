@@ -1335,7 +1335,7 @@ class MyProductCard extends HTMLElement {
   constructor(){
     super();
 
-    this.product_image = this.querySelector("image");
+    this.product_image = this.querySelector(".image");
     this.image_src_cache = this.product_image?.getAttribute("src");
   }
 
