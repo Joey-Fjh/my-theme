@@ -1389,11 +1389,14 @@ class MyProductCard extends HTMLElement {
     event.target.removeAttribute("aria-selected");
 
     this.runTransition(()=>{
-      
-    });
+      this.product_image.classList.add("fade-out");
 
-    this.product_image.setAttribute("src",this.image_src_cache);
-    this.product_image.setAttribute("srcset",this.image_srcset_cache);
+      this.product_image.addEventListener("transitionend",()=>{
+        this.product_image.setAttribute('src',this.image_src_cache);
+        this.product_image.setAttribute('srcset',this.image_srcset_cache);
+        this.product_image.classList.remove("fade-out");
+      },{once:true});
+    });
   }
 
   getVariantImage(target){
