@@ -1358,7 +1358,6 @@ class MyProductCard extends HTMLElement {
 
   handleMouseOver(event){
     if(event.target.tagName.toLowerCase() != 'a') return;
-    console.log("----",event.target)
 
     event.target.setAttribute("aria-selected",true);
 
@@ -1368,9 +1367,6 @@ class MyProductCard extends HTMLElement {
     if(image_src == this.image_src_cache || image_srcset == this.image_srcset_cache) return;
 
     this.runTransition(()=>{
-      // const uniqueName = "product-image-" + performance.now();
-      // this.product_image.style.viewTransitionName = uniqueName;
-
       this.product_image.classList.add("fade-out");
 
       this.product_image.addEventListener("transitionend",()=>{
@@ -1381,14 +1377,12 @@ class MyProductCard extends HTMLElement {
         this.image_srcset_cache = image_srcset;
 
         this.product_image.classList.remove("fade-out");
-        // this.product_image.style.viewTransitionName = "";
       },{once:true});
     });
   }
 
   handleMouseOut(event){  
     if(event.target.tagName.toLowerCase() != 'a') return;
-    console.log("----",event.target)
 
     event.target.removeAttribute("aria-selected");
 
@@ -1398,9 +1392,6 @@ class MyProductCard extends HTMLElement {
     if(image_src == this.image_src_cache || image_srcset == this.image_srcset_cache) return;
 
     this.runTransition(()=>{
-      // const uniqueName = "product-image-" + performance.now();
-      // this.product_image.style.viewTransitionName = uniqueName;
-
       this.product_image.classList.add("fade-out");
 
       this.product_image.addEventListener("transitionend",()=>{
@@ -1408,7 +1399,6 @@ class MyProductCard extends HTMLElement {
         this.product_image.setAttribute('srcset',this.image_srcset_cache);
 
         this.product_image.classList.remove("fade-out");
-        // this.product_image.style.viewTransitionName = "";
       },{once:true});
     });
   }
@@ -1429,15 +1419,6 @@ class MyProductCard extends HTMLElement {
         cb();
         setTimeout(finish, 350); 
     });
-    // if (document.startViewTransition) {
-    //   const transition = document.startViewTransition(() => cb());
-    //   transition.finished.finally(finish);
-    // } else {
-    //   requestAnimationFrame(() => {
-    //     cb();
-    //     setTimeout(finish, 350); 
-    //   });
-    // }
   }
 
   getVariantImage(target){
