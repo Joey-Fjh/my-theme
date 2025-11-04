@@ -144,7 +144,7 @@
                             <li class="swatch">
                                 <a href="{{ product.url }}" class="color more"
                                     style="color:rgba(var(--color-foreground));text-decoration:none;"
-                                    data-variant-image="{{ product.featured_image }}"
+                                    data-variant-image="{{ product.featured_image | image_url: width:  product.featured_image.width }}"
                                 >
                                     +{{ option.values.size | minus: 2 }}
                                 </a>
