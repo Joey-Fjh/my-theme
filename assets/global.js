@@ -1353,7 +1353,8 @@ class MyProductCard extends HTMLElement {
   }
 
   handleMouseOver(event){
-    console.log(event.target,'<---------');
+    if(event.target.tagName.toLowerCase() != 'a') return;
+
     event.target.setAttribute("aria-selected",true);
 
     const image_src = this.getVariantImage(event.target);
@@ -1364,6 +1365,8 @@ class MyProductCard extends HTMLElement {
   }
 
   handleMouseOut(event){  
+    if(event.target.tagName.toLowerCase() != 'a') return;
+    
     event.target.removeAttribute("aria-selected");
     // this.product_image.setAttribute("src",this.image_src_cache);
   }
