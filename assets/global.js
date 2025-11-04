@@ -1338,6 +1338,9 @@ class MyProductCard extends HTMLElement {
     this.product_image = this.querySelector(".image");
     this.image_src_cache = this.product_image?.getAttribute("src");
     this.image_srcset_cache = this.product_image?.getAttribute("srcset");
+
+    this.transitioning = false;
+    this.lastTransitionTime = 0;
   }
 
   connectedCallback(){
@@ -1364,23 +1367,19 @@ class MyProductCard extends HTMLElement {
     if(image_src == this.image_src_cache || image_srcset == this.image_srcset_cache) return;
 
     this.runTransition(()=>{
+      const uniqueName = "product-image-" + performance.now();
+      this.product_image.style.viewTransitionName = uniqueName;
+
       this.product_image.classList.add("fade-out");
 
       this.product_image.addEventListener("transitionend",()=>{
         this.product_image.setAttribute('src',image_src);
         this.product_image.setAttribute('srcset',image_srcset);
         this.product_image.classList.remove("fade-out");
+
+        this.product_image.style.viewTransitionName = "";
       },{once:true});
     });
-  }
-
-  runTransition(cb){
-    if(document.startViewTransition){
-      document.startViewTransition(()=> cb());
-      return;
-    }
-
-    cb();
   }
 
   handleMouseOut(event){  
@@ -1389,14 +1388,43 @@ class MyProductCard extends HTMLElement {
     event.target.removeAttribute("aria-selected");
 
     this.runTransition(()=>{
+      const uniqueName = "product-image-" + performance.now();
+      this.product_image.style.viewTransitionName = uniqueName;
+
       this.product_image.classList.add("fade-out");
 
       this.product_image.addEventListener("transitionend",()=>{
         this.product_image.setAttribute('src',this.image_src_cache);
         this.product_image.setAttribute('srcset',this.image_srcset_cache);
         this.product_image.classList.remove("fade-out");
+
+        this.product_image.style.viewTransitionName = "";
       },{once:true});
     });
+  }
+
+  runTransition(cb){
+    const now = Date.now();
+
+    if (this.transitioning || (this.lastTransitionTime && now - this.lastTransitionTime < 150)) {
+      return;
+    }
+
+    this.lastTransitionTime = now;
+    this.transitioning = true;
+    const finish = () => {
+      this.transitioning = false;
+    };
+
+    if (document.startViewTransition) {
+      const transition = document.startViewTransition(() => cb());
+      transition.finished.finally(finish);
+    } else {
+      requestAnimationFrame(() => {
+        cb();
+        setTimeout(finish, 350); 
+      });
+    }
   }
 
   getVariantImage(target){
