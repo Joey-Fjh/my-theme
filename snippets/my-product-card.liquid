@@ -108,7 +108,7 @@
             {% for option in product.options_with_values %}
                 {% assign option_name = option.name | strip | downcase %}
                 {% assign is_swatch = false %}
-                {% assign is_size = false %}
+                {% comment %} {% assign is_size = false %} {% endcomment %}
 
                 {% for trigger in swatch_triggers %}
                     {%- assign compare_option = trigger | strip | downcase -%}
@@ -122,7 +122,7 @@
                     {%- assign compare_option = trigger | strip | downcase -%}
                     
                     {%- if option_name == compare_option -%}
-                        {%- assign is_size = true -%}
+                        {% comment %} {%- assign is_size = true -%} {% endcomment %}
                     {%- endif -%}
                 {% endfor %}
 
@@ -134,16 +134,18 @@
                                 <a href="javascript:void(0);" 
                                     class="color"
                                     style="--swatch-bgc:{{ value.swatch.color }}"
+                                    title="{{ value }}"
                                     aria-selected="{{ value.selected }}"
                                 >
-                                    {{ value }}
                                 </a>
                             </li>
                         {% endfor %}
     
                         {%- if  option.values.size > 2 -%}
                             <li class="swatch">
-                                <a href="javascript:void(0);" class="color">
+                                <a href="javascript:void(0);" class="color"
+                                    style="color:rgba(var(--color-foreground));"
+                                >
                                     +{{ option.values.size | minus: 2 }}
                                 </a>
                             </li>
