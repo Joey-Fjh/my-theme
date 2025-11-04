@@ -141,7 +141,7 @@
                             </li>
                         {% endfor %}
     
-                        {%- if  option.values.size > 2 -%}
+                        {% comment %} {%- if  option.values.size > 2 -%}
                             <li class="swatch">
                                 <a href="{{ product.url }}" class="color more"
                                     style="color:rgba(var(--color-foreground));text-decoration:none;"
@@ -151,7 +151,7 @@
                                     +{{ option.values.size | minus: 2 }}
                                 </a>
                             </li>
-                        {%- endif -%}        
+                        {%- endif -%}         {% endcomment %}
                     </ul>
                 {% comment %} {%- elsif is_size -%}
                     <ul class="list-unstyled product-card__size">
