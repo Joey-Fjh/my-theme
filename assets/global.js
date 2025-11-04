@@ -1415,7 +1415,7 @@ class MyProductCard extends HTMLElement {
 
     this.lastTransitionTime = now;
     this.transitioning = true;
-    
+
     const finish = () => {
       this.transitioning = false;
     };
