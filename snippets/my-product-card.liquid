@@ -161,6 +161,7 @@
                                 <a href="{{ product.url }}?variant={{ value.variant.id }}"
                                     class="size"
                                     title="{{ value.name }}"
+                                    style="color:rgba(var(--color-foreground));text-decoration:none;"
                                     data-variant-image="{{ size_image | image_url: width: size_image.width }}"
                                     data-variant-image-srcset="{{ size_image | image_url: width: 352 }} 352w, {{ size_image | image_url: width: 832 }} 832w, {{ size_image | image_url: width: 1200 }} 1200w, {{ size_image | image_url: width: 1920 }} 1920w"
                                 >
