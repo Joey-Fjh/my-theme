@@ -1375,8 +1375,11 @@ class MyProductCard extends HTMLElement {
 
     // If support ViewTransition, use it to wrap logic
     if(document.startViewTransition){
-      document.startViewTransition(()=> runTransition);
+      document.startViewTransition(()=> runTransition());
+      return;
     }
+
+    runTransition();
   }
 
   handleMouseOut(event){  
