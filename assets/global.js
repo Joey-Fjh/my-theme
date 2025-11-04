@@ -1341,8 +1341,6 @@ class MyProductCard extends HTMLElement {
 
     this.transitioning = false;
     this.lastTransitionTime = 0;
-
-    this.lastHovered = null;
   }
 
   connectedCallback(){
@@ -1359,10 +1357,6 @@ class MyProductCard extends HTMLElement {
   }
 
   handleMouseOver(event){
-    if (this.lastHovered === event.target) return; 
-    this.lastHovered = event.target;
-    console.log(event.target);
-
     if(event.target.tagName.toLowerCase() != 'a') return;
 
     event.target.setAttribute("aria-selected",true);
@@ -1392,10 +1386,6 @@ class MyProductCard extends HTMLElement {
   }
 
   handleMouseOut(event){  
-    if (this.lastHovered != event.target) return;
-    this.lastHovered = null;
-    console.log(event.target);
-
     if(event.target.tagName.toLowerCase() != 'a') return;
 
     event.target.removeAttribute("aria-selected");
