@@ -1337,6 +1337,7 @@ class MyProductCard extends HTMLElement {
 
     this.product_image = this.querySelector(".image");
     this.image_src_cache = this.product_image?.getAttribute("src");
+    this.image_srcset_cache = this.product_image?.getAttribute("srcset");
   }
 
   connectedCallback(){
@@ -1370,7 +1371,7 @@ class MyProductCard extends HTMLElement {
     if(event.target.tagName.toLowerCase() != 'a') return;
 
     event.target.removeAttribute("aria-selected");
-    
+
     this.product_image.setAttribute("src",this.image_src_cache);
     this.product_image.setAttribute("srcset",this.image_srcset_cache);
   }
