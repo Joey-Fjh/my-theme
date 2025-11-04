@@ -1341,6 +1341,8 @@ class MyProductCard extends HTMLElement {
 
     this.transitioning = false;
     this.lastTransitionTime = 0;
+
+    this.lastHovered = null;
   }
 
   connectedCallback(){
@@ -1357,6 +1359,9 @@ class MyProductCard extends HTMLElement {
   }
 
   handleMouseOver(event){
+     if (this.lastHovered === target) return; // 同一个元素连续 hover，不处理
+    this.lastHovered = target;
+
     if(event.target.tagName.toLowerCase() != 'a') return;
 
     console.log("-----------",event.target);
