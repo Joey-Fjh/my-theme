@@ -1388,7 +1388,9 @@ class MyProductCard extends HTMLElement {
 
     event.target.removeAttribute("aria-selected");
 
-    const runTransition
+    this.runTransition(()=>{
+      
+    });
 
     this.product_image.setAttribute("src",this.image_src_cache);
     this.product_image.setAttribute("srcset",this.image_srcset_cache);
