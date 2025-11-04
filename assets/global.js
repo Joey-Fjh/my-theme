@@ -1388,7 +1388,8 @@ class MyProductCard extends HTMLElement {
   }
 
   handleMouseOut(event){  
-    if(this.lastHovered )
+    if (this.lastHovered !== target) return;
+    this.lastHovered = null;
 
     if(event.target.tagName.toLowerCase() != 'a') return;
 
