@@ -133,7 +133,7 @@
                             <li class="swatch">
                                 <a href="javascript:void(0);" 
                                     class="color"
-                                    style="--swatch-bgc:{{ value.swatch }}"
+                                    style="--swatch-bgc:{{ value.swatch.color }}"
                                     aria-selected="{{ value.selected }}"
                                 >
                                     {{ value }}
@@ -142,7 +142,11 @@
                         {% endfor %}
     
                         {%- if  option.values.size > 2 -%}
-                            <li class="more">+{{ option.values.size | minus: 2 }}</li>
+                            <li class="swatch">
+                                <a href="javascript:void(0);" class="color">
+                                    +{{ option.values.size | minus: 2 }}
+                                </a>
+                            </li>
                         {%- endif -%}        
                     </ul>
                 {% comment %} {%- elsif is_size -%}
