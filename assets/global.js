@@ -1359,8 +1359,8 @@ class MyProductCard extends HTMLElement {
   }
 
   handleMouseOver(event){
-     if (this.lastHovered === target) return; // 同一个元素连续 hover，不处理
-    this.lastHovered = target;
+    if (this.lastHovered === event.target) return; 
+    this.lastHovered = event.target;
 
     if(event.target.tagName.toLowerCase() != 'a') return;
 
