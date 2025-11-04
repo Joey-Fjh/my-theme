@@ -1361,6 +1361,7 @@ class MyProductCard extends HTMLElement {
   handleMouseOver(event){
     if (this.lastHovered === event.target) return; 
     this.lastHovered = event.target;
+    console.log(event.target);
 
     if(event.target.tagName.toLowerCase() != 'a') return;
 
@@ -1390,6 +1391,7 @@ class MyProductCard extends HTMLElement {
   handleMouseOut(event){  
     if (this.lastHovered != event.target) return;
     this.lastHovered = null;
+    console.log(event.target);
 
     if(event.target.tagName.toLowerCase() != 'a') return;
 
