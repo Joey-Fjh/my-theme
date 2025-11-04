@@ -100,7 +100,6 @@
     },
     "my_product_list_BMjQet": {
       "type": "my-product-list",
-      "disabled": true,
       "name": "my-product-list",
       "settings": {
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
@@ -485,7 +484,6 @@
     },
     "my_color_comparison_aRQifX": {
       "type": "my-color-comparison",
-      "disabled": true,
       "name": "my-color-comparison",
       "settings": {
         "is_fullWidth": false,
@@ -542,7 +540,6 @@
     },
     "my_featured_blog_Wa7B4H": {
       "type": "my-featured-blog",
-      "disabled": true,
       "name": "my-featured-blog",
       "settings": {
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
