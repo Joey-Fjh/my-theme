@@ -1361,7 +1361,7 @@ class MyProductCard extends HTMLElement {
     const image_src = this.getVariantImage(event.target);
     const image_srcset = this.getVariantImageSrcset(event.target);
 
-    if(image_src == this.image_src_cache || image_srcset_cache == this.image_srcset_cache) return;
+    if(image_src == this.image_src_cache || image_srcset == this.image_srcset_cache) return;
 
     this.product_image.setAttribute("src",image_src);
     this.product_image.setAttribute("srcset",image_srcset);
