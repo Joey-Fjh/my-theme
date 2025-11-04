@@ -156,11 +156,29 @@
                 {%- elsif is_size -%}
                     <ul class="list-unstyled product-card__size">
                         {% for value in option.values limit: 2 %}
-                            <li class="size">{{ value }}</li>
+                            <li class="sizes">
+                                {%- assign size_image = value.variant.featured_image | default: product.featured_image -%}
+                                <a href="{{ product.url }}?variant={{ value.variant.id }}"
+                                    class="size"
+                                    title="{{ value.name }}"
+                                    data-variant-image="{{ size_image | image_url: width: size_image.width }}"
+                                    data-variant-image-srcset="{{ size_image | image_url: width: 352 }} 352w, {{ size_image | image_url: width: 832 }} 832w, {{ size_image | image_url: width: 1200 }} 1200w, {{ size_image | image_url: width: 1920 }} 1920w"
+                                >
+                                    {{ value.name | escape }}
+                                </a>
+                            </li>
                         {% endfor %}
     
                         {%- if  option.values.size > 2 -%}
-                            <li class="more">+{{ option.values.size | minus: 2 }}</li>
+                            <li class="sizes">
+                                <a href="{{ product.url }}" class="size more"
+                                    style="color:rgba(var(--color-foreground));text-decoration:none;"
+                                    data-variant-image="{{ product.featured_image | image_url: width:  product.featured_image.width }}"
+                                    data-variant-image-srcset="{{ product.featured_image | image_url: width: 352 }} 352w, {{product.featured_image | image_url: width: 832 }} 832w, {{ product.featured_image | image_url: width: 1200 }} 1200w, {{ product.featured_image | image_url: width: 1920 }} 1920w"
+                                >
+                                    +{{ option.values.size | minus: 2 }}
+                                </a>
+                            </li>
                         {%- endif -%}        
                     </ul>
                 {%- endif -%}

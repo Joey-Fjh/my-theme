@@ -1345,6 +1345,7 @@ class MyProductCard extends HTMLElement {
 
   connectedCallback(){
     this.initColorSwatch();
+    this.initSizes();
   }
 
   initColorSwatch(){
@@ -1354,6 +1355,15 @@ class MyProductCard extends HTMLElement {
 
     color_swatch.addEventListener("mouseover",this.handleMouseOver.bind(this));
     color_swatch.addEventListener("mouseout",this.handleMouseOut.bind(this));
+  }
+
+  initSizes(){
+    const sizes = this.querySelector(".product-card__size");
+
+    if(!sizes) return;
+
+    sizes.addEventListener("mouseover",this.handleMouseOver.bind(this));
+    sizes.addEventListener("mouseout",this.handleMouseOut.bind(this));
   }
 
   handleMouseOver(event){
