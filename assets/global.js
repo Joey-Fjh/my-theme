@@ -1352,25 +1352,19 @@ class MyProductCard extends HTMLElement {
     color_swatch.addEventListener("mouseout",this.handleMouseLeave.bind(this));
   }
 
-  handleMouseEnter(event){
-    console.log('event.target:', event.target);
-    console.log('event.relatedTarget:', event.relatedTarget); 
+  handleMouseOver(event){
+    event.target.setAttribute("aria-selected",true);
 
-    // event.target.setAttribute("aria-selected",true);
+    const image_src = this.getVariantImage(event.target);
 
-    // const image_src = this.getVariantImage(event.target);
+    if(image_src == this.image_src_cache) return;
 
-    // if(image_src == this.image_src_cache) return;
-
-    // this.product_image.setAttribute("src",image_src);
+    this.product_image.setAttribute("src",image_src);
   }
 
-  handleMouseLeave(event){
-    console.log('event.target:', event.target);
-    console.log('event.relatedTarget:', event.relatedTarget); 
-    
-    // event.target.removeAttribute("aria-selected");
-    // this.product_image.setAttribute("src",this.image_src_cache);
+  handleMouseOut(event){  
+    event.relatedTarget.removeAttribute("aria-selected");
+    this.product_image.setAttribute("src",this.image_src_cache);
   }
 
   getVariantImage(target){
