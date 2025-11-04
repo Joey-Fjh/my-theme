@@ -1340,8 +1340,6 @@ class MyProductCard extends HTMLElement {
   }
 
   connectedCallback(){
-    super.connectedCallback();
-
     this.initColorSwatch();
   }
 
