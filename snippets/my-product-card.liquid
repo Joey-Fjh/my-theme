@@ -107,7 +107,7 @@
             {% for option in product.options_with_values %}
                 {% assign option_name = option.name | strip | downcase %}
                 {% assign is_swatch = false %}
-                {% comment %} {% assign is_size = false %} {% endcomment %}
+                {% assign is_size = false %}
 
                 {% for trigger in swatch_triggers %}
                     {%- assign compare_option = trigger | strip | downcase -%}
@@ -121,7 +121,7 @@
                     {%- assign compare_option = trigger | strip | downcase -%}
                     
                     {%- if option_name == compare_option -%}
-                        {% comment %} {%- assign is_size = true -%} {% endcomment %}
+                        {%- assign is_size = true -%}
                     {%- endif -%}
                 {% endfor %}
 
