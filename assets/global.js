@@ -1335,48 +1335,42 @@ class MyProductCard extends HTMLElement {
   constructor(){
     super();
 
-    this.abortController = undefined;
+    this.product_image = this.querySelector("image");
+    this.image_src_cache = this.product_image?.getAttribute("src");
   }
 
   connectedCallback(){
     super.connectedCallback();
+
+    this.initColorSwatch();
   }
 
-  updateVariantSelectMetaData({ target }) {
-    // set attribute or class 
-  }
-
-  handleOptionValueChange({ data: { event, target, selectedOptionValues } }) {
-    if (!this.contains(event.target)) return;
-
-    // this.resetProductFormState();
-
-    // const productUrl = target.dataset.productUrl || this.pendingRequestUrl || this.dataset.url;
-    // this.pendingRequestUrl = productUrl;
-    // const shouldSwapProduct = this.dataset.url !== productUrl;
-    // const shouldFetchFullPage = this.dataset.updateUrl === 'true' && shouldSwapProduct;
-
-    // this.renderProductInfo({
-    //   requestUrl: this.buildRequestUrlWithParams(productUrl, selectedOptionValues, shouldFetchFullPage),
-    //   targetId: target.id,
-    //   callback: shouldSwapProduct
-    //     ? this.handleSwapProduct(productUrl, shouldFetchFullPage)
-    //     : this.handleUpdateProductInfo(productUrl),
-    // });
-  }
-
-  renderProductInfo(){
+  initColorSwatch(){
+    const color_swatch = this.querySelector(".product-card__swatch");
     
+    if(!color_swatch) return;
+
+    color_swatch.addEventListener("mouseenter",this.handleMouseEnter.bind(this));
+    color_swatch.addEventListener("mouseleave",this.handleMouseLeave.bind(this));
   }
 
-  get sectionId(){
-    return this.dataset.sectionId;
+  handleMouseEnter(event){
+    event.target.setAttribute("aria-selected",true);
+
+    const image_src = this.getVariantImage(event.target);
+
+    if(image_src == this.image_src_cache) return;
+
+    this.product_image.setAttribute("src",image_src);
   }
 
-  get selectedOptionValues() {
-    // return Array.from(this.querySelectorAll('select option[selected], fieldset input:checked')).map(
-    //   ({ dataset }) => dataset.optionValueId
-    // );
+  handleMouseLeave(event){
+    event.target.removeAttribute("aria-selected");
+    this.product_image.setAttribute("src",this.image_src_cache);
+  }
+
+  getVariantImage(target){
+    return target.dataset.variantImage;
   }
 }
 

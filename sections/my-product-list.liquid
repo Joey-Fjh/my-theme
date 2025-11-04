@@ -68,11 +68,10 @@
         {%- endif -%}
     </div>
 
-    <my-product-card class="
+    <div class="
         content__container my-page-width
         {% if section.settings.full_width %} content-full-width {% endif %} 
         "
-        data-section-id="{{ section.id }}"
     >
         <style>
             .section-{{ section.id }}-padding{
@@ -216,7 +215,7 @@
                 </div> {% endcomment %}
             {% endfor %}
         {%- endif -%}
-    </my-product-card>
+    </div>
     
     {%- if section.settings.show_view_all and has_more_product -%}
         <div class="center collection__view-all{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">

@@ -23,9 +23,7 @@
     {%- assign current_variant = product.selected_or_first_available_variant -%}
 {%- endif -%}
 
-<div class="product-card__container"
-    product-id="{{ product.id }}"
->
+<my-product-card class="product-card__container">
     <responsive-container class="product-card__image 
         {% if section.settings.show_operation == 'hover' %} product-card__image-hover {% endif %}
         "
@@ -79,7 +77,8 @@
         {%- endif -%}
     </responsive-container> 
 
-    <div class="product-card__content product-{{ section.settings.alignment }}">
+    <div class="product-card__content product-{{ section.settings.alignment }}"
+    >
         <div class="product-card__title">
             <a
                 href="{{ product.url }}"
@@ -126,16 +125,15 @@
                     {%- endif -%}
                 {% endfor %}
 
-                
                 {%- if is_swatch -%}
                     <ul class="list-unstyled product-card__swatch">
                         {% for value in option.values limit: 2 %}
                             <li class="swatch">
-                                <a href="javascript:void(0);" 
+                                <a href="{{ value.product_url }}?variant={{ value.variant.id }}" 
                                     class="color"
                                     style="--swatch-bgc:{{ value.swatch.color }}"
                                     title="{{ value }}"
-                                    aria-selected="{{ value.selected }}"
+                                    data-variant-image="{{ value.variant.featured_image | default: product.featured_image }}"
                                 >
                                 </a>
                             </li>
@@ -143,8 +141,8 @@
     
                         {%- if  option.values.size > 2 -%}
                             <li class="swatch">
-                                <a href="javascript:void(0);" class="color"
-                                    style="color:rgba(var(--color-foreground));"
+                                <a href="{{ product.url }}" class="color more"
+                                    style="color:rgba(var(--color-foreground));text-decoration:none;"
                                 >
                                     +{{ option.values.size | minus: 2 }}
                                 </a>
@@ -165,4 +163,4 @@
             {% endfor %}
         {%- endunless -%}
     </div>
-</div>
+</my-product-card>
