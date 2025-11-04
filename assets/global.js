@@ -1374,6 +1374,10 @@ class MyProductCard extends HTMLElement {
   getVariantImage(target){
     return target.dataset.variantImage;
   }
+
+  getVariantImageSrcset(target){
+    return target.dataset.variantImageSrcset;
+  }
 }
 
 customElements.define('my-product-card',MyProductCard)
