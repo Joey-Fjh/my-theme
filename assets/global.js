@@ -1358,6 +1358,7 @@ class MyProductCard extends HTMLElement {
 
   handleMouseOver(event){
     if(event.target.tagName.toLowerCase() != 'a') return;
+    console.log("----",event.target)
 
     event.target.setAttribute("aria-selected",true);
 
@@ -1387,6 +1388,7 @@ class MyProductCard extends HTMLElement {
 
   handleMouseOut(event){  
     if(event.target.tagName.toLowerCase() != 'a') return;
+    console.log("----",event.target)
 
     event.target.removeAttribute("aria-selected");
 
