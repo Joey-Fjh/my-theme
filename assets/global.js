@@ -1341,6 +1341,11 @@ class MyProductCard extends HTMLElement {
 
     this.transitioning = false;
     this.lastTransitionTime = 0;
+
+    if (document.startViewTransition) {
+      // 空操作，仅生成快照
+      document.startViewTransition(() => {});
+    }
   }
 
   connectedCallback(){
