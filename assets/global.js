@@ -1364,8 +1364,6 @@ class MyProductCard extends HTMLElement {
 
     if(event.target.tagName.toLowerCase() != 'a') return;
 
-    console.log("-----------",event.target);
-
     event.target.setAttribute("aria-selected",true);
 
     const image_src = this.getVariantImage(event.target);
@@ -1390,6 +1388,8 @@ class MyProductCard extends HTMLElement {
   }
 
   handleMouseOut(event){  
+    if(this.lastHovered )
+
     if(event.target.tagName.toLowerCase() != 'a') return;
 
     event.target.removeAttribute("aria-selected");
