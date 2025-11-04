@@ -129,7 +129,7 @@
                     <ul class="list-unstyled product-card__swatch">
                         {% for value in option.values limit: 2 %}
                             <li class="swatch">
-                                <a href="{{ value.product_url }}?variant={{ value.variant.id }}" 
+                                <a href="{{ product.url }}?variant={{ value.variant.id }}" 
                                     class="color"
                                     style="--swatch-bgc:{{ value.swatch.color }}"
                                     title="{{ value }}"

@@ -1353,6 +1353,9 @@ class MyProductCard extends HTMLElement {
   }
 
   handleMouseEnter(event){
+    console.log('event.target:', event.target);
+    console.log('event.relatedTarget:', event.relatedTarget); 
+
     event.target.setAttribute("aria-selected",true);
 
     const image_src = this.getVariantImage(event.target);
@@ -1363,6 +1366,9 @@ class MyProductCard extends HTMLElement {
   }
 
   handleMouseLeave(event){
+    console.log('event.target:', event.target);
+    console.log('event.relatedTarget:', event.relatedTarget); 
+    
     event.target.removeAttribute("aria-selected");
     this.product_image.setAttribute("src",this.image_src_cache);
   }
