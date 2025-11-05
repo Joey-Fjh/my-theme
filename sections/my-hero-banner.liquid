@@ -58,11 +58,12 @@
   document.addEventListener('DOMContentLoaded', function() {
     const sectionId = '{{ section.id }}';
     const button = document.querySelector(`[data-section-button="${sectionId}"]`);
-    
+    console.log(button);
     if (button) {
       button.addEventListener('expired-change', (e)=>{
         const { value } = e.detail;
-        
+        console.log("////",value);
+
         button.style.display = value ? 'none' : 'block';
       });
     }
