@@ -1420,6 +1420,64 @@ class MyProductCard extends HTMLElement {
   //   this.timeId = setTimeout(cb,100);
   // }
 
+  handleMouseOver(event) {
+    if (event.target.tagName.toLowerCase() !== 'a') return;
+    event.target.setAttribute("aria-selected", true);
+
+    const image_src = this.getVariantImage(event.target);
+    const image_srcset = this.getVariantImageSrcset(event.target);
+
+    if (image_src === this.image_src_cache && image_srcset === this.image_srcset_cache) return;
+
+    this.pendingImage = { src: image_src, srcset: image_srcset };
+
+    this.scheduleTransition();
+  }
+
+  handleMouseOut(event) {
+    if (event.target.tagName.toLowerCase() !== 'a') return;
+    event.target.removeAttribute("aria-selected");
+  }
+
+  scheduleTransition(delay = 120) {
+    clearTimeout(this.transitionTimer);
+
+    this.transitionTimer = setTimeout(() => {
+      const { src, srcset } = this.pendingImage || {};
+
+      if (!src || src === this.image_src_cache) return;
+
+      this.startTransition(src, srcset);
+    }, delay);
+  }
+
+  startTransition(newSrc, newSrcset) {
+    if (this.transitioning) {
+      this.product_image.classList.remove("fade-out");
+      this.transitioning = false;
+    }
+
+    this.transitioning = true;
+    this.product_image.classList.add("fade-out");
+
+    const handleEnd = () => {
+      if (this.pendingImage?.src === newSrc) {
+        this.product_image.setAttribute('src', newSrc);
+        this.product_image.setAttribute('srcset', newSrcset);
+        
+        this.image_src_cache = newSrc;
+        this.image_srcset_cache = newSrcset;
+      }
+
+      this.product_image.classList.remove("fade-out");
+      this.transitioning = false;
+      this.product_image.removeEventListener("transitionend", handleEnd);
+    };
+
+    this.product_image.addEventListener("transitionend", handleEnd);
+  }
+
+
   getVariantImage(target){
     return target.dataset.variantImage;
   }
