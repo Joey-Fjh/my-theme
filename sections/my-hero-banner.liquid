@@ -44,6 +44,7 @@
       </div>
       <my-count-down
         target-date="{{ section.settings.target_date | date: '%Y-%m-%dT%H:%M:%S' }}"
+        data-section-id="{{ section.id }}"
       >
       </my-count-down>
       <a href="{{ section.settings.button_link }}" class="button"
@@ -57,10 +58,11 @@
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     const sectionId = '{{ section.id }}';
-    const button = document.querySelector(`[data-section-button="${sectionId}"]`);
+    const countDown = document.querySelector(`my-count-down[data-section-id="${sectionId}"]`);
+    const button = countDown.querySelector(`[data-section-button="${sectionId}"]`);
     console.log(button);
     if (button) {
-      button.addEventListener('expired-change', (e)=>{
+      countDown.addEventListener('expired-change', (e)=>{
         const { value } = e.detail;
         console.log("////",value);
 
