@@ -1377,8 +1377,8 @@ class MyProductCard extends HTMLElement {
     if(image_src == this.image_src_cache || image_srcset == this.image_srcset_cache) return;
 
     this.runTransition(()=>{
-      this.product_image.classList.add("fade-out");
       this.transitioning = true;
+      this.product_image.classList.add("fade-out");
 
       this.product_image.addEventListener("transitionend",()=>{
         this.product_image.setAttribute('src',image_src);
@@ -1399,14 +1399,15 @@ class MyProductCard extends HTMLElement {
     event.target.removeAttribute("aria-selected");
 
     this.runTransition(()=>{
-      this.product_image.classList.add("fade-out");
       this.transitioning = true;
+      this.product_image.classList.add("fade-out");
 
       this.product_image.addEventListener("transitionend",()=>{
         this.product_image.setAttribute('src',this.image_src_cache);
         this.product_image.setAttribute('srcset',this.image_srcset_cache);
 
         this.product_image.classList.remove("fade-out");
+        this.transitioning = false;
       },{once:true});
     });
   }
