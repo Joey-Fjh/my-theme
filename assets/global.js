@@ -1340,7 +1340,7 @@ class MyProductCard extends HTMLElement {
     this.image_srcset_cache = this.product_image?.getAttribute("srcset");
 
     this.timeId = null;
-    this.transition = null;
+    this.transition = false;
   }
 
   connectedCallback(){
@@ -1410,6 +1410,8 @@ class MyProductCard extends HTMLElement {
 
   runTransition(cb){
     clearTimeout(this.timeId);
+
+    if(this.t)
     
     this.timeId = setTimeout(cb,100);
   }
