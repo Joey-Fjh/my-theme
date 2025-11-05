@@ -46,9 +46,28 @@
         target-date="{{ section.settings.target_date | date: '%Y-%m-%dT%H:%M:%S' }}"
       >
       </my-count-down>
-      <a href="{{ section.settings.button_link }}" class="button">{{ section.settings.button_text }}</a>
+      <a href="{{ section.settings.button_link }}" class="button"
+        data-section-button="{{ section.id }}"
+      >
+        {{ section.settings.button_text }}
+      </a>
     </div>
 </responsive-container>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const sectionId = '{{ section.id }}';
+    const button = document.querySelector(`[data-section-button="${sectionId}"]`);
+    
+    if (button) {
+      button.addEventListener('expired-change', (e)=>{
+        const { value } = e.detail;
+        
+        button.style.display = value ? 'none' : 'block';
+      });
+    }
+  });
+</script>
 
 {% schema %}
   {
