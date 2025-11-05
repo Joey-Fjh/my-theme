@@ -1411,7 +1411,7 @@ class MyProductCard extends HTMLElement {
 
     if(this.transitioning) return;
     
-    this.timeId = setTimeout(cb,100);
+    this.timeId = setTimeout(cb,1000);
   }
 
 
