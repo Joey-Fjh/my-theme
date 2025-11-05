@@ -1459,7 +1459,7 @@ class MyProductCard extends HTMLElement {
     this.transitioning = true;
     this.product_image.classList.add("fade-out");
 
-    this.product_image.addEventListener("transitionend", handleTransitionEnd);
+    this.product_image.addEventListener("transitionend", this.handleTransitionEnd);
   }
 
   handleTransitionEnd(){
