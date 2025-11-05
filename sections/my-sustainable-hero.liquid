@@ -32,8 +32,8 @@
     <div class="image-primary">
       {%- if section.settings.primary_image != blank -%}
         <img 
-          width="400"
-          height="400"
+          width="{{ section.settings.primary_image.width }}"
+          height="{{ section.settings.primary_image.height }}"
           src="{{ section.settings.primary_image | image_url: width:section.settings.primary_image.width }}" 
           alt="{{ section.settings.primary_image.alt | default: 'Sustainable fashion model' }}"
           loading="lazy"
@@ -46,8 +46,8 @@
     <div class="image-secondary">
       {%- if section.settings.secondary_image != blank -%}
         <img
-          width="400"
-          height="400" 
+          width="{{ section.settings.secondary_image.width }}"
+          height="{{ section.settings.secondary_image.height }}" 
           src="{{ section.settings.secondary_image | image_url: width: section.settings.secondary_image.width }}" 
           alt="{{ section.settings.secondary_image.alt | default: 'Fashion accessory' }}"
           loading="lazy"
@@ -87,8 +87,8 @@
 
   <div class="image-primary image-mobile-behavior">
       <img 
-          width="400"
-          height="400"
+          width="{{ section.settings.primary_image.width }}"
+          height="{{ section.settings.primary_image.height }}"
           src="{{ section.settings.primary_image | image_url: width: section.settings.primary_image.width}}" 
           alt="{{ section.settings.primary_image.alt | default: 'Sustainable fashion model' }}"
           loading="lazy"
