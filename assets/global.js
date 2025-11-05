@@ -1341,7 +1341,6 @@ class MyProductCard extends HTMLElement {
 
     this.timeId = null;
     this.transitioning = false;
-    this.pendingImage = null;
   }
 
   connectedCallback(){
