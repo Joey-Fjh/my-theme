@@ -1459,7 +1459,10 @@ class MyProductCard extends HTMLElement {
     this.transitioning = true;
     this.product_image.classList.add("fade-out");
 
-    const handleEnd = () => {
+    this.product_image.addEventListener("transitionend", handleTransitionEnd);
+  }
+
+  handleTransitionEnd(){
       if (this.pendingImage?.src === newSrc) {
         this.product_image.setAttribute('src', newSrc);
         this.product_image.setAttribute('srcset', newSrcset);
@@ -1471,9 +1474,6 @@ class MyProductCard extends HTMLElement {
       this.product_image.classList.remove("fade-out");
       this.transitioning = false;
       this.product_image.removeEventListener("transitionend", handleEnd);
-    };
-
-    this.product_image.addEventListener("transitionend", handleEnd);
   }
 
 
