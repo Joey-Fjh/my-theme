@@ -60,12 +60,11 @@
     const sectionId = '{{ section.id }}';
     const countDown = document.querySelector(`my-count-down[data-section-id="${sectionId}"]`);
     const button = document.querySelector(`[data-section-button="${sectionId}"]`);
-    console.log(button);
+    
     if (button) {
       countDown.addEventListener('expired-change', (e)=>{
         const { value } = e.detail;
-        console.log("////",value);
-
+        
         button.style.display = value ? 'none' : 'block';
       });
     }
