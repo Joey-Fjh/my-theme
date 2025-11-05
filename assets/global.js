@@ -1339,8 +1339,7 @@ class MyProductCard extends HTMLElement {
     this.image_src_cache = this.product_image?.getAttribute("src");
     this.image_srcset_cache = this.product_image?.getAttribute("srcset");
 
-    this.transitioning = false;
-    this.lastTransitionTime = 0;
+    this.transitioning = null;
   }
 
   connectedCallback(){
@@ -1414,21 +1413,13 @@ class MyProductCard extends HTMLElement {
   }
 
   runTransition(cb){
-    const now = Date.now();
-
-    if (this.transitioning || (this.lastTransitionTime && now - this.lastTransitionTime < 150)) return;
-
-    this.lastTransitionTime = now;
-    this.transitioning = true;
-
-    const finish = () => {
-      this.transitioning = false;
-    };
-
-    requestAnimationFrame(() => {
-        cb();
-        setTimeout(finish, 350); 
-    });
+    if(!this.transitioning) cb();
+    
+    clearTimeout(this.transitioning);
+    
+    this.transitioning = setTimeout(()=>{
+      cb();
+    },100);
   }
 
   getVariantImage(target){
