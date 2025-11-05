@@ -1396,10 +1396,10 @@ class MyProductCard extends HTMLElement {
 
     event.target.removeAttribute("aria-selected");
 
-    const image_src = this.getVariantImage(event.target);
-    const image_srcset = this.getVariantImageSrcset(event.target);
+    // const image_src = this.getVariantImage(event.target);
+    // const image_srcset = this.getVariantImageSrcset(event.target);
 
-    if(image_src == this.image_src_cache || image_srcset == this.image_srcset_cache) return;
+    // if(image_src == this.image_src_cache || image_srcset == this.image_srcset_cache) return;
 
     this.runTransition(()=>{
       console.log('out');
