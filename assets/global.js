@@ -1432,7 +1432,7 @@ class MyProductCard extends HTMLElement {
 
     this.pendingImage = { src: image_src, srcset: image_srcset };
 
-    this.scheduleTransition();
+    this.scheduleTransition(300);
   }
 
   handleMouseOut(event) {
