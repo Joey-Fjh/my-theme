@@ -1339,7 +1339,8 @@ class MyProductCard extends HTMLElement {
     this.image_src_cache = this.product_image?.getAttribute("src");
     this.image_srcset_cache = this.product_image?.getAttribute("srcset");
 
-    this.transitioning = null;
+    this.timeId = null;
+    this.transition = null;
   }
 
   connectedCallback(){
@@ -1376,22 +1377,17 @@ class MyProductCard extends HTMLElement {
     if(image_src == this.image_src_cache || image_srcset == this.image_srcset_cache) return;
 
     this.runTransition(()=>{
-      this.product_image.setAttribute('src',image_src);
+      this.product_image.classList.add("fade-out");
+
+      this.product_image.addEventListener("transitionend",()=>{
+        this.product_image.setAttribute('src',image_src);
         this.product_image.setAttribute('srcset',image_srcset);
         
         this.image_src_cache = image_src;
         this.image_srcset_cache = image_srcset;
-      // this.product_image.classList.add("fade-out");
 
-      // this.product_image.addEventListener("transitionend",()=>{
-      //   this.product_image.setAttribute('src',image_src);
-      //   this.product_image.setAttribute('srcset',image_srcset);
-        
-      //   this.image_src_cache = image_src;
-      //   this.image_srcset_cache = image_srcset;
-
-      //   this.product_image.classList.remove("fade-out");
-      // },{once:true});
+        this.product_image.classList.remove("fade-out");
+      },{once:true});
     });
   }
 
@@ -1401,23 +1397,21 @@ class MyProductCard extends HTMLElement {
     event.target.removeAttribute("aria-selected");
 
     this.runTransition(()=>{
-      this.product_image.setAttribute('src',this.image_src_cache);
+      this.product_image.classList.add("fade-out");
+
+      this.product_image.addEventListener("transitionend",()=>{
+        this.product_image.setAttribute('src',this.image_src_cache);
         this.product_image.setAttribute('srcset',this.image_srcset_cache);
-      // this.product_image.classList.add("fade-out");
 
-      // this.product_image.addEventListener("transitionend",()=>{
-      //   this.product_image.setAttribute('src',this.image_src_cache);
-      //   this.product_image.setAttribute('srcset',this.image_srcset_cache);
-
-      //   this.product_image.classList.remove("fade-out");
-      // },{once:true});
+        this.product_image.classList.remove("fade-out");
+      },{once:true});
     });
   }
 
   runTransition(cb){
-    clearTimeout(this.transitioning);
+    clearTimeout(this.timeId);
     
-    this.transitioning = setTimeout(cb,100);
+    this.timeId = setTimeout(cb,100);
   }
 
   getVariantImage(target){
