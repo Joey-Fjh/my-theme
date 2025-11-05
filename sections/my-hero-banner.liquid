@@ -46,7 +46,7 @@
         target-date="{{ section.settings.target_date | date: '%Y-%m-%dT%H:%M:%S' }}"
       >
       </my-count-down>
-      <div class="button">{{ section.settings.button_text }}</div>
+      <a href="{{ section.settings.button_link }}" class="button">{{ section.settings.button_text }}</a>
     </div>
 </responsive-container>
 
@@ -134,9 +134,7 @@
     ],
     "presets": [
       {
-        "name": "my-hero-banner",
-        "settings": {
-        }
+        "name": "my-hero-banner"
       }
     ]
   }
