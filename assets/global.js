@@ -1367,113 +1367,58 @@ class MyProductCard extends HTMLElement {
     sizes.addEventListener("mouseout",this.handleMouseOut.bind(this));
   }
 
-  // handleMouseOver(event){
-  //   if(event.target.tagName.toLowerCase() != 'a') return;
+  handleMouseOver(event){
+    if(event.target.tagName.toLowerCase() != 'a') return;
 
-  //   event.target.setAttribute("aria-selected",true);
-
-  //   const image_src = this.getVariantImage(event.target);
-  //   const image_srcset = this.getVariantImageSrcset(event.target);
-
-  //   // if(image_src == this.image_src_cache || image_srcset == this.image_srcset_cache) return;
-
-  //   this.runTransition(()=>{
-  //     this.transitioning = true;
-  //     this.product_image.classList.add("fade-out");
-
-  //     this.product_image.addEventListener("transitionend",()=>{
-  //       this.product_image.setAttribute('src',image_src);
-  //       this.product_image.setAttribute('srcset',image_srcset);
-        
-  //       this.image_src_cache = image_src;
-  //       this.image_srcset_cache = image_srcset;
-
-  //       this.product_image.classList.remove("fade-out");
-  //       this.transitioning = false;
-  //     },{once:true});
-  //   });
-  // }
-
-  // handleMouseOut(event){  
-  //   if(event.target.tagName.toLowerCase() != 'a') return;
-
-  //   event.target.removeAttribute("aria-selected");
-
-  //   this.runTransition(()=>{
-  //     this.transitioning = true;
-  //     this.product_image.classList.add("fade-out");
-
-  //     this.product_image.addEventListener("transitionend",()=>{
-  //       // this.product_image.setAttribute('src',this.image_src_cache);
-  //       // this.product_image.setAttribute('srcset',this.image_srcset_cache);
-
-  //       this.product_image.classList.remove("fade-out");
-  //       this.transitioning = false;
-  //     },{once:true});
-  //   });
-  // }
-
-  // runTransition(cb){
-  //   clearTimeout(this.timeId);
-
-  //   if(this.transitioning) return;
-    
-  //   this.timeId = setTimeout(cb,100);
-  // }
-
-  handleMouseOver(event) {
-    if (event.target.tagName.toLowerCase() !== 'a') return;
-    event.target.setAttribute("aria-selected", true);
+    event.target.setAttribute("aria-selected",true);
 
     const image_src = this.getVariantImage(event.target);
     const image_srcset = this.getVariantImageSrcset(event.target);
 
-    if (image_src === this.image_src_cache && image_srcset === this.image_srcset_cache) return;
+    if(image_src == this.image_src_cache || image_srcset == this.image_srcset_cache) return;
 
-    this.pendingImage = { src: image_src, srcset: image_srcset };
+    this.runTransition(()=>{
+      this.transitioning = true;
+      this.product_image.classList.add("fade-out");
 
-    this.scheduleTransition(300);
+      this.product_image.addEventListener("transitionend",()=>{
+        this.product_image.setAttribute('src',image_src);
+        this.product_image.setAttribute('srcset',image_srcset);
+        
+        this.image_src_cache = image_src;
+        this.image_srcset_cache = image_srcset;
+
+        this.product_image.classList.remove("fade-out");
+        this.transitioning = false;
+      },{once:true});
+    });
   }
 
-  handleMouseOut(event) {
-    if (event.target.tagName.toLowerCase() !== 'a') return;
+  handleMouseOut(event){  
+    if(event.target.tagName.toLowerCase() != 'a') return;
+
     event.target.removeAttribute("aria-selected");
+
+    this.runTransition(()=>{
+      this.transitioning = true;
+      this.product_image.classList.add("fade-out");
+
+      this.product_image.addEventListener("transitionend",()=>{
+        // this.product_image.setAttribute('src',this.image_src_cache);
+        // this.product_image.setAttribute('srcset',this.image_srcset_cache);
+
+        this.product_image.classList.remove("fade-out");
+        this.transitioning = false;
+      },{once:true});
+    });
   }
 
-  scheduleTransition(delay = 100) {
+  runTransition(cb){
     clearTimeout(this.timeId);
 
-    this.timeId = setTimeout(() => {
-      const { src, srcset } = this.pendingImage || {};
-
-      this.startTransition(src, srcset);
-    }, delay);
-  }
-
-  startTransition(newSrc, newSrcset) {
-    if (this.transitioning) {
-      this.product_image.classList.remove("fade-out");
-      this.transitioning = false;
-    }
-
-    this.transitioning = true;
-    this.product_image.classList.add("fade-out");
-
-    this.product_image.addEventListener("transitionend", this.handleTransitionEnd);
-  }
-
-  handleTransitionEnd(){
-      if (this.pendingImage?.src === newSrc) {
-        this.product_image.setAttribute('src', newSrc);
-        this.product_image.setAttribute('srcset', newSrcset);
-        
-        this.image_src_cache = newSrc;
-        this.image_srcset_cache = newSrcset;
-      }
-
-      this.product_image.classList.remove("fade-out");
-      this.transitioning = false;
-      this.product_image.removeEventListener("transitionend", handleEnd);
+    if(this.transitioning) return;
+    
+    this.timeId = setTimeout(cb,100);
   }
 
 
