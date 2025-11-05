@@ -1341,6 +1341,7 @@ class MyProductCard extends HTMLElement {
 
     this.timeId = null;
     this.transitioning = false;
+    this.pendingImage = null;
   }
 
   connectedCallback(){
@@ -1439,13 +1440,11 @@ class MyProductCard extends HTMLElement {
     event.target.removeAttribute("aria-selected");
   }
 
-  scheduleTransition(delay = 120) {
-    clearTimeout(this.transitionTimer);
+  scheduleTransition(delay = 100) {
+    clearTimeout(this.timeId);
 
-    this.transitionTimer = setTimeout(() => {
+    this.timeId = setTimeout(() => {
       const { src, srcset } = this.pendingImage || {};
-
-      if (!src || src === this.image_src_cache) return;
 
       this.startTransition(src, srcset);
     }, delay);
