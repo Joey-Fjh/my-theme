@@ -1378,6 +1378,7 @@ class MyProductCard extends HTMLElement {
 
     this.runTransition(()=>{
       this.product_image.classList.add("fade-out");
+      this.transitioning = true;
 
       this.product_image.addEventListener("transitionend",()=>{
         this.product_image.setAttribute('src',image_src);
@@ -1387,6 +1388,7 @@ class MyProductCard extends HTMLElement {
         this.image_srcset_cache = image_srcset;
 
         this.product_image.classList.remove("fade-out");
+        this.transitioning = false;
       },{once:true});
     });
   }
@@ -1398,6 +1400,7 @@ class MyProductCard extends HTMLElement {
 
     this.runTransition(()=>{
       this.product_image.classList.add("fade-out");
+      this.transitioning = true;
 
       this.product_image.addEventListener("transitionend",()=>{
         this.product_image.setAttribute('src',this.image_src_cache);
