@@ -1413,13 +1413,9 @@ class MyProductCard extends HTMLElement {
   }
 
   runTransition(cb){
-    if(!this.transitioning) cb();
-    
     clearTimeout(this.transitioning);
     
-    this.transitioning = setTimeout(()=>{
-      cb();
-    },100);
+    this.transitioning = setTimeout(cb,100);
   }
 
   getVariantImage(target){
