@@ -9,8 +9,7 @@ function getEntries(type,pattern){
 
     if(type != 'js'){
       options.ignore = [
-        'src/components/**',
-        'src/tools/*'
+        'src/components/**'
       ]
     }
 
@@ -31,8 +30,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         ...getEntries('js','src/components/*'),
-        ...getEntries('{css,scss}','src/**/*'),
-        ...getEntries('js','src/tools/*')
+        ...getEntries('{css,scss}','src/**/*')
       },
       output: {
         entryFileNames: '[name].js',

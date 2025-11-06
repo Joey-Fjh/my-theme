@@ -28,36 +28,37 @@
   </style>
 
   <!-- Left side - Two overlapping images -->
-  <div class="hero-images">
+  <my-sustainable-hero-swapImage>  <div class="hero-images">
     <div class="hero-placeholder"></div>
-    <div class="image-primary">
-      {%- if section.settings.primary_image != blank -%}
-        <img 
-          width="{{ section.settings.primary_image.width }}"
-          height="{{ section.settings.primary_image.height }}"
-          src="{{ section.settings.primary_image | image_url: width:section.settings.primary_image.width }}" 
-          alt="{{ section.settings.primary_image.alt | default: 'Sustainable fashion model' }}"
-          loading="lazy"
-        />
-      {%- else -%}
-        {{ 'image' | placeholder_svg_tag: 'placeholder-svg'  }}
-      {%- endif -%}
-    </div>
+      <div class="image-primary">
+        {%- if section.settings.primary_image != blank -%}
+          <img 
+            width="{{ section.settings.primary_image.width }}"
+            height="{{ section.settings.primary_image.height }}"
+            src="{{ section.settings.primary_image | image_url: width:section.settings.primary_image.width }}" 
+            alt="{{ section.settings.primary_image.alt | default: 'Sustainable fashion model' }}"
+            loading="lazy"
+          />
+        {%- else -%}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg'  }}
+        {%- endif -%}
+      </div>
 
-    <div class="image-secondary">
-      {%- if section.settings.secondary_image != blank -%}
-        <img
-          width="{{ section.settings.secondary_image.width }}"
-          height="{{ section.settings.secondary_image.height }}" 
-          src="{{ section.settings.secondary_image | image_url: width: section.settings.secondary_image.width }}" 
-          alt="{{ section.settings.secondary_image.alt | default: 'Fashion accessory' }}"
-          loading="lazy"
-        />
-      {%- else -%}
-        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}  
-      {%- endif -%}
+      <div class="image-secondary">
+        {%- if section.settings.secondary_image != blank -%}
+          <img
+            width="{{ section.settings.secondary_image.width }}"
+            height="{{ section.settings.secondary_image.height }}" 
+            src="{{ section.settings.secondary_image | image_url: width: section.settings.secondary_image.width }}" 
+            alt="{{ section.settings.secondary_image.alt | default: 'Fashion accessory' }}"
+            loading="lazy"
+          />
+        {%- else -%}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}  
+        {%- endif -%}
+      </div>
     </div>
-  </div>
+  </my-sustainable-hero-swapImage>
 
   <!-- Right side - Content -->
   <div class="hero-content">
