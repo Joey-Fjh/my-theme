@@ -1376,6 +1376,30 @@ class MyProductCard extends HTMLElement {
     this.timeId = setTimeout(cb,320);
   }
 
+  fadeToImage(src,srcset){
+    if(this.transitioning) return;
+
+    this.transitioning = true;
+
+    const img = new Image();
+    img.src = src;
+    img.srcset = srcset;
+    img.onload = ()=>{
+      this.product_image.classList.add("fade-out");
+    };
+
+    this.product_image.addEventListener("transitionend",()=>{
+      this.product_image.src = src;
+      this.product_image.srcset = srcset;
+
+      this.image_src_cache = src;
+      this.image_srcset_cache = srcset;
+
+      this.product_image.classList.remove("fade-out");
+      this.transitioning = false;
+    },{ once:true });
+  }
+
   handleMouseOver(event){
     const target = event.target;
 
