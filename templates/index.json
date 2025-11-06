@@ -47,7 +47,6 @@
         "image_banner_WL9CtN",
         "image_banner_bYEryP"
       ],
-      "disabled": true,
       "name": "my-image-banner",
       "settings": {
         "layout": "page_width",
@@ -324,7 +323,6 @@
     },
     "my_hero_banner_6JCMYw": {
       "type": "my-hero-banner",
-      "disabled": true,
       "name": "my-hero-banner",
       "settings": {
         "color_scheme": "scheme-1",
