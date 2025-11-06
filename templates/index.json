@@ -576,6 +576,7 @@
         "slide_T7wA7E",
         "slide_kXwTLA"
       ],
+      "disabled": true,
       "name": "my-media-carousel",
       "settings": {
         "padding_top": 36,
