@@ -1,0 +1,135 @@
+.my-image-banner__container {
+    overflow: hidden;
+    width: 100%;
+
+    .swiper--small {
+      height: 280px;
+    }
+
+    .swiper--medium{
+      height: 340px;
+    }
+
+    .swiper--large{
+      height: 390px;
+    }
+
+    .slide-content{
+      padding: 0;
+      display: flex;
+      position: absolute;
+      inset: 0;
+      align-items: center;
+      justify-content: center;
+
+      .content__container{
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 4rem 1.5rem;
+        height: fit-content;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        word-wrap: break-word;
+      }
+
+      .slide__box{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        max-width: 54.5rem;
+      }
+    }
+
+    .slide__buttons{
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      max-width: 45rem;
+      word-break: break-word;
+      margin-top: 2rem;
+    }
+
+    .content__container.text--left{
+      text-align: left;
+      align-items: flex-start;
+    }
+
+    .content__container.text--right{
+      text-align: right;
+      align-items: flex-end;
+    }
+
+    @include media-query(mobile,'min'){
+      .swiper--small {
+        height: 420px;
+      }
+
+      .swiper--medium{
+        height: 560px;
+      }
+
+      .swiper--large{
+        height: 720px;
+      }
+
+      .slide-content{
+        height: 100%;
+        padding: 5rem;
+      }
+
+      .slide__box{
+        padding: 4rem 3.5rem;
+        width: auto;
+        max-width: 71rem;
+        min-width: 45rem;
+      }
+
+      .slide-content--top-left {
+        align-items: flex-start;
+        justify-content: flex-start;
+      }
+
+      .slide-content--top-center {
+        align-items: flex-start;
+        justify-content: center;
+      }
+
+      .slide-content--top-right {
+        align-items: flex-start;
+        justify-content: flex-end;
+      }
+
+      .slide-content--middle-left {
+        align-items: center;
+        justify-content: flex-start;
+      }
+
+      .slide-content--middle-center {
+        align-items: center;
+        justify-content: center;
+      }
+
+      .slide-content--middle-right {
+        align-items: center;
+        justify-content: flex-end;
+      }
+
+      .slide-content--bottom-left {
+        align-items: flex-end;
+        justify-content: flex-start;
+      }
+
+      .slide-content--bottom-center {
+        align-items: flex-end;
+        justify-content: center;
+      }
+
+      .slide-content--bottom-right {
+        align-items: flex-end;
+        justify-content: flex-end;
+      }
+    }
+}

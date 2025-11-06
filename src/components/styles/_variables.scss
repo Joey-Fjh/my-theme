@@ -1,0 +1,57 @@
+@use "sass:map";
+
+// 变量
+$container-padding-left:32dw;
+$container-padding-right:32dw;
+
+// 媒体查询
+$breakpoints: (
+  mobile: 767px,    // 手机
+  tablet: 768px,    // 平板
+  pc: 1024px,   // PC
+);
+
+@mixin media-query($breakpoint, $type: 'min') {
+  // 从断点映射中获取对应尺寸
+  $breakpoint-value: if(map.has-key($breakpoints, $breakpoint), map.get($breakpoints, $breakpoint), $breakpoint);
+  
+  // 校验断点是否存在
+  @if not $breakpoint-value {
+    $breakpoint-value: $breakpoints;
+  }
+  
+  // 生成媒体查询条件
+  @if $type == 'min' {
+    @media (min-width: $breakpoint-value) {
+      @content; // 插入调用时的样式内容
+    }
+  } @else if $type == 'max' {
+    @media (max-width: $breakpoint-value) {
+      @content;
+    }
+  } @else {
+    @error "无效的查询类型: #{$type}，请使用'min'或'max'";
+  }
+}
+
+// 字体大小
+@mixin my-font-size($pc:16px){ 
+  // 这里顺序不能变，因为媒体查询只定义了单独的min 或 max 规则
+  @include media-query(mobile,'max'){
+    font-size: $pc * 0.8;
+  }
+
+  @include media-query(tablet){
+    font-size: $pc * 0.9;
+  }
+
+   @include media-query(pc){
+    font-size: $pc * 1;
+  }
+}
+
+// 函数计算，嵌套深的dw无法转换。width: 设计稿宽度, value: px单位的值
+@function px-to-vw($value,$width:1440px,$digits:3) {
+  @return calc($value / $width * 100vw);
+}
+

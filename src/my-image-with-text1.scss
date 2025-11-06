@@ -1,0 +1,56 @@
+.my-image-with-text1__container{
+    margin-top: 20px;
+    overflow: hidden;
+    width: 1200dw;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 50px;
+
+    .image__container{
+        flex: 1;
+        overflow: hidden;
+        border-radius: 16px;
+    }
+
+    
+    .content{
+        flex: 1;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .title,.avator__container{
+            flex-shrink: 0;
+        }
+
+        .title{
+            margin-top: 0;
+            font-weight: 700;
+        }
+
+        .desc{
+            flex: 1;
+            overflow: hidden;
+            max-height: 180dw;
+            min-height: 180px;
+        }
+
+        .avator__container{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            .avator-image__container{
+                width: 88px;
+                height: 88px;
+                overflow: hidden;
+                border-radius: 50%
+            }
+        }
+    }
+
+    @include media-query('750px','max'){
+        flex-direction: column;
+    }
+}

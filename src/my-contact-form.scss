@@ -1,0 +1,17 @@
+.contact{
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+
+    .head__container,.form__container{
+        flex: 1;
+    }
+
+     @media screen and (min-width: 1200px){
+        max-width: 1200px;
+    }
+
+    @include media-query('750px','max'){
+        flex-direction: column;
+    }
+}

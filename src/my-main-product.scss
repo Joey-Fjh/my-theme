@@ -1,0 +1,55 @@
+.product-media-container.constrain-height.media-fit-contain{
+    width: 100%;
+}
+
+.form__label{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.form__label--selected-value{
+    display: none;
+}
+
+variant-selects{
+    border-top: 2px solid #e5e5e5;
+    border-bottom: 2px solid #e5e5e5;
+    padding: 24px 0;
+}
+
+.quantity__input:focus{
+    outline: none;
+    outline-offset: 0;
+    box-shadow: none;
+    border-top: 1px solid #7d7d7d;
+    border-bottom: 1px solid #7d7d7d;
+}
+
+.payment-icons{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid #e5e5e5;
+    padding: 10px;
+    box-sizing: border-box;
+    align-items: flex-start;
+
+    ul{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+
+        li{
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+

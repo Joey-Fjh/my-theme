@@ -1,0 +1,96 @@
+.my-featured-blog__container{
+    flex-direction: column;
+
+    .image__container{
+        border-radius: 16px;
+        overflow: hidden;
+        flex: 1;
+    }
+
+    .bottom{
+        display: flex;
+        gap: 24px;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        .left,.right{
+            min-width: fit-content;
+        }
+
+        .left{
+            flex: 2;
+            height: 500dw;
+            min-height: 500px;
+
+            .content{
+                position: absolute;
+                bottom: 20%;
+                left: 5%;
+
+                .title{
+                    font-weight: 700;
+                }
+
+                .description{
+                    text-align: left;
+                    display: -webkit-box;           
+                    -webkit-box-orient: vertical;  
+                    line-clamp: 3; 
+                    -webkit-line-clamp: 3;           
+                    overflow: hidden;               
+                    text-overflow: ellipsis;       
+                }
+            }
+        }
+
+        .right{
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            justify-content: space-between;
+            
+            .card{
+                height: 238dw;
+                min-height: 238px;
+                display: flex;
+                flex-direction: row;
+                gap: 16px;
+                align-self: flex-start;
+
+                .content{
+                    flex: 1;
+                    display: flex;
+                    gap: 5px;
+                    flex-direction: column;
+                    align-items: flex-start;
+
+                    .info{
+                        display: flex;
+                        gap: 10px;
+                        align-items: center;
+                        flex-wrap: wrap;
+                    }
+
+                    .title{
+                        font-weight: 700;
+                    }
+
+                    .description{
+                        text-align: left;
+                        display: -webkit-box;           
+                        -webkit-box-orient: vertical;  
+                        line-clamp: 3; 
+                        -webkit-line-clamp: 3;           
+                        overflow: hidden;               
+                        text-overflow: ellipsis;       
+                    }
+
+                    .link{
+                        margin-top: auto;
+                    }
+                }
+            }
+        }
+    }
+}

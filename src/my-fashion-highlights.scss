@@ -1,0 +1,75 @@
+.my-fashion-highlights__container{
+    margin-top: 20px;
+    overflow: hidden;
+
+    .fashion__wrapper {
+        width: 100%;
+        height: 676px;
+        display: grid;
+        grid-auto-flow: column;
+        background-size:cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .fashion-item__container{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding-left: 30px;
+        padding-bottom:45px;
+
+        &:hover{
+            background-color: rgba(0, 0, 0, 0.5);
+
+            .fashion-item__info__container{
+                display: flex;
+            }
+        }
+
+        .fashion-item__info__container{
+            display: none;
+            flex-direction: column;
+        }
+
+        .link,.title,.my-button{
+            color:inherit;
+        }
+
+        .link {
+            margin-top: 12px;
+        }
+
+        .fashion-item__operator__container {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    @include media-query(mobile,'max'){
+        .shopify-block , .fashion-item__container{
+            display: none;
+        }
+
+        .shopify-block:nth-child(1) , .fashion-item__container:nth-child(1){
+            display: flex;
+        }
+    }
+
+    @include media-query(mobile,'min'){
+        .shopify-block,.fashion-item__container{
+            display: none;
+        }
+
+        .shopify-block:nth-child(-n+2),.fashion-item__container:nth-child(-n+2){
+            display: flex;
+        }
+    }
+
+    @include media-query(pc,'min'){
+        .shopify-block,.fashion-item__container{
+            display: flex;
+        }
+    }
+}

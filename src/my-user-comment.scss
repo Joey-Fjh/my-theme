@@ -1,0 +1,39 @@
+.my-user-comment__container{
+    width: 100%;
+    overflow: hidden;
+
+    .wrapper{
+        display: flex;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+
+    .my-card{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        padding: 30px;
+
+        .image__container{
+            min-width: 300px;
+            max-width: 400px;
+        }
+    
+        .star{
+            margin: 0 auto;
+            display: flex;
+            gap: 2px;
+        }
+
+        .comment{        
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            min-width: 0;   
+            flex-shrink: 0;
+        }
+    }
+}

@@ -1,0 +1,71 @@
+.my-hero-banner__container{
+    .img__container {
+        width: 60%;
+        overflow: hidden;
+    }
+
+    .content__container {
+        box-sizing: border-box;
+        padding: 20px;
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .text__container {
+        text-align: center;
+        .title{
+            margin: 16px 0;
+        }
+
+        .subtitle{
+            letter-spacing: 5px;
+            word-wrap:break-word;
+        }
+    }
+
+    .time__container{
+        display: flex;
+        justify-content: space-between;
+
+        .time__unit{
+            position: relative;
+            text-align: center;
+            padding: 0 32px;
+
+            &:not(:last-child)::after{
+                content: '';
+                position: absolute;
+                right: 0;
+                top: 10%;
+                height: 50%;
+                width: 1px;
+            }
+        }
+    }
+
+    .button{
+        width: 129dw;
+        height: 51dw;
+        border-radius: 40px;
+        white-space: nowrap;
+
+        &:hover,&:after{
+            box-shadow: none !important;
+        }
+    }
+
+    @include media-query(pc,'max') {
+        --my-direction:column !important;
+
+        .img__container,.content__container{
+            width: 100%;
+        }
+
+        .content__container{
+            height: 320px;
+        }
+    }
+}
