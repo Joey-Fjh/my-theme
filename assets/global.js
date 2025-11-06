@@ -1376,12 +1376,6 @@ class MyProductCard extends HTMLElement {
 
     if(image_src == this.image_src_cache || image_srcset == this.image_srcset_cache) return;
 
-    // this.product_image.setAttribute('src',image_src);
-    // this.product_image.setAttribute('srcset',image_srcset);
-    
-    // this.image_src_cache = image_src;
-    // this.image_srcset_cache = image_srcset;
-
     this.runTransition(()=>{
       
       this.transitioning = true;
@@ -1411,7 +1405,7 @@ class MyProductCard extends HTMLElement {
 
     if(this.transitioning) return;
     
-    this.timeId = setTimeout(cb,1000);
+    this.timeId = setTimeout(cb,400);
   }
 
 
