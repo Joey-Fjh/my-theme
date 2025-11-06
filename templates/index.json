@@ -493,6 +493,7 @@
     },
     "my_blog_carousel_Pb9fHn": {
       "type": "my-blog-carousel",
+      "disabled": true,
       "name": "my-blog-carousel",
       "settings": {
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
@@ -509,7 +510,6 @@
     },
     "my_user_comment_w84MEY": {
       "type": "my-user-comment",
-      "disabled": true,
       "name": "my-user-comment",
       "settings": {
         "color_scheme": "scheme-1",
@@ -576,7 +576,6 @@
         "slide_T7wA7E",
         "slide_kXwTLA"
       ],
-      "disabled": true,
       "name": "my-media-carousel",
       "settings": {
         "padding_top": 36,
