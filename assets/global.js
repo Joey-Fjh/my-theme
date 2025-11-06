@@ -1405,7 +1405,7 @@ class MyProductCard extends HTMLElement {
 
     if(this.transitioning) return;
     
-    this.timeId = setTimeout(cb,330);
+    this.timeId = setTimeout(cb,400);
   }
 
   getVariantImage(target){
