@@ -402,7 +402,6 @@
     },
     "my_fashion_grid_layout_MtAfQU": {
       "type": "my-fashion-grid-layout",
-      "disabled": true,
       "name": "my-fashion-grid-layout",
       "settings": {
         "is_fullWidth": false,
@@ -440,7 +439,6 @@
     },
     "my_newsletter_hero_EHJQF4": {
       "type": "my-newsletter-hero",
-      "disabled": true,
       "name": "my-newsletter-hero",
       "settings": {
         "is_fullWidth": false,
@@ -458,7 +456,6 @@
     },
     "my_sustainable_hero_cHgtTK": {
       "type": "my-sustainable-hero",
-      "disabled": true,
       "name": "my-sustainable-hero",
       "settings": {
         "is_fullWidth": false,
@@ -475,7 +472,6 @@
     },
     "my_color_comparison_aRQifX": {
       "type": "my-color-comparison",
-      "disabled": true,
       "name": "my-color-comparison",
       "settings": {
         "is_fullWidth": false,
@@ -497,7 +493,6 @@
     },
     "my_blog_carousel_Pb9fHn": {
       "type": "my-blog-carousel",
-      "disabled": true,
       "name": "my-blog-carousel",
       "settings": {
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
@@ -514,7 +509,6 @@
     },
     "my_user_comment_w84MEY": {
       "type": "my-user-comment",
-      "disabled": true,
       "name": "my-user-comment",
       "settings": {
         "color_scheme": "scheme-1",
@@ -532,7 +526,6 @@
     },
     "my_featured_blog_Wa7B4H": {
       "type": "my-featured-blog",
-      "disabled": true,
       "name": "my-featured-blog",
       "settings": {
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
