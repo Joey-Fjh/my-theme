@@ -302,7 +302,7 @@
       "name": "my-luxury-collection",
       "settings": {
         "color_scheme": "",
-        "auto_slide": true,
+        "auto_slide": false,
         "autoplay_speed": 2,
         "show_title": true,
         "title": "EXPERIENCE OPULENCE LIKE NEVER BEFORE",
