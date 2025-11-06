@@ -1,7 +1,17 @@
 import gsap from "gsap";
-import { html,LitElement } from "lit";
+import { html,LitElement,css } from "lit";
 
 export class MySustainableHeroSwapImage extends LitElement{
+    static styles = 
+	[
+		css`
+			:host {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+			}
+		`
+	];
     constructor(){
         super();
 
@@ -55,4 +65,4 @@ export class MySustainableHeroSwapImage extends LitElement{
     }
 }
 
-customElements.define('my-sustainable-hero-swapImage',MySustainableHeroSwapImage);
+customElements.define('my-sustainable-hero-swapimage',MySustainableHeroSwapImage);
