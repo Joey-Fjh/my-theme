@@ -1,5 +1,5 @@
 {{ 'my-sustainable-hero.css' | asset_url | stylesheet_tag }}
-<script type="module" src="{{ 'gsap.bundle.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'gsap.bundle.js' | asset_url }}" defer="defer"></script>
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -98,9 +98,7 @@
   </div>
 </responsive-container>
 
-<script type="module">
-  import { gsap } from '{{ 'gsap.bundle.js' | asset_url }}';
-
+<script>
   document.addEventListener('DOMContentLoaded', function() {
     console.log(gsap);
   });
