@@ -99,6 +99,7 @@
     },
     "my_product_list_BMjQet": {
       "type": "my-product-list",
+      "disabled": true,
       "name": "my-product-list",
       "settings": {
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
@@ -409,7 +410,6 @@
     },
     "my_fashion_grid_layout_MtAfQU": {
       "type": "my-fashion-grid-layout",
-      "disabled": true,
       "name": "my-fashion-grid-layout",
       "settings": {
         "is_fullWidth": false,
