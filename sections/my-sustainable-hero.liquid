@@ -1,5 +1,4 @@
 {{ 'my-sustainable-hero.css' | asset_url | stylesheet_tag }}
-<script src="{{ 'gsap.bundle.js' | asset_url }}" defer="defer"></script>
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -97,12 +96,6 @@
       />
   </div>
 </responsive-container>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    gsap.to(".hero-images", { x: 200 });
-  });
-</script>
 
 {% schema %}
 {
