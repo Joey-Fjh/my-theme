@@ -1429,7 +1429,6 @@ class MyProductCard extends HTMLElement {
     this.timeId = setTimeout(cb,400);
   }
 
-
   getVariantImage(target){
     return target.dataset.variantImage;
   }
