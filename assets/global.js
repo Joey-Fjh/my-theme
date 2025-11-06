@@ -1366,32 +1366,29 @@ class MyProductCard extends HTMLElement {
     sizes.addEventListener("mouseout",this.handleMouseOut.bind(this));
   }
 
+  isSameImage(src,srcset){
+    return src === this.image_src_cache && srcset == this.image_srcset_cache;
+  }
+
+  queueTranstion(cb){
+    clearTimeout(this.timeId);
+    if(this.transitioning) return;
+    this.timeId = setTimeout(cb,320);
+  }
+
   handleMouseOver(event){
-    if(event.target.tagName.toLowerCase() != 'a') return;
+    const target = event.target;
 
-    event.target.setAttribute("aria-selected",true);
+    if(target.tagName.toLowerCase() != 'a') return;
 
-    const image_src = this.getVariantImage(event.target);
-    const image_srcset = this.getVariantImageSrcset(event.target);
+    target.setAttribute("aria-selected",true);
 
-    if(image_src == this.image_src_cache || image_srcset == this.image_srcset_cache) return;
+    const image_src = this.getVariantImage(target);
+    const image_srcset = this.getVariantImageSrcset(target);
 
-    this.runTransition(()=>{
-      
-      this.transitioning = true;
-      this.product_image.classList.add("fade-out");
+    if(this.isSameImage(image_src,image_srcset)) return;
 
-      this.product_image.addEventListener("transitionend",()=>{
-        this.product_image.setAttribute('src',image_src);
-        this.product_image.setAttribute('srcset',image_srcset);
-        
-        this.image_src_cache = image_src;
-        this.image_srcset_cache = image_srcset;
-
-        this.product_image.classList.remove("fade-out");
-        this.transitioning = false;
-      },{once:true});
-    });
+    this.queueTranstion(()=> this.fadeToImage(image_src,image_srcset));
   }
 
   handleMouseOut(event){  
