@@ -410,6 +410,7 @@
     },
     "my_fashion_grid_layout_MtAfQU": {
       "type": "my-fashion-grid-layout",
+      "disabled": true,
       "name": "my-fashion-grid-layout",
       "settings": {
         "is_fullWidth": false,
