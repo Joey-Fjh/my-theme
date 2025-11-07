@@ -15,6 +15,7 @@ export class MySustainableHeroSwapImage extends LitElement{
     constructor(){
         super();
 
+        this.swapped = false;
         this.primary = this.querySelector(".image-primary");
         this.secondary = this.querySelector(".image-secondary");
     }
@@ -29,29 +30,27 @@ export class MySustainableHeroSwapImage extends LitElement{
     swapImages(){
         if (!this.primary || !this.secondary) return;
 
-        let swapped = false; 
-
         gsap.to(this.primary, {
             duration: 0.6,
-            top: swapped ? "50%" : "0%",
-            left: swapped ? "50%" : "0%",
-            xPercent: swapped ? -25 : 0,
-            yPercent: swapped ? -25 : 0,
-            zIndex: swapped ? 2 : 3,
+            top: this.swapped ? "50%" : "0%",
+            left: this.swapped ? "50%" : "0%",
+            xPercent: this.swapped ? -25 : 0,
+            yPercent: this.swapped ? -25 : 0,
+            zIndex: this.swapped ? 2 : 3,
             ease: "power2.inOut"
         });
 
         gsap.to(this.secondary, {
             duration: 0.6,
-            top: swapped ? "0%" : "50%",
-            left: swapped ? "0%" : "50%",
-            xPercent: swapped ? 0 : -25,
-            yPercent: swapped ? 0 : -25,
-            zIndex: swapped ? 3 : 2,
+            top: this.swapped ? "0%" : "50%",
+            left: this.swapped ? "0%" : "50%",
+            xPercent: this.swapped ? 0 : -25,
+            yPercent: this.swapped ? 0 : -25,
+            zIndex: this.swapped ? 3 : 2,
             ease: "power2.inOut"
         });
 
-        swapped = !swapped;
+        this.swapped = !this.swapped;
     }
 
     render()
