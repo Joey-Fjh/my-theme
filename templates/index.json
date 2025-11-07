@@ -307,6 +307,7 @@
         "collection_VJ3Jig",
         "collection_L7nMz8"
       ],
+      "disabled": true,
       "name": "my-luxury-collection",
       "settings": {
         "color_scheme": "",
@@ -314,7 +315,7 @@
         "autoplay_speed": 2,
         "show_title": true,
         "title": "EXPERIENCE OPULENCE LIKE NEVER BEFORE",
-        "heading_size": "hxl",
+        "heading_size": "h2",
         "text_align": "center",
         "show_collection_title": true,
         "columns_desktop": 4,
