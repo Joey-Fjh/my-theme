@@ -15,7 +15,7 @@ export class MySustainableHeroSwapImage extends LitElement{
     constructor(){
         super();
 
-        this.swapped = false;
+        this.swapped = true;
         this.primary = this.querySelector(".image-primary");
         this.secondary = this.querySelector(".image-secondary");
     }
@@ -44,8 +44,8 @@ export class MySustainableHeroSwapImage extends LitElement{
             duration: 0.6,
             top: this.swapped ? "0%" : "50%",
             left: this.swapped ? "0%" : "50%",
-            xPercent: this.swapped ? 10 : -25,
-            yPercent: this.swapped ? 10 : -25,
+            xPercent: this.swapped ? 0 : -25,
+            yPercent: this.swapped ? 0 : -25,
             zIndex: this.swapped ? 3 : 2,
             ease: "power2.inOut"
         });
