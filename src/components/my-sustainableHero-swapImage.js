@@ -31,28 +31,23 @@ export class MySustainableHeroSwapImage extends LitElement{
 
         let swapped = false; 
 
-        const primaryPos = this.primary.getBoundingClientRect();
-        const secondaryPos = this.secondary.getBoundingClientRect();
-
-        const dx = secondaryPos.left - primaryPos.left;
-        const dy = secondaryPos.top - primaryPos.top;
-
-        const dx2 = primaryPos.left - secondaryPos.left;
-        const dy2 = primaryPos.top - secondaryPos.top;
-
         gsap.to(this.primary, {
             duration: 0.6,
-            x: swapped ? 0 : dx,
-            y: swapped ? 0 : dy,
-            zIndex: swapped ? 3 : 2,
+            top: swapped ? "50%" : "0%",
+            left: swapped ? "50%" : "0%",
+            xPercent: swapped ? -25 : 0,
+            yPercent: swapped ? -25 : 0,
+            zIndex: swapped ? 2 : 3,
             ease: "power2.inOut"
         });
 
         gsap.to(this.secondary, {
             duration: 0.6,
-            x: swapped ? 0 : dx2,
-            y: swapped ? 0 : dy2,
-            zIndex: swapped ? 2 : 3,
+            top: swapped ? "0%" : "50%",
+            left: swapped ? "0%" : "50%",
+            xPercent: swapped ? 0 : -25,
+            yPercent: swapped ? 0 : -25,
+            zIndex: swapped ? 3 : 2,
             ease: "power2.inOut"
         });
 
