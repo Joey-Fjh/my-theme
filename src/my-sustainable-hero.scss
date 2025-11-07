@@ -53,7 +53,7 @@
 	.swapped .image-secondary {
 		top: 0;
 		left: 0;
-		transform: translate(0, 0);
+		transform: none;
 		z-index: 3;
 	}
 	
@@ -186,6 +186,8 @@
 			position: relative;
 			margin: 0 auto;
 			transform: none;
+			top: 0;
+			left: 0;
 		}
 
 		.image-primary.image-mobile-behavior{
