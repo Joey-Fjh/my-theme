@@ -39,13 +39,13 @@ export class MySustainableHeroSwapImage extends LitElement{
             zIndex: this.swapped ? 2 : 3,
             ease: "power2.inOut"
         });
-
+        console.log(this.swapped);
         gsap.to(this.secondary, {
             duration: 0.6,
             top: this.swapped ? "0%" : "50%",
             left: this.swapped ? "0%" : "50%",
-            xPercent: this.swapped ? 0 : -25,
-            yPercent: this.swapped ? 0 : -25,
+            xPercent: this.swapped ? 10 : -25,
+            yPercent: this.swapped ? 10 : -25,
             zIndex: this.swapped ? 3 : 2,
             ease: "power2.inOut"
         });
