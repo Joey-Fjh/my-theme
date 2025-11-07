@@ -79,7 +79,9 @@
 
     <div class="product-card__content product-{{ section.settings.alignment }}"
     >
-        <div class="product-card__title">
+        <div class="product-card__title {{ section.settings.product_title_size }}" 
+            style="{% if section.settings.product_title_bold %} font-weight:bold; {% endif %}"
+        >
             <a
                 href="{{ product.url }}"
                 id="StandardCardNoMediaLink-{{ section.id }}-{{ product.id }}"
