@@ -31,7 +31,7 @@
   <!-- Left side - Two overlapping images -->
   <my-sustainable-hero-swapimage class="hero-images">
     <div class="hero-placeholder"></div>
-    <div class="image-primary">
+    <div class="image-primary" style="border-radius:{{ section.settings.image_radius }}%">
       {%- if section.settings.primary_image != blank -%}
         <img 
           width="{{ section.settings.primary_image.width }}"
@@ -39,14 +39,13 @@
           src="{{ section.settings.primary_image | image_url: width:section.settings.primary_image.width }}" 
           alt="{{ section.settings.primary_image.alt | default: 'Sustainable fashion model' }}"
           loading="lazy"
-          style="border-radius:{{ section.settings.image_radius }}%"
         />
       {%- else -%}
         {{ 'image' | placeholder_svg_tag: 'placeholder-svg'  }}
       {%- endif -%}
     </div>
 
-    <div class="image-secondary">
+    <div class="image-secondary" style="border-radius:{{ section.settings.image_radius }}%">
       {%- if section.settings.secondary_image != blank -%}
         <img
           width="{{ section.settings.secondary_image.width }}"
@@ -54,7 +53,6 @@
           src="{{ section.settings.secondary_image | image_url: width: section.settings.secondary_image.width }}" 
           alt="{{ section.settings.secondary_image.alt | default: 'Fashion accessory' }}"
           loading="lazy"
-          style="border-radius:{{ section.settings.image_radius }}%"
         />
       {%- else -%}
         {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}  
