@@ -8,14 +8,13 @@ export class MySustainableHeroSwapImage extends LitElement{
 			:host {
 				width: 100%;
 				height: 100%;
-				position: absolute;
 			}
 		`
 	];
     constructor(){
         super();
 
-        this.swapped = true;
+        this.swapped = false;
         this.primary = this.querySelector(".image-primary");
         this.secondary = this.querySelector(".image-secondary");
     }
@@ -30,27 +29,29 @@ export class MySustainableHeroSwapImage extends LitElement{
     swapImages(){
         if (!this.primary || !this.secondary) return;
 
-        gsap.to(this.primary, {
-            duration: 0.6,
-            top: this.swapped ? "50%" : "0%",
-            left: this.swapped ? "50%" : "0%",
-            xPercent: this.swapped ? -25 : 0,
-            yPercent: this.swapped ? -25 : 0,
-            zIndex: this.swapped ? 2 : 3,
-            ease: "power2.inOut"
-        });
-        console.log(this.swapped);
-        gsap.to(this.secondary, {
-            duration: 0.6,
-            top: this.swapped ? "0%" : "50%",
-            left: this.swapped ? "0%" : "50%",
-            xPercent: this.swapped ? 0 : -25,
-            yPercent: this.swapped ? 0 : -25,
-            zIndex: this.swapped ? 3 : 2,
-            ease: "power2.inOut"
-        });
-
         this.swapped = !this.swapped;
+        this.classList.toggle('swapped', this.swapped);
+
+        gsap.fromTo(
+            [this.primary, this.secondary],
+            { scale: 0.96, opacity: 0.85 },
+            {
+                duration: 0.6,
+                scale: 1,
+                opacity: 1,
+                ease: "power2.inOut"
+            }
+        );
+
+        gsap.fromTo(
+            this,
+            { rotationY: this.swapped ? -5 : 5 },
+            {
+                duration: 0.6,
+                rotationY: 0,
+                ease: "power2.out"
+            }
+        );
     }
 
     render()
