@@ -19,6 +19,13 @@ export class MySustainableHeroSwapImage extends LitElement{
         this.secondary = this.querySelector(".image-secondary");
     }
 
+    connectedCallback(){
+        super.connectedCallback();
+
+        this.primary.addEventListener("click", swapImages);
+        this.secondary.addEventListener("click", swapImages);
+    }
+
     swapImages(){
         if (!this.primary || !this.secondary) return;
 
@@ -50,13 +57,6 @@ export class MySustainableHeroSwapImage extends LitElement{
         });
 
         swapped = !swapped;
-    }
-
-    connectedCallback(){
-        super.connectedCallback();
-
-        primary.addEventListener("click", swapImages);
-        secondary.addEventListener("click", swapImages);
     }
 
     render()
