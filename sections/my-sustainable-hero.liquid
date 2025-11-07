@@ -29,9 +29,9 @@
   </style>
 
   <!-- Left side - Two overlapping images -->
-  <div class="hero-images">
-    <div class="hero-placeholder"></div>
-    <my-sustainable-hero-swapimage class="hero-swapimage">
+  <my-sustainable-hero-swapimage>
+    <div class="hero-images">
+      <div class="hero-placeholder"></div>
       <div class="image-primary">
         {%- if section.settings.primary_image != blank -%}
           <img 
@@ -59,8 +59,8 @@
           {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}  
         {%- endif -%}
       </div>
-    </my-sustainable-hero-swapimage>
-  </div>
+    </div>
+  </my-sustainable-hero-swapimage>
 
   <!-- Right side - Content -->
   <div class="hero-content">
