@@ -39,17 +39,8 @@ export class MySustainableHeroSwapImage extends LitElement{
                 duration: 0.6,
                 scale: 1,
                 opacity: 1,
+                clearProps: "transform",
                 ease: "power2.inOut"
-            }
-        );
-
-        gsap.fromTo(
-            this,
-            { rotationY: this.swapped ? -5 : 5 },
-            {
-                duration: 0.6,
-                rotationY: 0,
-                ease: "power2.out"
             }
         );
     }
