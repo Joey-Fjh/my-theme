@@ -14,6 +14,7 @@ export class MySustainableHeroSwapImage extends LitElement{
     constructor(){
         super();
 
+        this.isAnimating = false;
         this.swapped = false;
         this.primary = this.querySelector(".image-primary");
         this.secondary = this.querySelector(".image-secondary");
@@ -27,8 +28,9 @@ export class MySustainableHeroSwapImage extends LitElement{
     }
 
     swapImages(){
-        if (!this.primary || !this.secondary) return;
+        if (!this.primary || !this.secondary || this.isAnimating) return;
 
+        this.isAnimating = true;
         this.swapped = !this.swapped;
         this.classList.toggle('swapped', this.swapped);
 
@@ -40,7 +42,10 @@ export class MySustainableHeroSwapImage extends LitElement{
                 scale: 1,
                 opacity: 1,
                 clearProps: "transform",
-                ease: "power2.inOut"
+                ease: "power2.inOut",
+                onComplete: () => {
+                    this.isAnimating = false;
+                },
             }
         );
     }
