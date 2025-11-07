@@ -22,8 +22,8 @@ export class MySustainableHeroSwapImage extends LitElement{
     connectedCallback(){
         super.connectedCallback();
 
-        this.primary.addEventListener("click", swapImages);
-        this.secondary.addEventListener("click", swapImages);
+        this.primary.addEventListener("click", this.swapImages);
+        this.secondary.addEventListener("click", this.swapImages);
     }
 
     swapImages(){
