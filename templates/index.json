@@ -100,7 +100,6 @@
     },
     "my_product_list_BMjQet": {
       "type": "my-product-list",
-      "disabled": true,
       "name": "my-product-list",
       "settings": {
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
@@ -111,9 +110,9 @@
         "show_description": false,
         "text_align": "center",
         "products_to_show": 25,
-        "columns_desktop": 3,
+        "columns_desktop": 6,
         "columns_mobile": "1",
-        "full_width": false,
+        "full_width": true,
         "show_view_all": true,
         "image_ratio": "3-4",
         "quick_add": "standard",
@@ -468,6 +467,7 @@
     },
     "my_sustainable_hero_cHgtTK": {
       "type": "my-sustainable-hero",
+      "disabled": true,
       "name": "my-sustainable-hero",
       "settings": {
         "is_fullWidth": false,
