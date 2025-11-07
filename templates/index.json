@@ -100,6 +100,7 @@
     },
     "my_product_list_BMjQet": {
       "type": "my-product-list",
+      "disabled": true,
       "name": "my-product-list",
       "settings": {
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
@@ -306,7 +307,6 @@
         "collection_VJ3Jig",
         "collection_L7nMz8"
       ],
-      "disabled": true,
       "name": "my-luxury-collection",
       "settings": {
         "color_scheme": "",
@@ -314,7 +314,7 @@
         "autoplay_speed": 2,
         "show_title": true,
         "title": "EXPERIENCE OPULENCE LIKE NEVER BEFORE",
-        "heading_size": "h1",
+        "heading_size": "hxl",
         "text_align": "center",
         "show_collection_title": true,
         "columns_desktop": 4,
@@ -469,7 +469,6 @@
     },
     "my_sustainable_hero_cHgtTK": {
       "type": "my-sustainable-hero",
-      "disabled": true,
       "name": "my-sustainable-hero",
       "settings": {
         "is_fullWidth": false,
