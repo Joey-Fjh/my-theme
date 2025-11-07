@@ -39,6 +39,7 @@
           src="{{ section.settings.primary_image | image_url: width:section.settings.primary_image.width }}" 
           alt="{{ section.settings.primary_image.alt | default: 'Sustainable fashion model' }}"
           loading="lazy"
+          style="border-radius:{{ section.settings.image_radius }}%"
         />
       {%- else -%}
         {{ 'image' | placeholder_svg_tag: 'placeholder-svg'  }}
@@ -53,6 +54,7 @@
           src="{{ section.settings.secondary_image | image_url: width: section.settings.secondary_image.width }}" 
           alt="{{ section.settings.secondary_image.alt | default: 'Fashion accessory' }}"
           loading="lazy"
+          style="border-radius:{{ section.settings.image_radius }}%"
         />
       {%- else -%}
         {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}  
@@ -133,6 +135,16 @@
       "id": "secondary_image", 
       "label": "Secondary Image",
       "info": "Overlapping accessory image (recommended: 400x300px)"
+    },
+    {
+      "type": "range",
+      "id": "image_radius",
+      "label": "Image Radius",
+      "min": 0,
+      "max": 50,
+      "unit": "%",
+      "step": 1,
+      "default":20
     },
     {
       "type": "header",
