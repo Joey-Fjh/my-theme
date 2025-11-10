@@ -109,7 +109,7 @@ class MyMediaCarouselContainer extends LitElement {
             modules: [Navigation,Pagination],
             slidesPerView: 'auto',
             spaceBetween: 30,
-            loop: this.isLoop,
+            loop: true,
             centeredSlides: true,
             slideToClickedSlide: true,
             initialSlide: this.initIndex,
@@ -130,8 +130,6 @@ class MyMediaCarouselContainer extends LitElement {
 
             swiper.slides.find(slide => slide.classList.contains('swiper-slide-active')).classList.add("center");
         });
-
-        swiper.update();
     }
 
     render() {
