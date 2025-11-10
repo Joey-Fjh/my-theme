@@ -104,9 +104,9 @@ class MyMediaCarouselContainer extends LitElement {
             return;
         }
 
-        this.initIndex = Math.floor(this._slides.length / 2);
-        this.initStatus();
-        this.initVideoPlayer();
+        // this.initIndex = Math.floor(this._slides.length / 2);
+        // this.initStatus();
+        // this.initVideoPlayer();
 
         let swiper = new Swiper(this._container, {
             // modules: [Navigation],
