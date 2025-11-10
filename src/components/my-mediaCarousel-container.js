@@ -4,7 +4,6 @@ import { Navigation ,Pagination} from 'swiper/modules';
 
 class MyMediaCarouselContainer extends LitElement {
     static properties = {
-        isLoop: {type: Boolean } 
     }
 
     static styles = [
@@ -22,7 +21,6 @@ class MyMediaCarouselContainer extends LitElement {
         super();
 
         this.initIndex = 0;
-        this.isLoop = false;
     }
 
     get _container() {
@@ -109,7 +107,6 @@ class MyMediaCarouselContainer extends LitElement {
             modules: [Navigation,Pagination],
             slidesPerView: 'auto',
             spaceBetween: 30,
-            loop: this.isLoop,
             centeredSlides: true,
             initialSlide: this.initIndex,
             navigation: {
