@@ -43,7 +43,7 @@
             justify-content: space-between;
             
             .card{
-                height: auto;
+                height: fit-content;
                 display: flex;
                 flex-direction: row;
                 gap: 16px;
