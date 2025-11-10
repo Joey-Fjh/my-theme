@@ -126,12 +126,9 @@ class MyMediaCarouselContainer extends LitElement {
             }
         });
 
-        swiper.on('slideChangeTransitionStart', () => { 
-            console.log("---前---",swiper.realIndex);
-            swiper.slides[swiper.realIndex].classList.remove("center");
-        });
         swiper.on('slideChangeTransitionEnd', () => {       
-            console.log("---后---",swiper.realIndex);
+            console.log("---后---",swiper.realIndex,'---',swiper.previousIndex);
+            swiper.slides[swiper.previousIndex].classList.remove("center");
             swiper.slides[swiper.realIndex].classList.add("center");
         });
 
