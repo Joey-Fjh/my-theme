@@ -88,7 +88,7 @@
                         </responsive-container>
                     {%- endif -%}
                     <div class="content">
-                        <div class="info">
+                        <div class="my-info">
                             {%- if show_date -%}
                                 <span>{{ article.published_at | time_tag: format: 'date' }}</span>
                             {%- endif -%}
@@ -97,13 +97,13 @@
                             {%- endif -%}
                             <span>{{ article.comments_count }} comments</span>
                         </div>
-                        <div class="title h3">
+                        <div class="my-title">
                             {{ article.title }}
                         </div>
-                        <div class="description h5">
+                        <div class="description">
                             {{ article.content }}
                         </div>
-                        <a class="link h4" href="{{ article.url }}">Read more</a>
+                        <a class="link" href="{{ article.url }}">Read more</a>
                     </div>
                 </div>
             {%- endfor -%}
