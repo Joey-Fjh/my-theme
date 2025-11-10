@@ -547,22 +547,6 @@
     "my_media_carousel_8nNGTd": {
       "type": "my-media-carousel",
       "blocks": {
-        "slide_prp3gn": {
-          "type": "slide",
-          "settings": {
-            "enable_video_looping": false,
-            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-            "description": ""
-          }
-        },
-        "slide_ktUEyG": {
-          "type": "slide",
-          "settings": {
-            "enable_video_looping": false,
-            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-            "description": ""
-          }
-        },
         "slide_rkATeD": {
           "type": "slide",
           "settings": {
@@ -589,8 +573,6 @@
         }
       },
       "block_order": [
-        "slide_prp3gn",
-        "slide_ktUEyG",
         "slide_rkATeD",
         "slide_JTQNJe",
         "slide_pc6Lwd"
