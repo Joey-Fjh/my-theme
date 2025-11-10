@@ -47,6 +47,7 @@
         "image_banner_WL9CtN",
         "image_banner_bYEryP"
       ],
+      "disabled": true,
       "name": "my-image-banner",
       "settings": {
         "layout": "page_width",
@@ -89,6 +90,7 @@
         "image_TcVp6E",
         "image_P7gWiC"
       ],
+      "disabled": true,
       "name": "brand-banner",
       "settings": {
         "background_color": "#ffffff",
@@ -98,6 +100,7 @@
     },
     "my_product_list_BMjQet": {
       "type": "my-product-list",
+      "disabled": true,
       "name": "my-product-list",
       "settings": {
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
@@ -168,6 +171,7 @@
         "image_8Khnj3",
         "image_hwxTdi"
       ],
+      "disabled": true,
       "name": "brand-banner",
       "settings": {
         "background_color": "#00d27d",
@@ -216,6 +220,7 @@
         "image_PY3PbY",
         "image_cGckWx"
       ],
+      "disabled": true,
       "name": "brand-banner",
       "settings": {
         "background_color": "#dedede",
@@ -252,6 +257,7 @@
       "block_order": [
         "fashion_highlight_a4b9ee"
       ],
+      "disabled": true,
       "name": "my-fashion-highlights",
       "settings": {
         "font_color": "#50b948",
@@ -301,6 +307,7 @@
         "collection_VJ3Jig",
         "collection_L7nMz8"
       ],
+      "disabled": true,
       "name": "my-luxury-collection",
       "settings": {
         "color_scheme": "",
@@ -320,6 +327,7 @@
     },
     "my_hero_banner_6JCMYw": {
       "type": "my-hero-banner",
+      "disabled": true,
       "name": "my-hero-banner",
       "settings": {
         "color_scheme": "scheme-1",
@@ -336,6 +344,7 @@
     },
     "my_video_player_CfFJqU": {
       "type": "my-video-player",
+      "disabled": true,
       "name": "my-video-player",
       "settings": {
         "color_scheme": "scheme-3",
@@ -388,6 +397,7 @@
         "accordion_item_VJXPCT",
         "accordion_item_i4WQXw"
       ],
+      "disabled": true,
       "name": "my-image-with-text",
       "settings": {
         "color_scheme": "scheme-2",
@@ -404,6 +414,7 @@
     },
     "my_fashion_grid_layout_MtAfQU": {
       "type": "my-fashion-grid-layout",
+      "disabled": true,
       "name": "my-fashion-grid-layout",
       "settings": {
         "is_fullWidth": false,
@@ -441,6 +452,7 @@
     },
     "my_newsletter_hero_EHJQF4": {
       "type": "my-newsletter-hero",
+      "disabled": true,
       "name": "my-newsletter-hero",
       "settings": {
         "is_fullWidth": false,
@@ -458,6 +470,7 @@
     },
     "my_sustainable_hero_cHgtTK": {
       "type": "my-sustainable-hero",
+      "disabled": true,
       "name": "my-sustainable-hero",
       "settings": {
         "is_fullWidth": false,
@@ -475,6 +488,7 @@
     },
     "my_color_comparison_aRQifX": {
       "type": "my-color-comparison",
+      "disabled": true,
       "name": "my-color-comparison",
       "settings": {
         "is_fullWidth": false,
@@ -496,6 +510,7 @@
     },
     "my_blog_carousel_Pb9fHn": {
       "type": "my-blog-carousel",
+      "disabled": true,
       "name": "my-blog-carousel",
       "settings": {
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
@@ -512,6 +527,7 @@
     },
     "my_user_comment_w84MEY": {
       "type": "my-user-comment",
+      "disabled": true,
       "name": "my-user-comment",
       "settings": {
         "color_scheme": "scheme-1",
@@ -529,6 +545,7 @@
     },
     "my_featured_blog_Wa7B4H": {
       "type": "my-featured-blog",
+      "disabled": true,
       "name": "my-featured-blog",
       "settings": {
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
@@ -653,6 +670,7 @@
         "product_YHgxCF",
         "product_DL4p64"
       ],
+      "disabled": true,
       "name": "my-promo-split",
       "settings": {
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
@@ -668,6 +686,7 @@
     },
     "google_map_mGDGqr": {
       "type": "google-map",
+      "disabled": true,
       "name": "goole-map",
       "settings": {
         "show_google_map": true,
