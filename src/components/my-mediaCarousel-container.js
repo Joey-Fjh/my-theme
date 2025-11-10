@@ -115,7 +115,7 @@ class MyMediaCarouselContainer extends LitElement {
             loop: true,
             centeredSlides: true,
             slideToClickedSlide: true,
-            initialSlide: this.initIndex,
+            // initialSlide: this.initIndex,
             navigation: {
                 nextEl: this._next,
                 prevEl: this._prev,
