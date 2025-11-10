@@ -109,33 +109,35 @@ class MyMediaCarouselContainer extends LitElement {
         this.initVideoPlayer();
 
         let swiper = new Swiper(this._container, {
-            modules: [Navigation],
+            // modules: [Navigation],
             slidesPerView: 'auto',
+            spaceBetween: 30,
+            loop: true,
             centeredSlides: true,
             slideToClickedSlide: true,
-            initialSlide: this.initIndex,
-            navigation: {
-                nextEl: this._next,
-                prevEl: this._prev,
-            }
+            // initialSlide: this.initIndex,
+            // navigation: {
+            //     nextEl: this._next,
+            //     prevEl: this._prev,
+            // }
         });
 
         let prevIndex = swiper.activeIndex;
 
-        swiper.on('slideChangeTransitionEnd', () => {
-            swiper.slides[prevIndex].classList.remove("center");
-            this._dots.children[prevIndex].classList.remove("active");
+        // swiper.on('slideChangeTransitionEnd', () => {
+        //     swiper.slides[prevIndex].classList.remove("center");
+        //     this._dots.children[prevIndex].classList.remove("active");
 
-            swiper.slides[swiper.activeIndex].classList.add("center");
-            this._dots.children[swiper.activeIndex].classList.add("active");
+        //     swiper.slides[swiper.activeIndex].classList.add("center");
+        //     this._dots.children[swiper.activeIndex].classList.add("active");
 
-            prevIndex = swiper.activeIndex;
-        });
+        //     prevIndex = swiper.activeIndex;
+        // });
 
-        this._dots.addEventListener('click', (e) => {
-            let toIndex = parseInt(e.target.dataset['dotIndex'] ?? 0);
-            swiper.slideToLoop(toIndex);
-        });
+        // this._dots.addEventListener('click', (e) => {
+        //     let toIndex = parseInt(e.target.dataset['dotIndex'] ?? 0);
+        //     swiper.slideToLoop(toIndex);
+        // });
     }
 
     render() {
