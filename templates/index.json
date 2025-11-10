@@ -344,7 +344,6 @@
     },
     "my_video_player_CfFJqU": {
       "type": "my-video-player",
-      "disabled": true,
       "name": "my-video-player",
       "settings": {
         "color_scheme": "scheme-3",
@@ -353,7 +352,7 @@
         "button_text": "Watch Now",
         "enable_video_looping": true,
         "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "cover_image": "shopify://shop_images/video.png",
+        "cover_image": "shopify://shop_images/20251027174427_22_94.jpg",
         "description": "",
         "padding_top": 0,
         "padding_bottom": 0
