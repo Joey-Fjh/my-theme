@@ -112,6 +112,8 @@ class MyMediaCarouselContainer extends LitElement {
             modules: [Navigation],
             slidesPerView: "auto",
             loop: true,
+            loopedSlides: this._slides.length,
+            loopAdditionalSlides: 2,
             centeredSlides: true,
             initialSlide: this.initIndex,
             navigation: {
