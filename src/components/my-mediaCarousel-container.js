@@ -20,6 +20,7 @@ class MyMediaCarouselContainer extends LitElement {
 
     constructor() {
         super();
+
         this.initIndex = 0;
     }
 
@@ -41,10 +42,6 @@ class MyMediaCarouselContainer extends LitElement {
 
     get _next(){
         return this.querySelector('.next-btn');
-    }
-
-    get _dots(){
-        return this.querySelector('.carousel-dots');
     }
 
     get _playBtns(){
@@ -112,7 +109,7 @@ class MyMediaCarouselContainer extends LitElement {
             modules: [Navigation,Pagination],
             slidesPerView: 'auto',
             spaceBetween: 30,
-            loop: true,
+            loop: false,
             centeredSlides: true,
             slideToClickedSlide: true,
             initialSlide: this.initIndex,
@@ -133,11 +130,6 @@ class MyMediaCarouselContainer extends LitElement {
 
             swiper.slides.find(slide => slide.classList.contains('swiper-slide-active')).classList.add("center");
         });
-
-        // this._dots.addEventListener('click', (e) => {
-        //     let toIndex = parseInt(e.target.dataset['dotIndex'] ?? 0);
-        //     swiper.slideToLoop(toIndex);
-        // });
     }
 
     render() {
