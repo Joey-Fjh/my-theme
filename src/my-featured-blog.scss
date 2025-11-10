@@ -13,8 +13,7 @@
 
         .left{
             flex: 2;
-            max-height: 500dw;
-
+            
             .content{
                 position: absolute;
                 bottom: 10%;
@@ -54,8 +53,8 @@
                 .right-image-container{
                     height: 238dw;
                     width: 238dw;
-                    min-width: 238px;
-                    min-height: 238px;
+                    max-width: 300px;
+                    max-height: 300px;
                 }
 
                 .content{
