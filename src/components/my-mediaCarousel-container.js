@@ -118,7 +118,7 @@ class MyMediaCarouselContainer extends LitElement {
                 prevEl: this._prev,
             },
             pagination: {
-                el: ".swiper-pagination",
+                el: ".carousel-dots",
                 clickable: true,
             }
         });
