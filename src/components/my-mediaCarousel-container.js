@@ -130,13 +130,13 @@ class MyMediaCarouselContainer extends LitElement {
 
         swiper.on('slideChangeTransitionEnd', () => {
             console.log(swiper.realIndex,'---',swiper.activeIndex,'---',prevIndex)
-            swiper.slides[prevIndex].classList.remove("center");
+            // swiper.slides[prevIndex].classList.remove("center");
             // this._dots.children[prevIndex].classList.remove("active");
 
-            swiper.slides[swiper.realIndex].classList.add("center");
+            // swiper.slides[swiper.realIndex].classList.add("center");
             // this._dots.children[swiper.activeIndex].classList.add("active");
 
-            prevIndex = swiper.realIndex;
+            // prevIndex = swiper.realIndex;
         });
 
         // this._dots.addEventListener('click', (e) => {
