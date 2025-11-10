@@ -110,7 +110,7 @@ class MyMediaCarouselContainer extends LitElement {
 
         let swiper = new Swiper(this._container, {
             modules: [Navigation],
-            slidesPerView: 3,
+            slidesPerView: 5,
             loop: true,
             centeredSlides: true,
             slideToClickedSlide: true,
