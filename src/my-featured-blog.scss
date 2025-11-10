@@ -12,11 +12,12 @@
         justify-content: space-between;
 
         .left{
+            flex: 2;
 
             .content{
                 position: absolute;
-                bottom: 20%;
-                left: 5%;
+                bottom: 10%;
+                left: 10%;
 
                 .title{
                     font-weight: 700;
@@ -35,13 +36,13 @@
         }
 
         .right{
+            flex: 1;
             display: flex;
             flex-direction: column;
             gap: 24px;
             justify-content: space-between;
             
             .card{
-            
                 display: flex;
                 flex-direction: row;
                 gap: 16px;
