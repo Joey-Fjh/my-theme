@@ -105,15 +105,12 @@
     }
     
     .carousel-dots {
-        position: absolute;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
+        position: relative;
         display: flex;
         gap: 8px;
         z-index: 4;
 
-        .dot {
+        .swiper-pagination-bullet {
             width: 12px;
             height: 12px;
             border-radius: 50%;
@@ -129,7 +126,7 @@
         }
     }
 
-    .prev-btn,.next-btn,.dot{
+    .prev-btn,.next-btn {
         padding: 0;
     }
 }
