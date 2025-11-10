@@ -545,7 +545,6 @@
     },
     "my_featured_blog_Wa7B4H": {
       "type": "my-featured-blog",
-      "disabled": true,
       "name": "my-featured-blog",
       "settings": {
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
@@ -594,9 +593,9 @@
         "slide_JR3XDp",
         "slide_jgDCQL"
       ],
+      "disabled": true,
       "name": "my-media-carousel",
       "settings": {
-        "is_loop": false,
         "padding_top": 36,
         "padding_bottom": 36
       }
