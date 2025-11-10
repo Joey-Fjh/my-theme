@@ -573,14 +573,6 @@
             "description": ""
           }
         },
-        "slide_4hnPgb": {
-          "type": "slide",
-          "settings": {
-            "enable_video_looping": false,
-            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-            "description": ""
-          }
-        },
         "slide_ki7R3d": {
           "type": "slide",
           "settings": {
@@ -600,7 +592,6 @@
       },
       "block_order": [
         "slide_kXwTLA",
-        "slide_4hnPgb",
         "slide_ki7R3d",
         "slide_AzgpgE"
       ],
