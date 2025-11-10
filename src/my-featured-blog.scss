@@ -13,7 +13,7 @@
 
         .left{
             flex: 2;
-            
+
             .content{
                 position: absolute;
                 bottom: 10%;
@@ -55,6 +55,8 @@
                     width: 238dw;
                     max-width: 300px;
                     max-height: 300px;
+                    min-height: 180px;
+                    min-width: 180px;
                 }
 
                 .content{
