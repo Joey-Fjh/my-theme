@@ -1,5 +1,5 @@
 {{ 'my-luxury-collection.css' | asset_url | stylesheet_tag }}
-{{ 'my-swiper-container.css' | asset_url | stylesheet_tag }}
+{% comment %} {{ 'my-swiper-container.css' | asset_url | stylesheet_tag }} {% endcomment %}
 <script src="{{ 'my-swiper-container.js' | asset_url }}" type='module' defer></script>
 
 {%- style -%}
