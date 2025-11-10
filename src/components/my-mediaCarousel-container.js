@@ -130,8 +130,8 @@ class MyMediaCarouselContainer extends LitElement {
             swiper.slides.forEach(slide => {
                 slide.classList.remove("center");
             });
-            
-            swiper.slides[swiper.realIndex].classList.add("center");
+
+            swiper.slides.find(slide => slide.classList.contains('swiper-slide-active')).classList.add("center");
         });
 
         // this._dots.addEventListener('click', (e) => {
