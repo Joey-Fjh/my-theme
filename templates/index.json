@@ -547,6 +547,22 @@
     "my_media_carousel_8nNGTd": {
       "type": "my-media-carousel",
       "blocks": {
+        "slide_KjdhXq": {
+          "type": "slide",
+          "settings": {
+            "enable_video_looping": false,
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "description": ""
+          }
+        },
+        "slide_JR3XDp": {
+          "type": "slide",
+          "settings": {
+            "enable_video_looping": false,
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "description": ""
+          }
+        },
         "slide_YEbfpj": {
           "type": "slide",
           "settings": {
@@ -597,6 +613,8 @@
         }
       },
       "block_order": [
+        "slide_KjdhXq",
+        "slide_JR3XDp",
         "slide_YEbfpj",
         "slide_jgDCQL",
         "slide_wNXK98",
