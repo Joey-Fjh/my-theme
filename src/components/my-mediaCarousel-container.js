@@ -111,25 +111,25 @@ class MyMediaCarouselContainer extends LitElement {
             spaceBetween: 30,
             loop: true,
             centeredSlides: true,
-            slideToClickedSlide: true,
+            // slideToClickedSlide: true,
             initialSlide: this.initIndex,
             navigation: {
                 nextEl: this._next,
                 prevEl: this._prev,
             },
-            pagination: {
-                el: ".carousel-dots",
-                clickable: true,
-            }
+            // pagination: {
+            //     el: ".carousel-dots",
+            //     clickable: true,
+            // }
         });
 
-        swiper.on('slideChangeTransitionEnd', () => {       
-            swiper.slides.forEach(slide => {
-                slide.classList.remove("center");
-            });
+        // swiper.on('slideChangeTransitionEnd', () => {       
+        //     swiper.slides.forEach(slide => {
+        //         slide.classList.remove("center");
+        //     });
 
-            swiper.slides.find(slide => slide.classList.contains('swiper-slide-active')).classList.add("center");
-        });
+        //     swiper.slides.find(slide => slide.classList.contains('swiper-slide-active')).classList.add("center");
+        // });
     }
 
     render() {
