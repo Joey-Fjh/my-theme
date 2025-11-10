@@ -115,14 +115,14 @@
         </svg>
       </button>
     
-      <div class="carousel-dots">
-        {% for block in section.blocks %}
+      <div class="carousel-dots swiper-pagination">
+        {% comment %} {% for block in section.blocks %}
           <button 
             class="dot"
             data-dot-index="{{ forloop.index | minus: 1 }}"
             aria-label="Go to slide {{ forloop.index }}"
           ></button>
-        {% endfor %}
+        {% endfor %} {% endcomment %}
       </div>
     {% endif %}
   </my-media-carousel-container>

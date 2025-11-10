@@ -115,24 +115,28 @@ class MyMediaCarouselContainer extends LitElement {
             loop: true,
             centeredSlides: true,
             slideToClickedSlide: true,
-            // initialSlide: this.initIndex,
+            initialSlide: this.initIndex,
             navigation: {
                 nextEl: this._next,
                 prevEl: this._prev,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
             }
         });
 
-        // let prevIndex = swiper.activeIndex;
+        let prevIndex = swiper.activeIndex;
 
-        // swiper.on('slideChangeTransitionEnd', () => {
-        //     swiper.slides[prevIndex].classList.remove("center");
-        //     this._dots.children[prevIndex].classList.remove("active");
+        swiper.on('slideChangeTransitionEnd', () => {
+            swiper.slides[prevIndex].classList.remove("center");
+            // this._dots.children[prevIndex].classList.remove("active");
 
-        //     swiper.slides[swiper.activeIndex].classList.add("center");
-        //     this._dots.children[swiper.activeIndex].classList.add("active");
+            swiper.slides[swiper.activeIndex].classList.add("center");
+            // this._dots.children[swiper.activeIndex].classList.add("active");
 
-        //     prevIndex = swiper.activeIndex;
-        // });
+            prevIndex = swiper.activeIndex;
+        });
 
         // this._dots.addEventListener('click', (e) => {
         //     let toIndex = parseInt(e.target.dataset['dotIndex'] ?? 0);
