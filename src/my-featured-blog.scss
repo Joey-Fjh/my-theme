@@ -13,6 +13,7 @@
 
         .left{
             flex: 2;
+            max-height: 500dw;
 
             .content{
                 position: absolute;
@@ -43,13 +44,22 @@
             justify-content: space-between;
             
             .card{
+                width: 100%;
                 height: fit-content;
                 display: flex;
                 flex-direction: row;
                 gap: 10px;
                 align-self: flex-start;
 
+                .right-image{
+                    height: 238dw;
+                    width: 238dw;
+                    min-width: 238px;
+                    min-height: 238px;
+                }
+
                 .content{
+                    flex: 1;
                     display: flex;
                     gap: 5px;
                     flex-direction: column;
