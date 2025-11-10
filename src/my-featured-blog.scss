@@ -84,4 +84,10 @@
             }
         }
     }
+
+    @include media-query(mobile,'max'){ 
+        .bottom{
+            flex-direction: column;
+        }
+    }
 }
