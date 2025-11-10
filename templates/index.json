@@ -564,32 +564,39 @@
     "my_media_carousel_8nNGTd": {
       "type": "my-media-carousel",
       "blocks": {
-        "slide_tghz4H": {
-          "type": "slide",
-          "settings": {
-            "enable_video_looping": false,
-            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-            "description": ""
-          }
-        },
-        "slide_kXwTLA": {
-          "type": "slide",
-          "settings": {
-            "enable_video_looping": false,
-            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-            "cover_image": "shopify://shop_images/20251027174416_19_94.jpg",
-            "description": ""
-          }
-        },
-        "slide_ki7R3d": {
-          "type": "slide",
-          "settings": {
-            "enable_video_looping": false,
-            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-            "description": ""
-          }
-        },
         "slide_prp3gn": {
+          "type": "slide",
+          "settings": {
+            "enable_video_looping": false,
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "description": ""
+          }
+        },
+        "slide_ktUEyG": {
+          "type": "slide",
+          "settings": {
+            "enable_video_looping": false,
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "description": ""
+          }
+        },
+        "slide_rkATeD": {
+          "type": "slide",
+          "settings": {
+            "enable_video_looping": false,
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "description": ""
+          }
+        },
+        "slide_JTQNJe": {
+          "type": "slide",
+          "settings": {
+            "enable_video_looping": false,
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "description": ""
+          }
+        },
+        "slide_pc6Lwd": {
           "type": "slide",
           "settings": {
             "enable_video_looping": false,
@@ -599,10 +606,11 @@
         }
       },
       "block_order": [
-        "slide_tghz4H",
-        "slide_kXwTLA",
-        "slide_ki7R3d",
-        "slide_prp3gn"
+        "slide_prp3gn",
+        "slide_ktUEyG",
+        "slide_rkATeD",
+        "slide_JTQNJe",
+        "slide_pc6Lwd"
       ],
       "name": "my-media-carousel",
       "settings": {
