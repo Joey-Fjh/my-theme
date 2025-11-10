@@ -614,6 +614,7 @@
       ],
       "name": "my-media-carousel",
       "settings": {
+        "is_loop": true,
         "padding_top": 36,
         "padding_bottom": 36
       }
