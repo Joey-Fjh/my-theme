@@ -112,14 +112,19 @@ class MyMediaCarouselContainer extends LitElement {
             modules: [Navigation],
             slidesPerView: "auto",
             loop: true,
-            loopedSlides: this._slides.length,
-            loopAdditionalSlides: 2,
+            loopedSlides: this._slides.length, 
             centeredSlides: true,
             initialSlide: this.initIndex,
             navigation: {
                 nextEl: this._next,
                 prevEl: this._prev,
-            }
+            },
+            on: {
+                init(swiper) {
+                    swiper.slideToLoop(this.initIndex, 0);
+                    setTimeout(() => swiper.update(), 200);
+                }
+            },
         });
 
         let prevIndex = swiper.activeIndex;
