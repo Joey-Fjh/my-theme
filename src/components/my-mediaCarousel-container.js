@@ -1,6 +1,6 @@
 import {html, LitElement,css} from 'lit';
 import Swiper from 'swiper';
-import { Navigation } from 'swiper/modules';
+import { Navigation ,Pagination} from 'swiper/modules';
 
 class MyMediaCarouselContainer extends LitElement {
     static properties = {
@@ -109,7 +109,7 @@ class MyMediaCarouselContainer extends LitElement {
         this.initVideoPlayer();
 
         let swiper = new Swiper(this._container, {
-            modules: [Navigation],
+            modules: [Navigation,Pagination],
             slidesPerView: 'auto',
             spaceBetween: 30,
             loop: true,
