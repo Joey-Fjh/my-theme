@@ -588,12 +588,39 @@
             "cover_image": "shopify://shop_images/20251027174416_19_94.jpg",
             "description": ""
           }
+        },
+        "slide_4hnPgb": {
+          "type": "slide",
+          "settings": {
+            "enable_video_looping": false,
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "description": ""
+          }
+        },
+        "slide_ki7R3d": {
+          "type": "slide",
+          "settings": {
+            "enable_video_looping": false,
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "description": ""
+          }
+        },
+        "slide_AzgpgE": {
+          "type": "slide",
+          "settings": {
+            "enable_video_looping": false,
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "description": ""
+          }
         }
       },
       "block_order": [
         "slide_3wKtXb",
         "slide_T7wA7E",
-        "slide_kXwTLA"
+        "slide_kXwTLA",
+        "slide_4hnPgb",
+        "slide_ki7R3d",
+        "slide_AzgpgE"
       ],
       "name": "my-media-carousel",
       "settings": {
