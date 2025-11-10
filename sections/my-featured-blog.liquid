@@ -27,7 +27,7 @@
     color-{{ section.settings.color_scheme }}
     "
 >
-    <div class="top">
+    {% comment %} <div class="top">
         <h2
             id="SectionHeading-{{ section.id }}"
             class="inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
@@ -38,7 +38,7 @@
         >
             {{ section.settings.heading }}
         </h2>
-    </div>
+    </div> {% endcomment %}
 
     <div class="bottom">
         <div class="left">
