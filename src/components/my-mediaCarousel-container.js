@@ -53,7 +53,7 @@ class MyMediaCarouselContainer extends LitElement {
 
     initStatus(){
         this._slides[this.initIndex].classList.add('center');
-        this._dots.children[this.initIndex].classList.add('active');
+        // this._dots.children[this.initIndex].classList.add('active');
     }
 
     initVideoPlayer(){
