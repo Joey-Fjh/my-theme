@@ -129,6 +129,7 @@ class MyMediaCarouselContainer extends LitElement {
         let prevIndex = swiper.activeIndex;
 
         swiper.on('slideChangeTransitionEnd', () => {
+            console.log(swiper.realIndex,'---',swiper.activeIndex,'---',prevIndex)
             swiper.slides[prevIndex].classList.remove("center");
             // this._dots.children[prevIndex].classList.remove("active");
 
