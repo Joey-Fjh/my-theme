@@ -112,7 +112,7 @@ class MyMediaCarouselContainer extends LitElement {
             loop: this.isLoop,
             centeredSlides: true,
             slideToClickedSlide: true,
-            initialSlide: this.initIndex,
+            // initialSlide: this.initIndex,
             navigation: {
                 nextEl: this._next,
                 prevEl: this._prev,
@@ -123,13 +123,13 @@ class MyMediaCarouselContainer extends LitElement {
             }
         });
 
-        swiper.on('slideChangeTransitionEnd', () => {       
-            swiper.slides.forEach(slide => {
-                slide.classList.remove("center");
-            });
+        // swiper.on('slideChangeTransitionEnd', () => {       
+        //     swiper.slides.forEach(slide => {
+        //         slide.classList.remove("center");
+        //     });
 
-            swiper.slides.find(slide => slide.classList.contains('swiper-slide-active')).classList.add("center");
-        });
+        //     swiper.slides.find(slide => slide.classList.contains('swiper-slide-active')).classList.add("center");
+        // });
     }
 
     render() {
