@@ -12,7 +12,7 @@
         justify-content: space-between;
 
         .left{
-            flex: 2;
+            flex: 1;
 
             .content{
                 position: absolute;
@@ -51,16 +51,17 @@
                 align-self: flex-start;
 
                 .right-image-container{
-                    height: 238dw;
-                    width: 238dw;
-                    max-width: 300px;
-                    max-height: 300px;
-                    min-height: 180px;
-                    min-width: 180px;
+                    flex: 1;
+                    // height: 238dw;
+                    // width: 238dw;
+                    // max-width: 300px;
+                    // max-height: 300px;
+                    // min-height: 180px;
+                    // min-width: 180px;
                 }
 
                 .content{
-                    flex: 1;
+                    flex: 2;
                     display: flex;
                     gap: 5px;
                     flex-direction: column;
