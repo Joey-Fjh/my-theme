@@ -1,0 +1,41 @@
+<div>overlay new Sletter popup
+
+    {% comment %} <div class="my-video-player__social-share">
+        <span class="social-media">
+            {{- 'facebook.svg' | inline_asset_content -}}
+        </span>
+        <span class="social-media">
+            {{- 'twitter.svg' | inline_asset_content -}}
+        </span>
+        <span class="social-media">
+            {{- 'ins.svg' | inline_asset_content -}}
+        </span>
+        <span class="social-media">
+            {{- 'tiktok.svg' | inline_asset_content -}}
+        </span>
+        <div class="social-badge">
+            <span class="social-text">GET 20% OFF</span>
+        </div>
+    </div> {% endcomment %}
+</div>
+
+
+{% schema %}
+  {
+    "name": "newSletter-popup",
+    "tag": "section",
+    "class": "newsletter-popup",
+    "enabled_on": {
+        "groups": ["custom.overlay"]
+    },
+    "limit": 1,
+    "settings": [
+      
+    ],
+    "presets": [
+      {
+        "name": "newSletter-popup"
+      }
+    ]
+  }
+{% endschema %}
