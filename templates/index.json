@@ -545,13 +545,12 @@
     },
     "my_featured_blog_Wa7B4H": {
       "type": "my-featured-blog",
-      "disabled": true,
       "name": "my-featured-blog",
       "settings": {
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
         "is_fullWidth": true,
         "heading": "<strong>Blog posts</strong>",
-        "text_align": "left",
+        "text_align": "center",
         "heading_size": "h0",
         "blog": "news",
         "show_image": true,
