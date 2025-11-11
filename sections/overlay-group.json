@@ -13,6 +13,36 @@
   "sections": {
     "my_overlay_new_sletter_popup_9g8w74": {
       "type": "my-overlay-newSletter-popup",
+      "blocks": {
+        "text_rQDmUP": {
+          "type": "Text",
+          "settings": {
+            "text": "FIRST TIMER?"
+          }
+        },
+        "heading_JYitxV": {
+          "type": "Heading",
+          "settings": {
+            "heading": "Sign up and get 20% off"
+          }
+        },
+        "form_cEzAk9": {
+          "type": "Form",
+          "settings": {}
+        },
+        "aside_bar_FM76dn": {
+          "type": "AsideBar",
+          "settings": {
+            "bar_text": "Get 20% off"
+          }
+        }
+      },
+      "block_order": [
+        "text_rQDmUP",
+        "heading_JYitxV",
+        "form_cEzAk9",
+        "aside_bar_FM76dn"
+      ],
       "name": "newSletter-popup",
       "settings": {}
     }
