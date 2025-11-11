@@ -27,7 +27,7 @@
     color-{{ section.settings.color_scheme }}
     "
 >
-    {% comment %} <div class="top">
+    <div class="top">
         <h2
             id="SectionHeading-{{ section.id }}"
             class="inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
@@ -38,7 +38,7 @@
         >
             {{ section.settings.heading }}
         </h2>
-    </div> {% endcomment %}
+    </div>
 
     <div class="bottom">
         <div class="left">
@@ -116,6 +116,7 @@
   {
     "name": "my-featured-blog",
     "tag": "section",
+    "class": "section",
     "disabled_on": {
         "groups": ["header", "footer"]
     },
