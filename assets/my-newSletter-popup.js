@@ -1,0 +1,1 @@
+import{i as e,x as t}from"./lit-element.js";class r extends e{constructor(){super()}connectedCallback(){super.connectedCallback()}render(){return t`<slot></slot>`}}customElements.define("newsletter-popup",r);

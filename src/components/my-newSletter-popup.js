@@ -1,6 +1,6 @@
 import {html, LitElement} from 'lit';
 
-class MyOverlayNewSletterPopup extends LitElement { 
+class MyNewSletterPopup extends LitElement { 
     constructor() {
         super();
     }
@@ -14,4 +14,4 @@ class MyOverlayNewSletterPopup extends LitElement {
     }
 }
 
-customElements.define('newsletter-popup', MyOverlayNewSletterPopup);
+customElements.define('newsletter-popup', MyNewSletterPopup);
