@@ -1,6 +1,36 @@
-<div>overlay new Sletter popup
+<newsletter-popup class="newsletter-popup">
+    <div class="overlay"></div>
+    <div class="newsletter-container">
+        <button
+            class="newsletter__close"
+            type="button"
+            onclick="this.closest('search-drawer').close()"
+            aria-label="{{ 'accessibility.close' | t }}"
+        >
+            <span class="svg-wrapper" style="width:15px;height:15px;">
+                {{- 'icon-close.svg' | inline_asset_content -}}
+            </span>
+        </button>
+        <div class="newsletter-content">
+            {%- for block in section.blocks -%}
+                {%- case block.type -%}
+                    {%- when 'Text' -%}
+                        <div>text</div>
+                    {%- when 'Heading' -%}
+                        <div>heading</div>
+                    {%- when 'Form' -%}
+                        <div>form</div>
+                    {%- when 'Aside Bar' -%}
+                        <div>aside bar</div> 
+                {%- endcase -%}
+            {%- endfor -%}
+        </div>
+    </div>
+</newsletter-popup>
 
-    {% comment %} <div class="my-video-player__social-share">
+
+{% comment %} 
+ <div class="my-video-player__social-share">
         <span class="social-media">
             {{- 'facebook.svg' | inline_asset_content -}}
         </span>
@@ -16,8 +46,7 @@
         <div class="social-badge">
             <span class="social-text">GET 20% OFF</span>
         </div>
-    </div> {% endcomment %}
-</div>
+</div> {% endcomment %}
 
 
 {% schema %}
@@ -31,6 +60,50 @@
     "limit": 1,
     "settings": [
       
+    ],
+    "blocks": [
+        {
+            "type": "Text",
+            "name": "Text",
+            "settings": [
+                {
+                    "type": "inline_richtext",
+                    "id": "text",
+                    "label": "Text",
+                    "default": "FIRST TIMER?"       
+                }
+            ]
+        },
+        {
+            "type": "Heading",
+            "name":"Heading",
+            "settings": [
+                {
+                    "type": "inline_richtext",
+                    "id": "heading",
+                    "label": "Heading",
+                    "default": "Sign up and get 20% off"
+                }
+            ]
+        },
+        {
+            "type": "Form",
+            "name":"Form",
+            "limit": 1
+        },
+        {
+            "type": "Aside Bar",
+            "name": "Aside Bar",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "bar_text",
+                    "label": "Heading",
+                    "default": "Get 20% off"       
+                }
+            ]
+        }
     ],
     "presets": [
       {

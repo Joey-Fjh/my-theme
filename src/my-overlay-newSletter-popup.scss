@@ -1,0 +1,42 @@
+.newsletter-popup{
+    --color-overlay:23 23 23;
+
+    width: 100%;
+    height: 100%;
+    inset-block-start: 0;
+    inset-block-end: 0;
+    position: fixed;
+    pointer-events: none;
+
+    .overlay{
+        background: rgb(var(--color-overlay) / 0.7);
+        opacity: 1;
+        visibility: visible;
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+    }
+
+    &[open] .overlay{
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .newsletter-container{
+        overflow-x: hidden;
+        overflow-y: auto;
+        position: absolute;
+        right: 5%;
+        bottom: 5%;
+        width: auto;
+        height: auto;
+        max-width: 60rem;
+        max-height: 90vh;
+
+
+        .newsletter-content{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
