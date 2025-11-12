@@ -26,9 +26,6 @@ class MyNewSletterPopup extends LitElement {
 
     connectedCallback() {
         super.connectedCallback();
-    
-        this.overlayDom = this.querySelector(".overlay");
-        this.containerDom = querySelector(".newsletter-container");
 
         this.init();
     }
