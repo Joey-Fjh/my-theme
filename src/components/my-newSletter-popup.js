@@ -73,7 +73,7 @@ class MyNewSletterPopup extends LitElement {
     show(){
         this.open = true;
 
-        this.setAttribute('open');
+        this.setAttribute('open','true');
     }
 
     hide(){
