@@ -58,7 +58,7 @@
         "delay": 3,
         "expired": 7,
         "alignment": "left",
-        "position": "center",
+        "position": "right",
         "background_color": "#000000",
         "foregroud_color": "#ffffff",
         "overlay_color": "#000000"
