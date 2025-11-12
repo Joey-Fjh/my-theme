@@ -51,7 +51,18 @@
         "aside_bar_FM76dn"
       ],
       "name": "newSletter-popup",
-      "settings": {}
+      "settings": {
+        "display_mode": "enable",
+        "show_in_home": true,
+        "show_for_visitor": true,
+        "delay": 3,
+        "expired": 7,
+        "alignment": "left",
+        "position": "right",
+        "background_color": "#000000",
+        "foregroud_color": "#ffffff",
+        "overlay_color": "#000000"
+      }
     }
   },
   "order": [
