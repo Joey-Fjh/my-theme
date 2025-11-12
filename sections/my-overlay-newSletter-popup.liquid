@@ -3,14 +3,14 @@
 
 <newsletter-popup class="newsletter-popup popup-{{ section.settings.position }}"
     displayMode="{{ section.settings.display_mode }}"
-    {%- if section.settings.show_in_home and template == 'index' -%}
+    {% if section.settings.show_in_home and template == 'index' %}
         showInHome
-    {%- endif -%}
-    {%- if section.settings.show_for_visitor and customer == nil-%}
+    {% endif %}
+    {% if section.settings.show_for_visitor and customer == nil %}
         showForVisitor
-    {%- endif -%}
+    {% endif %}
     delay="{{ section.settings.delay }}"
-    {% comment %} expired="{{ section.settings.expired }}" {% endcomment %}
+    expired="{{ section.settings.expired }}"
 >
     <div class="overlay"></div>
     <div class="newsletter-container">
