@@ -57,7 +57,7 @@
         "display_mode": "enable",
         "show_in_home": true,
         "show_for_visitor": true,
-        "delay": 5,
+        "delay": 21,
         "expired": 9,
         "alignment": "left",
         "position": "right",
