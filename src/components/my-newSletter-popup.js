@@ -6,19 +6,7 @@ class MyNewSletterPopup extends LitElement {
         showInHome: { type: Boolean },
         showForVisitor: { type: Boolean },
         delay: { type: Number },
-        expired: { 
-            type: Number,
-            converter:{
-                fromAttribute(val){
-                    // converter html attribute to js property (timestap)
-                    const day = Number(val);
-                    if(isNaN(day)) return 0;
-
-                    return Date.now() + day * 24 * 60 * 60 * 1000;
-                }
-            }
-
-        },
+        expired: { type: Number },
     }
 
     constructor() {
