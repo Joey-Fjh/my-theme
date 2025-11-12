@@ -17,33 +17,72 @@ class MyNewSletterPopup extends LitElement {
         this.showForVisitor = true;
         this.delay = 3;
         this.expired = 7;
+        this.expiredTimeStamp = 0;
         
-        // init dom element
         this.open = false;
+        this.timeId = null;
+        this.storageKey = 'newsletter-popup-expired';
     }
 
     connectedCallback() {
         super.connectedCallback();
+    
+        this.overlayDom = this.querySelector(".overlay");
+        this.containerDom = querySelector(".newsletter-container");
 
-        console.log(this.delay,'----',this.expired);
-        // addEventListener
-        this.show();
+        this.init();
     }
 
-    judgeShow(){
+    disconnectedCallback() {
+        super.disconnectedCallback();
 
+        clearTimeout(this.timeId);
     }
 
-    show(){
-        
-    }
+    init(){
+        if(this.isExpired()){
+            this.expiredTimeStamp = Date.now() + this.expired * 24 * 60 * 60 * 1000;
+            localStorage.setItem(this.storageKey, this.expiredTimeStamp);
+        }
 
-    hide(){
+        if(!this.judgeShow()) return;
 
+        this.timeId = setTimeout(() => {
+            this.show();
+        }, this.delay * 1000);
     }
 
     isExpired(){
+        const saved = Number(localStorage.getItem(this.storageKey));
+        const now = Date.now();
 
+        if (!saved || now > saved){
+            return true;
+        } 
+
+        return false;
+    }
+
+    judgeShow(){
+        if(this.displayMode == 'enable'){
+            if(!this.showInHome || !this.showForVisitor || !this.isExpired()){
+                return false;
+            }
+        }        
+
+        return true;
+    }
+
+    show(){
+        this.open = true;
+
+        this.setAttribute('open');
+    }
+
+    hide(){
+        this.open = false;
+
+        this.removeAttribute('open');
     }
 
     render() { 
