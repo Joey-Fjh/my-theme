@@ -39,7 +39,9 @@
         "aside_bar_FM76dn": {
           "type": "AsideBar",
           "settings": {
-            "bar_text": "Get 20% off"
+            "bar_text": "Get 20% off",
+            "position": "left",
+            "show_icon": true
           }
         }
       },
@@ -55,7 +57,7 @@
         "display_mode": "enable",
         "show_in_home": true,
         "show_for_visitor": true,
-        "delay": 3,
+        "delay": 5,
         "expired": 7,
         "alignment": "left",
         "position": "right",
