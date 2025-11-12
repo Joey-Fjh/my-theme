@@ -36,7 +36,7 @@
         position: relative;
         margin: 5%;
         border-radius: 16px;
-        max-width: 500px;
+        max-width: 400px;
         padding: 40px;
         background: white;
         box-shadow: 0 20px 60px rgba(0,0,0,.3);
@@ -78,6 +78,8 @@
             }
 
             .newsletter-form{
+                width: 100%;
+
                 .input-wrapper {
                     position: relative;
                     display: flex;
@@ -123,4 +125,17 @@
             }
         }
     }
+}
+
+.newsletter-popup.popup-left{
+    justify-content: flex-start;
+}
+
+.newsletter-popup.popup-right{
+    justify-content: flex-end;
+}
+
+.newsletter-popup.popup-center{
+    justify-content: center;
+    align-items: center;
 }

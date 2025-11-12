@@ -1,7 +1,15 @@
 {{ 'my-overlay-newSletter-popup.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'my-newSletter-popup.js' | asset_url }}" type="module"></script>
 
-<newsletter-popup class="newsletter-popup">
+<newsletter-popup class="newsletter-popup popup-{{ section.settings.position }}"
+    displayMode="{{ section.settings.display_mode }}"
+    {%- if section.settings.show_in_home -%}
+        showInHome
+    {%- endif -%}
+    {%- if section.settings.show_for_visitor -%}
+        showForVisitor
+    {%- endif -%}
+>
     <div class="overlay"></div>
     <div class="newsletter-container">
         <button
@@ -14,7 +22,9 @@
                 {{- 'icon-close.svg' | inline_asset_content -}}
             </span>
         </button>
-        <div class="newsletter-content">
+        <div class="newsletter-content"
+            style="text-align:{{ section.settings.alignment }};"
+        >
             {%- for block in section.blocks -%}
                 {%- case block.type -%}
                     {%- when 'Text' -%}
@@ -51,7 +61,7 @@
                             </div>
                         </form>
                     {%- when 'AsideBar' -%}
-                        <div class="newsletter-aside_bar">aside bar</div> 
+                        {% comment %} <div class="newsletter-aside_bar">aside bar</div>  {% endcomment %}
                 {%- endcase -%}
             {%- endfor -%}
         </div>
@@ -89,7 +99,109 @@
     },
     "limit": 1,
     "settings": [
-      
+        {
+            "type": "header",
+            "content": "Display Settings"
+        },
+        {
+            "type": "select",
+            "id": "display_mode",
+            "label": "Display Mode",
+            "options": [
+                {
+                    "label": "Enable",
+                    "value": "enable"
+                },
+                {
+                    "label": "Test",
+                    "value": "test"
+                }
+            ],
+            "info": "In \"Test mode\", the popup always displays."
+        },
+        {
+            "type": "checkbox",
+            "id": "show_in_home",
+            "label": "Show In Home",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "show_for_visitor",
+            "label": "Show For Visitor",
+            "default": true
+        },
+        {
+            "type": "range",
+            "unit": "s",
+            "id": "delay",
+            "label": "Delay",
+            "default": 3,
+            "min": 3,
+            "max": 60,
+            "step": 1
+        },
+        {
+            "type": "range",
+            "unit": "day",
+            "id": "expired",
+            "label": "Expired",
+            "default": 7,
+            "min": 1,
+            "max": 30,
+            "step": 1
+        },
+        {
+            "type": "header",
+            "content": "Text Settings"
+        },
+        {
+            "type": "text_alignment",
+            "id": "alignment",
+            "label": "Text alignment",
+            "default": "left"
+        },
+        {
+            "type": "select",
+            "id": "position",
+            "label": "Position",
+            "options": [
+                {
+                    "label": "Left",
+                    "value": "left"
+                },
+                {
+                    "label": "Center",
+                    "value": "center"
+                },
+                {
+                    "label": "Right",
+                    "value": "right"
+                }
+            ]
+        },
+        {
+            "type": "header",
+            "content": "Color & Style"
+        },
+        {
+            "type": "color",
+            "id": "background_color",
+            "label": "Background Color",
+            "default": "#000000"
+        },
+        {
+            "type": "color",
+            "id": "foregroud_color",
+            "label": "Foreground Color",
+            "default": "#ffffff"
+        },
+        {
+            "type": "color",
+            "id": "overlay_color",
+            "label": "Overlay Color",
+            "default": "#000"
+        }
     ],
     "blocks": [
         {
