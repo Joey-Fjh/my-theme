@@ -58,7 +58,7 @@
         "show_in_home": true,
         "show_for_visitor": true,
         "delay": 5,
-        "expired": 7,
+        "expired": 9,
         "alignment": "left",
         "position": "right",
         "background_color": "#000000",
