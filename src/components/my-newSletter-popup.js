@@ -32,6 +32,7 @@ class MyNewSletterPopup extends LitElement {
     connectedCallback() {
         super.connectedCallback();
 
+        console.log(this.expired,'--1231231-',this.delay);
         // addEventListener
         this.show();
     }
