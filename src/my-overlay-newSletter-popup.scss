@@ -38,6 +38,7 @@
         border-radius: 16px;
         max-width: 500px;
         padding: 40px;
+        background: white;
         box-shadow: 0 20px 60px rgba(0,0,0,.3);
         z-index: 10000;
 
@@ -121,9 +122,5 @@
                 }
             }
         }
-    }
-
-    @include media-query(mobile,'max'){
-        
     }
 }
