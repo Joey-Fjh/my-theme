@@ -69,7 +69,7 @@
 
     {% assign aside_bar_block = section.blocks | where: "type", "AsideBar" | first %}
     {%- if aside_bar_block -%}
-        <div class="newsletter-aside_bar">
+        <div class="newsletter-aside_bar {{ aside_bar_block.settings.position }}">
             <span class="social-media">
                 {{- 'facebook.svg' | inline_asset_content -}}
             </span>
@@ -83,7 +83,9 @@
                 {{- 'tiktok.svg' | inline_asset_content -}}
             </span>
             <div class="social-badge">
-                <span class="social-text">GET 20% OFF</span>
+                <span class="social-text">
+                    {{ aside_bar_block.settings.bar_text  }}
+                </span>
             </div>
         </div>
     {%- endif -%}
@@ -243,6 +245,27 @@
                     "id": "bar_text",
                     "label": "Heading",
                     "default": "Get 20% off"       
+                },
+                {
+                    "type": "select",
+                    "id": "position",
+                    "label": "Position",
+                    "options": [
+                        {
+                            "label": "Left",
+                            "value": "left"
+                        },
+                        {
+                            "label": "Right",
+                            "value": "right"
+                        }
+                    ]
+                },
+                {
+                    "type": "checkbox",
+                    "id": "show_icon",
+                    "label": "Show Social Icon",
+                    "default": true
                 }
             ]
         }
