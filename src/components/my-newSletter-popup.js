@@ -47,13 +47,12 @@ class MyNewSletterPopup extends LitElement {
     }
 
     init(){
-        if(this.isExpired()){
+        if(!this.judgeShow()) return;
+
+        if(!localStorage.getItem(this.storageKey)){
             this.expiredTimeStamp = Date.now() + this.expired * 24 * 60 * 60 * 1000;
             localStorage.setItem(this.storageKey, this.expiredTimeStamp);
         }
-
-        if(!this.judgeShow()) return;
-
 
         [this.overlayDom, this.closeBtnDom].forEach(el => {
             if (el) el.addEventListener('click', this.handleClick.bind(this));
