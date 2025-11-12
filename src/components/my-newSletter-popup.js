@@ -49,7 +49,7 @@ class MyNewSletterPopup extends LitElement {
     init(){
         if(!this.judgeShow()) return;
 
-        if(!localStorage.getItem(this.storageKey)){
+        if(this.isExpired()){
             this.expiredTimeStamp = Date.now() + this.expired * 24 * 60 * 60 * 1000;
             localStorage.setItem(this.storageKey, this.expiredTimeStamp);
         }
