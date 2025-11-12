@@ -27,6 +27,9 @@ class MyNewSletterPopup extends LitElement {
     connectedCallback() {
         super.connectedCallback();
 
+        this.overlayDom = this.querySelector(".overlay");
+        this.closeBtnDom = this.querySelector(".newsletter-close"); 
+
         this.init();
     }
 
@@ -34,6 +37,13 @@ class MyNewSletterPopup extends LitElement {
         super.disconnectedCallback();
 
         clearTimeout(this.timeId);
+        [this.overlayDom, this.closeBtnDom].forEach(el => {
+            if (el) el.removeEventListener('click', this.handleClick.bind(this));
+        });
+    }
+
+    handleClick(){
+        this.hide();
     }
 
     init(){
@@ -43,6 +53,11 @@ class MyNewSletterPopup extends LitElement {
         }
 
         if(!this.judgeShow()) return;
+
+
+        [this.overlayDom, this.closeBtnDom].forEach(el => {
+            if (el) el.addEventListener('click', this.handleClick.bind(this));
+        });
 
         this.timeId = setTimeout(() => {
             this.show();
