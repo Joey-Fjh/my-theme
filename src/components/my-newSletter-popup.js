@@ -47,11 +47,13 @@ class MyNewSletterPopup extends LitElement {
     }
 
     init(){
-        if(!this.judgeShow()) return;
+        if(this.displayMode == 'enable'){
+            if(!this.judgeShow()) return;
 
-        if(this.isExpired()){
-            this.expiredTimeStamp = Date.now() + this.expired * 24 * 60 * 60 * 1000;
-            localStorage.setItem(this.storageKey, this.expiredTimeStamp);
+            if(this.isExpired()){
+                this.expiredTimeStamp = Date.now() + this.expired * 24 * 60 * 60 * 1000;
+                localStorage.setItem(this.storageKey, this.expiredTimeStamp);
+            }
         }
 
         [this.overlayDom, this.closeBtnDom].forEach(el => {
@@ -75,11 +77,9 @@ class MyNewSletterPopup extends LitElement {
     }
 
     judgeShow(){
-        if(this.displayMode == 'enable'){
-            if(!this.showInHome || !this.showForVisitor || !this.isExpired()){
-                return false;
-            }
-        }        
+        if(!this.showInHome || !this.showForVisitor || !this.isExpired()){
+            return false;
+        } 
 
         return true;
     }
