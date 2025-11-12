@@ -123,54 +123,54 @@
                     }
                 }
             }
+        }
+    }
 
-            .newsletter-aside_bar{
-                position: fixed;
-                right: 0;
-                top: 10%;
-                background-color: #f5f5f5;
-                border-radius: 30px 0 0 30px;
-                padding: 20px 15px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 20px;
-                box-shadow: -2px 0 10px rgba(0,0,0,.1);
-                z-index: 1000;
+    .newsletter-aside_bar{
+        position: fixed;
+        right: 0;
+        top: 10%;
+        background-color: #f5f5f5;
+        border-radius: 30px 0 0 30px;
+        padding: 20px 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        box-shadow: -2px 0 10px rgba(0,0,0,.1);
+        z-index: 1000;
 
-                .social-media{
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    width: 40px;
-                    height: 40px;
-                    cursor: pointer;
-                    transition: transform 0.2s ease;
+        .social-media{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
 
-                    &:hover{
-                        transform: scale(1.1);
-                    }
+            &:hover{
+                transform: scale(1.1);
+            }
 
-                    svg{
-                        width: 24px;
-                        height: 24px;
-                        fill: currentColor;
-                    }
-                }
+            svg{
+                width: 24px;
+                height: 24px;
+                fill: currentColor;
+            }
+        }
 
-                .social-badge{
-                    margin-top: 10px;
-                    padding: 15px 0;
+        .social-badge{
+            margin-top: 10px;
+            padding: 15px 0;
 
-                    .social-text{
-                        writing-mode: vertical-rl;
-                        text-orientation: mixed;
-                        font-size: 12px;
-                        font-weight: bold;
-                        letter-spacing: 2px;
-                        color: #333;
-                    }
-                }
+            .social-text{
+                writing-mode: vertical-rl;
+                text-orientation: mixed;
+                font-size: 12px;
+                font-weight: bold;
+                letter-spacing: 2px;
+                color: #333;
             }
         }
     }

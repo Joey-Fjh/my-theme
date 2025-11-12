@@ -62,28 +62,31 @@
                                 </button>
                             </div>
                         </form>
-                    {%- when 'AsideBar' -%}
-                        <div class="newsletter-aside_bar">
-                             <span class="social-media">
-                                {{- 'facebook.svg' | inline_asset_content -}}
-                            </span>
-                            <span class="social-media">
-                                {{- 'twitter.svg' | inline_asset_content -}}
-                            </span>
-                            <span class="social-media">
-                                {{- 'ins.svg' | inline_asset_content -}}
-                            </span>
-                            <span class="social-media">
-                                {{- 'tiktok.svg' | inline_asset_content -}}
-                            </span>
-                            <div class="social-badge">
-                                <span class="social-text">GET 20% OFF</span>
-                            </div>
-                        </div>
                 {%- endcase -%}
             {%- endfor -%}
         </div>
     </div>
+
+    {% assign aside_bar_block = section.blocks | where: "type", "AsideBar" | first %}
+    {%- if aside_bar_block -%}
+        <div class="newsletter-aside_bar">
+            <span class="social-media">
+                {{- 'facebook.svg' | inline_asset_content -}}
+            </span>
+            <span class="social-media">
+                {{- 'twitter.svg' | inline_asset_content -}}
+            </span>
+            <span class="social-media">
+                {{- 'ins.svg' | inline_asset_content -}}
+            </span>
+            <span class="social-media">
+                {{- 'tiktok.svg' | inline_asset_content -}}
+            </span>
+            <div class="social-badge">
+                <span class="social-text">GET 20% OFF</span>
+            </div>
+        </div>
+    {%- endif -%}
 </newsletter-popup>
 
 {% schema %}
