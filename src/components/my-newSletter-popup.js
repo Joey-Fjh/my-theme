@@ -12,16 +12,20 @@ class MyNewSletterPopup extends LitElement {
     constructor() {
         super();
 
+        this.displayMode = 'enable';
+        this.showInHome = true;
+        this.showForVisitor = true;
+        this.delay = 3;
+        this.expired = 7;
+        
         // init dom element
         this.open = false;
-    
-        console.log(this.displayMode,'----',this.showInHome,'---',this.showForVisitor,'---',this.expired,'---',this.delay);
     }
 
     connectedCallback() {
         super.connectedCallback();
 
-        console.log(this.expired,'--1231231-',this.delay);
+        console.log(this.delay,'----',this.expired);
         // addEventListener
         this.show();
     }
