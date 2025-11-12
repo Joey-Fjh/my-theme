@@ -5,7 +5,7 @@ class MyNewSletterPopup extends LitElement {
         displayMode: {type: String},
         showInHome: { type: Boolean },
         showForVisitor: { type: Boolean },
-        delay1: { type: Number },
+        delay: { type: Number },
         expired: { type: Number },
     }
 
@@ -15,7 +15,7 @@ class MyNewSletterPopup extends LitElement {
         this.displayMode = 'enable';
         this.showInHome = true;
         this.showForVisitor = true;
-        this.delay1 = 3;
+        this.delay = 3;
         this.expired = 7;
         
         // init dom element
@@ -25,7 +25,7 @@ class MyNewSletterPopup extends LitElement {
     connectedCallback() {
         super.connectedCallback();
 
-        console.log(this.delay1,'----',this.expired);
+        console.log(this.delay,'----',this.expired);
         // addEventListener
         this.show();
     }
