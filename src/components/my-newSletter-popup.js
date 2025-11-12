@@ -14,7 +14,8 @@ class MyNewSletterPopup extends LitElement {
 
         // init dom element
         this.open = false;
-        console.log(this.expired,'---',this.delay);
+    
+        console.log(this.displayMode,'----',this.showInHome,'---',this.showForVisitor,'---',this.expired,'---',this.delay);
     }
 
     connectedCallback() {
