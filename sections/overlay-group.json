@@ -17,7 +17,7 @@
         "text_rQDmUP": {
           "type": "Text",
           "settings": {
-            "text": "FIRST TIMER?"
+            "text": "<p>FIRST TIMER?</p>"
           }
         },
         "heading_JYitxV": {
@@ -30,6 +30,12 @@
           "type": "Form",
           "settings": {}
         },
+        "text_UNTwpN": {
+          "type": "Text",
+          "settings": {
+            "text": "<p>Subscribe to our newsletter and be the first to hear about our new arrivals, special promotions and online exclusives.</p>"
+          }
+        },
         "aside_bar_FM76dn": {
           "type": "AsideBar",
           "settings": {
@@ -41,6 +47,7 @@
         "text_rQDmUP",
         "heading_JYitxV",
         "form_cEzAk9",
+        "text_UNTwpN",
         "aside_bar_FM76dn"
       ],
       "name": "newSletter-popup",
