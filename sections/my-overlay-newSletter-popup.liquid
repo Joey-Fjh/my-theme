@@ -3,12 +3,14 @@
 
 <newsletter-popup class="newsletter-popup popup-{{ section.settings.position }}"
     displayMode="{{ section.settings.display_mode }}"
-    {%- if section.settings.show_in_home -%}
+    {%- if section.settings.show_in_home and template == 'index' -%}
         showInHome
     {%- endif -%}
-    {%- if section.settings.show_for_visitor -%}
+    {%- if section.settings.show_for_visitor and customer == nil-%}
         showForVisitor
     {%- endif -%}
+    delay="{{ section.settings.delay }}"
+    expired="{{ section.settings.expired }}"
 >
     <div class="overlay"></div>
     <div class="newsletter-container">
@@ -25,7 +27,6 @@
         <div class="newsletter-content"
             style="text-align:{{ section.settings.alignment }};"
         >
-            {{ template }} --- {{ customer | json }}
             {%- for block in section.blocks -%}
                 {%- case block.type -%}
                     {%- when 'Text' -%}
@@ -62,33 +63,28 @@
                             </div>
                         </form>
                     {%- when 'AsideBar' -%}
-                        {% comment %} <div class="newsletter-aside_bar">aside bar</div>  {% endcomment %}
+                        <div class="newsletter-aside_bar">
+                             <span class="social-media">
+                                {{- 'facebook.svg' | inline_asset_content -}}
+                            </span>
+                            <span class="social-media">
+                                {{- 'twitter.svg' | inline_asset_content -}}
+                            </span>
+                            <span class="social-media">
+                                {{- 'ins.svg' | inline_asset_content -}}
+                            </span>
+                            <span class="social-media">
+                                {{- 'tiktok.svg' | inline_asset_content -}}
+                            </span>
+                            <div class="social-badge">
+                                <span class="social-text">GET 20% OFF</span>
+                            </div>
+                        </div>
                 {%- endcase -%}
             {%- endfor -%}
         </div>
     </div>
 </newsletter-popup>
-
-
-{% comment %} 
- <div class="my-video-player__social-share">
-        <span class="social-media">
-            {{- 'facebook.svg' | inline_asset_content -}}
-        </span>
-        <span class="social-media">
-            {{- 'twitter.svg' | inline_asset_content -}}
-        </span>
-        <span class="social-media">
-            {{- 'ins.svg' | inline_asset_content -}}
-        </span>
-        <span class="social-media">
-            {{- 'tiktok.svg' | inline_asset_content -}}
-        </span>
-        <div class="social-badge">
-            <span class="social-text">GET 20% OFF</span>
-        </div>
-</div> {% endcomment %}
-
 
 {% schema %}
   {

@@ -5,26 +5,51 @@ class MyNewSletterPopup extends LitElement {
         displayMode: {type: String},
         showInHome: { type: Boolean },
         showForVisitor: { type: Boolean },
+        delay: { type: Number },
+        expired: { 
+            type: Number,
+            converter:{
+                fromAttribute(val){
+                    // converter html attribute to js property (timestap)
+                    const day = Number(val);
+                    if(isNaN(day)) return 0;
+
+                    return Date.now() + day * 24 * 60 * 60 * 1000;
+                }
+            }
+
+        },
     }
 
     constructor() {
         super();
 
+        // init dom element
         this.open = false;
-
-        this.displayMode = null;
-        this.showInHome = true;
-        this.showForVisitor = true;
+        console.log(this.expired,'---',this.delay);
     }
 
     connectedCallback() {
         super.connectedCallback();
 
+        // addEventListener
         this.show();
     }
 
+    judgeShow(){
+
+    }
+
     show(){
-        console.log(this.displayMode,'---',this.showInHome,'---',this.showForVisitor);
+        
+    }
+
+    hide(){
+
+    }
+
+    isExpired(){
+
     }
 
     render() { 
