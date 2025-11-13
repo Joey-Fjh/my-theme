@@ -201,6 +201,12 @@
         right: 0;
         left:auto;
     }
+
+    @include media-query(mobile,'max'){
+        .newsletter-image{
+            display: none;
+        }
+    }
 }
 
 .newsletter-popup.popup-left{
