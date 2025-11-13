@@ -443,7 +443,7 @@
       "type": "my-newsletter-hero",
       "name": "my-newsletter-hero",
       "settings": {
-        "is_fullWidth": false,
+        "is_fullWidth": true,
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
         "background_image": "shopify://shop_images/image_35.png",
         "text-size": "h1",
