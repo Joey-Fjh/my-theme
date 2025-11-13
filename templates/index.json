@@ -49,7 +49,7 @@
       ],
       "name": "my-image-banner",
       "settings": {
-        "layout": "full_bleed",
+        "layout": "page_width",
         "slide_height": "large",
         "auto_slide": false,
         "autoplay_speed": 2,
