@@ -1,5 +1,6 @@
 .newsletter-popup{
     --color-overlay:23 23 23;
+    --image-width:228px;
 
     width: 100%;
     height: 100%;
@@ -41,10 +42,8 @@
     .newsletter-container{
         position: relative;
         margin: 1%;
-        // max-width: 400px;
-        // padding: 40px;
-        // background: white;
-        border-radius: 40px;
+        border-radius: 16px;
+        overflow: hidden;
         box-shadow: 0 20px 60px rgba(0,0,0,.3);
         z-index: 10001;
 
@@ -65,11 +64,11 @@
 
         .newsletter-content{
             display: flex;
-            max-width: 400px;
             background: white;
             
             .newsletter-image{
-                
+                width: var(--image-width);
+
                 img{
                     width: 100%;
                     height: 100%;
@@ -82,6 +81,7 @@
                 flex-direction: column;
                 gap: 20px;
                 padding: 40px;
+                max-width: 380px;
             }
 
             .newsletter-text{
