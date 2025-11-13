@@ -60,11 +60,13 @@
         "delay": 3,
         "expired": 7,
         "alignment": "left",
-        "position": "left",
+        "position": "right",
         "image": "shopify://shop_images/20251027174416_19_94.jpg",
         "background_color": "#e68888",
         "foregroud_color": "#cbed49",
-        "overlay_color": "#6c4141"
+        "overlay_color": "#6c4141",
+        "button_color": "#334fb4",
+        "button_background_color": "#50b948"
       }
     }
   },
