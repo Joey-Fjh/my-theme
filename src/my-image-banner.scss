@@ -1,18 +1,7 @@
 .my-image-banner__container {
     overflow: hidden;
     width: 100%;
-
-    .swiper--small {
-      height: 280px;
-    }
-
-    .swiper--medium{
-      height: 340px;
-    }
-
-    .swiper--large{
-      height: 390px;
-    }
+    height: 100svh;
 
     .slide-content{
       padding: 0;
@@ -63,18 +52,6 @@
     }
 
     @include media-query(mobile,'min'){
-      .swiper--small {
-        height: 420px;
-      }
-
-      .swiper--medium{
-        height: 560px;
-      }
-
-      .swiper--large{
-        height: 720px;
-      }
-
       .slide-content{
         height: 100%;
         padding: 5rem;
