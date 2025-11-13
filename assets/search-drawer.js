@@ -64,11 +64,6 @@ class SearchDrawer extends HTMLElement{
 
         const newSearchTerm = this.getQuery();
 
-        if (!this.searchTerm || !newSearchTerm.startsWith(this.searchTerm)) {
-            // 清除旧的搜索结果，如果搜索词已改变 或 第一次打开
-            // this.querySelector('#predictive-search-results-groups-wrapper')?.remove();
-        }
-
         this.updateSearchForTerm(this.searchTerm, newSearchTerm);
         this.searchTerm = newSearchTerm;
 
@@ -96,14 +91,9 @@ class SearchDrawer extends HTMLElement{
     }
 
     onFocusOut() {
-        setTimeout(() => {
-            // 查询抽屉失去焦点时，关闭
-            // if (!this.contains(document.activeElement)) this.close();
-        });
     }
 
     updateSearchForTerm(previousTerm, newTerm) {
-        // 更新当前搜索的展示文本：Search For ‘搜索词’
         const searchForTextElement = this.querySelector('[data-predictive-search-search-for-text]');
         const currentButtonText = searchForTextElement?.innerText;
 
@@ -122,7 +112,6 @@ class SearchDrawer extends HTMLElement{
         this.setAttribute('results', true);
 
         this.searchResults.innerHTML = resultsMarkup;
-        // this.openSearch();
     }
 
     getSearchResults(searchTerm){
@@ -204,11 +193,9 @@ class SearchDrawer extends HTMLElement{
             this.classList.add('search-container__active');
         });
 
-        // 这里要处理焦点的逻辑
         this.addEventListener(
             'transitionend',
             () => {
-                // document.activeElement = this;
                 trapFocus(this,  this.querySelector('#SearchDrawer'));
             },
             { once: true }

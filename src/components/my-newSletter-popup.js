@@ -92,12 +92,14 @@ class MyNewSletterPopup extends LitElement {
         this.open = true;
 
         this.setAttribute('open','true');
+        document.body.classList.add('overflow-hidden');
     }
 
     hide(){
         this.open = false;
 
         this.removeAttribute('open');
+        document.body.classList.remove('overflow-hidden');
     }
 
     render() { 
