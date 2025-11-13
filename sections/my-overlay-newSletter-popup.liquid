@@ -14,6 +14,9 @@
 >
     <div class="overlay"></div>
     <div class="newsletter-container">
+        <div class="newsletter-image">
+            image
+        </div>
         <button
             class="newsletter-close"
             type="button"
@@ -184,7 +187,13 @@
         },
         {
             "type": "header",
-            "content": "Color & Style"
+            "content": "Color & Image Settings"
+        },
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image",
+            "info":"Does not appear on mobile because SEO."
         },
         {
             "type": "color",
@@ -272,7 +281,13 @@
     ],
     "presets": [
       {
-        "name": "newSletter-popup"
+        "name": "newSletter-popup",
+        "blocks": [
+            { "type": "Text"},
+            { "type": "Heading"},
+            { "type": "Form"},
+            { "type": "AsideBar"}
+        ]
       }
     ]
   }
