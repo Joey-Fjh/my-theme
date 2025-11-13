@@ -48,6 +48,8 @@
         overflow: hidden;
         box-shadow: 0 20px 60px rgba(0,0,0,.3);
         z-index: 10001;
+        color: var(--text-color);
+        background: var(--background-color);
 
         .newsletter-close{
             position: absolute;
@@ -65,8 +67,6 @@
 
         .newsletter-content{
             display: flex;
-            color: var(--text-color);
-            background: var(--background-color);
             
             .newsletter-image{
                 width: var(--image-width);

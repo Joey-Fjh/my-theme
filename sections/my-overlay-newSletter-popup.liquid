@@ -11,6 +11,12 @@
     {% endif %}
     delay="{{ section.settings.delay }}"
     expired="{{ section.settings.expired }}"
+    style="
+        text-align:{{ section.settings.alignment }};
+        --color-overlay: {{ section.settings.overlay_color }};
+        --background-color: {{ section.settings.background_color }};
+        --text-color: {{ section.settings.foregroud_color }};
+    "
 >
     <div class="overlay"></div>
     <div class="newsletter-container">
@@ -35,13 +41,7 @@
                     }}
                 </div>
             {%- endif -%}
-            <div class="newsletter-blocks"
-                style="text-align:{{ section.settings.alignment }};
-                    --color-overlay: {{ section.settings.overlay_color }};
-                    --background-color: {{ section.settings.background_color }};
-                    --text-color: {{ section.settings.foregroud_color }};
-                "
-            >
+            <div class="newsletter-blocks">
                 {%- for block in section.blocks -%}
                     {%- case block.type -%}
                         {%- when 'Text' -%}
