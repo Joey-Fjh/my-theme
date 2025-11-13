@@ -90,37 +90,37 @@
             </div>
         </div>
     </div>
-
-    {% assign aside_bar_block = section.blocks | where: "type", "AsideBar" | first %}
-    {%- if aside_bar_block -%}
-        <div class="newsletter-aside_bar {{ aside_bar_block.settings.position }}"
-            style="
-                --social-foreground-color:{{ aside_bar_block.settings.foreground_color }};
-                --social-background-color:{{ aside_bar_block.settings.background_color }};
-            "
-        >
-            {%- if aside_bar_block.settings.show_icon -%}
-                <span class="social-media">
-                    {{- 'facebook.svg' | inline_asset_content -}}
-                </span>
-                <span class="social-media">
-                    {{- 'twitter.svg' | inline_asset_content -}}
-                </span>
-                <span class="social-media">
-                    {{- 'ins.svg' | inline_asset_content -}}
-                </span>
-                <span class="social-media">
-                    {{- 'tiktok.svg' | inline_asset_content -}}
-                </span>
-            {%- endif -%}
-            <div class="social-badge">
-                <span class="social-text">
-                    {{ aside_bar_block.settings.bar_text  }}
-                </span>
-            </div>
-        </div>
-    {%- endif -%}
 </newsletter-popup>
+
+{% assign aside_bar_block = section.blocks | where: "type", "AsideBar" | first %}
+{%- if aside_bar_block -%}
+    <div class="newsletter-aside_bar {{ aside_bar_block.settings.position }}"
+        style="
+            --social-foreground-color:{{ aside_bar_block.settings.foreground_color }};
+            --social-background-color:{{ aside_bar_block.settings.background_color }};
+        "
+    >
+        {%- if aside_bar_block.settings.show_icon -%}
+            <span class="social-media">
+                {{- 'facebook.svg' | inline_asset_content -}}
+            </span>
+            <span class="social-media">
+                {{- 'twitter.svg' | inline_asset_content -}}
+            </span>
+            <span class="social-media">
+                {{- 'ins.svg' | inline_asset_content -}}
+            </span>
+            <span class="social-media">
+                {{- 'tiktok.svg' | inline_asset_content -}}
+            </span>
+        {%- endif -%}
+        <div class="social-badge">
+            <span class="social-text">
+                {{ aside_bar_block.settings.bar_text  }}
+            </span>
+        </div>
+    </div>
+{%- endif -%}
 
 {% schema %}
   {

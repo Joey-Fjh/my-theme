@@ -146,69 +146,69 @@
         }
     }
 
-    .newsletter-aside_bar{
-        position: fixed;
-        left: 0;
-        top: 10%;
-        background-color: var(--social-background-color);
-        border-radius: 40px;
-        padding: 10px;
-        gap: 10px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        box-shadow: -2px 0 10px rgba(0,0,0,.1);
-
-        .social-media{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            transition: transform 0.2s ease;
-
-            &:hover{
-                transform: scale(1.1);
-            }
-
-            svg{
-                width: 24px;
-                height: 24px;
-                fill: currentColor;
-            }
-        }
-
-        .social-badge{
-            margin-top: 10px;
-            padding: 15px 0;
-
-            .social-text{
-                writing-mode: vertical-rl;
-                text-orientation: mixed;
-                font-size: 12px;
-                font-weight: bold;
-                letter-spacing: 2px;
-                color: var(--social-foreground-color);
-            }
-        }
-    }
-
-    .newsletter-aside_bar.left{
-        left: 0;
-        right:auto;
-    }
-
-    .newsletter-aside_bar.right{
-        right: 0;
-        left:auto;
-    }
-
     @include media-query(mobile,'max'){
         .newsletter-image{
             display: none;
         }
     }
+}
+
+.newsletter-aside_bar{
+    position: fixed;
+    left: 0;
+    top: 10%;
+    background-color: var(--social-background-color);
+    border-radius: 40px;
+    padding: 10px;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: -2px 0 10px rgba(0,0,0,.1);
+
+    .social-media{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+
+        &:hover{
+            transform: scale(1.1);
+        }
+
+        svg{
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+    }
+
+    .social-badge{
+        margin-top: 10px;
+        padding: 15px 0;
+
+        .social-text{
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: var(--social-foreground-color);
+        }
+    }
+}
+
+.newsletter-aside_bar.left{
+    left: 0;
+    right:auto;
+}
+
+.newsletter-aside_bar.right{
+    right: 0;
+    left:auto;
 }
 
 .newsletter-popup.popup-left{
