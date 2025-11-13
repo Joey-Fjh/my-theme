@@ -59,7 +59,7 @@
         "show_for_visitor": true,
         "delay": 3,
         "expired": 7,
-        "alignment": "center",
+        "alignment": "left",
         "position": "left",
         "background_color": "#000000",
         "foregroud_color": "#ffffff",
