@@ -18,12 +18,12 @@
             "color_scheme": "scheme-1",
             "image": "shopify://shop_images/20251027174416_19_94.jpg",
             "image_overlay_opacity": 100,
-            "title": "Wear the Moment,Own the Style",
-            "heading_size": "h2",
+            "title": "<strong>Wear the Moment,Own the Style</strong>",
+            "heading_size": "hxl",
             "sub_title": "Embrace every moment with confidence and let your fashion reflect your personality.Style is more than just clothing.",
             "button_text": "Shop Now",
             "button_url": "",
-            "content_position": "middle-right",
+            "content_position": "top-left",
             "text_alignment": "left"
           }
         },
