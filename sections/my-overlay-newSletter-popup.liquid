@@ -14,9 +14,16 @@
 >
     <div class="overlay"></div>
     <div class="newsletter-container">
-        <div class="newsletter-image">
-            image
-        </div>
+        {%- if section.settings.image -%}
+            <div class="newsletter-image">
+                {{ 
+                    section.settings.image 
+                    | image_url: width: section.settings.image.width
+                    | image_tag:
+                        loading: 'lazy'
+                }}
+            </div>
+        {%- endif -%}
         <button
             class="newsletter-close"
             type="button"
