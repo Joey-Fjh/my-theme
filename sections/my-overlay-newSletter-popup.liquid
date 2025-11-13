@@ -13,9 +13,11 @@
     expired="{{ section.settings.expired }}"
     style="
         text-align:{{ section.settings.alignment }};
-        --color-overlay: {{ section.settings.overlay_color }};
+        --color-overlay: {{ section.settings.overlay_color.rgb }};
         --background-color: {{ section.settings.background_color }};
         --text-color: {{ section.settings.foregroud_color }};
+        --btn-color: {{ section.settings.button_color }};
+        --btn-background-color: {{ section.settings.button_background_color }};
     "
 >
     <div class="overlay"></div>
@@ -225,6 +227,18 @@
             "type": "color",
             "id": "overlay_color",
             "label": "Overlay Color",
+            "default": "#000"
+        },
+        {
+            "type": "color",
+            "id": "button_color",
+            "label": "Button Color",
+            "default": "#000"
+        },
+        {
+            "type": "color",
+            "id": "button_background_color",
+            "label": "Button Background Color",
             "default": "#000"
         }
     ],

@@ -3,6 +3,8 @@
     --image-width:300px;
     --background-color: #fff;
     --text-color: #666;
+    --btn-color:#333;
+    --btn-background-color:#000;
 
     width: 100%;
     height: 100%;
@@ -52,6 +54,7 @@
         background: var(--background-color);
 
         .newsletter-close{
+            color: currentColor;
             position: absolute;
             top: 16px;
             right: 16px;
@@ -105,7 +108,7 @@
                 .input-wrapper {
                     position: relative;
                     display: flex;
-                    align-items: center;
+                    align-items: stretch;
                     border: 1.5px solid var(--text-color);
                     border-radius: 4px;
                     overflow: hidden;
@@ -126,7 +129,8 @@
                 }
 
                 .submit-button {
-                    background: #000;
+                    color: var(--btn-color);
+                    background: var(--btn-background-color);
                     border: none;
                     padding: 14px 16px;
                     cursor: pointer;
@@ -135,10 +139,6 @@
                     justify-content: center;
                     transition: background 0.2s;
                     flex-shrink: 0;
-
-                    &:hover{
-                        background: #333;
-                    }
                 }
             }
         }
