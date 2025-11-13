@@ -61,6 +61,7 @@
         "expired": 7,
         "alignment": "left",
         "position": "right",
+        "image": "shopify://shop_images/20251027174416_19_94.jpg",
         "background_color": "#000000",
         "foregroud_color": "#ffffff",
         "overlay_color": "#000000"
