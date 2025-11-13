@@ -49,7 +49,7 @@
       ],
       "name": "my-image-banner",
       "settings": {
-        "layout": "page_width",
+        "layout": "full_bleed",
         "slide_height": "large",
         "auto_slide": false,
         "autoplay_speed": 2,
@@ -406,7 +406,7 @@
       "type": "my-fashion-grid-layout",
       "name": "my-fashion-grid-layout",
       "settings": {
-        "is_fullWidth": false,
+        "is_fullWidth": true,
         "color_scheme1": "scheme-1",
         "image1-1": "shopify://shop_images/image_2.png",
         "image1-4": "shopify://shop_images/image_73.png",
