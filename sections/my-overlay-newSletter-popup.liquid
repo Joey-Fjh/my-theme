@@ -23,9 +23,7 @@
                 {{- 'icon-close.svg' | inline_asset_content -}}
             </span>
         </button>
-        <div class="newsletter-content"
-            style="text-align:{{ section.settings.alignment }};"
-        >
+        <div class="newsletter-content">
 
             {%- if section.settings.image -%}
                 <div class="newsletter-image">
@@ -37,7 +35,13 @@
                     }}
                 </div>
             {%- endif -%}
-            <div class="newsletter-blocks">
+            <div class="newsletter-blocks"
+                style="text-align:{{ section.settings.alignment }};
+                    --color-overlay: {{ section.settings.overlay_color }};
+                    --background-color: {{ section.settings.background_color }};
+                    --text-color: {{ section.settings.foregroud_color }};
+                "
+            >
                 {%- for block in section.blocks -%}
                     {%- case block.type -%}
                         {%- when 'Text' -%}
