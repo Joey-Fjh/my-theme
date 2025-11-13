@@ -61,7 +61,7 @@
       ],
       "name": "newSletter-popup",
       "settings": {
-        "display_mode": "enable",
+        "display_mode": "test",
         "show_in_home": true,
         "show_for_visitor": true,
         "delay": 3,
