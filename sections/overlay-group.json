@@ -17,13 +17,16 @@
         "text_rQDmUP": {
           "type": "Text",
           "settings": {
-            "text": "<p>FIRST TIMER?</p>"
+            "text": "<p>FIRST TIMER?</p>",
+            "text_size": "h4",
+            "uppercase": true
           }
         },
         "heading_JYitxV": {
           "type": "Heading",
           "settings": {
-            "heading": "Sign up and get 20% off"
+            "heading": "Sign up and get 20% off",
+            "text_size": "h1"
           }
         },
         "form_cEzAk9": {
@@ -33,7 +36,9 @@
         "text_UNTwpN": {
           "type": "Text",
           "settings": {
-            "text": "<p>Subscribe to our newsletter and be the first to hear about our new arrivals, special promotions and online exclusives.</p>"
+            "text": "<p>Subscribe to our newsletter and be the first to hear about our new arrivals, special promotions and online exclusives.</p>",
+            "text_size": "h4",
+            "uppercase": true
           }
         },
         "aside_bar_FM76dn": {
@@ -41,7 +46,9 @@
           "settings": {
             "bar_text": "Get 20% off",
             "position": "left",
-            "show_icon": true
+            "show_icon": true,
+            "foreground_color": "#be1818",
+            "background_color": "#d74242"
           }
         }
       },
