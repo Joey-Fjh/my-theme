@@ -46,7 +46,7 @@
           "settings": {
             "bar_text": "Get 20% off",
             "position": "left",
-            "show_icon": true,
+            "show_icon": false,
             "foreground_color": "#be1818",
             "background_color": "#d74242"
           }
@@ -61,7 +61,7 @@
       ],
       "name": "newSletter-popup",
       "settings": {
-        "display_mode": "test",
+        "display_mode": "enable",
         "show_in_home": true,
         "show_for_visitor": true,
         "delay": 3,
