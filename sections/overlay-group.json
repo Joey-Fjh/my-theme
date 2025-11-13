@@ -46,7 +46,7 @@
           "settings": {
             "bar_text": "Get 20% off",
             "position": "left",
-            "show_icon": true,
+            "show_icon": false,
             "foreground_color": "#be1818",
             "background_color": "#d74242"
           }
