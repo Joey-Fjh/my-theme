@@ -60,9 +60,13 @@ class MyNewSletterPopup extends LitElement {
             if (el) el.addEventListener('click', this.handleClick.bind(this));
         });
 
-        this.timeId = setTimeout(() => {
+        if(this.displayMode == 'enable'){
+            this.timeId = setTimeout(() => {
+                this.show();
+            }, this.delay * 1000);
+        }else{
             this.show();
-        }, this.delay * 1000);
+        }
     }
 
     isExpired(){

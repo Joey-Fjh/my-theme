@@ -14,16 +14,6 @@
 >
     <div class="overlay"></div>
     <div class="newsletter-container">
-        {%- if section.settings.image -%}
-            <div class="newsletter-image">
-                {{ 
-                    section.settings.image 
-                    | image_url: width: section.settings.image.width
-                    | image_tag:
-                        loading: 'lazy'
-                }}
-            </div>
-        {%- endif -%}
         <button
             class="newsletter-close"
             type="button"
@@ -36,43 +26,56 @@
         <div class="newsletter-content"
             style="text-align:{{ section.settings.alignment }};"
         >
-            {%- for block in section.blocks -%}
-                {%- case block.type -%}
-                    {%- when 'Text' -%}
-                        <div class="newsletter-text">
-                            {{ block.settings.text }}
-                        </div>
-                    {%- when 'Heading' -%}
-                        <div class="newsletter-heading">
-                            {{ block.settings.heading }}
-                        </div>
-                    {%- when 'Form' -%}
-                        <form class="newsletter-form"
-                            action="{{ routes.root_url }}contact#contace_form"
-                            method="post"
-                            accept="UTF-8"
-                        >
-                            <input type="hidden" name="form_type" value="customer">
-                            <input type="hidden" name="utf8" value="✓">
-                            <input type="hidden" name="contact[tags]" value="newsletter">
 
-                            <div class="input-wrapper">
-                                <input type="email"
-                                    name="contact[email]"
-                                    class="newsletter-input"
-                                    placeholder="E-mail"
-                                    required
-                                    aria-label="Newsletter Email"
-                                >
-                                <button type="submit" class="submit-button" aria-label="Submit">
-                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                </button>
+            {%- if section.settings.image -%}
+                <div class="newsletter-image">
+                    {{ 
+                        section.settings.image 
+                        | image_url: width: section.settings.image.width
+                        | image_tag:
+                            loading: 'lazy'
+                    }}
+                </div>
+            {%- endif -%}
+            <div class="newsletter-blocks">
+                {%- for block in section.blocks -%}
+                    {%- case block.type -%}
+                        {%- when 'Text' -%}
+                            <div class="newsletter-text">
+                                {{ block.settings.text }}
                             </div>
-                        </form>
-                {%- endcase -%}
-            {%- endfor -%}
+                        {%- when 'Heading' -%}
+                            <div class="newsletter-heading">
+                                {{ block.settings.heading }}
+                            </div>
+                        {%- when 'Form' -%}
+                            <form class="newsletter-form"
+                                action="{{ routes.root_url }}contact#contace_form"
+                                method="post"
+                                accept="UTF-8"
+                            >
+                                <input type="hidden" name="form_type" value="customer">
+                                <input type="hidden" name="utf8" value="✓">
+                                <input type="hidden" name="contact[tags]" value="newsletter">
+
+                                <div class="input-wrapper">
+                                    <input type="email"
+                                        name="contact[email]"
+                                        class="newsletter-input"
+                                        placeholder="E-mail"
+                                        required
+                                        aria-label="Newsletter Email"
+                                    >
+                                    <button type="submit" class="submit-button" aria-label="Submit">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </form>
+                    {%- endcase -%}
+                {%- endfor -%}
+            </div>
         </div>
     </div>
 
