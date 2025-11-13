@@ -47,11 +47,17 @@
                 {%- for block in section.blocks -%}
                     {%- case block.type -%}
                         {%- when 'Text' -%}
-                            <div class="newsletter-text">
+                            <div class="newsletter-text {{ block.settings.text_size }}"
+                                style="
+                                    {% if block.settings.uppercase %}
+                                        text-transform: uppercase;
+                                    {% endif %}
+                                "
+                            >
                                 {{ block.settings.text }}
                             </div>
                         {%- when 'Heading' -%}
-                            <div class="newsletter-heading">
+                            <div class="newsletter-heading {{ block.settings.text_size }}">
                                 {{ block.settings.heading }}
                             </div>
                         {%- when 'Form' -%}
@@ -87,7 +93,12 @@
 
     {% assign aside_bar_block = section.blocks | where: "type", "AsideBar" | first %}
     {%- if aside_bar_block -%}
-        <div class="newsletter-aside_bar {{ aside_bar_block.settings.position }}">
+        <div class="newsletter-aside_bar {{ aside_bar_block.settings.position }}"
+            style="
+                --social-foreground-color:{{ aside_bar_block.settings.foreground_color }}
+                --social-background-color:{{ aside_bar_block.settings.background_color }}
+            "
+        >
             <span class="social-media">
                 {{- 'facebook.svg' | inline_asset_content -}}
             </span>
@@ -252,6 +263,32 @@
                     "id": "text",
                     "label": "Text",
                     "default": "<p>FIRST TIMER?</p>"       
+                },
+                {
+                    "type": "select",
+                    "id": "text_size",
+                    "label": "Text Size",
+                    "options": [
+                        {
+                            "label": "Small",
+                            "value": "h5"
+                        },
+                        {
+                            "label": "Medium",
+                            "value": "h4"
+                        },
+                        {
+                            "label": "Large",
+                            "value": "h3"
+                        }
+                    ],
+                    "default": "h4"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "uppercase",
+                    "label": "UpperCase",
+                    "default": true
                 }
             ]
         },
@@ -264,7 +301,27 @@
                     "id": "heading",
                     "label": "Heading",
                     "default": "Sign up and get 20% off"
-                }
+                },
+                {
+                    "type": "select",
+                    "id": "text_size",
+                    "label": "Text Size",
+                    "options": [
+                        {
+                            "label": "Small",
+                            "value": "h3"
+                        },
+                        {
+                            "label": "Medium",
+                            "value": "h2"
+                        },
+                        {
+                            "label": "Large",
+                            "value": "h1"
+                        }
+                    ],
+                    "default": "h1"
+                },
             ]
         },
         {
@@ -303,6 +360,18 @@
                     "id": "show_icon",
                     "label": "Show Social Icon",
                     "default": true
+                },
+                {
+                    "type": "color",
+                    "id": "foreground_color",
+                    "label": "Foreground Color",
+                    "default": "#000"
+                },
+                {
+                    "type": "color",
+                    "id": "background_color",
+                    "label": "Background Color",
+                    "default": "#fff"
                 }
             ]
         }
