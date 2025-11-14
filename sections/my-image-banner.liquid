@@ -38,6 +38,7 @@
                     | image_url: width: block.settings.mobile_image.width 
                   }}"
                 >
+              
                 <source 
                   media="(min-width:768px)" 
                   srcset="{{ 
@@ -45,7 +46,10 @@
                     | image_url: width: block.settings.image.width 
                   }}"
                 >
-                {{ placeholder_image | placeholder_svg_tag:'placeholder-svg' }}
+
+                {%- if block.settings.image == blank or block.settings.mobile_image == blank -%}
+                  {{ placeholder_image | placeholder_svg_tag:'placeholder-svg' }}
+                {%- endif -%}
               </picture>
             <div 
               class="slide-content
