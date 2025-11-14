@@ -33,9 +33,9 @@
 
               <picture>
                 {%- if block.settings.mobile_image -%}
-                  <source media="(max-width:767px)" srcset="{{ block.settings.mobile_image | image_url: width: block.settings.mobile_image }}">
+                  <source media="(max-width:767px)" srcset="{{ block.settings.mobile_image | image_url: width: block.settings.mobile_image.width }}">
                 {%- else -%}
-                  {% comment %} <source media="(max-width:768px)" srcset="{{ placeholder_image | placeholder_svg_tag:'placeholder-svg' }}"> {% endcomment %}
+                  <source media="(max-width:768px)" srcset="{{ placeholder_image | placeholder_svg_tag:'placeholder-svg' }}">
                 {%- endif -%}
                 
                 {%- if block.settings.image -%}
