@@ -1,10 +1,9 @@
 .my-fashion-highlights__container{
-    margin-top: 20px;
     overflow: hidden;
 
     .fashion__wrapper {
         width: 100%;
-        height: 676px;
+        height: 100svh;
         display: grid;
         grid-auto-flow: column;
         background-size:cover;

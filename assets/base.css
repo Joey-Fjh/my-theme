@@ -3612,4 +3612,5 @@ details-disclosure > details {
 .content-full-width{
   max-width: none;
   margin: 0;
+  padding: 0;
 }
