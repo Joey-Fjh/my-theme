@@ -65,7 +65,9 @@
                 "
               >
                 {%- if block.settings.title != blank -%}
-                  <h2 class="slide__heading inline-richtext {{ block.settings.heading_size }}">
+                  <h2 class="slide__heading inline-richtext {{ block.settings.heading_size }}"
+                    style="margin-top:0;"
+                  >
                     {{ block.settings.title }}
                   </h2>
                 {%- endif -%}
