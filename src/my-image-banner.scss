@@ -4,6 +4,7 @@
     height: 100svh;
 
     .slide-content{
+      margin: 0;
       padding: 0;
       display: flex;
       position: absolute;
@@ -20,7 +21,7 @@
         border: none;
         border-radius: 0;
         box-shadow: none;
-        padding: 4rem 1.5rem;
+        padding: 5rem;
         height: fit-content;
         align-items: center;
         text-align: center;
@@ -50,11 +51,9 @@
     @include media-query(mobile,'min'){
       .slide-content{
         height: 100%;
-        padding: 5rem;
       }
 
-      .slide__box{
-        padding: 4rem 3.5rem;
+      .content__container{
         width: auto;
         max-width: 71rem;
         min-width: 45rem;
