@@ -16,7 +16,6 @@
           "type": "image-banner",
           "settings": {
             "color_scheme": "scheme-1",
-            "image": "shopify://shop_images/20251027174416_19_94.jpg",
             "image_overlay_opacity": 100,
             "title": "<strong>Wear the Moment,Own the Style</strong>",
             "heading_size": "hxl",
@@ -27,11 +26,10 @@
             "text_alignment": "left"
           }
         },
-        "image_banner_bYEryP": {
+        "image_banner_AKfqET": {
           "type": "image-banner",
           "settings": {
             "color_scheme": "scheme-1",
-            "image": "shopify://shop_images/20251027174425_21_94.jpg",
             "image_overlay_opacity": 100,
             "title": "Wear the Moment,Own the Style",
             "heading_size": "h1",
@@ -45,7 +43,7 @@
       },
       "block_order": [
         "image_banner_WL9CtN",
-        "image_banner_bYEryP"
+        "image_banner_AKfqET"
       ],
       "name": "my-image-banner",
       "settings": {
