@@ -104,4 +104,20 @@
         justify-content: flex-end;
       }
     }
+
+    .pc_image,.mobile_image{
+      display: none;
+    }
+    
+    @include media-query(mobile,'max'){
+      .mobile_image{
+        display: flex;
+      }
+    }
+
+    @include media-query(mobile,'min'){
+      .pc_image{
+        display: flex;
+      }
+    }
 }

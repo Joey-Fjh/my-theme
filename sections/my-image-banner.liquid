@@ -27,30 +27,31 @@
           <div class="swiper-slide" 
             id="Slide-{{ section.id }}-{{ forloop.index }}"
           >
+            {%- assign placeholder_index = forloop.index0 | modulo: 3 | plus: 1 -%}
+            {%- assign placeholder_image = 'hero-apparel-' | append: placeholder_index -%}
 
-              {%- assign placeholder_index = forloop.index0 | modulo: 3 | plus: 1 -%}
-              {%- assign placeholder_image = 'hero-apparel-' | append: placeholder_index -%}
-              <picture style="width:100%;height:100%;">
-                <source 
-                  media="(max-width:767px)" 
-                  srcset="{{ 
-                    block.settings.mobile_image 
-                    | image_url: width: block.settings.mobile_image.width 
-                  }}"
-                >
-              
-                <source 
-                  media="(min-width:768px)" 
-                  srcset="{{ 
-                    block.settings.image 
-                    | image_url: width: block.settings.image.width 
-                  }}"
-                >
+            <responsive-container class="pc_image">
+              {%- if block.settings.image -%}
+                {{ 
+                  block.settings.image
+                    | image_url: width: block.settings.image.width   
+                }}
+              {%- else -%}
+                {{ placeholder_image | placeholder_svg_tag:'placeholder-svg' }}
+              {%- endif -%}
+            </responsive-container>
 
-                {%- if block.settings.image == blank or block.settings.mobile_image == blank -%}
-                  {{ placeholder_image | placeholder_svg_tag:'placeholder-svg' }}
-                {%- endif -%}
-              </picture>
+            <responsive-container class="mobile_image">
+              {%- if block.settings.mobile_image -%}
+                {{ 
+                  block.settings.mobile_image
+                    | image_url: width: block.settings.mobile_image.width   
+                }}
+              {%- else -%}
+                {{ placeholder_image | placeholder_svg_tag:'placeholder-svg' }}
+              {%- endif -%}
+            </responsive-container>
+
             <div 
               class="slide-content
               slide-content--{{ block.settings.content_position }} 
