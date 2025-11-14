@@ -1,6 +1,5 @@
 .my-video-player__container{
-    height: 703dw;
-    max-height: 703px;
+    height: 100svh;
     cursor:pointer;
 
     .deferred-media[loaded] > .deferred-media__poster{
@@ -101,10 +100,6 @@
         @include media-query(797px,'max'){
             display: none;
         }
-    }
-
-    @include media-query(797px,'max'){
-        height: 812px;
-    }   
+    }  
 }
 
