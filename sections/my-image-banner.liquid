@@ -29,22 +29,29 @@
             id="Slide-{{ section.id }}-{{ forloop.index }}"
           >
             <responsive-container>
-              {%- if block.settings.image != blank -%}
-                {{
-                  block.settings.image
-                  | image_url: width: block.settings.image.width
-                  | image_tag:
-                      alt: block.settings.image.alt,
-                      preload: forloop.first
-                }}
-              {%- else -%}
-                {%- assign placeholder_index = forloop.index0 | modulo: 3 | plus: 1 -%}
-                {%- assign placeholder_image = 'hero-apparel-' | append: placeholder_index -%}
+              {%- assign placeholder_index = forloop.index0 | modulo: 3 | plus: 1 -%}
+              {%- assign placeholder_image = 'hero-apparel-' | append: placeholder_index -%}
 
-                {{ placeholder_image | placeholder_svg_tag:'placeholder-svg' }}
-              {%- endif -%}
+              <picture>
+                {%- if block.settings.mobile_image -%}
+                  <source media="(max-width:767px)" srcset="{{ block.settings.mobile_image | image_url: width: block.settings.mobile_image }}">
+                {%- else -%}
+                  {{ placeholder_image | placeholder_svg_tag:'placeholder-svg' }}
+                {%- endif -%}
+                
+                {%- if block.settings.image -%}
+                  {{
+                    block.settings.image
+                    | image_url: width: block.settings.image.width
+                    | image_tag:
+                        alt: block.settings.image.alt,
+                        preload: forloop.first
+                  }}
+                {%- else -%}
+                  {{ placeholder_image | placeholder_svg_tag:'placeholder-svg' }}
+                {%- endif -%}
+              </picture>
             </responsive-container>
-
             <div 
               class="slide-content
               slide-content--{{ block.settings.content_position }} 
@@ -162,6 +169,11 @@
             "type": "image_picker",
             "id": "image",
             "label": "Image"
+          },
+          {
+            "type": "image_picker",
+            "id": "mobile_image",
+            "label": "Mobile Image"
           },
           {
             "type": "range",
