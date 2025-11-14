@@ -23,7 +23,7 @@
             "sub_title": "Embrace every moment with confidence and let your fashion reflect your personality.Style is more than just clothing.",
             "button_text": "Shop Now",
             "button_url": "",
-            "content_position": "top-left",
+            "content_position": "bottom-left",
             "text_alignment": "left"
           }
         },
@@ -50,7 +50,6 @@
       "name": "my-image-banner",
       "settings": {
         "layout": "full_bleed",
-        "slide_height": "large",
         "auto_slide": false,
         "autoplay_speed": 2,
         "accessibility_info": "Slideshow about our brand"
