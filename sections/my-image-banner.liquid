@@ -46,14 +46,14 @@
             </responsive-container>
 
             <div 
-              class="slide-content my-page-width
+              class="slide-content
               slide-content--{{ block.settings.content_position }} 
               {% if block.settings.show_text_box == true %} {% endif %}"
             >
               <div class="content__container
                 color-{{ block.settings.color_scheme }}
                 text--{{ block.settings.text_alignment }}
-                slide__box"
+                "
               >
                 {%- if block.settings.title != blank -%}
                   <h2 class="slide__heading inline-richtext {{ block.settings.heading_size }}">
@@ -66,7 +66,7 @@
                   </div>
                 {%- endif -%}
                 {%- if block.settings.button_text != blank -%}
-                  <div class="slide__buttons">
+                  <div class="slide__button">
                     <a
                       {% if block.settings.button_url %}
                         href="{{ block.settings.button_url }}"

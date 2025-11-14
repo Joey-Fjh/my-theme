@@ -12,6 +12,10 @@
       justify-content: center;
 
       .content__container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        max-width: 54.5rem;
         background: transparent;
         border: none;
         border-radius: 0;
@@ -22,21 +26,13 @@
         text-align: center;
         width: 100%;
         word-wrap: break-word;
-      }
-
-      .slide__box{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        max-width: 54.5rem;
-      }
+      } 
     }
 
-    .slide__buttons{
+    .slide__button{
       display: inline-flex;
       flex-wrap: wrap;
       gap: 1rem;
-      max-width: 45rem;
       word-break: break-word;
       margin-top: 2rem;
     }
