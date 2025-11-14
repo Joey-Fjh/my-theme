@@ -18,7 +18,6 @@
   >
     <div class="swiper" style="flex:1;height:100%;">
       <div class="swiper-wrapper">
-
         {% for block in section.blocks %}
           <style>
             #Slide-{{ section.id }}-{{ forloop.index }} .slide__container {
@@ -36,7 +35,7 @@
                 {%- if block.settings.mobile_image -%}
                   <source media="(max-width:767px)" srcset="{{ block.settings.mobile_image | image_url: width: block.settings.mobile_image }}">
                 {%- else -%}
-                  <source media="(min-width:768px)" srcset="{{ placeholder_image | placeholder_svg_tag:'placeholder-svg' }}">
+                  <source media="(max-width:768px)" srcset="{{ placeholder_image | placeholder_svg_tag:'placeholder-svg' }}">
                 {%- endif -%}
                 
                 {%- if block.settings.image -%}
