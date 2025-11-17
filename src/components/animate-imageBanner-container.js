@@ -18,7 +18,7 @@ export class AnimateImageBannerContainer extends AnimateContainer {
         AnimateUtilities.register(this.sectionId, this.name, (targets)=>{
             const tl = gsap.timeline();
 
-            tl.fromTo(this.querySelector(`.${targets[0]}`),
+            tl.fromTo(this.querySelector(targets[0]),
                 {
                     y: 40,
                     opacity: 0
@@ -31,7 +31,7 @@ export class AnimateImageBannerContainer extends AnimateContainer {
                 }
             );
 
-            tl.fromTo(`.${targets[1]}`,
+            tl.fromTo(targets[1],
                 {
                     y: 30,
                     opacity: 0
@@ -45,7 +45,7 @@ export class AnimateImageBannerContainer extends AnimateContainer {
                 "-=0.4"
             );
 
-            tl.fromTo(`.${targets[2]}`,
+            tl.fromTo(targets[2],
                 {
                     y: 20,
                     opacity: 0
@@ -58,6 +58,8 @@ export class AnimateImageBannerContainer extends AnimateContainer {
                 },
                 "-=0.3"
             );
+
+            return tl;
         });
     }
 
