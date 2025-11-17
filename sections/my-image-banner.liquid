@@ -1,7 +1,7 @@
 {{ 'my-swiper-container.css' | asset_url | stylesheet_tag }}
 {{ 'my-image-banner.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'my-swiper-container.js' | asset_url }}" type='module'></script>
-<script src='{{ "animate-imageBanner-container.js" | asset_url }}' type="module"></script>
+{% comment %} <script src='{{ "animate-imageBanner-container.js" | asset_url }}' type="module"></script> {% endcomment %}
 
 <responsive-container 
   class="my-image-banner__container 
@@ -60,11 +60,11 @@
               slide-content--{{ block.settings.content_position }} 
               {% if block.settings.show_text_box == true %} {% endif %}"
             >
-              <animate-image-banner-container
+              {% comment %} <animate-image-banner-container
                 data-section-id="{{ section.id }}"
                 name="content"
                 targets="slide__heading,slide__text,slide__button"
-              >
+              > {% endcomment %}
                 <div class="content__container
                   color-{{ block.settings.color_scheme }}
                   text--{{ block.settings.text_alignment }}
@@ -97,7 +97,7 @@
                     </div>
                   {%- endif -%}
                 </div>
-              </animate-image-banner-container>
+              {% comment %} </animate-image-banner-container> {% endcomment %}
             </div>
           </div>
         {% endfor %}
