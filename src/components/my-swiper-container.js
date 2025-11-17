@@ -63,7 +63,7 @@ export class SwiperContainer extends LitElement {
 			progressbarDom = this.querySelector('.swiper-pagination');
 		}
 
-		let animateDom = this.querySelector("animate-container");
+		let that = this;
 
 		const swiper = new Swiper(this.querySelector('.swiper'), {
 			slidesPerView: this.slidesPerViewMobile,
@@ -103,7 +103,10 @@ export class SwiperContainer extends LitElement {
 					});
 				},
 				slideChange() { 
-					console.log(animateDom,'----');
+					 that.dispatchEvent(new CustomEvent("play-animation", {
+						bubbles: true,   // 向上冒泡
+						composed: true,  // 穿透 shadow DOM
+					}));
 				},
 			},
 			breakpoints: {

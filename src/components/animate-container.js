@@ -58,12 +58,14 @@ export class AnimateContainer extends LitElement {
         this.name = '';
         this.targets = [];
         this.timeline = null;
+        this.onAnimateEvent = this.onAnimateEvent.bind(this);
     }
 
     connectedCallback() {
         super.connectedCallback();
 
         this.sectionId = this.dataset.sectionId;
+        this.addEventListener("play-animation", this.onAnimateEvent);
     }
 
     disconnectedCallback() {
@@ -71,6 +73,11 @@ export class AnimateContainer extends LitElement {
 
         this.timeline?.kill();
         this.timeline = null;
+        this.removeEventListener("play-animation", this.onAnimateEvent);
+    }
+
+    onAnimateEvent() {
+        this.animate();
     }
 
     animate(){

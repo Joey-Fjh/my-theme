@@ -9,18 +9,18 @@
   "
   aria-label="{{ section.settings.accessibility_info | escape }}"
 >
-  <my-swiper-container
-    style="display:flex;"
-    class="my-swiper-container"
-    {% if section.settings.auto_slide %}
-      autoplay
-    {% endif %}
-    speed="{{ section.settings.autoplay_speed }}"
+  <animate-image-banner-container
+    data-section-id="{{ section.id }}"
+    name="content"
+    targets="slide__heading,slide__text,slide__button"
   >
-    <animate-image-banner-container
-      data-section-id="{{ section.id }}"
-      name="content"
-      targets="slide__heading,slide__text,slide__button"
+    <my-swiper-container
+      style="display:flex;"
+      class="my-swiper-container"
+      {% if section.settings.auto_slide %}
+        autoplay
+      {% endif %}
+      speed="{{ section.settings.autoplay_speed }}"
     >
       <div class="swiper" style="flex:1;height:100%;">
         <div class="swiper-wrapper">
@@ -110,8 +110,8 @@
         <div class="swiper-button-prev" style="--swiper-theme-color:#000;"></div>
         <div class="swiper-button-next" style="--swiper-theme-color:#000;"></div>
       </div>
-    </animate-image-banner-container>
-  </my-swiper-container>
+    </my-swiper-container>
+  </animate-image-banner-container>
 </responsive-container>
 
 {% schema %}
