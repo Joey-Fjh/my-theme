@@ -63,6 +63,8 @@ export class SwiperContainer extends LitElement {
 			progressbarDom = this.querySelector('.swiper-pagination');
 		}
 
+		let animateDom = this.querySelector("animate-container");
+
 		const swiper = new Swiper(this.querySelector('.swiper'), {
 			slidesPerView: this.slidesPerViewMobile,
 			modules: [Navigation,Autoplay,Pagination],
@@ -99,6 +101,9 @@ export class SwiperContainer extends LitElement {
 
 						swiper.slideTo(targetIndex);
 					});
+				},
+				slideChange() { 
+					console.log(animateDom,'----');
 				},
 			},
 			breakpoints: {
