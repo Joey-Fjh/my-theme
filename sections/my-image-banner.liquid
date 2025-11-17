@@ -1,6 +1,7 @@
 {{ 'my-swiper-container.css' | asset_url | stylesheet_tag }}
 {{ 'my-image-banner.css' | asset_url | stylesheet_tag }}
-<script src="{{ 'my-swiper-container.js' | asset_url }}" type='module' defer></script>
+<script src="{{ 'my-swiper-container.js' | asset_url }}" type='module'></script>
+<script src='{{ "animate-imageBanner-container.js" | asset_url }}' type="module"></script>
 
 <responsive-container 
   class="my-image-banner__container 
@@ -59,38 +60,44 @@
               slide-content--{{ block.settings.content_position }} 
               {% if block.settings.show_text_box == true %} {% endif %}"
             >
-              <div class="content__container
-                color-{{ block.settings.color_scheme }}
-                text--{{ block.settings.text_alignment }}
-                "
+              <animate-image-banner-container
+                data-section-id="{{ section.id }}"
+                name="content"
+                targets="slide__heading,slide__text,slide__button"
               >
-                {%- if block.settings.title != blank -%}
-                  <h2 class="slide__heading inline-richtext {{ block.settings.heading_size }}"
-                    style="margin-top:0;"
-                  >
-                    {{ block.settings.title }}
-                  </h2>
-                {%- endif -%}
-                {%- if block.settings.sub_title != blank -%}
-                  <div class="slide__text rte">
-                    <p>{{ block.settings.sub_title }}</p>
-                  </div>
-                {%- endif -%}
-                {%- if block.settings.button_text != blank -%}
-                  <div class="slide__button">
-                    <a
-                      {% if block.settings.button_url %}
-                        href="{{ block.settings.button_url }}"
-                      {% else %}
-                        role="link" aria-disabled="true"
-                      {% endif %}
-                      class="button"
+                <div class="content__container
+                  color-{{ block.settings.color_scheme }}
+                  text--{{ block.settings.text_alignment }}
+                  "
+                >
+                  {%- if block.settings.title != blank -%}
+                    <h2 class="slide__heading inline-richtext {{ block.settings.heading_size }}"
+                      style="margin-top:0;"
                     >
-                      {{- block.settings.button_text | escape -}}
-                    </a>
-                  </div>
-                {%- endif -%}
-              </div>
+                      {{ block.settings.title }}
+                    </h2>
+                  {%- endif -%}
+                  {%- if block.settings.sub_title != blank -%}
+                    <div class="slide__text rte">
+                      <p>{{ block.settings.sub_title }}</p>
+                    </div>
+                  {%- endif -%}
+                  {%- if block.settings.button_text != blank -%}
+                    <div class="slide__button">
+                      <a
+                        {% if block.settings.button_url %}
+                          href="{{ block.settings.button_url }}"
+                        {% else %}
+                          role="link" aria-disabled="true"
+                        {% endif %}
+                        class="button"
+                      >
+                        {{- block.settings.button_text | escape -}}
+                      </a>
+                    </div>
+                  {%- endif -%}
+                </div>
+              </animate-image-banner-container>
             </div>
           </div>
         {% endfor %}
