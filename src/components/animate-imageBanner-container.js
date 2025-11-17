@@ -8,10 +8,6 @@ export class AnimateImageBannerContainer extends AnimateContainer {
             console.log(targets);
         });
     }
-
-    render(){
-        return html`<slot></slot>`;
-    }
 }
 
 customElements.define('animate-image-banner-container', AnimateImageBannerContainer);

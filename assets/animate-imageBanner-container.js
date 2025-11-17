@@ -1,1 +1,1 @@
-import{A as t,a as n}from"./animate-container.js";import"./lit-element.js";class i extends t{constructor(){super(),n.register(this.sectionId,this.name,e=>{console.log(e)})}render(){return html`<slot></slot>`}}customElements.define("animate-image-banner-container",i);
+import{A as n,a as t}from"./animate-container.js";import"./lit-element.js";class i extends n{constructor(){super(),t.register(this.sectionId,this.name,e=>{console.log(e)})}}customElements.define("animate-image-banner-container",i);
