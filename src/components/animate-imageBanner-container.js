@@ -26,7 +26,7 @@ export class AnimateImageBannerContainer extends AnimateContainer {
                 {
                     y: 0,
                     opacity: 1,
-                    duration: 0.6,
+                    duration: 1,
                     ease: "power2.out"
                 }
             );
@@ -39,7 +39,7 @@ export class AnimateImageBannerContainer extends AnimateContainer {
                 {
                     y: 0,
                     opacity: 1,
-                    duration: 0.5,
+                    duration: 1,
                     ease: "power2.out"
                 },
                 "-=0.4"
@@ -53,7 +53,7 @@ export class AnimateImageBannerContainer extends AnimateContainer {
                 {
                     y: 0,
                     opacity: 1,
-                    duration: 0.5,
+                    duration: 1,
                     ease: "power2.out"
                 },
                 "-=0.3"

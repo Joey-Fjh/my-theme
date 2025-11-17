@@ -104,8 +104,8 @@ export class SwiperContainer extends LitElement {
 				},
 				slideChange() { 
 					 that.dispatchEvent(new CustomEvent("play-animation", {
-						bubbles: true,   // 向上冒泡
-						composed: true,  // 穿透 shadow DOM
+						bubbles: true,   
+						composed: true,
 					}));
 				},
 			},
