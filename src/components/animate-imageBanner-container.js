@@ -1,6 +1,12 @@
 import { AnimateContainer,AnimateUtilities } from "./animate-container";
 
 export class AnimateImageBannerContainer extends AnimateContainer { 
+    static get properties() {
+        return {
+            ...super.properties
+        };
+    }
+
     constructor() {
         super();
 

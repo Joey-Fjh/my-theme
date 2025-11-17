@@ -37,16 +37,18 @@ export class AnimateContainer extends LitElement {
         `
     ];
 
-    static properties = {
-        name: { type: String },
-        targets : { 
-            type: Array,
-            converter:{
-                fromAttribute(value) {
-                    return value.split(",").map(item => item.trim());
-                }
-            } 
-        },
+    static get properties() {
+        return {
+            name: { type: String },
+            targets : { 
+                type: Array,
+                converter:{
+                    fromAttribute(value) {
+                        return value.split(",").map(item => item.trim());
+                    }
+                } 
+            },
+        };
     }
 
     constructor() {
