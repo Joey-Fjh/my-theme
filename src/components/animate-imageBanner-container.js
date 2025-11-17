@@ -16,7 +16,6 @@ export class AnimateImageBannerContainer extends AnimateContainer {
         super.connectedCallback();
 
         AnimateUtilities.register(this.sectionId, this.name, (targets)=>{
-            console.log(targets,'-----');
             const tl = gsap.timeline();
 
             tl.fromTo(targets[0],
@@ -60,6 +59,10 @@ export class AnimateImageBannerContainer extends AnimateContainer {
                 "-=0.3"
             );
         });
+    }
+
+    firstUpdated() { 
+        super.animate();
     }
 }
 
