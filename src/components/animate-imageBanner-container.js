@@ -1,4 +1,5 @@
 import { AnimateContainer,AnimateUtilities } from "./animate-container";
+import gsap from "gsap";
 
 export class AnimateImageBannerContainer extends AnimateContainer { 
     static get properties() {
@@ -9,6 +10,10 @@ export class AnimateImageBannerContainer extends AnimateContainer {
 
     constructor() {
         super();
+    }
+
+    connectedCallback() {
+        super.connectedCallback();
 
         console.log(this.sectionId,'--',this.name,'---',this.targets);
         AnimateUtilities.register(this.sectionId, this.name, (targets)=>{
