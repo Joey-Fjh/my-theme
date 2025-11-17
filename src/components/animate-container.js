@@ -66,7 +66,6 @@ export class AnimateContainer extends LitElement {
         this.sectionId = this.dataset.sectionId;
         this.animate();
         this.addEventListener("play-animation", this.onAnimateEvent);
-        console.log(this.sectionId,'--',this.name,'---',this.targets);
     }
 
     disconnectedCallback() {
