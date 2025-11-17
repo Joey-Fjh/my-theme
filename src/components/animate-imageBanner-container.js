@@ -15,9 +15,8 @@ export class AnimateImageBannerContainer extends AnimateContainer {
     connectedCallback() {
         super.connectedCallback();
 
-        console.log(this.sectionId,'--',this.name,'---',this.targets);
+        // console.log(this.sectionId,'--',this.name,'---',this.targets);
         AnimateUtilities.register(this.sectionId, this.name, (targets)=>{
-            console.log(targets);
         });
     }
 }
