@@ -4,6 +4,7 @@ export class AnimateImageBannerContainer extends AnimateContainer {
     constructor() {
         super();
 
+        console.log(this.sectionId,'--',this.name,'---',this.targets);
         AnimateUtilities.register(this.sectionId, this.name, (targets)=>{
             console.log(targets);
         });
