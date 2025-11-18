@@ -9,6 +9,16 @@
  */
 {
   "sections": {
+    "my_image_banner_fmWrU3": {
+      "type": "my-image-banner",
+      "name": "my-image-banner",
+      "settings": {
+        "layout": "full_bleed",
+        "auto_slide": false,
+        "autoplay_speed": 5,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
     "brand_banner_yNHUrN": {
       "type": "brand-banner",
       "blocks": {
@@ -583,6 +593,7 @@
     }
   },
   "order": [
+    "my_image_banner_fmWrU3",
     "brand_banner_yNHUrN",
     "my_product_list_BMjQet",
     "brand_banner_UHKtHB",
