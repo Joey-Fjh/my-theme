@@ -91,4 +91,6 @@ export class AnimateContainer extends LitElement {
     }
 }
 
-customElements.define("animate-container", AnimateContainer);
+if (!customElements.get("animate-container")) {
+    customElements.define("animate-container", AnimateContainer);
+}

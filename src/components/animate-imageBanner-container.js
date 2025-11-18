@@ -41,4 +41,6 @@ export class AnimateImageBannerContainer extends AnimateContainer {
     }
 }
 
-customElements.define('animate-image-banner-container', AnimateImageBannerContainer);
+if (!customElements.get("animate-image-banner-container")) {
+    customElements.define('animate-image-banner-container', AnimateImageBannerContainer);
+}
