@@ -28,14 +28,12 @@ export class AnimateUtilities {
 }
 
 export class AnimateContainer extends LitElement { 
-    static styles = [
-        css`
+    static styles = css`
             :host {
                 width: 100%;
                 height: 100%;
             }
         `
-    ];
 
     static get properties() {
         return {
