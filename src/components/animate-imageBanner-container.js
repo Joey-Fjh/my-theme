@@ -4,13 +4,13 @@ import { css } from "lit";
 
 export class AnimateImageBannerContainer extends AnimateContainer { 
     static styles = [
-        ...super.styles,
+        ...AnimateContainer.styles,
         css`
         `
     ]; 
     static get properties() {
         return {
-            ...super.properties
+            ...AnimateContainer.properties
         };
     }
 
