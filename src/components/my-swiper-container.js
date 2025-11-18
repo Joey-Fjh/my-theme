@@ -101,13 +101,7 @@ export class SwiperContainer extends LitElement {
 
 						swiper.slideTo(targetIndex);
 					});
-				},
-				slideChange() { 
-					 that.dispatchEvent(new CustomEvent("play-animation", {
-						bubbles: true,   
-						composed: true,
-					}));
-				},
+				}
 			},
 			breakpoints: {
 				750: {
