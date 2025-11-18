@@ -2,9 +2,9 @@ import { AnimateContainer,AnimateUtilities } from "./animate-container";
 import gsap from "gsap";
 
 export class AnimateImageBannerContainer extends AnimateContainer { 
-    static styles = [
-        ...AnimateContainer.styles
-    ]; 
+    // static styles = [
+    //     ...AnimateContainer.styles
+    // ]; 
     static get properties() {
         return {
             ...AnimateContainer.properties
