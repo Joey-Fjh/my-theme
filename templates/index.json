@@ -9,29 +9,29 @@
  */
 {
   "sections": {
-    "my_image_banner_qe9VB7": {
+    "my_image_banner_fmWrU3": {
       "type": "my-image-banner",
       "blocks": {
-        "image_banner_WL9CtN": {
+        "image_banner_MdywmF": {
           "type": "image-banner",
           "settings": {
             "color_scheme": "scheme-1",
             "image": "shopify://shop_images/20251027174416_19_94.jpg",
-            "mobile_image": "shopify://shop_images/sonicpulse-airbeats-goldtone-01_fcc0297c-9b4d-47d8-b425-9ab2705220c5.webp",
             "image_overlay_opacity": 100,
-            "title": "<strong>Wear the Moment,Own the Style</strong>",
-            "heading_size": "hxl",
+            "title": "Wear the Moment,Own the Style",
+            "heading_size": "h1",
             "sub_title": "Embrace every moment with confidence and let your fashion reflect your personality.Style is more than just clothing.",
             "button_text": "Shop Now",
             "button_url": "",
-            "content_position": "top-left",
-            "text_alignment": "left"
+            "content_position": "middle-center",
+            "text_alignment": "center"
           }
         },
-        "image_banner_BR6QEW": {
+        "image_banner_EVVez4": {
           "type": "image-banner",
           "settings": {
             "color_scheme": "scheme-1",
+            "image": "shopify://shop_images/20251027170840_17_94.png",
             "image_overlay_opacity": 100,
             "title": "Wear the Moment,Own the Style",
             "heading_size": "h1",
@@ -44,14 +44,14 @@
         }
       },
       "block_order": [
-        "image_banner_WL9CtN",
-        "image_banner_BR6QEW"
+        "image_banner_MdywmF",
+        "image_banner_EVVez4"
       ],
       "name": "my-image-banner",
       "settings": {
         "layout": "full_bleed",
         "auto_slide": false,
-        "autoplay_speed": 2,
+        "autoplay_speed": 5,
         "accessibility_info": "Slideshow about our brand"
       }
     },
@@ -629,7 +629,7 @@
     }
   },
   "order": [
-    "my_image_banner_qe9VB7",
+    "my_image_banner_fmWrU3",
     "brand_banner_yNHUrN",
     "my_product_list_BMjQet",
     "brand_banner_UHKtHB",
