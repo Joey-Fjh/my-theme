@@ -9,62 +9,62 @@
   "
   aria-label="{{ section.settings.accessibility_info | escape }}"
 >
-  <animate-image-banner-container
-    data-section-id="{{ section.id }}"
-    name="content"
-    targets=".slide__heading,.slide__text,.slide__button"
+  <my-swiper-container
+    style="display:flex;"
+    class="my-swiper-container"
+    {% if section.settings.auto_slide %}
+      autoplay
+    {% endif %}
+    speed="{{ section.settings.autoplay_speed }}"
   >
-    <my-swiper-container
-      style="display:flex;"
-      class="my-swiper-container"
-      {% if section.settings.auto_slide %}
-        autoplay
-      {% endif %}
-      speed="{{ section.settings.autoplay_speed }}"
-    >
-      <div class="swiper" style="flex:1;height:100%;">
-        <div class="swiper-wrapper">
-            {% for block in section.blocks %}
-              <style>
-                #Slide-{{ section.id }}-{{ forloop.index }} .slide__container {
-                  opacity: {{ block.settings.image_overlay_opacity | divided_by: 100.0 }};
-                }
-              </style>
+    <div class="swiper" style="flex:1;height:100%;">
+      <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            <style>
+              #Slide-{{ section.id }}-{{ forloop.index }} .slide__container {
+                opacity: {{ block.settings.image_overlay_opacity | divided_by: 100.0 }};
+              }
+            </style>
 
-              <div class="swiper-slide" 
-                id="Slide-{{ section.id }}-{{ forloop.index }}"
+            <div class="swiper-slide" 
+              id="Slide-{{ section.id }}-{{ forloop.index }}"
+            >
+              {%- assign placeholder_index = forloop.index0 | modulo: 3 | plus: 1 -%}
+              {%- assign placeholder_image = 'hero-apparel-' | append: placeholder_index -%}
+
+              <responsive-container class="pc_image">
+                {%- if block.settings.image -%}
+                  {{ 
+                    block.settings.image
+                      | image_url: width: block.settings.image.width
+                      | image_tag   
+                  }}
+                {%- else -%}
+                  {{ placeholder_image | placeholder_svg_tag:'placeholder-svg' }}
+                {%- endif -%}
+              </responsive-container>
+
+              <responsive-container class="mobile_image">
+                {%- if block.settings.mobile_image -%}
+                  {{ 
+                    block.settings.mobile_image
+                      | image_url: width: block.settings.mobile_image.width
+                      | image_tag   
+                  }}
+                {%- else -%}
+                  {{ placeholder_image | placeholder_svg_tag:'placeholder-svg' }}
+                {%- endif -%}
+              </responsive-container>
+
+              <div 
+                class="slide-content
+                slide-content--{{ block.settings.content_position }} 
+                {% if block.settings.show_text_box == true %} {% endif %}"
               >
-                {%- assign placeholder_index = forloop.index0 | modulo: 3 | plus: 1 -%}
-                {%- assign placeholder_image = 'hero-apparel-' | append: placeholder_index -%}
-
-                <responsive-container class="pc_image">
-                  {%- if block.settings.image -%}
-                    {{ 
-                      block.settings.image
-                        | image_url: width: block.settings.image.width
-                        | image_tag   
-                    }}
-                  {%- else -%}
-                    {{ placeholder_image | placeholder_svg_tag:'placeholder-svg' }}
-                  {%- endif -%}
-                </responsive-container>
-
-                <responsive-container class="mobile_image">
-                  {%- if block.settings.mobile_image -%}
-                    {{ 
-                      block.settings.mobile_image
-                        | image_url: width: block.settings.mobile_image.width
-                        | image_tag   
-                    }}
-                  {%- else -%}
-                    {{ placeholder_image | placeholder_svg_tag:'placeholder-svg' }}
-                  {%- endif -%}
-                </responsive-container>
-
-                <div 
-                  class="slide-content
-                  slide-content--{{ block.settings.content_position }} 
-                  {% if block.settings.show_text_box == true %} {% endif %}"
+                <animate-image-banner-container
+                  data-section-id="{{ section.id }}"
+                  name="content"
+                  targets=".slide__heading,.slide__text,.slide__button"
                 >
                   <div class="content__container
                     color-{{ block.settings.color_scheme }}
@@ -98,20 +98,20 @@
                       </div>
                     {%- endif -%}
                   </div>
-                </div>
+                </animate-image-banner-container>
               </div>
-            {% endfor %}
-            
-            {%- if section.blocks.size == 0 -%}
-              {{ "hero-apparel-1" | placeholder_svg_tag: 'placeholder-svg' }}
-            {%- endif -%}
-        </div>
-
-        <div class="swiper-button-prev" style="--swiper-theme-color:#000;"></div>
-        <div class="swiper-button-next" style="--swiper-theme-color:#000;"></div>
+            </div>
+          {% endfor %}
+          
+          {%- if section.blocks.size == 0 -%}
+            {{ "hero-apparel-1" | placeholder_svg_tag: 'placeholder-svg' }}
+          {%- endif -%}
       </div>
-    </my-swiper-container>
-  </animate-image-banner-container>
+
+      <div class="swiper-button-prev" style="--swiper-theme-color:#000;"></div>
+      <div class="swiper-button-next" style="--swiper-theme-color:#000;"></div>
+    </div>
+  </my-swiper-container>
 </responsive-container>
 
 {% schema %}
