@@ -46,7 +46,7 @@ export class AnimateContainer extends LitElement {
                         return value.split(",").map(item => item.trim());
                     }
                 } 
-            },
+            }
         };
     }
 
@@ -63,7 +63,22 @@ export class AnimateContainer extends LitElement {
         super.connectedCallback();
 
         this.sectionId = this.dataset.sectionId;
+
         this.addEventListener("play-animation", this.onAnimateEvent);
+
+        if(!this.play){
+            this.obsever = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting){
+                        this.animate();
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            this.obsever.observe(this);
+        }else{
+            this.animate();
+        }
     }
 
     disconnectedCallback() {
@@ -71,6 +86,7 @@ export class AnimateContainer extends LitElement {
 
         this.timeline?.kill();
         this.timeline = null;
+        this.obsever?.disconnect();
         this.removeEventListener("play-animation", this.onAnimateEvent);
     }
 

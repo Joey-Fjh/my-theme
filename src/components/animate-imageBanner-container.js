@@ -21,21 +21,17 @@ export class AnimateImageBannerContainer extends AnimateContainer {
 
         AnimateUtilities.register(this.sectionId, this.name, (targets)=>{
             const els = targets.map(t => this.querySelector(t));
-            // const tl = gsap.timeline({ defaults: { duration: 1, ease: "power2.out" } });
+            const tl = gsap.timeline({ defaults: { duration: 1, ease: "power2.out" } });
 
-            // gsap.set(els, { y: 40, opacity: 0 });
-            // tl.to(els, {
-            //     y: 0,
-            //     opacity: 1,
-            //     stagger: 0.3   
-            // });
+            gsap.set(els[2], { y: 40, opacity: 0 });
+            tl.to(els, {
+                y: 0,
+                opacity: 1,
+                stagger: 0.3   
+            });
 
-            // return tl;
+            return tl;
         });
-    }
-
-    firstUpdated() { 
-        super.animate();
     }
 }
 
