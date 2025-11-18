@@ -2,6 +2,11 @@ import { AnimateContainer,AnimateUtilities } from "./animate-container";
 import gsap from "gsap";
 
 export class AnimateImageBannerContainer extends AnimateContainer { 
+    static styles = [
+        ...super.styles,
+        css`
+        `
+    ]; 
     static get properties() {
         return {
             ...super.properties
@@ -20,10 +25,10 @@ export class AnimateImageBannerContainer extends AnimateContainer {
             const tl = gsap.timeline({ defaults: { duration: 1, ease: "power2.out" } });
 
             gsap.set(els, { y: 40, opacity: 0 });
-            tl.to(targets, {
+            tl.to(els, {
                 y: 0,
                 opacity: 1,
-                stagger: 0.3
+                stagger: 0.3   
             });
 
             return tl;
