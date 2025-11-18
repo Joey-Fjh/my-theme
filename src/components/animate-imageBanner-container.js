@@ -1,8 +1,7 @@
-import { LitElement } from "lit";
 import { AnimateContainer,AnimateUtilities } from "./animate-container";
 import gsap from "gsap";
 
-export class AnimateImageBannerContainer extends LitElement { 
+export class AnimateImageBannerContainer extends AnimateContainer { 
     // static styles = [
     //     ...AnimateContainer.styles
     // ]; 
