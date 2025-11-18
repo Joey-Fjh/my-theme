@@ -23,11 +23,12 @@ export class AnimateImageBannerContainer extends AnimateContainer {
             const els = targets.map(t => this.querySelector(t));
             const tl = gsap.timeline({ defaults: { duration: 1, ease: "power2.out" } });
 
-            gsap.set(els[2], { y: 40, opacity: 0 });
-            tl.to(els[2], {
+            tl.fromTo(els[2], {
+                y: 30,
+                opacity: 0  
+            },{
                 y: 0,
-                opacity: 1,
-                stagger: 0.3   
+                opacity: 1
             });
 
             return tl;
