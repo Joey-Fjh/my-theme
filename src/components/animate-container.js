@@ -1,4 +1,4 @@
-import { LitElement, html,css } from "lit";
+import { LitElement, html, css } from "lit";
 
 export class AnimateUtilities {
     // { sectionId: { name:fn } } 
