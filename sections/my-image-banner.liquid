@@ -1,8 +1,8 @@
 {{ 'my-swiper-container.css' | asset_url | stylesheet_tag }}
 {{ 'my-image-banner.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'my-swiper-container.js' | asset_url }}" type='module'></script>
-<script src="{{ 'animate-container.js' | asset_url }}" type='module'></script>
-{% comment %} <script src='{{ "animate-imageBanner-container.js" | asset_url }}' type="module"></script> {% endcomment %}
+{% comment %} <script src="{{ 'animate-container.js' | asset_url }}" type='module'></script> {% endcomment %}
+<script src='{{ "animate-imageBanner-container.js" | asset_url }}' type="module"></script>
 
 <responsive-container 
   class="my-image-banner__container 
@@ -10,7 +10,7 @@
   "
   aria-label="{{ section.settings.accessibility_info | escape }}"
 >
-  <animate-container
+  <animate-image-banner-container
     data-section-id="{{ section.id }}"
     name="content"
     targets=".slide__heading,.slide__text,.slide__button"
@@ -112,7 +112,7 @@
         <div class="swiper-button-next" style="--swiper-theme-color:#000;"></div>
       </div>
     </my-swiper-container>
-  </animate-container>
+  </animate-image-banner-container>
 </responsive-container>
 
 {% schema %}
