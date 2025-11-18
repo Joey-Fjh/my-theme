@@ -66,19 +66,15 @@ export class AnimateContainer extends LitElement {
 
         this.addEventListener("play-animation", this.onAnimateEvent);
 
-        if(!this.play){
-            this.obsever = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if(entry.isIntersecting){
-                        this.animate();
-                    }
-                });
-            }, { threshold: 0.5 });
+        this.obsever = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting){
+                    this.animate();
+                }
+            });
+        }, { threshold: 0.3 });
 
-            this.obsever.observe(this);
-        }else{
-            this.animate();
-        }
+        this.obsever.observe(this);
     }
 
     disconnectedCallback() {
