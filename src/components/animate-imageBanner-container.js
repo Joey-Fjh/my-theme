@@ -24,7 +24,7 @@ export class AnimateImageBannerContainer extends AnimateContainer {
             const tl = gsap.timeline({ defaults: { duration: 1, ease: "power2.out" } });
 
             gsap.set(els[2], { y: 40, opacity: 0 });
-            tl.to(els, {
+            tl.to(els[2], {
                 y: 0,
                 opacity: 1,
                 stagger: 0.3   
