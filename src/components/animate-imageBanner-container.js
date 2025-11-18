@@ -16,48 +16,15 @@ export class AnimateImageBannerContainer extends AnimateContainer {
         super.connectedCallback();
 
         AnimateUtilities.register(this.sectionId, this.name, (targets)=>{
-            const tl = gsap.timeline();
+            const els = targets.map(t => this.querySelector(t));
+            const tl = gsap.timeline({ defaults: { duration: 1, ease: "power2.out" } });
 
-            tl.fromTo(this.querySelector(targets[0]),
-                {
-                    y: 40,
-                    opacity: 0
-                },
-                {
-                    y: 0,
-                    opacity: 1,
-                    duration: 1,
-                    ease: "power2.out"
-                }
-            );
-
-            tl.fromTo(targets[1],
-                {
-                    y: 30,
-                    opacity: 0
-                },
-                {
-                    y: 0,
-                    opacity: 1,
-                    duration: 1,
-                    ease: "power2.out"
-                },
-                "-=0.4"
-            );
-
-            tl.fromTo(targets[2],
-                {
-                    y: 20,
-                    opacity: 0
-                },
-                {
-                    y: 0,
-                    opacity: 1,
-                    duration: 1,
-                    ease: "power2.out"
-                },
-                "-=0.3"
-            );
+            gsap.set(els, { y: 40, opacity: 0 });
+            tl.to(targets, {
+                y: 0,
+                opacity: 1,
+                stagger: 0.3
+            });
 
             return tl;
         });
