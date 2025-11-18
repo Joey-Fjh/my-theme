@@ -1,12 +1,9 @@
 import { AnimateContainer,AnimateUtilities } from "./animate-container";
 import gsap from "gsap";
-import { css } from "lit";
 
 export class AnimateImageBannerContainer extends AnimateContainer { 
     static styles = [
-        ...AnimateContainer.styles,
-        css`
-        `
+        ...AnimateContainer.styles
     ]; 
     static get properties() {
         return {
