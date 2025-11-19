@@ -133,49 +133,21 @@
         "padding_bottom": 12
       }
     },
-    "tab_control_RfcYHa": {
+    "tab_control_Wfc8kG": {
       "type": "tab-control",
       "blocks": {
-        "tab_item_Gtdbxn": {
+        "tab_item_B473gL": {
           "type": "_tab-item",
-          "name": "Tab Item",
           "settings": {
-            "title": "Description"
-          },
-          "blocks": {}
-        },
-        "tab_item_BqAxHF": {
-          "type": "_tab-item",
-          "name": "Tab Item",
-          "settings": {
-            "title": "Customer Reviews"
-          },
-          "blocks": {}
-        },
-        "tab_item_yxeyh7": {
-          "type": "_tab-item",
-          "name": "Tab Item",
-          "settings": {
-            "title": "Shipping & Returns"
-          },
-          "blocks": {}
-        },
-        "tab_item_9YEXQp": {
-          "type": "_tab-item",
-          "name": "Tab Item",
-          "settings": {
-            "title": "Return Policies"
+            "title": "1"
           },
           "blocks": {}
         }
       },
       "block_order": [
-        "tab_item_Gtdbxn",
-        "tab_item_BqAxHF",
-        "tab_item_yxeyh7",
-        "tab_item_9YEXQp"
+        "tab_item_B473gL"
       ],
-      "name": "tab-control",
+      "name": "Tab Control",
       "settings": {}
     },
     "related-products": {
@@ -202,7 +174,7 @@
   },
   "order": [
     "main",
-    "tab_control_RfcYHa",
+    "tab_control_Wfc8kG",
     "related-products"
   ]
 }
