@@ -1,6 +1,7 @@
 <tab-control class="tab-container 
   {% if section.settings.layout == 'page_width' %} my-page-width {% endif %}"
 >
+  {{ section.blocks.first.settings }}
   <ul class="tab-titles">
     {% for block in section.blocks %}
       <li class="tab-title" 
