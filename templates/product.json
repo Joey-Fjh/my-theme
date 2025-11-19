@@ -169,7 +169,9 @@
         "tab_item_KAzhYQ"
       ],
       "name": "Tab Control",
-      "settings": {}
+      "settings": {
+        "layout": "page_width"
+      }
     }
   },
   "order": [
