@@ -135,151 +135,31 @@
     "my_product_content_zXjPzg": {
       "type": "my-product-content",
       "blocks": {
-        "product_multiple_columns_7ieem9": {
-          "type": "product-multiple-columns",
-          "name": "product-multiple-columns",
-          "settings": {
-            "title": "Description",
-            "columns_desktop": 2,
-            "column_alignment": "left"
-          },
+        "tab_control_mAkzxE": {
+          "type": "tab-control",
+          "name": "tab-control",
+          "settings": {},
           "blocks": {
-            "column_7mzJg8": {
-              "type": "column",
-              "name": "column",
+            "tab_item_PAnwFk": {
+              "type": "tab-item",
               "settings": {
-                "title": "Cargo shorts with pockets",
-                "description": "<p>Nodding to retro styles, this Hyperbola T-shirt is defined by its off-the-shoulder design. It's spun from a green stretch cotton jersey and adorned with an embroidered AC logo on the front, a brand's signature.<br/><br/>Thick knitted fabric. Short design. Straight design. Rounded neck. Sleeveless. Straps. Unclosed. Cable knit finish. Co-ord.</p>"
-              },
-              "blocks": {}
-            },
-            "column_mtfLUe": {
-              "type": "column",
-              "name": "column",
-              "settings": {
-                "title": "COMPOSITION, ORIGIN AND CARE GUIDELINES",
-                "description": "<ul><li>Composition: 55% polyester, 30% acrylic, 13% polyamide, 2% elastane</li><li>Designed in Barcelona</li><li>Origin</li><li>Manufacture: USA</li></ul>"
+                "title": ""
               },
               "blocks": {}
             }
           },
           "block_order": [
-            "column_7mzJg8",
-            "column_mtfLUe"
-          ]
-        },
-        "product_multiple_columns_QLwwP4": {
-          "type": "product-multiple-columns",
-          "name": "product-multiple-columns",
-          "settings": {
-            "title": "Customer Reviews",
-            "columns_desktop": 1,
-            "column_alignment": "left"
-          },
-          "blocks": {
-            "customer_comment_fcBKcK": {
-              "type": "customer-comment",
-              "name": "customer-comment",
-              "settings": {
-                "user_comments": [
-                  "user-comment-ku1cxxnh",
-                  "user-comment-fq1of1x3",
-                  "user-comment-0t7wsrqq",
-                  "user-comment-gs1wqfgi"
-                ]
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "customer_comment_fcBKcK"
-          ]
-        },
-        "product_multiple_columns_BbXQr9": {
-          "type": "product-multiple-columns",
-          "name": "product-multiple-columns",
-          "settings": {
-            "title": "Shipping & Returns",
-            "columns_desktop": 4,
-            "column_alignment": "left"
-          },
-          "blocks": {
-            "column_DEGmJU": {
-              "type": "column",
-              "name": "column",
-              "settings": {
-                "title": "We've got your back",
-                "description": "<p>One delivery fee to most locations (check our Orders & Delivery page)<br/><br/>Free returns within 14 days (excludes final sale and made-to-order items, face masks and certain products containing hazardous or flammable materials, such as fragrances and aerosols)</p>"
-              },
-              "blocks": {}
-            },
-            "column_bEyebB": {
-              "type": "column",
-              "name": "column",
-              "settings": {
-                "title": "Import duties information",
-                "description": "<p>Let us handle the legwork. Delivery duties are included in the item price when shipping to all EU countries (excluding the Canary Islands), plus The United Kingdom, USA, Canada, China Mainland, Australia, New Zealand, Puerto Rico, Switzerland, Singapore, Republic Of Korea, Kuwait, Mexico, Qatar, India, Norway, Saudi Arabia, Taiwan Region, Thailand, U.A.E., Japan, Brazil, Isle of Man, San Marino, Colombia, Chile, Argentina, Egypt, Lebanon, Hong Kong SAR, Bahrain and Turkey. All import duties are included in your order – the price you see is the price you pay.<br/><br/></p>"
-              },
-              "blocks": {}
-            },
-            "column_4cqpTr": {
-              "type": "column",
-              "name": "column",
-              "settings": {
-                "title": "Estimated delivery",
-                "description": "<p>Express: May 10 - May 17<br/>Sending from USA</p>"
-              },
-              "blocks": {}
-            },
-            "column_w7QgAn": {
-              "type": "column",
-              "name": "column",
-              "settings": {
-                "title": "Need more information?",
-                "description": "<p><a href=\"/pages/about-us\" title=\"about-us\">Orders & delivery</a></p><p><a href=\"/pages/about-us\" title=\"about-us\">Returns & refunds</a></p><p><a href=\"/pages/about-us\" title=\"about-us\">Duties & taxes</a></p>"
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "column_DEGmJU",
-            "column_bEyebB",
-            "column_4cqpTr",
-            "column_w7QgAn"
-          ]
-        },
-        "product_multiple_columns_fxJCnf": {
-          "type": "product-multiple-columns",
-          "name": "product-multiple-columns",
-          "settings": {
-            "title": "Return Policies",
-            "columns_desktop": 1,
-            "column_alignment": "left"
-          },
-          "blocks": {
-            "column_3xriAw": {
-              "type": "column",
-              "name": "column",
-              "settings": {
-                "title": "Return Policies",
-                "description": "<p>At Modave, we stand behind the quality of our products. If you're not completely satisfied with your purchase, we offer hassle-free returns within 30 days of delivery.<br/><br/>Easy Exchanges or Refunds</p><ul><li> Exchange your item for a different size, color, or style, or receive a full refund.</li><li>All returned items must be unworn, in their original packaging, and with tags attached.</li></ul><p>Simple Process</p><p>Initiate your return online or contact our customer service team for assistance.</p><p>Pack your item securely and include the original packing slip.</p><p>Ship your return back to us using our prepaid shipping label.<br/><br/>Once received, your refund will be processed promptly.</p><p><br/>For any questions or concerns regarding returns, don't hesitate to reach out to our dedicated customer service team. Your satisfaction is our priority.</p>"
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "column_3xriAw"
+            "tab_item_PAnwFk"
           ]
         }
       },
       "block_order": [
-        "product_multiple_columns_7ieem9",
-        "product_multiple_columns_QLwwP4",
-        "product_multiple_columns_BbXQr9",
-        "product_multiple_columns_fxJCnf"
+        "tab_control_mAkzxE"
       ],
       "name": "my-product-content",
-      "settings": {}
+      "settings": {
+        "layout": "full_bleed"
+      }
     },
     "related-products": {
       "type": "related-products",
