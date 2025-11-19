@@ -142,7 +142,21 @@
           "settings": {
             "title": "Description"
           },
-          "blocks": {}
+          "blocks": {
+            "customer_comment_8DcqdN": {
+              "type": "customer-comment",
+              "name": "customer-comment",
+              "settings": {
+                "user_comments": [
+                  "user-comment-ku1cxxnh"
+                ]
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "customer_comment_8DcqdN"
+          ]
         },
         "tab_item_BqAxHF": {
           "type": "_tab-item",
