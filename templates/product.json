@@ -157,16 +157,17 @@
     "tab_control_R6MHaR": {
       "type": "tab-control",
       "blocks": {
-        "tab_item_KAzhYQ": {
+        "tab_item_tEfiBi": {
           "type": "_tab-item",
+          "name": "Tab Item",
           "settings": {
-            "title": "123sss"
+            "title": "123{{ closest.product.title }}"
           },
           "blocks": {}
         }
       },
       "block_order": [
-        "tab_item_KAzhYQ"
+        "tab_item_tEfiBi"
       ],
       "name": "Tab Control",
       "settings": {
