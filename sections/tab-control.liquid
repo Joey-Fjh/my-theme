@@ -1,7 +1,7 @@
 <tab-control class="tab-container">
   <ul class="tab-titles">
     {% for block in section.blocks %}
-      {{ block.settings.title }}
+      {{ block.settings }}
       {% comment %} <li class="tab-title" 
         data-tab-index="{{ forloop.index }}"
       >
