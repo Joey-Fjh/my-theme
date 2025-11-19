@@ -1,7 +1,6 @@
-{% comment %} <div class="tab-container 
+<div class="tab-container 
   {% if section.settings.layout == 'page_width' %} my-page-width {% endif %}"
 >
-  {% content_for 'blocks' %}
   {% comment %} <ul class="tab-titles">
     {% for block in section.blocks %}
       <li class="tab-title" 
@@ -53,164 +52,10 @@
     "max_blocks": 4,
     "presets": [
       {
-        "name": "Tab Control",
-        "blocks": [
-          { "type": "_tab-item" }
-        ]
+        "name": "Tab Control"
       }
     ]
   }
-{% endschema %} {% endcomment %}
-
-
-
-<div class="tabs-wrapper">
-  {%- assign tab_items = section.blocks | where: 'type', 'tab_item' -%}
-
-  <ul class="tabs-nav">
-    {% for tab in tab_items %}
-      <li class="tab-nav-item" data-tab="{{ tab.settings.key }}">
-        {{ tab.settings.title }}
-      </li>
-    {% endfor %}
-  </ul>
-
-  <div class="tabs-content">
-    {% for tab in tab_items %}
-      <div class="tab-content" id="{{ tab.settings.key }}">
-        
-        {%- comment -%}
-        渲染每一个属于该 Tab 的子块
-        {%- endcomment -%}
-        {% for block in section.blocks %}
-          {% if block.settings.tab_key == tab.settings.key %}
-
-            {% case block.type %}
-
-              {% when 'tab_richtext' %}
-                <div class="tab-richtext">
-                  {{ block.settings.content }}
-                </div>
-
-              {% when 'tab_image' %}
-                {% if block.settings.img %}
-                  <div class="tab-image">
-                    <img src="{{ block.settings.img | image_url }}" 
-                         alt="{{ block.settings.img.alt }}">
-                  </div>
-                {% endif %}
-
-              {% when 'tab_custom_liquid' %}
-                <div class="tab-custom-liquid">
-                  {{ block.settings.code }}
-                </div>
-
-            {% endcase %}
-
-          {% endif %}
-        {% endfor %}
-      </div>
-    {% endfor %}
-  </div>
-</div>
-
-{% schema %}
-  {
-  "name": "Tabs Section",
-  "settings": [],
-  "blocks": [
-    {
-      "type": "tab_item",
-      "name": "Tab Item",
-      "settings": [
-        {
-          "type": "text",
-          "id": "key",
-          "label": "Tab key",
-          "default": "tab-1",
-          "info": "用于将子块与此 Tab 对应，必须唯一"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Tab title",
-          "default": "Tab Title"
-        }
-      ]
-    },
-    {
-      "type": "tab_richtext",
-      "name": "Rich text",
-      "settings": [
-        {
-          "type": "text",
-          "id": "tab_key",
-          "label": "Belongs to tab key",
-          "default": "tab-1"
-        },
-        {
-          "type": "richtext",
-          "id": "content",
-          "label": "Content"
-        }
-      ]
-    },
-    {
-      "type": "tab_image",
-      "name": "Image",
-      "settings": [
-        {
-          "type": "text",
-          "id": "tab_key",
-          "label": "Belongs to tab key",
-          "default": "tab-1"
-        },
-        {
-          "type": "image_picker",
-          "id": "img",
-          "label": "Image"
-        }
-      ]
-    },
-    {
-      "type": "tab_custom_liquid",
-      "name": "Custom Liquid",
-      "settings": [
-        {
-          "type": "text",
-          "id": "tab_key",
-          "label": "Belongs to tab key",
-          "default": "tab-1"
-        },
-        {
-          "type": "liquid",
-          "id": "code",
-          "label": "Liquid code"
-        }
-      ]
-    }
-  ],
-  "max_blocks": 50,
-  "presets": [
-    {
-      "name": "Tabs Section",
-      "blocks": [
-        {
-          "type": "tab_item",
-          "settings": {
-            "key": "tab-1",
-            "title": "Description"
-          }
-        },
-        {
-          "type": "tab_richtext",
-          "settings": {
-            "tab_key": "tab-1",
-            "content": "<p>Tab content here</p>"
-          }
-        }
-      ]
-    }
-  ]
-}
 {% endschema %}
+
+
