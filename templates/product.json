@@ -162,21 +162,7 @@
           "settings": {
             "title": "123"
           },
-          "blocks": {
-            "customer_comment_Mrre9r": {
-              "type": "customer-comment",
-              "name": "customer-comment",
-              "settings": {
-                "user_comments": [
-                  "user-comment-0t7wsrqq"
-                ]
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "customer_comment_Mrre9r"
-          ]
+          "blocks": {}
         }
       },
       "block_order": [
