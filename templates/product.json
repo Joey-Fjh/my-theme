@@ -163,21 +163,7 @@
           "settings": {
             "title": "12345"
           },
-          "blocks": {
-            "customer_comment_taD3ga": {
-              "type": "customer-comment",
-              "name": "customer-comment",
-              "settings": {
-                "user_comments": [
-                  "user-comment-ku1cxxnh"
-                ]
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "customer_comment_taD3ga"
-          ]
+          "blocks": {}
         },
         "tab_item_weX77W": {
           "type": "_tab-item",
@@ -185,21 +171,7 @@
           "settings": {
             "title": ""
           },
-          "blocks": {
-            "customer_comment_JLyUmj": {
-              "type": "customer-comment",
-              "name": "customer-comment",
-              "settings": {
-                "user_comments": [
-                  "user-comment-fq1of1x3"
-                ]
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "customer_comment_JLyUmj"
-          ]
+          "blocks": {}
         }
       },
       "block_order": [
