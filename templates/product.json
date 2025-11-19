@@ -164,19 +164,10 @@
             "title": "12345"
           },
           "blocks": {}
-        },
-        "tab_item_weX77W": {
-          "type": "_tab-item",
-          "name": "Tab Item",
-          "settings": {
-            "title": ""
-          },
-          "blocks": {}
         }
       },
       "block_order": [
-        "tab_item_tEfiBi",
-        "tab_item_weX77W"
+        "tab_item_tEfiBi"
       ],
       "name": "Tab Control",
       "settings": {
