@@ -1,4 +1,4 @@
-{% comment %} {% content_for 'blocks' %} {% endcomment %}
+{% content_for 'blocks' %}
 
 {% schema %}
 {
@@ -9,6 +9,10 @@
       "id": "title",
       "label": "Title"
     }
+  ],
+  "blocks": [
+    { "type": "@app" },
+    { "type": "@theme" }
   ],
   "presets": [
     {
