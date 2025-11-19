@@ -154,12 +154,11 @@
         "padding_bottom": 28
       }
     },
-    "tab_control_KwqwrP": {
+    "tab_control_bTXMzQ": {
       "type": "tab-control",
       "blocks": {
-        "tab_item_XXmPQ3": {
+        "tab_item_AXP9Kn": {
           "type": "tab-item",
-          "name": "Tab Item",
           "settings": {
             "title": "123"
           },
@@ -167,7 +166,7 @@
         }
       },
       "block_order": [
-        "tab_item_XXmPQ3"
+        "tab_item_AXP9Kn"
       ],
       "name": "Tab Control",
       "settings": {
@@ -178,6 +177,6 @@
   "order": [
     "main",
     "related-products",
-    "tab_control_KwqwrP"
+    "tab_control_bTXMzQ"
   ]
 }
