@@ -153,30 +153,10 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
-    },
-    "tab_control_bTXMzQ": {
-      "type": "tab-control",
-      "blocks": {
-        "tab_item_AXP9Kn": {
-          "type": "tab-item",
-          "settings": {
-            "title": "123"
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "tab_item_AXP9Kn"
-      ],
-      "name": "Tab Control",
-      "settings": {
-        "layout": "full_bleed"
-      }
     }
   },
   "order": [
     "main",
-    "related-products",
-    "tab_control_bTXMzQ"
+    "related-products"
   ]
 }
