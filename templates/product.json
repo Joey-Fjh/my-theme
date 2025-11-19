@@ -154,17 +154,28 @@
         "padding_bottom": 28
       }
     },
-    "tab_control_R6MHaR": {
+    "tab_control_KwqwrP": {
       "type": "tab-control",
+      "blocks": {
+        "tab_item_VfDghw": {
+          "type": "tab-item",
+          "settings": {
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "tab_item_VfDghw"
+      ],
       "name": "Tab Control",
       "settings": {
-        "layout": "page_width"
+        "layout": "full_bleed"
       }
     }
   },
   "order": [
     "main",
     "related-products",
-    "tab_control_R6MHaR"
+    "tab_control_KwqwrP"
   ]
 }
