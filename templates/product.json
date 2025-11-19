@@ -159,9 +159,8 @@
       "blocks": {
         "tab_item_VfDghw": {
           "type": "tab-item",
-          "settings": {
-            "title": ""
-          }
+          "settings": {},
+          "blocks": {}
         }
       },
       "block_order": [
