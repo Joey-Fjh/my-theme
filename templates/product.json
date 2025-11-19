@@ -143,10 +143,37 @@
             "title": "Description"
           },
           "blocks": {}
+        },
+        "tab_item_BqAxHF": {
+          "type": "_tab-item",
+          "name": "Tab Item",
+          "settings": {
+            "title": "Customer Reviews"
+          },
+          "blocks": {}
+        },
+        "tab_item_yxeyh7": {
+          "type": "_tab-item",
+          "name": "Tab Item",
+          "settings": {
+            "title": "Shipping & Returns"
+          },
+          "blocks": {}
+        },
+        "tab_item_9YEXQp": {
+          "type": "_tab-item",
+          "name": "Tab Item",
+          "settings": {
+            "title": "Return Policies"
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "tab_item_Gtdbxn"
+        "tab_item_Gtdbxn",
+        "tab_item_BqAxHF",
+        "tab_item_yxeyh7",
+        "tab_item_9YEXQp"
       ],
       "name": "tab-control",
       "settings": {}
