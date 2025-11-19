@@ -6,12 +6,12 @@
       >
         type: {{ block.type }}<br>
         title: {{ block.settings.title | default: '无标题' }}
-        
+
         {{ block.settings.title }}
       </li>
     {% endfor %}
   </ul>
-  <div class="tab-contents">
+  {% comment %} <div class="tab-contents">
     {% for block in section.blocks %}
       <div class="tab-content" 
         data-tab-index="{{ forloop.index }}"
@@ -19,7 +19,7 @@
         {% render block %}
       </div>
     {% endfor %}
-  </div>
+  </div> {% endcomment %}
 </tab-control>
 
 {% schema %}
@@ -32,6 +32,7 @@
         "type": "_tab-item",
       }
     ],
+    "max_blocks": 4,
     "presets": [
       {
         "name": "Tab Control",
