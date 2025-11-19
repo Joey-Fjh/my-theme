@@ -63,8 +63,6 @@ export class SwiperContainer extends LitElement {
 			progressbarDom = this.querySelector('.swiper-pagination');
 		}
 
-		let that = this;
-
 		const swiper = new Swiper(this.querySelector('.swiper'), {
 			slidesPerView: this.slidesPerViewMobile,
 			modules: [Navigation,Autoplay,Pagination],
