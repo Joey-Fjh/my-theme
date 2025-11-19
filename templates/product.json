@@ -156,19 +156,6 @@
     },
     "tab_control_R6MHaR": {
       "type": "tab-control",
-      "blocks": {
-        "tab_item_tEfiBi": {
-          "type": "_tab-item",
-          "name": "Tab Item",
-          "settings": {
-            "title": "12345"
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "tab_item_tEfiBi"
-      ],
       "name": "Tab Control",
       "settings": {
         "layout": "page_width"
