@@ -1,7 +1,7 @@
 <div class="tab-container 
   {% if section.settings.layout == 'page_width' %} my-page-width {% endif %}"
 >
-  <ul class="tab-titles">
+  {% comment %} <ul class="tab-titles">
     {% for block in section.blocks %}
       <li class="tab-title" 
         data-tab-index="{{ forloop.index }}"
@@ -9,8 +9,8 @@
         {{ block.settings.title }}
       </li>
     {% endfor %}
-  </ul>
-  <div class="tab-contents">
+  </ul> {% endcomment %}
+  {% comment %} <div class="tab-contents">
     {% for block in section.blocks %}
       <div class="tab-content" 
         data-tab-index="{{ forloop.index }}"
@@ -18,7 +18,7 @@
         {% render block %}
       </div>
     {% endfor %}
-  </div>
+  </div> {% endcomment %}
 </div>
 
 {% schema %}

@@ -157,14 +157,17 @@
     "tab_control_KwqwrP": {
       "type": "tab-control",
       "blocks": {
-        "tab_item_VfDghw": {
+        "tab_item_XXmPQ3": {
           "type": "tab-item",
-          "settings": {},
+          "name": "Tab Item",
+          "settings": {
+            "title": ""
+          },
           "blocks": {}
         }
       },
       "block_order": [
-        "tab_item_VfDghw"
+        "tab_item_XXmPQ3"
       ],
       "name": "Tab Control",
       "settings": {
