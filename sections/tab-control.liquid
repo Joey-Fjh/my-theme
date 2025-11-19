@@ -1,4 +1,6 @@
-<tab-control class="tab-container">
+<tab-control class="tab-container"
+  {% if section.settings.layout == 'page_width' %} my-page-width {% endif %}
+>
   <ul class="tab-titles">
     {% for block in section.blocks %}
       <li class="tab-title" 
@@ -24,6 +26,24 @@
     "name": "Tab Control",
     "tag": "section",
     "class": "section",
+    "settings": [
+      {
+        "type": "select",
+        "id": "layout",
+        "options": [
+          {
+            "value": "full_bleed",
+            "label": "Full Bleed"
+          },
+          {
+            "value": "page_width",
+            "label": "Page Width"
+          }
+        ],
+        "default": "full_bleed",
+        "label": "Layout"
+      },
+    ],
     "blocks": [
       { 
         "type": "_tab-item",
