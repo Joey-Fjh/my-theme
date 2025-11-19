@@ -132,35 +132,6 @@
         "padding_bottom": 12
       }
     },
-    "my_product_content_zXjPzg": {
-      "type": "my-product-content",
-      "blocks": {
-        "tab_control_mAkzxE": {
-          "type": "tab-control",
-          "name": "tab-control",
-          "settings": {},
-          "blocks": {
-            "tab_item_PAnwFk": {
-              "type": "tab-item",
-              "settings": {
-                "title": ""
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "tab_item_PAnwFk"
-          ]
-        }
-      },
-      "block_order": [
-        "tab_control_mAkzxE"
-      ],
-      "name": "my-product-content",
-      "settings": {
-        "layout": "full_bleed"
-      }
-    },
     "related-products": {
       "type": "related-products",
       "settings": {
@@ -184,7 +155,6 @@
   },
   "order": [
     "main",
-    "my_product_content_zXjPzg",
     "related-products"
   ]
 }
