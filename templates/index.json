@@ -224,33 +224,6 @@
     },
     "my_fashion_highlights_jtVAje": {
       "type": "my-fashion-highlights",
-      "blocks": {
-        "fashion_highlight_a4b9ee": {
-          "type": "fashion-highlight",
-          "name": "fashion-highlight",
-          "settings": {
-            "title": "Example Title",
-            "button_text": "Example Button",
-            "button_url": ""
-          },
-          "blocks": {
-            "link_HcXdHP": {
-              "type": "link",
-              "settings": {
-                "info_text": "Link Text",
-                "link_url": ""
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "link_HcXdHP"
-          ]
-        }
-      },
-      "block_order": [
-        "fashion_highlight_a4b9ee"
-      ],
       "name": "my-fashion-highlights",
       "settings": {
         "font_color": "#50b948",
@@ -457,6 +430,20 @@
     },
     "my_sustainable_hero_cHgtTK": {
       "type": "my-sustainable-hero",
+      "blocks": {
+        "comment_U8bLyP": {
+          "type": "comment",
+          "settings": {
+            "color_scheme_comment": "scheme-1",
+            "text_size": "h1",
+            "title": "Our Story",
+            "user_comments": []
+          }
+        }
+      },
+      "block_order": [
+        "comment_U8bLyP"
+      ],
       "name": "my-sustainable-hero",
       "settings": {
         "is_fullWidth": false,
