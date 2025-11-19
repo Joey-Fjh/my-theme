@@ -4,9 +4,6 @@
       <li class="tab-title" 
         data-tab-index="{{ forloop.index }}"
       >
-        type: {{ block.type }}<br>
-        title: {{ block.settings.title | default: '无标题' }}
-
         {{ block.settings.title }}
       </li>
     {% endfor %}
@@ -29,7 +26,7 @@
     "class": "section",
     "blocks": [
       { 
-        "type": "tab-item",
+        "type": "_tab-item",
       }
     ],
     "max_blocks": 4,
@@ -37,7 +34,7 @@
       {
         "name": "Tab Control",
         "blocks": [
-          { "type": "tab-item" }
+          { "type": "_tab-item" }
         ]
       }
     ]

@@ -1,5 +1,5 @@
-{% content_for 'blocks' %}
-
+{% comment %} {% content_for 'blocks' %} {% endcomment %}
+<div>item</div>
 {% schema %}
 {
   "name": "Tab Item",
@@ -11,7 +11,8 @@
     }
   ],
   "blocks": [
-    { "type": "@app" }
+    { "type": "@app" },
+    { "type": "@theme" }
   ],
   "presets": [
     {
