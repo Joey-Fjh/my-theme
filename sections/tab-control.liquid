@@ -1,4 +1,4 @@
-<tab-control class="tab-container 
+<div class="tab-container 
   {% if section.settings.layout == 'page_width' %} my-page-width {% endif %}"
 >
   {{ section.blocks.first.settings }}
@@ -11,7 +11,7 @@
       </li>
     {% endfor %}
   </ul>
-  {% comment %} <div class="tab-contents">
+  <div class="tab-contents">
     {% for block in section.blocks %}
       <div class="tab-content" 
         data-tab-index="{{ forloop.index }}"
@@ -19,8 +19,8 @@
         {% render block %}
       </div>
     {% endfor %}
-  </div> {% endcomment %}
-</tab-control>
+  </div> 
+</div>
 
 {% schema %}
   {
