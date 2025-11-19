@@ -1,0 +1,40 @@
+<tab-control class="tab-container">
+  <ul class="tab-titles">
+    {% for block in section.blocks %}
+      <li class="tab-title" 
+        data-tab-index="{{ forloop.index }}"
+      >
+        {{ block.settings.title }}
+      </li>
+    {% endfor %}
+  </ul>
+  <div class="tab-contents">
+    {% for block in section.blocks %}
+      <div class="tab-content" 
+        data-tab-index="{{ forloop.index }}"
+      >
+        {% render block %}
+      </div>
+    {% endfor %}
+  </div>
+</tab-control>
+
+{% schema %}
+  {
+    "name": "tab-control",
+    "tag": "section",
+    "blocks": [
+      { 
+        "type": "tab-item",
+      },
+    ],
+    "presets": [
+      {
+        "name": "tab-control",
+        "blocks": [
+          { "type": "tab-item" }
+        ]
+      }
+    ]
+  }
+{% endschema %}

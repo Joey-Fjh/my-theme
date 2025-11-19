@@ -1,0 +1,26 @@
+<div class="tab-item-content">
+  {% content_for 'blocks' %}
+</div>
+
+{% schema %}
+{
+  "name": "Tab Item",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Tab Title"
+    }
+  ],
+  "blocks": [
+    { "type": "@theme" },
+    { "type": "@app" }
+  ],
+  "presets": [
+    {
+      "name": "Tab Item"
+    }
+  ]
+}
+{% endschema %}

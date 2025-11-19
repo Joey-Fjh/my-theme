@@ -1,8 +1,7 @@
-{{ 'my-product-content.css' | asset_url | stylesheet_tag  }}
-<script src="{{ 'my-accordion-container.js' | asset_url}}" defer type="module"></script>
-
-<responsive-container class="my-product-content__container">
-   {% content_for 'blocks' %}
+<responsive-container class="my-product-content__container"
+  {% if section.settings.layout == 'page_width' %} my-page-width {% endif %}
+>
+  {% content_for 'blocks' %}
 </responsive-container>
 
 
@@ -12,19 +11,33 @@
     "tag": "section",
     "class": "section",
     "settings": [
+      {
+        "type": "select",
+        "id": "layout",
+        "options": [
+          {
+            "value": "full_bleed",
+            "label": "Full Bleed"
+          },
+          {
+            "value": "page_width",
+            "label": "Page Width"
+          }
+        ],
+        "default": "full_bleed",
+        "label": "Layout"
+      },
     ],
     "blocks": [
       {
-        "type": "product-multiple-columns"
+        "type": "tab-control"
       }
     ],
     "presets": [
       {
         "name": "my-product-content",
         "blocks": [
-          {
-            "type": "product-multiple-columns"
-          }
+          { "type": "tab-control" }
         ]
       }
     ]
