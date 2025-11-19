@@ -1,6 +1,9 @@
 <div class="tab-title">
   {{ block.settings.title }}
 </div>
+<div class="tab-content">
+  {% content_for 'blocks' %}
+</div>
 
 {% schema %}
 {
