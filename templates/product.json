@@ -116,6 +116,7 @@
         "popup_8PFaiN",
         "popup_XGAcjX"
       ],
+      "disabled": true,
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
@@ -135,8 +136,9 @@
     "tab_control_RfcYHa": {
       "type": "tab-control",
       "blocks": {
-        "tab_item_UgWkDr": {
-          "type": "tab-item",
+        "tab_item_Gtdbxn": {
+          "type": "_tab-item",
+          "name": "Tab Item",
           "settings": {
             "title": "Description"
           },
@@ -144,13 +146,14 @@
         }
       },
       "block_order": [
-        "tab_item_UgWkDr"
+        "tab_item_Gtdbxn"
       ],
       "name": "tab-control",
       "settings": {}
     },
     "related-products": {
       "type": "related-products",
+      "disabled": true,
       "settings": {
         "heading": "Customers also purchased",
         "heading_size": "h1",
