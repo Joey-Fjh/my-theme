@@ -156,6 +156,31 @@
     },
     "tab_control_HHik3w": {
       "type": "tab-control",
+      "blocks": {
+        "tab_item_fKTR7r": {
+          "type": "_tab-item",
+          "name": "Tab Item",
+          "settings": {
+            "title": ""
+          },
+          "blocks": {}
+        },
+        "customer_comment_TLTrxH": {
+          "type": "customer-comment",
+          "name": "customer-comment",
+          "settings": {
+            "user_comments": [
+              "user-comment-ku1cxxnh",
+              "user-comment-fq1of1x3"
+            ]
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "tab_item_fKTR7r",
+        "customer_comment_TLTrxH"
+      ],
       "name": "Tab Control",
       "settings": {
         "layout": "full_bleed"
