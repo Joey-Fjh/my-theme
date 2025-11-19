@@ -1,6 +1,11 @@
 <div class="tab-container 
   {% if section.settings.layout == 'page_width' %} my-page-width {% endif %}"
 >
+  {% for block in section.blocks %}
+    {% if block.type == '_tab-item' %}
+      {{ block.settings }}
+    {% endif %}
+  {% endfor %}
   {% comment %} <ul class="tab-titles">
     {% for block in section.blocks %}
       <li class="tab-title" 
