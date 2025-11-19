@@ -161,7 +161,7 @@
           "type": "_tab-item",
           "name": "Tab Item",
           "settings": {
-            "title": "123{{ closest.product.title }}"
+            "title": "12345"
           },
           "blocks": {}
         }
