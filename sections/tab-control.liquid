@@ -4,6 +4,9 @@
       <li class="tab-title" 
         data-tab-index="{{ forloop.index }}"
       >
+        type: {{ block.type }}<br>
+        title: {{ block.settings.title | default: '无标题' }}
+        
         {{ block.settings.title }}
       </li>
     {% endfor %}
