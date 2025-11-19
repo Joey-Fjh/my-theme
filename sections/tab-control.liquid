@@ -1,15 +1,14 @@
 <tab-control class="tab-container">
   <ul class="tab-titles">
     {% for block in section.blocks %}
-      {% render block %}
-      {% comment %} <li class="tab-title" 
+      <li class="tab-title" 
         data-tab-index="{{ forloop.index }}"
       >
         {{ block.settings.title }}
-      </li> {% endcomment %}
+      </li>
     {% endfor %}
   </ul>
-  {% comment %} <div class="tab-contents">
+  <div class="tab-contents">
     {% for block in section.blocks %}
       <div class="tab-content" 
         data-tab-index="{{ forloop.index }}"
@@ -17,7 +16,7 @@
         {% render block %}
       </div>
     {% endfor %}
-  </div> {% endcomment %}
+  </div>
 </tab-control>
 
 {% schema %}
@@ -27,7 +26,7 @@
     "class": "section",
     "blocks": [
       { 
-        "type": "test",
+        "type": "_tab-item",
       }
     ],
     "max_blocks": 4,
@@ -35,7 +34,7 @@
       {
         "name": "Tab Control",
         "blocks": [
-          { "type": "test" }
+          { "type": "_tab-item" }
         ]
       }
     ]
