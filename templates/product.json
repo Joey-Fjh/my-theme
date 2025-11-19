@@ -154,21 +154,8 @@
         "padding_bottom": 28
       }
     },
-    "tab_control_UDFTXF": {
+    "tab_control_HHik3w": {
       "type": "tab-control",
-      "blocks": {
-        "tab_item_6Bk6zR": {
-          "type": "_tab-item",
-          "name": "Tab Item",
-          "settings": {
-            "title": "123"
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "tab_item_6Bk6zR"
-      ],
       "name": "Tab Control",
       "settings": {
         "layout": "full_bleed"
@@ -178,6 +165,6 @@
   "order": [
     "main",
     "related-products",
-    "tab_control_UDFTXF"
+    "tab_control_HHik3w"
   ]
 }
