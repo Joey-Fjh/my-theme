@@ -162,7 +162,8 @@
           "settings": {
             "column": 2,
             "row": 1,
-            "image_opacity": 0,
+            "image": "shopify://shop_images/20251027170840_17_94.png",
+            "image_opacity": 100,
             "image_fit": "cover",
             "content_position": "middle-right",
             "heading": "<strong>Technology at your fingertips</strong>",
@@ -227,7 +228,7 @@
       ],
       "name": "Grid Layout",
       "settings": {
-        "layout": "full_bleed",
+        "layout": "page_width",
         "row_height": 30,
         "max_columns": 4,
         "desktop_column_gap": 22,
