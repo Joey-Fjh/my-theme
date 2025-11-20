@@ -164,9 +164,9 @@
             "row": 1,
             "image_opacity": 0,
             "image_fit": "cover",
-            "content_position": "middle-center",
-            "heading": "",
-            "description": ""
+            "content_position": "middle-right",
+            "heading": "<strong>Technology at your fingertips</strong>",
+            "description": "<p>Elevate your daily look with a blend of chic aesthetics and robust functionality.</p>"
           }
         },
         "image_item_iijg8W": {
@@ -228,10 +228,10 @@
       "name": "Grid Layout",
       "settings": {
         "layout": "full_bleed",
-        "row_height": 10,
+        "row_height": 50,
         "max_columns": 2,
-        "desktop_column_gap": 9,
-        "mobile_column_gap": 5,
+        "desktop_column_gap": 22,
+        "mobile_column_gap": 33,
         "border_radius": 0,
         "padding_top": 0,
         "padding_bottom": 0
