@@ -1,0 +1,133 @@
+{{ 'grid-layout.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="grid-layout__container
+    section-{{ section.id }}-padding
+    {% if section.settings.layout == 'page_width' %} my-page-width {% endif %}"
+>
+
+</div>
+
+{% schema %}
+{
+    "name": "Grid Layout",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+        {
+            "type": "header",
+            "content": "Grid Layout"
+        },
+        {
+            "type": "select",
+            "id": "layout",
+            "options": [
+            {
+                "value": "full_bleed",
+                "label": "Full Bleed"
+            },
+            {
+                "value": "page_width",
+                "label": "Page Width"
+            }
+            ],
+            "default": "full_bleed",
+            "label": "Layout"
+        },
+        {
+            "type": "range",
+            "id": "row_height",
+            "min": 10,
+            "max": 50,
+            "step": 1,
+            "default": 10,
+            "label": "Row Height",
+            "unit": "rem"
+        },
+        {
+            "type": "range",
+            "id": "max_columns",
+            "min": 1,
+            "max": 4,
+            "step": 1,
+            "default": 2,
+            "label": "Maximum number of columns"
+        },
+        {
+            "type": "range",
+            "id": "desktop_column_gap",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "default": 10,
+            "label": "Column Gap",
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "mobile_column_gap",
+            "min": 0,
+            "max": 50,
+            "step": 1,
+            "default": 5,
+            "label": "Column Gap",
+            "unit": "px"
+        },
+        {
+            "type": "header",
+            "content": "Border"
+        },
+        {
+            "type": "range",
+            "id": "border_radius",
+            "min": 0,
+            "max":10,
+            "step": 1,
+            "default":0,
+            "label": "Border Radius"
+        },
+        {
+            "type": "header",
+            "content": "Padding"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "Padding Top",
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "Padding Bottom",
+            "default": 0
+        }
+    ],
+    "presets": [
+        {
+            "name": "Grid Layout"
+        }
+    ]
+}
+{% endschema %}
