@@ -1,24 +1,11 @@
+<script src="{{ 'tab-control.js' | asset_url }}" type='module'></script>
+
 <div class="tab-container 
   {% if section.settings.layout == 'page_width' %} my-page-width {% endif %}"
 >
-  {% comment %} <ul class="tab-titles">
-    {% for block in section.blocks %}
-      <li class="tab-title" 
-        data-tab-index="{{ forloop.index }}"
-      >
-        {{ block.settings.title }}
-      </li>
-    {% endfor %}
-  </ul> {% endcomment %}
-  {% comment %} <div class="tab-contents">
-    {% for block in section.blocks %}
-      <div class="tab-content" 
-        data-tab-index="{{ forloop.index }}"
-      >
-        {% render block %}
-      </div>
-    {% endfor %}
-  </div> {% endcomment %}
+  <tab-control>
+    {% content_for 'blocks' %}
+  </tab-control>
 </div>
 
 {% schema %}
@@ -45,9 +32,7 @@
       },
     ],
     "blocks": [
-      { 
-        "type": "_tab-item"
-      }
+      { "type": "_tab-item" }
     ],
     "max_blocks": 4,
     "presets": [

@@ -1,23 +1,25 @@
-{% content_for 'blocks' %}
+<div slot="title">{{ block.settings.title }}</div>
+<div slot="content">{{ block.settings.content }}</div>
 
 {% schema %}
-{
-  "name": "Tab Item",
-  "settings": [
-    {
-      "type": "text",
-      "id": "title",
-      "label": "Title"
-    }
-  ],
-  "blocks": [
-    { "type": "@app" },
-    { "type": "@theme" }
-  ],
-  "presets": [
-    {
-      "name": "Tab Item"
-    }
-  ]
-}
+  {
+    "name": "Tab Item",
+    "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Tab Title"
+        },
+        {
+          "type": "text",
+          "id": "content",
+          "label": "Tab Content"
+        }
+    ],
+    "presets": [
+      {
+        "name": "Tab Item"
+      }
+    ]
+  }
 {% endschema %}
