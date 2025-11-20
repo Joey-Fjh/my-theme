@@ -2,8 +2,10 @@
 
 <responsive-container class="my-image-with-text2__container my-page-width">
     <div class="item">
-        <div class="text__container">
-            <div class="heading">
+        <div class="text__container
+            color-{{ section.settings.color_scheme }}
+            ">
+            <div class="heading {{ section.settings.text_size }}">
                 {{ section.settings.heading }}
             </div>
             <div class="description">
@@ -65,8 +67,34 @@
     "class": "section",
     "settings": [
         {
+            "type": "color_scheme",
+            "id": "color_scheme",
+            "label": "Color Scheme",
+            "default": "scheme-1"
+        },
+        {
             "type": "header",
             "content": "Text Settings",
+        },
+        {
+            "type": "select",
+            "id": "text_size",
+            "label": "Text Size",
+            "options": [
+                {
+                    "value": "h2",
+                    "label": "Small"
+                },
+                {
+                    "value": "h1",
+                    "label": "Medium"
+                },
+                {
+                    "value": "h0",
+                    "label": "Large"
+                }
+            ],
+            "default": "h1"
         },
         {
             "type":"inline_richtext",
