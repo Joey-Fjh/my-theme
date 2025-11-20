@@ -1,0 +1,93 @@
+{{ 'my-image-with-text2.css' | asset_url | stylesheet_tag }}
+
+<repsonsive-container class="my-image-with-text2__container my-page-width">
+    <div class="item">
+        <div class="text__container">
+            <div class="heading">
+                {{ section.settings.heading }}
+            </div>
+            <div class="description">
+                {{ section.settings.description }}
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <responsive-container class="image__container">
+            {{ 
+                section.settings.image1
+                    | image_url: width: section.settings.image1
+                    | image_tag 
+            }}
+        </responsive-container>
+    </div>
+    <div class="item">
+        <responsive-container class="image__container"
+            style="aspect-ratio: 1 / 1;"
+        >
+            {{ 
+                section.settings.image2
+                    | image_url: width: section.settings.image2
+                    | image_tag 
+            }}
+        </responsive-container>
+
+        <responsive-container class="image__container"
+            style="aspect-ratio: 2 / 1;"
+        >
+            {{ 
+                section.settings.image3
+                    | image_url: width: section.settings.image3
+                    | image_tag 
+            }}
+        </responsive-container>
+    </div>
+</repsonsive-container>
+
+{% schema %}
+  {
+    "name": "my-image-with-text2",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+        {
+            "type": "header",
+            "content": "Text Settings",
+        },
+        {
+            "type":"inline_richtext",
+            "id": "heading",
+            "label": "Heading"
+        },
+        {
+            "type": "richtext",
+            "id": "description",
+            "label": "Description",
+            "default": "<p>This is a default description.</p>"
+        },
+        {
+            "type": "header",
+            "content": "Image Settings"
+        },
+        {
+            "type": "image_picker",
+            "id": "image1",
+            "label": "Image1"
+        },
+        {
+            "type": "image_picker",
+            "id": "image2",
+            "label": "Image2"
+        },
+        {
+            "type": "image_picker",
+            "id": "image3",
+            "label": "Image3"
+        },
+    ],
+    "presets": [
+      {
+        "name": "my-image-with-text2"
+      }
+    ]
+  }
+{% endschema %}
