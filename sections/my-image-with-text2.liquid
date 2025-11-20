@@ -11,34 +11,47 @@
             </div>
         </div>
     </div>
+
     <div class="item">
         <responsive-container class="image__container">
-            {{ 
-                section.settings.image1
-                    | image_url: width: section.settings.image1
-                    | image_tag 
-            }}
+            {%- if section.settings.image1 -%}
+                {{ 
+                    section.settings.image1
+                        | image_url: width: section.settings.image1.width
+                        | image_tag 
+                }}
+            {%- else -%}
+                {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+            {%- endif -%}
         </responsive-container>
     </div>
     <div class="item">
         <responsive-container class="image__container"
             style="aspect-ratio: 1 / 1;"
         >
-            {{ 
-                section.settings.image2
-                    | image_url: width: section.settings.image2
-                    | image_tag 
-            }}
+            {%- if section.settings.image2 -%}
+                {{ 
+                    section.settings.image2
+                        | image_url: width: section.settings.image2.width
+                        | image_tag 
+                }}
+            {%- else -%}
+                {{ 'hero-apparel-2' | placeholder_svg_tag: 'placeholder-svg' }}
+            {%- endif -%}
         </responsive-container>
 
         <responsive-container class="image__container"
             style="aspect-ratio: 2 / 1;"
         >
-            {{ 
-                section.settings.image3
-                    | image_url: width: section.settings.image3
-                    | image_tag 
-            }}
+            {%- if section.settings.image3 -%}
+                {{ 
+                    section.settings.image3
+                        | image_url: width: section.settings.image3.width
+                        | image_tag 
+                }}
+            {%- else -%}
+                {{ 'hero-apparel-3' | placeholder_svg_tag: 'placeholder-svg' }}
+            {%- endif -%}
         </responsive-container>
     </div>
 </repsonsive-container>
