@@ -262,8 +262,10 @@
       "type": "my-image-with-text2",
       "name": "my-image-with-text2",
       "settings": {
-        "heading": "test",
-        "description": "<p>This is a default description.</p>",
+        "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
+        "text_size": "h1",
+        "heading": "<strong>The Future of Everyday Tech</strong>",
+        "description": "<p>From epic game nights to deep-focus playlists and rugged outdoor adventures — today’s gadgets are more powerful, personal, and versatile than ever.<br/>Level up your everyday with devices designed to entertain, connect, and adapt to your lifestyle. Whether it’s for family fun, fitness goals, or immersive escapes — we’ve got the gear that fits.</p>",
         "image1": "shopify://shop_images/20251027174425_21_94.jpg",
         "image2": "shopify://shop_images/1.jpg",
         "image3": "shopify://shop_images/20251027170838_16_94.png"
