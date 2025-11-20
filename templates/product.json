@@ -160,7 +160,7 @@
         "image_item_cwHnWM": {
           "type": "image_item",
           "settings": {
-            "column": 1,
+            "column": 2,
             "row": 1,
             "image_opacity": 0,
             "image_fit": "cover",
@@ -172,8 +172,8 @@
         "image_item_iijg8W": {
           "type": "image_item",
           "settings": {
-            "column": 1,
-            "row": 1,
+            "column": 2,
+            "row": 2,
             "image_opacity": 0,
             "image_fit": "cover",
             "content_position": "middle-center",
@@ -184,8 +184,8 @@
         "image_item_cY8jRQ": {
           "type": "image_item",
           "settings": {
-            "column": 1,
-            "row": 1,
+            "column": 2,
+            "row": 2,
             "image_opacity": 0,
             "image_fit": "cover",
             "content_position": "middle-center",
@@ -196,8 +196,8 @@
         "image_item_k44ddb": {
           "type": "image_item",
           "settings": {
-            "column": 1,
-            "row": 1,
+            "column": 2,
+            "row": 2,
             "image_opacity": 0,
             "image_fit": "cover",
             "content_position": "middle-center",
@@ -208,7 +208,7 @@
         "image_item_w3dEhX": {
           "type": "image_item",
           "settings": {
-            "column": 1,
+            "column": 2,
             "row": 1,
             "image_opacity": 0,
             "image_fit": "cover",
@@ -228,8 +228,8 @@
       "name": "Grid Layout",
       "settings": {
         "layout": "full_bleed",
-        "row_height": 50,
-        "max_columns": 2,
+        "row_height": 30,
+        "max_columns": 4,
         "desktop_column_gap": 22,
         "mobile_column_gap": 33,
         "border_radius": 0,
