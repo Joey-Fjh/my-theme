@@ -18,7 +18,50 @@
     section-{{ section.id }}-padding
     {% if section.settings.layout == 'page_width' %} my-page-width {% endif %}"
 >
+    <div class="grid-item__container">
+        {%- for block in section.blocks -%}
+            {%- assign placeholder_index = forloop.index0 | modulo: 3 | plus: 1 -%}
+            {%- assign placeholder_image = 'hero-apparel-' | append: placeholder_index -%}
+            
+            {%- case block.type -%}
+                {%- when 'image_item' -%}
+                    <div class="image__container">
+                        <responsive-container class="pc_image">
+                            {%- if block.settings.image -%}
+                                {{
+                                    block.settings.image 
+                                        | image_url: width: block.settings.image.width
+                                        | image_tag
+                                }}
+                            {%- else -%}
+                                {{ placeholder_image | placeholder_svg_tag: "placeholder-svg" }}
+                            {%- endif -%}
+                        </responsive-container>
 
+                        <responsive-container class="mobile_image">
+                            {%- if block.settings.mobile_image -%}
+                                {{
+                                    block.settings.mobile_image 
+                                        | image_url: width: block.settings.mobile_image.width
+                                        | image_tag
+                                }}
+                            {%- else -%}
+                                {{ placeholder_image | placeholder_svg_tag: "placeholder-svg" }}
+                            {%- endif -%}
+                        </responsive-container>
+
+                        <div class="image__content">
+                            <div class="heading">
+                                {{ block.settings.heading }}
+                            </div>
+                            <div class="description">
+                                {{ block.settings.description }}
+                            </div>
+                        </div>
+                    </div>
+            {% endcase %}                
+        {%- endfor -%}
+    </div>
 </div>
 
 {% schema %}
@@ -73,7 +116,7 @@
             "max": 100,
             "step": 1,
             "default": 10,
-            "label": "Column Gap",
+            "label": "Desktop Column Gap",
             "unit": "px"
         },
         {
@@ -83,7 +126,7 @@
             "max": 50,
             "step": 1,
             "default": 5,
-            "label": "Column Gap",
+            "label": "Mobile Column Gap",
             "unit": "px"
         },
         {
@@ -124,9 +167,95 @@
             "default": 0
         }
     ],
+    "blocks": [
+        {
+            "type": "image_item",
+            "name": "Image Item",
+            "settings": [
+                {
+                    "type": "header",
+                    "content": "Desktop Layout",
+                },
+                {
+                    "type":"range",
+                    "id": "column",
+                    "label": "Column",
+                    "min": 1,
+                    "max": 4,
+                    "step": 1,
+                    "default": 1
+                },
+                {
+                    "type":"range",
+                    "id": "row",
+                    "label": "row",
+                    "min": 1,
+                    "max": 2,
+                    "step": 1,
+                    "default": 1
+                },
+                {
+                    "type": "header",
+                    "content": "Image Settings"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "mobile_image",
+                    "label": "Mobile Image"
+                },
+                {
+                    "type": "range",
+                    "id": "image_opacity",
+                    "label": "Image overlay opacity",
+                    "min": 0,
+                    "max": 100,
+                    "step": 1,
+                    "default":0
+                },
+                {
+                    "type": "select",
+                    "id": "image_fit",
+                    "label": "Image fit",
+                    "options": [
+                        {
+                            "value": "cover",
+                            "label": "Cover"
+                        },
+                        {
+                            "value": "Contain",
+                            "label": "contain"
+                        }
+                    ]
+                },
+                {
+                    "type": "header",
+                    "content": "Text Settings"
+                },
+                {
+                    "type": "inline_richtext",
+                    "id": "heading",
+                    "label": "Heading"
+                },
+                {
+                    "type": "richtext",
+                    "id":"description",
+                    "label": "Description",
+                    "default": "<p></p>"
+                }
+            ]
+        }
+    ],
     "presets": [
         {
-            "name": "Grid Layout"
+            "name": "Grid Layout",
+            "blocks": [
+                {"type": "image_item"}
+            ]
         }
     ]
 }

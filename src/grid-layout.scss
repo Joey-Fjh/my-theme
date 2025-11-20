@@ -1,4 +1,15 @@
 .grid-layout__container{
+    --max-columns: 4;
+    --raw-height:10rem;
+    --row-span:2;
+    --column-span:2;
+    --gap:0px;
+
     display: grid;
-    
+    grid: auto-flow dense auto / repeat(var(--max-columns, 4),minmax(0,1fr));
+
+
+    .grid-item__container{
+
+    }
 }
