@@ -21,4 +21,8 @@
         overflow: hidden;
         border-radius: 5%;
     }
+
+    @include media-query(mobile,'max'){ 
+        flex-direction: column;
+    }
 }
