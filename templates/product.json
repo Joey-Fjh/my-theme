@@ -271,34 +271,12 @@
         "image2": "shopify://shop_images/1.jpg",
         "image3": "shopify://shop_images/20251027170838_16_94.png"
       }
-    },
-    "tab_control_pWwKR9": {
-      "type": "tab-control",
-      "blocks": {
-        "tab_item_9eNKbY": {
-          "type": "_tab-item",
-          "name": "Tab Item",
-          "settings": {
-            "title": "123",
-            "content": "456"
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "tab_item_9eNKbY"
-      ],
-      "name": "Tab Control",
-      "settings": {
-        "layout": "full_bleed"
-      }
     }
   },
   "order": [
     "main",
     "related-products",
     "grid_layout_ggAHpP",
-    "my_image_with_text2_nx96A9",
-    "tab_control_pWwKR9"
+    "my_image_with_text2_nx96A9"
   ]
 }
