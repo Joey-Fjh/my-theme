@@ -167,7 +167,9 @@
             "image_fit": "cover",
             "content_position": "middle-right",
             "heading": "<strong>Technology at your fingertips</strong>",
-            "description": "<p>Elevate your daily look with a blend of chic aesthetics and robust functionality.</p>"
+            "heading_size": "h2",
+            "description": "<p>Elevate your daily look with a blend of chic aesthetics and robust functionality.</p>",
+            "text_color": "#8b3232"
           }
         },
         "image_item_iijg8W": {
@@ -179,7 +181,9 @@
             "image_fit": "cover",
             "content_position": "middle-center",
             "heading": "",
-            "description": ""
+            "heading_size": "h2",
+            "description": "",
+            "text_color": "#ffffff"
           }
         },
         "image_item_cY8jRQ": {
@@ -191,7 +195,9 @@
             "image_fit": "cover",
             "content_position": "middle-center",
             "heading": "",
-            "description": ""
+            "heading_size": "h2",
+            "description": "",
+            "text_color": "#ffffff"
           }
         },
         "image_item_k44ddb": {
@@ -203,7 +209,9 @@
             "image_fit": "cover",
             "content_position": "middle-center",
             "heading": "",
-            "description": ""
+            "heading_size": "h2",
+            "description": "",
+            "text_color": "#ffffff"
           }
         },
         "image_item_w3dEhX": {
@@ -215,7 +223,9 @@
             "image_fit": "cover",
             "content_position": "middle-center",
             "heading": "",
-            "description": ""
+            "heading_size": "h2",
+            "description": "",
+            "text_color": "#ffffff"
           }
         }
       },
@@ -233,7 +243,7 @@
         "max_columns": 4,
         "desktop_column_gap": 22,
         "mobile_column_gap": 14,
-        "border_radius": 4,
+        "border_radius": 7,
         "padding_top": 0,
         "padding_bottom": 0
       }
