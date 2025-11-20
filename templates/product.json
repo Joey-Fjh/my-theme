@@ -260,6 +260,7 @@
     },
     "my_image_with_text2_nx96A9": {
       "type": "my-image-with-text2",
+      "disabled": true,
       "name": "my-image-with-text2",
       "settings": {
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
