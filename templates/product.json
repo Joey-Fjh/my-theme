@@ -245,6 +245,7 @@
         "image_item_k44ddb",
         "image_item_w3dEhX"
       ],
+      "disabled": true,
       "name": "Grid Layout",
       "settings": {
         "layout": "page_width",
@@ -256,11 +257,23 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
+    },
+    "my_image_with_text2_nx96A9": {
+      "type": "my-image-with-text2",
+      "name": "my-image-with-text2",
+      "settings": {
+        "heading": "test",
+        "description": "<p>This is a default description.</p>",
+        "image1": "shopify://shop_images/20251027174425_21_94.jpg",
+        "image2": "shopify://shop_images/1.jpg",
+        "image3": "shopify://shop_images/20251027170838_16_94.png"
+      }
     }
   },
   "order": [
     "main",
     "related-products",
-    "grid_layout_ggAHpP"
+    "grid_layout_ggAHpP",
+    "my_image_with_text2_nx96A9"
   ]
 }
