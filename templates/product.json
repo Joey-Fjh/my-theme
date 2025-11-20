@@ -164,9 +164,9 @@
             "row": 1,
             "image_opacity": 100,
             "image_fit": "cover",
-            "content_position": "middle-right",
+            "content_position": "middle-center",
             "heading": "<strong>Technology at your fingertips</strong>",
-            "heading_size": "h2",
+            "text_size": "h2",
             "description": "<p>Elevate your daily look with a blend of chic aesthetics and robust functionality.</p>",
             "text_color": "#8b3232"
           }
@@ -180,7 +180,7 @@
             "image_fit": "cover",
             "content_position": "middle-center",
             "heading": "",
-            "heading_size": "h2",
+            "text_size": "h2",
             "description": "",
             "text_color": "#ffffff"
           }
@@ -194,7 +194,7 @@
             "image_fit": "cover",
             "content_position": "middle-center",
             "heading": "",
-            "heading_size": "h2",
+            "text_size": "h2",
             "description": "",
             "text_color": "#ffffff"
           }
@@ -208,7 +208,7 @@
             "image_fit": "cover",
             "content_position": "middle-center",
             "heading": "",
-            "heading_size": "h2",
+            "text_size": "h2",
             "description": "",
             "text_color": "#ffffff"
           }
@@ -222,7 +222,7 @@
             "image_fit": "cover",
             "content_position": "middle-center",
             "heading": "",
-            "heading_size": "h2",
+            "text_size": "h2",
             "description": "",
             "text_color": "#ffffff"
           }
@@ -238,10 +238,10 @@
       "name": "Grid Layout",
       "settings": {
         "layout": "page_width",
-        "row_height": 30,
+        "row_height": 24,
         "max_columns": 4,
-        "desktop_column_gap": 22,
-        "mobile_column_gap": 14,
+        "desktop_column_gap": 12,
+        "mobile_column_gap": 0,
         "border_radius": 6,
         "padding_top": 0,
         "padding_bottom": 0
