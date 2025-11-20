@@ -6,6 +6,7 @@
     --row-span:2;
     --column-span:2;
     --text-color:#fff;
+		--border-raidus:0%;
 
     display: grid;
     grid: auto-flow dense auto / repeat(var(--max-columns, 4),minmax(0,1fr));
@@ -15,6 +16,8 @@
     .image__container{
         grid-area: span var(--row-span) / span var(--column-span);
         position: relative;
+				border-radius: var(--border-raidus);
+				overflow: hidden;
         box-shadow: 4px 6px -2px rgba(var(--color-foreground),.03),0 6px 15px -3px rgba(var(--color-foreground),.15);
 
         .image__position{
@@ -48,7 +51,7 @@
     @include media-query(mobile,'max'){
       grid-template-columns: 1fr;
 			gap: var(--mobile-gap);
-			
+
 			.image__container{
 				grid-column: span 1;
 				grid-row: span var(--row-span);
