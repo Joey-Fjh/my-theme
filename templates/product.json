@@ -162,6 +162,7 @@
           "settings": {
             "column": 2,
             "row": 1,
+            "image": "shopify://shop_images/20251027170840_17_94.png",
             "image_opacity": 0,
             "image_fit": "cover",
             "content_position": "middle-right",
