@@ -3,8 +3,12 @@
 <div class="tab-container 
   {% if section.settings.layout == 'page_width' %} my-page-width {% endif %}"
 >
+  {{ section.blocks.size }} -- {{ section.blocks[0].settings.title }}
   <tab-control>
-    {% content_for 'blocks' %}
+    <div>
+      <div slot="title">123</div>
+      <div slot="content">456</div>
+    </div>
   </tab-control>
 </div>
 
