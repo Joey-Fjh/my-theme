@@ -245,6 +245,7 @@
         "image_item_k44ddb",
         "image_item_w3dEhX"
       ],
+      "disabled": true,
       "name": "Grid Layout",
       "settings": {
         "layout": "page_width",
