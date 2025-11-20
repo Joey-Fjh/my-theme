@@ -17,6 +17,12 @@
 <div class="grid-layout__container
     section-{{ section.id }}-padding
     {% if section.settings.layout == 'page_width' %} my-page-width {% endif %}"
+    style="
+        --row-height:{{ section.settings.row_height }}rem;
+        --max-columns:{{ section.settings.max_columns }};
+        --gap:{{ section.settings.desktop_column_gap }}px;
+        --mobile-gap:{{ section.settings.mobile_column_gap }}px;
+    "
 > 
     {%- for block in section.blocks -%}
         {%- assign placeholder_index = forloop.index0 | modulo: 3 | plus: 1 -%}
@@ -24,7 +30,12 @@
         
         {%- case block.type -%}
             {%- when 'image_item' -%}
-                <div class="image__container">
+                <div class="image__container"
+                    style="
+                        --row-span:{{ block.settings.row_span }};
+                        --column-span:{{ block.settings.column_span }}
+                    "
+                >
                     <responsive-container class="pc_image">
                         {%- if block.settings.image -%}
                             <img
