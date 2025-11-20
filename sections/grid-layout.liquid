@@ -73,7 +73,7 @@
                                 --text-color:{{ block.settings.text_color }};
                             "
                         >
-                            {%- assign number = block.settings.text_size | remove:'h' | plus: 1 -%}
+                            {%- assign number = block.settings.text_size | slice: 1 | plus: 1 -%}
                             {%- assign new_size = 'h' | append: number -%}
 
                             <div class="heading {{ block.settings.text_size }}">
