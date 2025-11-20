@@ -33,14 +33,15 @@
                 <div class="image__container"
                     style="
                         --row-span:{{ block.settings.row }};
-                        --column-span:{{ block.settings.column }}
+                        --column-span:{{ block.settings.column }};
+                        --border-radius:{{ section.settings.border_radius }}%;
                     "
                 >
                     <responsive-container class="pc_image">
                         {%- if block.settings.image -%}
                             <img
                                 style="object-fit:{{ block.settings.image_fit }};opacity:{{ block.settings.image_opacity }}%;"
-                                src="{{ block.settings.image | asset_url }}"
+                                src="{{ block.settings.image | image_url }}"
                                 width="{{ block.settings.image.width }}"
                                 height="{{ block.settings.image.height }}"
                                 alt="{{ block.settings.image.alt | escape }}"
@@ -54,7 +55,7 @@
                         {%- if block.settings.mobile_image -%}
                             <img
                                 style="object-fit:{{ block.settings.image_fit }};opacity:{{ block.settings.image_opacity }}%;"
-                                src="{{ block.settings.mobile_image | asset_url }}"
+                                src="{{ block.settings.mobile_image | image_url }}"
                                 width="{{ block.settings.mobile_image.width }}"
                                 height="{{ block.settings.mobile_image.height }}"
                                 alt="{{ block.settings.mobile_image.alt | escape }}"
@@ -67,11 +68,18 @@
                     <div class="image__position
                         content--{{ block.settings.content_position }}"
                     >
-                        <div class="image__content">
-                            <div class="heading">
+                        <div class="image__content"
+                            style="
+                                --text-color:{{ block.settings.text_color }};
+                            "
+                        >
+                            {%- assign number = block.settings.text_size | remove:'h' | plus: 1 -%}
+                            {%- assign new_size = 'h' | append: number -%}
+
+                            <div class="heading {{ block.settings.text_size }}">
                                 {{ block.settings.heading }}
                             </div>
-                            <div class="description">
+                            <div class="description {{ new_size }}">
                                 {{ block.settings.description }}
                             </div>
                         </div>
@@ -232,7 +240,7 @@
                     "min": 0,
                     "max": 100,
                     "step": 1,
-                    "default":0
+                    "default":100
                 },
                 {
                     "type": "select",
@@ -303,10 +311,40 @@
                     "label": "Heading"
                 },
                 {
+                    "type": "select",
+                    "id": "heading_size",
+                    "options": [
+                        {
+                            "value": "h2",
+                            "label": "Small"
+                        },
+                        {
+                            "value": "h1",
+                            "label": "Medium"
+                        },
+                        {
+                            "value": "h0",
+                            "label": "Large"
+                        }
+                    ],
+                    "default": "h2",
+                    "label": "Heading Size"
+                },
+                {
                     "type": "richtext",
                     "id":"description",
                     "label": "Description",
                     "default": "<p></p>"
+                },
+                {
+                    "type": "header",
+                    "content": "Color Settings"
+                },
+                {
+                    "type": "color",
+                    "id": "text_color",
+                    "label": "Heading and Description",
+                    "default": "#ffffff"
                 }
             ]
         }
