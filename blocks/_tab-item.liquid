@@ -1,9 +1,12 @@
-<div slot="title">{{ block.settings.title }}</div>
-<div slot="content">{{ block.settings.content }}</div>
+<div slot="tab" {{ block.shopify_attributes }}>
+    <div slot="title">{{ block.settings.title }}</div>
+    <div slot="content">{{ block.settings.content }}</div>
+</div>
 
 {% schema %}
   {
     "name": "Tab Item",
+    "tag":null,
     "settings": [
         {
           "type": "text",

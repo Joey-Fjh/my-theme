@@ -8,12 +8,14 @@ class TabControl extends LitElement {
     render() {
         return html`
             <div class="tab-control">
-                <div class="tab-titles">
-                    <slot name="title"></slot>
-                </div>
-                <div class="tab-contents">
-                    <slot name="content"></slot>
-                </div>
+                <slot name="tab">
+                    <div class="tab-titles">
+                        <slot name="title"></slot>
+                    </div>
+                    <div class="tab-contents">
+                        <slot name="content"></slot>
+                    </div>
+                </slot>
             </div>
         `;
     }
