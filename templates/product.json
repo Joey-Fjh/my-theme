@@ -227,7 +227,7 @@
       ],
       "name": "Grid Layout",
       "settings": {
-        "layout": "full_bleed",
+        "layout": "page_width",
         "row_height": 30,
         "max_columns": 4,
         "desktop_column_gap": 22,
