@@ -47,7 +47,8 @@
     
     @include media-query(mobile,'max'){
       grid-template-columns: 1fr;
-
+			gap: var(--mobile-gap);
+			
 			.image__container{
 				grid-column: span 1;
 				grid-row: span var(--row-span);
