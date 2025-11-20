@@ -232,8 +232,8 @@
         "row_height": 30,
         "max_columns": 4,
         "desktop_column_gap": 22,
-        "mobile_column_gap": 33,
-        "border_radius": 0,
+        "mobile_column_gap": 14,
+        "border_radius": 4,
         "padding_top": 0,
         "padding_bottom": 0
       }
