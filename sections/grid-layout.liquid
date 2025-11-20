@@ -66,11 +66,13 @@
                     </responsive-container>
 
                     <div class="image__position
-                        content--{{ block.settings.content_position }}"
+                        content--{{ block.settings.content_position }}
+                        mobile-content--{{ block.settings.mobile_content_position }}"
                     >
                         <div class="image__content"
                             style="
                                 --text-color:{{ block.settings.text_color }};
+                                text-align:{{ block.settings.text_align }};
                             "
                         >
                             {%- assign number = block.settings.text_size | slice: 1 | plus: 1 -%}
@@ -265,6 +267,7 @@
                 {
                     "type": "select",
                     "id": "content_position",
+                    "info": "This setting applies to desktop devices",
                     "options": [
                     {
                         "value": "top-left",
@@ -305,6 +308,32 @@
                     ],
                     "default": "middle-center",
                     "label": "Content Position"
+                },
+                {
+                    "type": "select",
+                    "label": "Mobile Content Position",
+                    "id": "mobile_content_position",
+                    "info": "This setting applies to mobile devices",
+                    "options": [
+                        {
+                            "value": "left",
+                            "label": "Left"
+                        },
+                        {
+                            "value": "middle",
+                            "label": "Middle"
+                        },
+                        {
+                            "value": "right",
+                            "label": "Right"
+                        }
+                    ]
+                },
+                {
+                    "type": "text_alignment",
+                    "id": "text_align",
+                    "label": "Text Alignment",
+                    "default": "center"
                 },
                 {
                     "type": "inline_richtext",

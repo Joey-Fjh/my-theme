@@ -63,6 +63,18 @@
       grid-template-columns: 1fr;
 			gap: var(--mobile-gap);
 
+			.image__position.mobile-content--left{
+				justify-content: flex-start;
+			}
+
+			.image__position.mobile-content--middle{
+				justify-content: center;
+			}
+
+			.image__position.mobile-content--right{
+				justify-content: flex-end;
+			}
+
 			.image__container{
 				grid-column: span 1;
 				grid-row: span var(--row-span);
