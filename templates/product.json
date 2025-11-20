@@ -153,10 +153,42 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "tab_control_iY6ca9": {
+      "type": "tab-control",
+      "blocks": {
+        "tab_item_mdJzqQ": {
+          "type": "_tab-item",
+          "name": "Tab Item",
+          "settings": {
+            "title": "123",
+            "content": "456"
+          },
+          "blocks": {}
+        },
+        "tab_item_4y9QY4": {
+          "type": "_tab-item",
+          "name": "Tab Item",
+          "settings": {
+            "title": "abc",
+            "content": "def"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "tab_item_mdJzqQ",
+        "tab_item_4y9QY4"
+      ],
+      "name": "Tab Control",
+      "settings": {
+        "layout": "full_bleed"
+      }
     }
   },
   "order": [
     "main",
-    "related-products"
+    "related-products",
+    "tab_control_iY6ca9"
   ]
 }
