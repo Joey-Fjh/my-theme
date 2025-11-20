@@ -164,7 +164,7 @@
             "row": 1,
             "image_opacity": 100,
             "image_fit": "cover",
-            "content_position": "middle-center",
+            "content_position": "top-left",
             "heading": "<strong>Technology at your fingertips</strong>",
             "text_size": "h2",
             "description": "<p>Elevate your daily look with a blend of chic aesthetics and robust functionality.</p>",
