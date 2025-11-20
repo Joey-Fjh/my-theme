@@ -160,20 +160,20 @@
         "image_item_cwHnWM": {
           "type": "image_item",
           "settings": {
-            "column": 1,
+            "column": 2,
             "row": 1,
             "image_opacity": 0,
             "image_fit": "cover",
-            "content_position": "middle-center",
-            "heading": "",
-            "description": ""
+            "content_position": "middle-right",
+            "heading": "<strong>Technology at your fingertips</strong>",
+            "description": "<p>Elevate your daily look with a blend of chic aesthetics and robust functionality.</p>"
           }
         },
         "image_item_iijg8W": {
           "type": "image_item",
           "settings": {
-            "column": 1,
-            "row": 1,
+            "column": 2,
+            "row": 2,
             "image_opacity": 0,
             "image_fit": "cover",
             "content_position": "middle-center",
@@ -184,8 +184,8 @@
         "image_item_cY8jRQ": {
           "type": "image_item",
           "settings": {
-            "column": 1,
-            "row": 1,
+            "column": 2,
+            "row": 2,
             "image_opacity": 0,
             "image_fit": "cover",
             "content_position": "middle-center",
@@ -196,8 +196,8 @@
         "image_item_k44ddb": {
           "type": "image_item",
           "settings": {
-            "column": 1,
-            "row": 1,
+            "column": 2,
+            "row": 2,
             "image_opacity": 0,
             "image_fit": "cover",
             "content_position": "middle-center",
@@ -208,7 +208,7 @@
         "image_item_w3dEhX": {
           "type": "image_item",
           "settings": {
-            "column": 1,
+            "column": 2,
             "row": 1,
             "image_opacity": 0,
             "image_fit": "cover",
@@ -228,10 +228,10 @@
       "name": "Grid Layout",
       "settings": {
         "layout": "full_bleed",
-        "row_height": 10,
-        "max_columns": 2,
-        "desktop_column_gap": 9,
-        "mobile_column_gap": 5,
+        "row_height": 30,
+        "max_columns": 4,
+        "desktop_column_gap": 22,
+        "mobile_column_gap": 33,
         "border_radius": 0,
         "padding_top": 0,
         "padding_bottom": 0
