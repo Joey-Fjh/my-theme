@@ -326,7 +326,20 @@
           "settings": {
             "title": "Shipping & Returns"
           },
-          "blocks": {}
+          "blocks": {
+            "custom_richtext_nH7gXM": {
+              "type": "custom-richtext",
+              "name": "Text & Liquid",
+              "settings": {
+                "content": "<p>Shipping & Returns</p>",
+                "custom_code": ""
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "custom_richtext_nH7gXM"
+          ]
         },
         "tab_item_wqzyfC": {
           "type": "_tab-item",
@@ -334,7 +347,20 @@
           "settings": {
             "title": "Return Policies"
           },
-          "blocks": {}
+          "blocks": {
+            "custom_richtext_xmttC9": {
+              "type": "custom-richtext",
+              "name": "Text & Liquid",
+              "settings": {
+                "content": "<p>Return Policies</p>",
+                "custom_code": ""
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "custom_richtext_xmttC9"
+          ]
         }
       },
       "block_order": [
