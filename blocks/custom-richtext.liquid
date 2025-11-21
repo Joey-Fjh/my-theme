@@ -1,0 +1,42 @@
+<div class="" {{ block.shopify_attributes }}>
+  {%- if block.settings.content != blank -%}
+    <div class="rte">
+      {{ block.settings.content }}
+    </div>
+  {%- endif -%}
+
+  {%- if block.settings.custom_code != blank -%}
+    <div class="custom-liquid-wrapper">
+      {{ block.settings.custom_code }}
+    </div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+  {
+    "name": "Text & Liquid",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Content Setitngs"
+      },
+      {
+        "type": "richtext",
+        "id": "content",
+        "label": "Content",
+        "default": "<p>This is a paragraph.</p>"
+      },
+      {
+        "type": "liquid",
+        "id": "custom_code",
+        "label": "Custom Liquid",
+        "info":"Code your liquid or html here."
+      }
+    ],
+    "presets": [
+      {
+        "name": "Text & Liquid"
+      }
+    ]
+  }
+{% endschema %}
