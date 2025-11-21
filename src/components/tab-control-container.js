@@ -35,9 +35,9 @@ class TabControl extends LitElement {
             panel.classList.remove("active");
         });
 
-        this.navContainer.children.forEach(title => {
+        for (const title of this.navContainer.children) {
             title.classList.remove("active");
-        });
+        }
 
         target.classList.add("active");
         this.panels[target.getAttribute("data-tab-index")].classList.add("active");
