@@ -275,15 +275,52 @@
     "tab_control_T3wFJg": {
       "type": "tab-control",
       "blocks": {
+        "tab_item_ghJjFb": {
+          "type": "_tab-item",
+          "name": "Tab Item",
+          "settings": {
+            "title": "465"
+          },
+          "blocks": {
+            "customer_comment_XzKRed": {
+              "type": "customer-comment",
+              "name": "customer-comment",
+              "settings": {
+                "user_comments": [
+                  "user-comment-ku1cxxnh"
+                ]
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "customer_comment_XzKRed"
+          ]
+        },
         "tab_item_RTfWbT": {
           "type": "_tab-item",
           "settings": {
             "title": "123"
           },
-          "blocks": {}
+          "blocks": {
+            "customer_comment_c6EAre": {
+              "type": "customer-comment",
+              "name": "customer-comment",
+              "settings": {
+                "user_comments": [
+                  "user-comment-ku1cxxnh"
+                ]
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "customer_comment_c6EAre"
+          ]
         }
       },
       "block_order": [
+        "tab_item_ghJjFb",
         "tab_item_RTfWbT"
       ],
       "name": "Tab Control",
