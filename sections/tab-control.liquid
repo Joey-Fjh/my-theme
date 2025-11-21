@@ -1,50 +1,52 @@
-<script src="{{ 'tab-control.js' | asset_url }}" type='module'></script>
-
-<div class="tab-container 
-  {% if section.settings.layout == 'page_width' %} my-page-width {% endif %}"
->
-  {{ section.blocks.size }} -- {{ section.blocks[0].settings.title }}
-  <tab-control>
-    <div>
-      <div slot="title">123</div>
-      <div slot="content">456</div>
-    </div>
-  </tab-control>
+<div class="custom-section color-{{ section.settings.color_scheme }}">
+  {% content_for 'blocks' %}
 </div>
 
 {% schema %}
-  {
-    "name": "Tab Control",
-    "tag": "section",
-    "class": "section",
-    "settings": [
-      {
-        "type": "select",
-        "id": "layout",
-        "options": [
-          {
-            "value": "full_bleed",
-            "label": "Full Bleed"
+{
+  "name": "Custom section",
+  "blocks": [{ "type": "@theme" }, { "type": "@app" }],
+  "settings": [
+    {
+      "type": "header",
+      "content": "Color"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom section"
+    },
+    {
+      "name": "Heading and text",
+      "blocks": [
+        {
+          "type": "group",
+          "settings": {
+            "color_scheme": "scheme-3"
           },
-          {
-            "value": "page_width",
-            "label": "Page Width"
-          }
-        ],
-        "default": "full_bleed",
-        "label": "Layout"
-      },
-    ],
-    "blocks": [
-      { "type": "_tab-item" }
-    ],
-    "max_blocks": 4,
-    "presets": [
-      {
-        "name": "Tab Control"
-      }
-    ]
-  }
+          "blocks": [
+            {
+              "type": "text",
+              "settings": {
+                "text": "<h1>Image with text</h1>"
+              }
+            },
+            {
+              "type": "text",
+              "settings": {
+                "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post.</p>"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
 {% endschema %}
-
-
