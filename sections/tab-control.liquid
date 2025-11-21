@@ -1,6 +1,7 @@
 <div class="custom-section color-{{ section.settings.color_scheme }}">
-  {% content_for 'blocks' %}
-  {{ section.blocks.first.settings.title }}
+  {%- for block in section.blocks -%}
+    {{ block.settings | json }}
+  {%- endfor -%}
 </div>
 
 {% schema %}
@@ -23,13 +24,7 @@
     {
       "name": "Tab Control",
       "blocks": [
-        {
-          "type": "_tab-item",
-          "name": "Tab Item",
-          "settings": {
-            "title": "Tab Item"
-          }
-        }
+        { "type": "_tab-item" }
       ]
     }
   ]
