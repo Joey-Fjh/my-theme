@@ -280,7 +280,20 @@
           "settings": {
             "title": "Description"
           },
-          "blocks": {}
+          "blocks": {
+            "custom_richtext_MKiiCn": {
+              "type": "custom-richtext",
+              "name": "Text & Liquid",
+              "settings": {
+                "content": "<p>Nodding to retro styles, this Hyperbola T-shirt is defined by its off-the-shoulder design. It's spun from a green stretch cotton jersey and adorned with an embroidered AC logo on the front, a brand's signature.</p>",
+                "custom_code": ""
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "custom_richtext_MKiiCn"
+          ]
         },
         "tab_item_gmtbBk": {
           "type": "_tab-item",
@@ -313,7 +326,20 @@
           "settings": {
             "title": "Shipping & Returns"
           },
-          "blocks": {}
+          "blocks": {
+            "custom_richtext_nH7gXM": {
+              "type": "custom-richtext",
+              "name": "Text & Liquid",
+              "settings": {
+                "content": "<p>Shipping & Returns</p>",
+                "custom_code": ""
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "custom_richtext_nH7gXM"
+          ]
         },
         "tab_item_wqzyfC": {
           "type": "_tab-item",
@@ -321,7 +347,20 @@
           "settings": {
             "title": "Return Policies"
           },
-          "blocks": {}
+          "blocks": {
+            "custom_richtext_xmttC9": {
+              "type": "custom-richtext",
+              "name": "Text & Liquid",
+              "settings": {
+                "content": "<p>Return Policies</p>",
+                "custom_code": ""
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "custom_richtext_xmttC9"
+          ]
         }
       },
       "block_order": [
@@ -334,6 +373,23 @@
       "settings": {
         "color_scheme": ""
       }
+    },
+    "my_user_comment_Vg4tRn": {
+      "type": "my-user-comment",
+      "name": "my-user-comment",
+      "settings": {
+        "color_scheme": "",
+        "is_fullWidth": false,
+        "text_size": "h2",
+        "user_comments": [
+          "user-comment-ku1cxxnh",
+          "user-comment-fq1of1x3",
+          "user-comment-0t7wsrqq",
+          "user-comment-gs1wqfgi"
+        ],
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
@@ -341,6 +397,7 @@
     "related-products",
     "grid_layout_ggAHpP",
     "my_image_with_text2_nx96A9",
-    "tab_control_T3wFJg"
+    "tab_control_T3wFJg",
+    "my_user_comment_Vg4tRn"
   ]
 }
