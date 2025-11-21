@@ -271,65 +271,12 @@
         "image2": "shopify://shop_images/1.jpg",
         "image3": "shopify://shop_images/20251027170838_16_94.png"
       }
-    },
-    "tab_control_iBqdpH": {
-      "type": "tab-control",
-      "blocks": {
-        "tab_item_kV9A4B": {
-          "type": "_tab-item",
-          "name": "Tab Item",
-          "settings": {
-            "title": "456"
-          },
-          "blocks": {
-            "customer_comment_4pndfg": {
-              "type": "customer-comment",
-              "name": "customer-comment",
-              "settings": {
-                "user_comments": []
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "customer_comment_4pndfg"
-          ]
-        },
-        "tab_item_eUy6Jg": {
-          "type": "_tab-item",
-          "settings": {
-            "title": "132"
-          },
-          "blocks": {
-            "customer_comment_jGUwhN": {
-              "type": "customer-comment",
-              "name": "customer-comment",
-              "settings": {
-                "user_comments": []
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "customer_comment_jGUwhN"
-          ]
-        }
-      },
-      "block_order": [
-        "tab_item_kV9A4B",
-        "tab_item_eUy6Jg"
-      ],
-      "name": "Tab Control",
-      "settings": {
-        "color_scheme": ""
-      }
     }
   },
   "order": [
     "main",
     "related-products",
     "grid_layout_ggAHpP",
-    "my_image_with_text2_nx96A9",
-    "tab_control_iBqdpH"
+    "my_image_with_text2_nx96A9"
   ]
 }
