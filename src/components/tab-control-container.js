@@ -1,6 +1,15 @@
-import { html , LitElement } from "lit";
+import { html , LitElement, css} from "lit";
 
 class TabControl extends LitElement {
+    static styles = [
+        css`
+            :host{
+                display: flex;
+                flex-direction: column;
+            };
+        `
+    ];
+
     constructor() {
         super();
     }
