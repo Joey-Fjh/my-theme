@@ -56,7 +56,7 @@ class TabControl extends LitElement {
         const title = this.navContainer.children[index];
         const panel = this.panels[index];
 
-        if(title & panel){
+        if(title && panel){
             title.classList.add("active");
             panel.classList.remove("hidden");
             panel.classList.add("active");
