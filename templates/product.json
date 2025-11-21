@@ -278,27 +278,40 @@
         "tab_item_RTfWbT": {
           "type": "_tab-item",
           "settings": {
-            "title": "123"
+            "title": "Description"
           },
-          "blocks": {
-            "customer_comment_c6EAre": {
-              "type": "customer-comment",
-              "name": "customer-comment",
-              "settings": {
-                "user_comments": [
-                  "user-comment-fq1of1x3"
-                ]
-              },
-              "blocks": {}
-            }
+          "blocks": {}
+        },
+        "tab_item_gmtbBk": {
+          "type": "_tab-item",
+          "name": "Tab Item",
+          "settings": {
+            "title": "Customer Reviews"
           },
-          "block_order": [
-            "customer_comment_c6EAre"
-          ]
+          "blocks": {}
+        },
+        "tab_item_pyHXNJ": {
+          "type": "_tab-item",
+          "name": "Tab Item",
+          "settings": {
+            "title": "Shipping & Returns"
+          },
+          "blocks": {}
+        },
+        "tab_item_wqzyfC": {
+          "type": "_tab-item",
+          "name": "Tab Item",
+          "settings": {
+            "title": "Return Policies"
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "tab_item_RTfWbT"
+        "tab_item_RTfWbT",
+        "tab_item_gmtbBk",
+        "tab_item_pyHXNJ",
+        "tab_item_wqzyfC"
       ],
       "name": "Tab Control",
       "settings": {
