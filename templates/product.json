@@ -281,14 +281,38 @@
           "settings": {
             "title": "456"
           },
-          "blocks": {}
+          "blocks": {
+            "customer_comment_4pndfg": {
+              "type": "customer-comment",
+              "name": "customer-comment",
+              "settings": {
+                "user_comments": []
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "customer_comment_4pndfg"
+          ]
         },
         "tab_item_eUy6Jg": {
           "type": "_tab-item",
           "settings": {
             "title": "132"
           },
-          "blocks": {}
+          "blocks": {
+            "customer_comment_jGUwhN": {
+              "type": "customer-comment",
+              "name": "customer-comment",
+              "settings": {
+                "user_comments": []
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "customer_comment_jGUwhN"
+          ]
         }
       },
       "block_order": [
