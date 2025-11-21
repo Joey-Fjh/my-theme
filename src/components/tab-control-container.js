@@ -78,6 +78,9 @@ class TabControl extends LitElement {
 
         const index = Number(target.getAttribute('data-tab-index'));
         this.activeTab(index);
+
+        // Auto-scroll to center (Mobile Experience) 
+        target.scrollIntoView({behavior: "smooth", inline: "center", block:"nearest"});
     }
 
     handleSlotChange(){

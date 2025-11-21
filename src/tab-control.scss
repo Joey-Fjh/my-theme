@@ -1,11 +1,26 @@
 .tab-control__container{
     .tab-navigation{
         display: flex;
+        flex-wrap: nowrap;
         gap: 10px;
         border-bottom: 1px solid #ddd;
         margin-bottom: 20px;
+        overflow-x: auto;
+
+        // iOS inertial scrolling 
+        -webkit-overflow-scrolling: touch;
+
+        // hidden scrollbar (Chrome , Safari, Opera)
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+
+        &::-webkit-scrollbar{
+            display: none;
+        }
 
         .tab-title{
+            flex: 0 0 auto;
+            white-space: nowrap;
             padding: 10px 15px;
             cursor: pointer;
             border: none;
