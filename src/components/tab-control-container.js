@@ -33,7 +33,7 @@ class TabControl extends LitElement {
 
         // init active tab
         if (this.panels.length > 0) {
-            this.activateTab(0);
+            this.activeTab(0);
         }
     }
 
