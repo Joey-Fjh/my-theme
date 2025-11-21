@@ -1,7 +1,8 @@
-<div class="tab-title">
-    {{ block.settings.title }}
-</div>
-<div class="tab-content" {{ block.shopify_attributes }}>
+<div class="tab-panel"
+    id="block-{{ block.id }}"
+    data-title="{{ block.settings.title | escape }}"
+    {{ block.shopify_attributes }}
+>
     {% content_for 'blocks' %}
 </div>
 

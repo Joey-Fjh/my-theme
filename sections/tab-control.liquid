@@ -1,6 +1,14 @@
-<div class="custom-section color-{{ section.settings.color_scheme }}">
-  {% content_for 'blocks' %}
-</div>
+{{ 'tab-control.css' | asset_url | stylesheet_tag }}
+<script src='{{ 'tab-control.js' | asset_url }}'  type="module"></script>
+
+<tab-control class="tab-control__container color-{{ section.settings.color_scheme }} my-page-width"
+  data-section-id="{{ section.id }}"
+>
+  <div class="tab-navigation" data-tab-nav></div>
+  <div class="tab-contents">
+    {% content_for 'blocks' %}
+  </div>
+</tab-control>
 
 {% schema %}
 {
