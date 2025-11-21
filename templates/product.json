@@ -280,7 +280,21 @@
           "settings": {
             "title": "123"
           },
-          "blocks": {}
+          "blocks": {
+            "customer_comment_c6EAre": {
+              "type": "customer-comment",
+              "name": "customer-comment",
+              "settings": {
+                "user_comments": [
+                  "user-comment-ku1cxxnh"
+                ]
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "customer_comment_c6EAre"
+          ]
         }
       },
       "block_order": [
