@@ -288,7 +288,24 @@
           "settings": {
             "title": "Customer Reviews"
           },
-          "blocks": {}
+          "blocks": {
+            "customer_comment_xExfDN": {
+              "type": "customer-comment",
+              "name": "customer-comment",
+              "settings": {
+                "user_comments": [
+                  "user-comment-ku1cxxnh",
+                  "user-comment-fq1of1x3",
+                  "user-comment-0t7wsrqq",
+                  "user-comment-gs1wqfgi"
+                ]
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "customer_comment_xExfDN"
+          ]
         },
         "tab_item_pyHXNJ": {
           "type": "_tab-item",
