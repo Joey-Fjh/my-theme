@@ -13,18 +13,6 @@ class TabControl extends LitElement {
 
         this.buildTabs();
 
-        this.panels.forEach((panel, index) => { 
-            const title = panel.getAttribute('data-title');
-
-            const div = document.createElement('div');
-            div.className = 'tab-title';
-            div.innerText = title;
-            this.navContainer.appendChild(div);
-            
-            div.setAttribute('data-tab-index', index);
-            panel.setAttribute('data-tab-index', index);
-        });
-
         this._handleClick = this.handleClick.bind(this);
         this._handleSlotChange = this.handleSlotChange.bind(this);
 
