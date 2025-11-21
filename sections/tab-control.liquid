@@ -1,11 +1,12 @@
 <div class="custom-section color-{{ section.settings.color_scheme }}">
   {% content_for 'blocks' %}
+  {{ section.blocks.first }}
 </div>
 
 {% schema %}
 {
-  "name": "Custom section",
-  "blocks": [{ "type": "@theme" }, { "type": "@app" }],
+  "name": "Tab Control",
+  "blocks": [{ "type": "_tab-item" }],
   "settings": [
     {
       "type": "header",
@@ -20,30 +21,14 @@
   ],
   "presets": [
     {
-      "name": "Custom section"
-    },
-    {
-      "name": "Heading and text",
+      "name": "Tab Control",
       "blocks": [
         {
-          "type": "group",
+          "type": "_tab-item",
+          "name": "Tab Item",
           "settings": {
-            "color_scheme": "scheme-3"
-          },
-          "blocks": [
-            {
-              "type": "text",
-              "settings": {
-                "text": "<h1>Image with text</h1>"
-              }
-            },
-            {
-              "type": "text",
-              "settings": {
-                "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post.</p>"
-              }
-            }
-          ]
+            "title": "Tab Item"
+          }
         }
       ]
     }

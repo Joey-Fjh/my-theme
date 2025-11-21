@@ -1,0 +1,22 @@
+<div class="tab-content" {{ block.shopify_attributes }}>
+    {% content_for 'blocks' %}
+</div>
+
+{% schema %}
+  {
+    "name": "Tab Item",
+    "blocks": [{ "type": "@theme" }, { "type": "@app" }],
+    "settings": [
+        {
+            "type": "inline_richtext",
+            "id": "title",
+            "label": "Title"
+        }
+    ],
+    "presets": [
+      {
+        "name": "Tab Item"
+      }
+    ]
+  }
+{% endschema %}
