@@ -23,24 +23,30 @@ class TabControl extends LitElement {
             panel.setAttribute('data-tab-index', index);
         });
 
-        this.navContainer.addEventListener('click', (e) => { 
-            const target = e.target.closest('.tab-title');
-            if (!target) return;
+        this._handleClick = this.handleClick.bind(this);
+        this.navContainer.addEventListener('click',this._handleClick);
+    }
 
-            const index = target.getAttribute('data-tab-index');
-            this.panels.forEach((panel, i) => {
-                if (i === index) {
-                    panel.classList.add('active');
-                    panel.classList.remove('hidden');
-                } else {
-                    panel.classList.remove('active');
-                }
-            });
+    handleClick(e) {
+        const target = e.target.closest('[data-tab-index]');
+        if(!target) return;
+
+        this.panels.forEach(panel => {
+            panel.classList.remove("active");
         });
+
+        this.navContainer.children.forEach(title => {
+            title.classList.remove("active");
+        });
+
+        target.classList.add("active");
+        this.panels[target.getAttribute("data-tab-index")].classList.add("active");
     }
 
     disconnectedCallback() {
         super.disconnectedCallback();
+
+        this.navContainer.removeEventListener('click',this._handleClick);
     }
 
     render() {

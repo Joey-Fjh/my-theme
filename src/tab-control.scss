@@ -12,11 +12,30 @@
             background: none;
             border-bottom: 2px solid transparent;
         }
+
+        .tab-title.active{
+            border-bottom-color: black;
+            color: black;
+        }
     }
 
     .tab-contens{
-        .tab-panel{
+        .tab-panel.hidden{
+            display: none;
+        }
+
+        .tab-panel.active{
             display: flex;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
     }
 }
