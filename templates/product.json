@@ -280,7 +280,20 @@
           "settings": {
             "title": "Description"
           },
-          "blocks": {}
+          "blocks": {
+            "custom_richtext_MKiiCn": {
+              "type": "custom-richtext",
+              "name": "Text & Liquid",
+              "settings": {
+                "content": "<p>Nodding to retro styles, this Hyperbola T-shirt is defined by its off-the-shoulder design. It's spun from a green stretch cotton jersey and adorned with an embroidered AC logo on the front, a brand's signature.</p>",
+                "custom_code": ""
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "custom_richtext_MKiiCn"
+          ]
         },
         "tab_item_gmtbBk": {
           "type": "_tab-item",
