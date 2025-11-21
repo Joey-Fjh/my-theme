@@ -373,23 +373,6 @@
       "settings": {
         "color_scheme": ""
       }
-    },
-    "my_user_comment_Vg4tRn": {
-      "type": "my-user-comment",
-      "name": "my-user-comment",
-      "settings": {
-        "color_scheme": "",
-        "is_fullWidth": false,
-        "text_size": "h2",
-        "user_comments": [
-          "user-comment-ku1cxxnh",
-          "user-comment-fq1of1x3",
-          "user-comment-0t7wsrqq",
-          "user-comment-gs1wqfgi"
-        ],
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
     }
   },
   "order": [
@@ -397,7 +380,6 @@
     "related-products",
     "grid_layout_ggAHpP",
     "my_image_with_text2_nx96A9",
-    "tab_control_T3wFJg",
-    "my_user_comment_Vg4tRn"
+    "tab_control_T3wFJg"
   ]
 }
