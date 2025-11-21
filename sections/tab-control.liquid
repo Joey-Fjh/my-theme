@@ -1,6 +1,6 @@
 <div class="custom-section color-{{ section.settings.color_scheme }}">
   {% content_for 'blocks' %}
-  {{ section.blocks.first }}
+  {{ section.blocks.first.settings.title }}
 </div>
 
 {% schema %}
