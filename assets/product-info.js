@@ -25,6 +25,12 @@ if (!customElements.get('product-info')) {
           this.handleOptionValueChange.bind(this)
         );
 
+        // optional cart update listener for inventory progress bar(it may be wrong)
+        this.cartUpdateUnsubscriberProgress = subscribe(
+          PUB_SUB_EVENTS.cartUpdate,
+          () => this.updateInventoryProgressBar()
+        );
+
         this.updateInventoryProgressBar();
         this.initQuantityHandlers();
         this.dispatchEvent(new CustomEvent('product-info:loaded', { bubbles: true }));
@@ -63,6 +69,7 @@ if (!customElements.get('product-info')) {
       disconnectedCallback() {
         this.onVariantChangeUnsubscriber();
         this.cartUpdateUnsubscriber?.();
+        this.cartUpdateUnsubscriberProgress?.();
       }
 
       initializeProductSwapUtility() {
