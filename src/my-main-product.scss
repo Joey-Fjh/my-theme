@@ -66,6 +66,7 @@ variant-selects{
     background-color: var(--bgc-color);
 
     .cutdown-text{
+        flex-shrink: 0;
         display: flex;
         align-items: center;
 
@@ -75,9 +76,7 @@ variant-selects{
         }
     }
 
-    .cutdown-timer{
-        font-size: 16px;
-        display: flex;
-        font-weight: bold;
+    my-count-down::part(container){
+        padding: 10px;
     }
 }

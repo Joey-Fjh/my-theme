@@ -10,6 +10,7 @@ const baseCss = css`
 `;
 const normalCss = css`
   .countdown-container {
+    width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -64,6 +65,7 @@ const normalCss = css`
 `;
 const otherCss = css`
   .countdown-container {
+    width: 100%;
     display: flex;
     gap: 24px;
     align-items: center;
@@ -330,22 +332,22 @@ export class CountdownComponent extends LitElement {
 
   render() {
     return html`
-      <div class="countdown-container ${this.isExpired ? "expired" : ""}">
-        <div class="countdown-item">
-          <div class="countdown-number">${this.countDownTemplate(this.days)}</div>
-          <div class="countdown-label">DAYS</div>
+      <div class="countdown-container ${this.isExpired ? "expired" : ""}" part="container">
+        <div class="countdown-item" part="item">
+          <div class="countdown-number" part="number">${this.countDownTemplate(this.days)}</div>
+          <div class="countdown-label" part="label">DAYS</div>
         </div>
-        <div class="countdown-item">
-          <div class="countdown-number">${this.countDownTemplate(this.hours)}</div>
-          <div class="countdown-label">HOURS</div>
+        <div class="countdown-item" part="item">
+          <div class="countdown-number" part="number">${this.countDownTemplate(this.hours)}</div>
+          <div class="countdown-label" part="label">HOURS</div>
         </div>
-        <div class="countdown-item">
-          <div class="countdown-number">${this.countDownTemplate(this.minutes)}</div>
-          <div class="countdown-label">MINUTES</div>
+        <div class="countdown-item" part="item">
+          <div class="countdown-number" part="number">${this.countDownTemplate(this.minutes)}</div>
+          <div class="countdown-label" part="label">MINUTES</div>
         </div>
-        <div class="countdown-item">
-          <div class="countdown-number">${this.countDownTemplate(this.seconds)}</div>
-          <div class="countdown-label">SECONDS</div>
+        <div class="countdown-item" part="item">
+          <div class="countdown-number" part="number">${this.countDownTemplate(this.seconds)}</div>
+          <div class="countdown-label" part="label">SECONDS</div>
         </div>
       </div>
     `
