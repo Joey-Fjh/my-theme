@@ -53,3 +53,29 @@ variant-selects{
     }
 }
 
+.product__cutdown-timer{
+    --text-color:#000;
+    --bgc-color:#fff;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 15px 0;
+    padding: 10px 15px;
+    color: var(--text-color);
+    background-color: var(--bgc-color);
+
+    .cutdown-text{
+        display: flex;
+        align-items: center;
+
+        span{
+            margin-left: 4px;
+        }
+    }
+
+    .cutdown-timer{
+        display: flex;
+        font-weight: bold;
+    }
+}

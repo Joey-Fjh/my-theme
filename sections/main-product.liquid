@@ -376,6 +376,26 @@
                     {%- render 'footer-payment',block: block-%}
                   </div>
                 {%- endif -%}
+              {% when 'cutdown_timer' %}
+                <div class="product__cutdown-timer" {{ block.shopify_attributes }}
+                  id="Cutdown-Timer-{{ section.id }}"
+                  style="
+                    --text-color: {{ block.settings.text_color }};
+                    --bgc-color: {{ block.settings.bgc_color }};
+                  "
+                  data-target-date="{{ block.settings.target_date }}"
+                >
+                  <div class="cutdown-text">
+                    <svg class="icon icon-clock icon--medium icon--thick shrink-0" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                      <path d="M10 17.5C14.1421 17.5 17.5 14.1421 17.5 10C17.5 5.85786 14.1421 2.5 10 2.5C5.85786 2.5 2.5 5.85786 2.5 10C2.5 14.1421 5.85786 17.5 10 17.5Z" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path d="M10 5.625V10H14.375" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <span>{{ block.settings.text }}</span>
+                  </div>
+                  <div class="cutdown-timer">
+                    00:00:00
+                  </div>
+                </div>
             {%- endcase -%}
           {%- endfor -%}
 
@@ -784,6 +804,43 @@
           "type": "checkbox",
           "id": "show_payment_sofort",
           "label": "Sofort"
+        }
+      ]
+    },
+    {
+      "type": "cutdown_timer",
+      "name":"Cutdown Timer",
+      "settings": [
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text Color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "bgc_color",
+          "label": "Background Color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "Title",
+          "default":"Sales end in: "
+        },
+        {
+          "type": "inline_richtext",
+          "id": "expiration_text",
+          "label": "Expiration Message",
+          "default":"Sales have ended.",
+          "info":"Only shows this message when the countdown timer is over."
+        },
+        {
+          "type": "inline_richtext",
+          "id":"target_date",
+          "label": "Target Date",
+          "info":"Format: YYYY-MM-DD HH:MM:SS(e.g.,2025-12-31 23:59:59)"
         }
       ]
     }
