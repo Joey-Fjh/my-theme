@@ -1,3 +1,5 @@
+<script src="{{ 'my-count-down.js' | asset_url }}" type="module"></script>
+
 <product-info
   id="MainProduct-{{ section.id }}"
   class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
@@ -383,7 +385,6 @@
                     --text-color: {{ block.settings.text_color }};
                     --bgc-color: {{ block.settings.bgc_color }};
                   "
-                  data-target-date="{{ block.settings.target_date }}"
                 >
                   <div class="cutdown-text">
                     <svg class="icon icon-clock icon--medium icon--thick shrink-0" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -392,9 +393,11 @@
                     </svg>
                     <span>{{ block.settings.text }}</span>
                   </div>
-                  <div class="cutdown-timer">
-                    00:00:00
-                  </div>
+                  <my-count-down
+                    class="cutdown-timer"
+                    target-date="{{ block.settings.target_date | date: '%Y-%m-%dT%H:%M:%S' }}"
+                  >
+                  </my-count-down>
                 </div>
             {%- endcase -%}
           {%- endfor -%}
@@ -828,13 +831,6 @@
           "id": "text",
           "label": "Title",
           "default":"Sales end in: "
-        },
-        {
-          "type": "inline_richtext",
-          "id": "expiration_text",
-          "label": "Expiration Message",
-          "default":"Sales have ended.",
-          "info":"Only shows this message when the countdown timer is over."
         },
         {
           "type": "inline_richtext",
