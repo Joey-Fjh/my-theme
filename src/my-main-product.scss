@@ -122,7 +122,7 @@ variant-selects{
     background-color: rgba(var(--color-foreground),.075);
     position: relative;
     overflow: hidden;
-    display: block;
+    display: block !important;
     color: rgb(var(--color-progress-bar));
 
     &::before{
