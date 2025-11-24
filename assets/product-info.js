@@ -138,6 +138,8 @@ if (!customElements.get('product-info')) {
             this.pendingRequestUrl = null;
             const html = new DOMParser().parseFromString(responseText, 'text/html');
             callback(html);
+
+            
           })
           .then(() => {
             // set focus to last clicked option value
@@ -179,8 +181,6 @@ if (!customElements.get('product-info')) {
       handleUpdateProductInfo(productUrl) {
         return (html) => {
           const variant = this.getSelectedVariant(html);
-          
-          this.updateInventoryProgressBar();
 
           this.pickupAvailability?.update(variant);
           this.updateOptionValues(html);
@@ -210,6 +210,7 @@ if (!customElements.get('product-info')) {
           updateSourceFromDestination('Price-Per-Item', ({ classList }) => classList.contains('hidden'));
 
           this.updateQuantityRules(this.sectionId, html);
+          this.updateInventoryProgressBar();
           this.querySelector(`#Quantity-Rules-${this.dataset.section}`)?.classList.remove('hidden');
           this.querySelector(`#Volume-Note-${this.dataset.section}`)?.classList.remove('hidden');
 
