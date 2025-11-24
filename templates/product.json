@@ -12,6 +12,13 @@
     "main": {
       "type": "main-product",
       "blocks": {
+        "text_Gt6QjB": {
+          "type": "text",
+          "settings": {
+            "text": "Cloth",
+            "text_style": "body"
+          }
+        },
         "title": {
           "type": "title",
           "settings": {}
@@ -76,6 +83,7 @@
         }
       },
       "block_order": [
+        "text_Gt6QjB",
         "title",
         "text_fp4KLE",
         "price",
