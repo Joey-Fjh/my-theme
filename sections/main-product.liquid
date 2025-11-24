@@ -87,16 +87,6 @@
         >
           {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
-          <p> 
-            {%- if product.compare_at_price > product.price and product.compare_at_price > 0 -%}
-              {%- assign percent = product.price | times: 100 | divided_by: product.compare_at_price -%}
-              {%- assign discount = 100 | minus: percent | prepend: '-' | append: '%' -%}
-            {%- else -%}
-              {%- assign discount = 0 | append: '%' -%}
-            {%- endif -%}
-            <strong>SALE {{ discount }} OFF</strong>
-          </p>
-
           {%- for block in section.blocks -%}
             {%- case block.type -%}
               {%- when '@app' -%}
@@ -381,7 +371,7 @@
                 </div>    
               {%- when 'payment_icons' -%}
                 {%- if block.settings.show_payment -%}
-                  <div class="payment-icons">
+                  <div class="payment-icons" {{ block.shopify_attributes }}>
                     <span>Guranteed safe checkout: </span>
                     {%- render 'footer-payment',block: block-%}
                   </div>
