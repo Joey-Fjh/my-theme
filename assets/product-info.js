@@ -29,6 +29,20 @@ if (!customElements.get('product-info')) {
         this.dispatchEvent(new CustomEvent('product-info:loaded', { bubbles: true }));
       }
 
+      updateInventoryProgressBar() {
+        const progressBar = this.querySelector('[id^="Inventory-"] .progress-container');
+        
+        if (!progressBar) return;
+
+        const currentInventory = Number(progressBar.dataset.inventoryValue);
+        const lowInventoryThreshold = Number(progressBar.dataset.inventoryThreshold);
+
+        // calc width of progress bar
+        const progressRatio = Math.min(currentInventory / lowInventoryThreshold, 1);
+        const progressWidth = (progressRatio * 100) + '%';
+        progressBar.style.setProperty('--progress-bar-width', progressWidth);
+      }
+      
       addPreProcessCallback(callback) {
         this.preProcessHtmlCallbacks.push(callback);
       }
@@ -164,6 +178,8 @@ if (!customElements.get('product-info')) {
       handleUpdateProductInfo(productUrl) {
         return (html) => {
           const variant = this.getSelectedVariant(html);
+
+          this.updateInventoryProgressBar();
 
           this.pickupAvailability?.update(variant);
           this.updateOptionValues(html);
