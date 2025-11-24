@@ -179,7 +179,7 @@ if (!customElements.get('product-info')) {
       handleUpdateProductInfo(productUrl) {
         return (html) => {
           const variant = this.getSelectedVariant(html);
-
+          console.log("-----",variant);
           this.updateInventoryProgressBar();
 
           this.pickupAvailability?.update(variant);
