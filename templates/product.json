@@ -12,6 +12,15 @@
     "main": {
       "type": "main-product",
       "blocks": {
+        "cutdown_timer_hEdxDx": {
+          "type": "cutdown_timer",
+          "settings": {
+            "text_color": "#cc4242",
+            "bgc_color": "#ffffff",
+            "text": "Sales end in:",
+            "target_date": "2025-11-24 13:32"
+          }
+        },
         "text_Gt6QjB": {
           "type": "text",
           "settings": {
@@ -83,6 +92,7 @@
         }
       },
       "block_order": [
+        "cutdown_timer_hEdxDx",
         "text_Gt6QjB",
         "title",
         "text_fp4KLE",
