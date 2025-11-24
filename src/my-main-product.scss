@@ -98,6 +98,8 @@ variant-selects{
     }
 
     @media (max-width: 768px) {
+        padding: 0;
+
         my-count-down::part(container){
             padding: 0;
             gap: 0px;
