@@ -77,6 +77,38 @@ variant-selects{
     }
 
     my-count-down::part(container){
-        padding: 10px;
+        padding: 0;
+    }
+
+    my-count-down::part(item){
+        min-width: auto;
+    }
+
+    my-count-down::part(number){
+        font-size: 16px;
+        font-weight: 700;
+        color:var(--text-color);
+        min-height: auto;
+    }
+
+    my-count-down::part(label){
+        font-size: 14px;
+        color: var(--text-color);
+    }
+
+    @media (max-width: 768px) {
+        my-count-down::part(container){
+            padding: 0;
+            gap: 0px;
+        }
+
+
+        my-count-down::part(number){
+            font-size: 14px;
+        }
+
+        my-count-down::part(label){
+            font-size: 12px;
+        }
     }
 }
