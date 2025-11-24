@@ -34,7 +34,7 @@ if (!customElements.get('product-info')) {
         const progressBar = this.querySelector('[id^="Inventory-"] .progress-container');
         
         if (!progressBar) return;
-
+        console.log(progressBar, document.body.contains(progressBar));
         const currentInventory = Number(progressBar.dataset.inventoryValue);
         const lowInventoryThreshold = Number(progressBar.dataset.inventoryThreshold);
 
@@ -179,7 +179,7 @@ if (!customElements.get('product-info')) {
       handleUpdateProductInfo(productUrl) {
         return (html) => {
           const variant = this.getSelectedVariant(html);
-          console.log("-----",variant);
+          
           this.updateInventoryProgressBar();
 
           this.pickupAvailability?.update(variant);
