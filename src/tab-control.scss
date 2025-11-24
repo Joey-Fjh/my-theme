@@ -35,6 +35,8 @@
     }
 
     .tab-contens{
+        overflow: hidden;
+        
         .tab-panel.hidden{
             display: none;
         }
