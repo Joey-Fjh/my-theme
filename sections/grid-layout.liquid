@@ -40,7 +40,13 @@
                     <responsive-container class="pc_image">
                         {%- if block.settings.image -%}
                             <img
-                                style="object-fit:{{ block.settings.image_fit }};opacity:{{ block.settings.image_opacity }}%;"
+                                style="
+                                    object-fit:{{ block.settings.image_fit }};
+                                    opacity:{{ block.settings.image_opacity }}%;
+                                    {% if block.settings.image_fit == 'contain' %}
+                                        width:auto;
+                                    {% endif %}
+                                "
                                 src="{{ block.settings.image | image_url }}"
                                 width="{{ block.settings.image.width }}"
                                 height="{{ block.settings.image.height }}"
@@ -54,7 +60,13 @@
                     <responsive-container class="mobile_image">
                         {%- if block.settings.mobile_image -%}
                             <img
-                                style="object-fit:{{ block.settings.image_fit }};opacity:{{ block.settings.image_opacity }}%;"
+                                style="
+                                    object-fit:{{ block.settings.image_fit }};
+                                    opacity:{{ block.settings.image_opacity }}%;
+                                    {% if block.settings.image_fit == 'contain' %}
+                                        width:auto;
+                                    {% endif %}
+                                "
                                 src="{{ block.settings.mobile_image | image_url }}"
                                 width="{{ block.settings.mobile_image.width }}"
                                 height="{{ block.settings.mobile_image.height }}"
@@ -255,8 +267,8 @@
                             "label": "Cover"
                         },
                         {
-                            "value": "Contain",
-                            "label": "contain"
+                            "value": "contain",
+                            "label": "Contain"
                         }
                     ]
                 },
