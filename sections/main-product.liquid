@@ -148,6 +148,7 @@
                   {{ block.shopify_attributes }}
                   id="Inventory-{{ section.id }}"
                   role="status"
+                  style="flex-wrap:wrap;"
                 >
                   {%- if product.selected_or_first_available_variant.inventory_management == 'shopify' -%}
                     {%- if product.selected_or_first_available_variant.inventory_quantity > 0 -%}

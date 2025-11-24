@@ -25,6 +25,7 @@ if (!customElements.get('product-info')) {
           this.handleOptionValueChange.bind(this)
         );
 
+        this.updateInventoryProgressBar();
         this.initQuantityHandlers();
         this.dispatchEvent(new CustomEvent('product-info:loaded', { bubbles: true }));
       }
