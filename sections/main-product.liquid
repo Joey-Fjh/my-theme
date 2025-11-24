@@ -162,13 +162,14 @@
                             'products.product.inventory_low_stock_show_count'
                             | t: quantity: product.selected_or_first_available_variant.inventory_quantity
                           -}}
+
+                          <div class="progress-container" 
+                            data-inventory-value="{{ product.selected_or_first_available_variant.inventory_quantity }}"
+                            data-inventory-threshold="{{ block.settings.inventory_threshold }}"
+                          ></div>
                         {%- else -%}
                           {{- 'products.product.inventory_low_stock' | t -}}
                         {%- endif -%}
-                        <div class="progress-container" 
-                          data-inventory-value="{{ product.selected_or_first_available_variant.inventory_quantity }}"
-                          data-inventory-threshold="{{ block.settings.inventory_threshold }}"
-                        ></div>
                       {%- else -%}
                         <span class="svg-wrapper" style="color: rgb(62, 214, 96)">
                           {{- 'icon-inventory-status.svg' | inline_asset_content -}}
@@ -181,10 +182,6 @@
                         {%- else -%}
                           {{- 'products.product.inventory_in_stock' | t -}}
                         {%- endif -%}
-                        <div class="progress-container"
-                          data-inventory-value="{{ product.selected_or_first_available_variant.inventory_quantity }}"
-                          data-inventory-threshold="{{ block.settings.inventory_threshold }}"
-                        ></div>
                       {%- endif -%}
                     {%- else -%}
                       {%- if product.selected_or_first_available_variant.inventory_policy == 'continue' -%}
