@@ -64,6 +64,7 @@ variant-selects{
     padding: 10px 15px;
     color: var(--text-color);
     background-color: var(--bgc-color);
+    border-radius: 16px;
 
     .cutdown-text{
         flex-shrink: 0;
@@ -102,13 +103,12 @@ variant-selects{
             gap: 0px;
         }
 
-
         my-count-down::part(number){
             font-size: 14px;
         }
 
         my-count-down::part(label){
-            font-size: 12px;
+            font-size: 10px;
         }
     }
 }
