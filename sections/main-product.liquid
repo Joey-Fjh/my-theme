@@ -163,10 +163,10 @@
                             | t: quantity: product.selected_or_first_available_variant.inventory_quantity
                           -}}
 
-                          <div class="progress-container" 
+                          <span class="progress-container" 
                             data-inventory-value="{{ product.selected_or_first_available_variant.inventory_quantity }}"
                             data-inventory-threshold="{{ block.settings.inventory_threshold }}"
-                          ></div>
+                          ></span>
                         {%- else -%}
                           {{- 'products.product.inventory_low_stock' | t -}}
                         {%- endif -%}
