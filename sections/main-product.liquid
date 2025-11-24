@@ -165,6 +165,7 @@
                         {%- else -%}
                           {{- 'products.product.inventory_low_stock' | t -}}
                         {%- endif -%}
+                        <div>progressbar</div>
                       {%- else -%}
                         <span class="svg-wrapper" style="color: rgb(62, 214, 96)">
                           {{- 'icon-inventory-status.svg' | inline_asset_content -}}
@@ -177,6 +178,7 @@
                         {%- else -%}
                           {{- 'products.product.inventory_in_stock' | t -}}
                         {%- endif -%}
+                        <div>progressbar</div>
                       {%- endif -%}
                     {%- else -%}
                       {%- if product.selected_or_first_available_variant.inventory_policy == 'continue' -%}
@@ -193,7 +195,6 @@
                     {%- endif -%}
                   {%- endif -%}
                 </p>
-
               {%- when 'sku' -%}
                 <p
                   class="product__sku{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.sku.size == 0 %} visibility-hidden{% endif %}"
