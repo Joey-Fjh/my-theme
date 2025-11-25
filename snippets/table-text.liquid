@@ -14,9 +14,11 @@
 <div class="specs-container" {{ block.shopify_attributes }}>
   <div class="specs-table">
     {% for i in (1..6) %}
+        {% assign thead_key = 'thead' | append: forloop.index %}
+        {% assign tcontent_key = 'tcontent' | append: forloop.index %}
         <div class="spec-row">
-            <div class="spec-label">{{ block.settings["thead" | append: forloop.index] }}</div>
-            <div class="spec-value">{{ block.settings["tcontent" | append: forloop.index] }}</div>
+            <div class="spec-label">{{ block.settings[thead_key] }}</div>
+            <div class="spec-value">{{ block.settings[tcontent_key] }}</div>
         </div>
     {% endfor %}
   </div>
