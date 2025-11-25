@@ -71,8 +71,8 @@
             endif
           -%}
           <div class="quantity-and-button">
-            {% render 'quantity_selector',block:block,product:product %}
-            
+            {% render 'quantity-input',variant:product.selected_or_first_available_variant %}
+
             <button
               id="ProductSubmitButton-{{ section_id }}"
               type="submit"
