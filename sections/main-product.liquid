@@ -80,7 +80,17 @@
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
       <div class="grid__item product__media-wrapper">
         {% render 'product-media-gallery', variant_images: variant_images %}
+
+        {% for block in section.blocks %}
+          {%- case block.type -%}
+            {%- when 'icon-with-text' -%}    
+              {% if block.settings.show_under_product %}
+                {% render 'icon-with-text', block: block %}
+              {% endif %}
+          {% endcase %}
+        {% endfor %}
       </div>
+      
       <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <section
           id="ProductInfo-{{ section.id }}"
@@ -456,8 +466,11 @@
                     <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
                   {%- endif -%}
                 </product-recommendations>
+              
               {%- when 'icon-with-text' -%}
-                {% render 'icon-with-text', block: block %}
+                {%- unless block.settings.show_under_product -%}
+                  {% render 'icon-with-text', block: block %}
+                {%- endunless -%}
             {%- endcase -%}
           {%- endfor -%}
 
@@ -1182,6 +1195,12 @@
       "type": "icon-with-text",
       "name": "t:sections.main-product.blocks.icon_with_text.name",
       "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_under_product",
+          "label": "Show Under Product",
+          "default":true
+        },
         {
           "type": "select",
           "id": "layout",
