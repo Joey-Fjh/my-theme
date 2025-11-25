@@ -12,23 +12,6 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "inventory_MApFhW": {
-          "type": "inventory",
-          "settings": {
-            "text_style": "body",
-            "inventory_threshold": 10,
-            "show_inventory_quantity": true
-          }
-        },
-        "cutdown_timer_hEdxDx": {
-          "type": "cutdown_timer",
-          "settings": {
-            "text_color": "#cc4242",
-            "bgc_color": "#ffffff",
-            "text": "Sales end in:",
-            "target_date": "2025-11-24 13:32"
-          }
-        },
         "text_Gt6QjB": {
           "type": "text",
           "settings": {
@@ -47,6 +30,23 @@
             "text_style": "body"
           }
         },
+        "inventory_MApFhW": {
+          "type": "inventory",
+          "settings": {
+            "text_style": "body",
+            "inventory_threshold": 10,
+            "show_inventory_quantity": true
+          }
+        },
+        "cutdown_timer_hEdxDx": {
+          "type": "cutdown_timer",
+          "settings": {
+            "text_color": "#cc4242",
+            "bgc_color": "#ffffff",
+            "text": "Sales end in:",
+            "target_date": "2025-11-24 13:32"
+          }
+        },
         "price": {
           "type": "price",
           "settings": {}
@@ -57,10 +57,6 @@
             "picker_type": "button",
             "swatch_shape": "circle"
           }
-        },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {}
         },
         "buy_buttons": {
           "type": "buy_buttons",
@@ -97,19 +93,32 @@
             "show_payment_shopify_pay": false,
             "show_payment_sofort": false
           }
+        },
+        "complementary_fFGTBN": {
+          "type": "complementary",
+          "settings": {
+            "block_heading": "Pairs well with",
+            "make_collapsible_row": false,
+            "icon": "bottle",
+            "product_list_limit": 10,
+            "products_per_page": 3,
+            "pagination_style": "dots",
+            "image_ratio": "square",
+            "enable_quick_add": false
+          }
         }
       },
       "block_order": [
-        "inventory_MApFhW",
-        "cutdown_timer_hEdxDx",
         "text_Gt6QjB",
         "title",
         "text_fp4KLE",
+        "inventory_MApFhW",
+        "cutdown_timer_hEdxDx",
         "price",
         "variant_picker",
-        "quantity_selector",
         "buy_buttons",
-        "payment_icons_xrXTrB"
+        "payment_icons_xrXTrB",
+        "complementary_fFGTBN"
       ],
       "settings": {
         "enable_sticky_info": true,
