@@ -1491,3 +1491,63 @@ a.product__text {
     border: none;
   }
 }
+
+/* Table Text */
+.specs-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.specs-table {
+  background: #ffffff;
+  border-radius: 4px;
+}
+
+.spec-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 40px;
+  padding: 18px 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.spec-row:last-child {
+  border-bottom: none;
+}
+
+.spec-label {
+  font-weight: 600;
+  font-size: 14px;
+  color: #000000;
+  line-height: 1.5;
+}
+
+.spec-value {
+  font-weight: 400;
+  font-size: 14px;
+  color: #333333;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .specs-container {
+    padding: 15px;
+  }
+  
+  .spec-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 16px 0;
+  }
+  
+  .spec-label {
+    font-size: 13px;
+  }
+  
+  .spec-value {
+    font-size: 13px;
+    padding-left: 0;
+  }
+}

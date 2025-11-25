@@ -1,0 +1,24 @@
+{% comment %}
+  Renders table with text block
+
+  Accepts:
+  - block: {Object} passes in the block information.
+
+
+  Usage:
+  {% render 'table-text',
+    block: block
+  %}
+{% endcomment %}
+
+<div class="specs-container" {{ block.shopify_attributes }}>
+  <div class="specs-table">
+    {% for i in (1..6) %}
+        <div class="spec-row">
+            <div class="spec-label">{{ block.settings["thead" | append: forloop.index] }}</div>
+            <div class="spec-value">{{ block.settings["tcontent" | append: forloop.index] }}</div>
+        </div>
+    {% endfor %}
+  </div>
+</div>
+

@@ -89,6 +89,10 @@
               {% if block.settings.show_under_product %}
                 {% render 'icon-with-text', block: block %}
               {% endif %}
+            {% when 'table-text' %}
+              {%- if block.settings.show_under_product -%}
+                {% render 'table-text', block: block %}
+              {%- endif -%}
           {% endcase %}
         {% endfor %}
       </div>
@@ -472,6 +476,10 @@
               {%- when 'icon-with-text' -%}
                 {%- unless block.settings.show_under_product -%}
                   {% render 'icon-with-text', block: block %}
+                {%- endunless -%}
+              {% when 'table-text' %}
+                {%- unless block.settings.show_under_product -%}
+                  {% render 'table-text', block: block %}
                 {%- endunless -%}
             {%- endcase -%}
           {%- endfor -%}
@@ -1834,6 +1842,90 @@
           "id": "description_3",
           "default":"<p></p>",
           "label": "Description"
+        },
+      ]
+    },
+    {
+      "type": "table-text",
+      "name": "Table Text",
+      "settings":[
+        {
+          "type": "checkbox",
+          "id": "show_under_product",
+          "label": "Show Under Product",
+          "default":true
+        },
+        {
+          "type": "inline_richtext",
+          "id": "thead1",
+          "label": "Table Header",
+          "default":""
+        },
+        {
+          "type": "richtext",
+          "id": "tcontent1",
+          "label": "Table Content",
+          "default":"<p></p>"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "thead2",
+          "label": "Table Header",
+          "default":""
+        },
+        {
+          "type": "richtext",
+          "id": "tcontent2",
+          "label": "Table Content",
+          "default":"<p></p>"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "thead3",
+          "label": "Table Header",
+          "default":""
+        },
+        {
+          "type": "richtext",
+          "id": "tcontent3",
+          "label": "Table Content",
+          "default":"<p></p>"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "thead4",
+          "label": "Table Header",
+          "default":""
+        },
+        {
+          "type": "richtext",
+          "id": "tcontent4",
+          "label": "Table Content",
+          "default":"<p></p>"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "thead5",
+          "label": "Table Header",
+          "default":""
+        },
+        {
+          "type": "richtext",
+          "id": "tcontent5",
+          "label": "Table Content",
+          "default":"<p></p>"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "thead6",
+          "label": "Table Header",
+          "default":""
+        },
+        {
+          "type": "richtext",
+          "id": "tcontent6",
+          "label": "Table Content",
+          "default":"<p></p>"
         },
       ]
     }
