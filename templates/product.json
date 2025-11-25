@@ -12,6 +12,19 @@
     "main": {
       "type": "main-product",
       "blocks": {
+        "icon_with_text_ARndHb": {
+          "type": "icon-with-text",
+          "settings": {
+            "show_under_product": true,
+            "layout": "horizontal",
+            "icon_1": "heart",
+            "heading_1": "Heading",
+            "icon_2": "return",
+            "heading_2": "Heading",
+            "icon_3": "truck",
+            "heading_3": "Heading"
+          }
+        },
         "text_Gt6QjB": {
           "type": "text",
           "settings": {
@@ -109,6 +122,7 @@
         }
       },
       "block_order": [
+        "icon_with_text_ARndHb",
         "text_Gt6QjB",
         "title",
         "text_fp4KLE",
@@ -138,7 +152,6 @@
     },
     "related-products": {
       "type": "related-products",
-      "disabled": true,
       "settings": {
         "heading": "Customers also purchased",
         "heading_size": "h1",
@@ -248,7 +261,6 @@
         "image_item_k44ddb",
         "image_item_w3dEhX"
       ],
-      "disabled": true,
       "name": "Grid Layout",
       "settings": {
         "layout": "page_width",
@@ -263,7 +275,6 @@
     },
     "my_image_with_text2_nx96A9": {
       "type": "my-image-with-text2",
-      "disabled": true,
       "name": "my-image-with-text2",
       "settings": {
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
@@ -372,7 +383,6 @@
         "tab_item_pyHXNJ",
         "tab_item_wqzyfC"
       ],
-      "disabled": true,
       "name": "Tab Control",
       "settings": {
         "color_scheme": ""
