@@ -28,6 +28,24 @@
             "description_3": "<p>6.3\" Super Retina XDR</p>"
           }
         },
+        "table_text_rEjbJc": {
+          "type": "table-text",
+          "settings": {
+            "show_under_product": true,
+            "thead1": "Model",
+            "tcontent1": "<p>MW08 Sport</p>",
+            "thead2": "Dimensions",
+            "tcontent2": "<p>21.19mm x 20.22mm x 25.08mm</p>",
+            "thead3": "Driver",
+            "tcontent3": "<p>11mm Beryllium</p>",
+            "thead4": "Weight",
+            "tcontent4": "<p>Sport Earphones: 8.6g each, Charging Case: 56g</p>",
+            "thead5": "Materials",
+            "tcontent5": "<p>Sapphire glass sport earbuds /Kevlar® fiber case</p>",
+            "thead6": "BatteryLife",
+            "tcontent6": "<p>Up to 12 hours playtime / 10 hours with ANC or Ambient Listening</p>"
+          }
+        },
         "text_Gt6QjB": {
           "type": "text",
           "settings": {
@@ -126,6 +144,7 @@
       },
       "block_order": [
         "icon_with_text_ARndHb",
+        "table_text_rEjbJc",
         "text_Gt6QjB",
         "title",
         "text_fp4KLE",
