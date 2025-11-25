@@ -152,7 +152,6 @@
     },
     "related-products": {
       "type": "related-products",
-      "disabled": true,
       "settings": {
         "heading": "Customers also purchased",
         "heading_size": "h1",
@@ -262,7 +261,6 @@
         "image_item_k44ddb",
         "image_item_w3dEhX"
       ],
-      "disabled": true,
       "name": "Grid Layout",
       "settings": {
         "layout": "page_width",
@@ -277,7 +275,6 @@
     },
     "my_image_with_text2_nx96A9": {
       "type": "my-image-with-text2",
-      "disabled": true,
       "name": "my-image-with-text2",
       "settings": {
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
@@ -386,7 +383,6 @@
         "tab_item_pyHXNJ",
         "tab_item_wqzyfC"
       ],
-      "disabled": true,
       "name": "Tab Control",
       "settings": {
         "color_scheme": ""
