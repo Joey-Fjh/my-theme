@@ -18,13 +18,13 @@
             "show_under_product": true,
             "layout": "horizontal",
             "icon_1": "heart",
-            "heading_1": "Heading",
+            "heading_1": "Display",
             "description_1": "<p>6.3\" Super Retina XDR</p>",
             "icon_2": "return",
-            "heading_2": "Heading",
+            "heading_2": "CPU",
             "description_2": "<p>6.3\" Super Retina XDR</p>",
             "icon_3": "truck",
-            "heading_3": "Heading",
+            "heading_3": "Camera",
             "description_3": "<p>6.3\" Super Retina XDR</p>"
           }
         },
