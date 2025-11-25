@@ -120,10 +120,26 @@
 
             .image{
                transition: opacity 0.3s ease-in-out;
+               opacity: 1;
             }
 
             .image.fade-out{
                 opacity: 0;
+            }
+
+            .image:nth-of-type(2){
+                opacity: 0;
+                position: absolute;
+                inset: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            &:hover .image:first-of-type{
+                opacity: 0;
+            }
+
+            &:hover .image:nth-of-type(2){
+                opacity: 1;
             }
         }
 
