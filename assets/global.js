@@ -1338,9 +1338,6 @@ class MyProductCard extends HTMLElement {
     this.product_image = this.querySelector(".image");
     this.image_src_cache = this.product_image?.getAttribute("src");
     this.image_srcset_cache = this.product_image?.getAttribute("srcset");
-
-    this.timeId = null;
-    this.transitioning = false;
   }
 
   connectedCallback(){
@@ -1349,7 +1346,6 @@ class MyProductCard extends HTMLElement {
   }
 
   disconnectedCallback(){
-    clearTimeout(this.timeId);
   }
 
   initColorSwatch(){
@@ -1380,51 +1376,17 @@ class MyProductCard extends HTMLElement {
 
     if(image_src == this.image_src_cache || image_srcset == this.image_srcset_cache) return;
 
-    // 1. pre load
-    const preImg = new Image();
-    preImg.src = image_src;
+    this.product_image.setAttribute('src',image_src);
+    this.product_image.setAttribute('srcset',image_srcset);
 
-    preImg.onload = () => { 
-      this.runTransition(()=>{
-        this.transitioning = true;
-        this.product_image.classList.add("fade-out");
-
-        const onEnd = ()=>{
-          this.product_image.removeEventListener("transitionend",onEnd);
-
-          // 2. replace image
-          this.product_image.setAttribute('src',image_src);
-          this.product_image.setAttribute('srcset',image_srcset);
-
-          this.image_src_cache = image_src;
-          this.image_srcset_cache = image_srcset;
-
-          //3. force repaint (main, not flush)
-          void this.product_image.offsetWidth;
-
-          //4. fade in
-          this.product_image.classList.remove("fade-out");
-          this.transitioning = false;
-
-        };
-
-        this.product_image.addEventListener("transitionend",onEnd,{once:true});
-      });
-    };
+    this.image_src_cache = image_src;
+    this.image_srcset_cache = image_srcset;
   }
 
   handleMouseOut(event){  
     if(event.target.tagName.toLowerCase() != 'a') return;
 
     event.target.removeAttribute("aria-selected");
-  }
-
-  runTransition(cb){
-    clearTimeout(this.timeId);
-
-    if(this.transitioning) return;
-    
-    this.timeId = setTimeout(cb);
   }
 
   getVariantImage(target){
