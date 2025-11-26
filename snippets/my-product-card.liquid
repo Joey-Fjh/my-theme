@@ -37,7 +37,7 @@
                 | image_url: width: variant_image.width
                 | image_tag:
                     alt: product.title, 
-                    class:'image'
+                    class:'image {% if show_secondary_image %} media--hover-effect {% endif %}'
             }}
 
             {%- if product.media[1] != null and show_secondary_image == true-%}
@@ -46,7 +46,7 @@
                     | image_url: width: product.media[1].width
                     | image_tag: 
                         alt: product.media[1].alt,
-                        class:'image'
+                        class:'image {% if show_secondary_image %} media--hover-effect {% endif %}'
                 }}
             {%- endif -%}
         {%- endif -%}
@@ -58,7 +58,7 @@
             {%- assign discount = 0 | append: '%' -%}
         {%- endif -%}
 
-        <div class="left-top">
+          <div class="left-top">
             {%- if section.settings.show_badge_text -%}
                 <div class="badge color-{{ section.settings.badge_color }}">
                     {{ section.settings.badge_text }}
