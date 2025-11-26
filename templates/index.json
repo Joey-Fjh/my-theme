@@ -113,6 +113,7 @@
         "show_view_all": true,
         "product_title_size": "h2",
         "product_title_bold": false,
+        "show_secondary_image": true,
         "image_ratio": "3-4",
         "quick_add": "standard",
         "badge_color": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
