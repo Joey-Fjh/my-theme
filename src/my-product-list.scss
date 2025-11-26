@@ -127,18 +127,18 @@
                 opacity: 0;
             }
 
-            .media--hover-effect.image:nth-of-type(2){
+            .show-secondary.image:nth-of-type(2){
                 opacity: 0;
                 position: absolute;
                 inset: 0;
                 transition: opacity 0.3s ease;
             }
 
-            &:hover .media--hover-effect.image:first-of-type{
+            &:hover .show-secondary.image:first-of-type{
                 opacity: 0;
             }
 
-            &:hover .media--hover-effect.image:nth-of-type(2){
+            &:hover .show-secondary.image:nth-of-type(2){
                 opacity: 1;
             }
         }

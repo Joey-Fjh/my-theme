@@ -31,13 +31,17 @@
         style="aspect-ratio: {{ ratio }};"
     >
         {% assign variant_image = current_variant.featured_image | default: product.featured_image %}
+        {% assign image_class = 'image' %}
+        {% if show_secondary_image %}
+            {% assign image_class = image_class | append: 'show-secondary' %}
+        {% endif %}
         {%- if variant_image -%}
             {{ 
                 variant_image
                 | image_url: width: variant_image.width
                 | image_tag:
                     alt: product.title, 
-                    class:'image {% if show_secondary_image %} media--hover-effect {% endif %}'
+                    class:image_class
             }}
 
             {%- if product.media[1] != null and show_secondary_image == true-%}
@@ -46,7 +50,7 @@
                     | image_url: width: product.media[1].width
                     | image_tag: 
                         alt: product.media[1].alt,
-                        class:'image {% if show_secondary_image %} media--hover-effect {% endif %}'
+                        class:image_class
                 }}
             {%- endif -%}
         {%- endif -%}
