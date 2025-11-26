@@ -1352,7 +1352,7 @@ class MyProductCard extends HTMLElement {
   }
 
   handleClick(event){ 
-    if(event.target.tagName.toLowerCase() != 'img'){
+    if(event.target.tagName.toLowerCase() == 'img'){
       event.preventDefault();
 
       const link = document.createElement("a");
