@@ -57,7 +57,8 @@
       {{ settings.type_header_font | font_face: font_display: 'swap' }}
 
       {% for scheme in settings.color_schemes -%}
-        {% assign scheme_classes = scheme_classes | append: ', .color-' | append: scheme.id %}
+        {%- assign scheme_class = '' -%}
+        {% assign scheme_classes = scheme_class | append: ', .color-' | append: scheme.id %}
         {% if forloop.index == 1 -%}
           :root,
         {%- endif %}
