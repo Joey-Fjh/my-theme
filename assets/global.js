@@ -1390,7 +1390,7 @@ class MyProductCard extends HTMLElement {
 
         this.product_image.classList.remove("fade-out");
         this.transitioning = false;
-      },{once:true});
+      });
     });
   }
 
