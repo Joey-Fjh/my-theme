@@ -32,9 +32,9 @@
     >
         {% assign variant_image = current_variant.featured_image | default: product.featured_image %}
         {% assign image_class = 'image ' %}
-        {% if product.media[1] != null and show_secondary_image == true %}
+        {% comment %} {% if product.media[1] != null and show_secondary_image == true %}
             {% assign image_class = image_class | append: 'show-secondary ' %}
-        {% endif %}
+        {% endif %} {% endcomment %}
         {%- if variant_image -%}
             {{ 
                 variant_image
@@ -44,7 +44,7 @@
                     class:image_class
             }}
 
-            {%- if product.media[1] != null and show_secondary_image == true-%}
+            {% comment %} {%- if product.media[1] != null and show_secondary_image == true-%}
                 {{
                     product.media[1]
                     | image_url: width: product.media[1].width
@@ -52,7 +52,7 @@
                         alt: product.media[1].alt,
                         class:image_class
                 }}
-            {%- endif -%}
+            {%- endif -%} {% endcomment %}
         {%- endif -%}
 
         {%- if current_variant.compare_at_price > current_variant.price and current_variant.compare_at_price > 0 -%}
