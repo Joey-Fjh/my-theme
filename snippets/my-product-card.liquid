@@ -24,7 +24,7 @@
     {%- assign current_variant = product.selected_or_first_available_variant -%}
 {%- endif -%}
 
-<my-product-card class="product-card__container">
+<my-product-card class="product-card__container" data-product-url="{{ product.url }}">
     <responsive-container class="product-card__image 
         {% if section.settings.show_operation == 'hover' %} product-card__image-hover {% endif %}
         "

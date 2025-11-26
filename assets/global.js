@@ -1335,6 +1335,7 @@ class MyProductCard extends HTMLElement {
   constructor(){
     super();
 
+    this.produtc_image_container = this.querySelector(".product-card__image");
     this.product_image = this.querySelector(".image");
     this.image_src_cache = this.product_image?.getAttribute("src");
     this.image_srcset_cache = this.product_image?.getAttribute("srcset");
@@ -1343,9 +1344,26 @@ class MyProductCard extends HTMLElement {
   connectedCallback(){
     this.initColorSwatch();
     this.initSizes();
+    this.initClickEvents();
   }
 
   disconnectedCallback(){
+    this.produtc_image_container.removeEventListener("click",this._hanledClick);
+  }
+
+  handleClick(event){ 
+    if(event.target.tagName.toLowerCase() != 'img'){
+      event.preventDefault();
+
+      const link = document.createElement("a");
+      link.href = this.dataset.productUrl;
+      link.click();
+    }
+  }
+
+  initClickEvents(){
+    this._hanledClick = this.handleClick.bind(this);
+    this.produtc_image_container.addEventListener("click",this._hanledClick);
   }
 
   initColorSwatch(){
