@@ -1,0 +1,68 @@
+<div class="fashion-item__container">
+  <div class="fashion-item__info__container">
+    {% content_for 'blocks' %}
+  </div>
+  
+  <div class="fashion-item__operator__container">
+    {%- if block.settings.title != blank -%}
+      <div class="title h2">
+        {{ block.settings.title }}
+      </div>      
+    {%- endif -%}
+
+    {%- if block.settings.button_text != blank-%}
+      <a 
+        {% if block.settings.button_url == blank %}
+          role="link"
+        {%- else -%}
+          href="{{ block.settings.button_url }}"
+        {%- endif -%}
+        class="my-button h3"
+        style="{% if block.settings.button_url == blank %} cursor:not-allowed; {% endif %}"
+      >
+        {{ block.settings.button_text }}
+      </a>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "fashion-highlight",
+    "tag": "section",
+    "settings":[
+      {
+        "type": "inline_richtext",
+        "id": "title",
+        "label": "Title",
+        "default":"Example Title"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "button_text",
+        "label": "Button Text",
+        "default":"Example Button"
+      },
+      {
+        "type": "url",
+        "id": "button_url",
+        "label": "Button URL"
+      }
+    ],
+    "blocks":[
+      {
+        "type": "link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "fashion-highlight",
+        "blocks": [
+          {
+            "type": "link"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
