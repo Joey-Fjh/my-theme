@@ -25,74 +25,76 @@
 {%- endif -%}
 
 <my-product-card class="product-card__container">
-    <responsive-container class="product-card__image 
-        {% if section.settings.show_operation == 'hover' %} product-card__image-hover {% endif %}
-        "
-        style="aspect-ratio: {{ ratio }};"
-    >
-        {% assign variant_image = current_variant.featured_image | default: product.featured_image %}
-        {% assign image_class = 'image ' %}
-        {% if product.media[1] != null and show_secondary_image == true %}
-            {% assign image_class = image_class | append: 'show-secondary ' %}
-        {% endif %}
-        {%- if variant_image -%}
-            {{ 
-                variant_image
-                | image_url: width: variant_image.width
-                | image_tag:
-                    alt: product.title, 
-                    class:image_class
-            }}
-
-            {%- if product.media[1] != null and show_secondary_image == true-%}
-                {{
-                    product.media[1]
-                    | image_url: width: product.media[1].width
-                    | image_tag: 
-                        alt: product.media[1].alt,
+    <a href="#">
+        <responsive-container class="product-card__image 
+            {% if section.settings.show_operation == 'hover' %} product-card__image-hover {% endif %}
+            "
+            style="aspect-ratio: {{ ratio }};"
+        >
+            {% assign variant_image = current_variant.featured_image | default: product.featured_image %}
+            {% assign image_class = 'image ' %}
+            {% if product.media[1] != null and show_secondary_image == true %}
+                {% assign image_class = image_class | append: 'show-secondary ' %}
+            {% endif %}
+            {%- if variant_image -%}
+                {{ 
+                    variant_image
+                    | image_url: width: variant_image.width
+                    | image_tag:
+                        alt: product.title, 
                         class:image_class
                 }}
-            {%- endif -%}
-        {%- endif -%}
 
-        {%- if current_variant.compare_at_price > current_variant.price and current_variant.compare_at_price > 0 -%}
-            {%- assign percent = current_variant.price | times: 100 | divided_by: current_variant.compare_at_price -%}
-            {%- assign discount = 100 | minus: percent | append: '%' -%}
-        {%- else -%}
-            {%- assign discount = 0 | append: '%' -%}
-        {%- endif -%}
-
-          <div class="left-top">
-            {%- if section.settings.show_badge_text -%}
-                <div class="badge color-{{ section.settings.badge_color }}">
-                    {{ section.settings.badge_text }}
-                </div>
+                {%- if product.media[1] != null and show_secondary_image == true-%}
+                    {{
+                        product.media[1]
+                        | image_url: width: product.media[1].width
+                        | image_tag: 
+                            alt: product.media[1].alt,
+                            class:image_class
+                    }}
+                {%- endif -%}
             {%- endif -%}
 
-            {%- unless discount == '0%' -%}
-                <div class="sale ">
-                    SALE {{ discount }} OFF
-                </div>
-            {%- endunless -%}
-        </div>
+            {%- if current_variant.compare_at_price > current_variant.price and current_variant.compare_at_price > 0 -%}
+                {%- assign percent = current_variant.price | times: 100 | divided_by: current_variant.compare_at_price -%}
+                {%- assign discount = 100 | minus: percent | append: '%' -%}
+            {%- else -%}
+                {%- assign discount = 0 | append: '%' -%}
+            {%- endif -%}
 
-        {%- if has_quick_add -%}
-            <modal-opener 
-                class="opener"
-                data-modal="#my-product-list-PopupModal"
-            >
-                <button
-                    class="quick-view-btn"
-                    type="button"
-                    aria-haspopup="dialog"
-                    data-product-url="{{ product.url }}" 
+            <div class="left-top">
+                {%- if section.settings.show_badge_text -%}
+                    <div class="badge color-{{ section.settings.badge_color }}">
+                        {{ section.settings.badge_text }}
+                    </div>
+                {%- endif -%}
+
+                {%- unless discount == '0%' -%}
+                    <div class="sale ">
+                        SALE {{ discount }} OFF
+                    </div>
+                {%- endunless -%}
+            </div>
+
+            {%- if has_quick_add -%}
+                <modal-opener 
+                    class="opener"
+                    data-modal="#my-product-list-PopupModal"
                 >
-                    Quick View
-                    {%- render 'loading-spinner' -%}
-                </button>
-            </modal-opener>
-        {%- endif -%}
-    </responsive-container> 
+                    <button
+                        class="quick-view-btn"
+                        type="button"
+                        aria-haspopup="dialog"
+                        data-product-url="{{ product.url }}" 
+                    >
+                        Quick View
+                        {%- render 'loading-spinner' -%}
+                    </button>
+                </modal-opener>
+            {%- endif -%}
+        </responsive-container>
+    </a> 
 
     <div class="product-card__content product-{{ section.settings.alignment }}"
     >
