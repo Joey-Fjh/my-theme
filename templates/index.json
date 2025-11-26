@@ -109,7 +109,7 @@
         "products_to_show": 25,
         "columns_desktop": 3,
         "columns_mobile": "1",
-        "full_width": true,
+        "full_width": false,
         "show_view_all": true,
         "product_title_size": "h2",
         "product_title_bold": false,
