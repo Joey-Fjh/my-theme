@@ -12,35 +12,6 @@ class FacetFiltersForm extends HTMLElement {
 
     const facetWrapper = this.querySelector('#FacetsWrapperDesktop');
     if (facetWrapper) facetWrapper.addEventListener('keyup', onKeyUpEscape);
-    
-    if(this.querySelector(".dropdown-container")){
-      this.initDropDown();
-    }
-  }
-
-  initDropDown(){
-    const dropdownItems = this.querySelectorAll('.dropdown-item');
-    const selectedText = this.querySelector('.dropdown-button span:last-of-type');
-    const sortByInput = document.getElementById('SortBy');
-    const dropdownToggle = document.getElementById('dropdownToggle');
-
-    dropdownToggle.addEventListener('click', (e) => {
-      e.preventDefault();
-
-      dropdownToggle.classList.toggle('active');
-    });
-    
-    dropdownItems.forEach(item => {
-        item.addEventListener('click', () => {
-          dropdownItems.forEach(i => i.classList.remove('active'));
-          item.classList.add('active');
-          dropdownToggle.classList.toggle('active');
-
-          selectedText.textContent = item.textContent;
-          sortByInput.value = item.dataset.value;
-          sortByInput.dispatchEvent(new Event('input',{bubbles: true}));
-        });
-    });
   }
 
   static setListeners() {

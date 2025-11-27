@@ -1,8 +1,8 @@
 <div class="dropdown-container">
-    {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
+    {%- assign sort_by = results.sort_by | default: results.default_sort_by -%}
 
     <input id="dropdownToggle" aria-describedby="a11y-refresh-page-message">
-    <input type="hidden" name="sort_by" id="SortBy" value="{{ collection.default_sort_by }}">
+    <input type="hidden" name="sort_by" id="SortBy" value="{{ results.default_sort_by }}">
     
     <label for="dropdownToggle" class="dropdown-button">
         <span>Sort By</span>
@@ -12,7 +12,7 @@
     
     <div class="dropdown-menu">
         <ul class="dropdown-list">
-            {%- for option in collection.sort_options -%}
+            {%- for option in results.sort_options -%}
             <li>
                 <button 
                     type="button"
