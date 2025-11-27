@@ -808,8 +808,8 @@
 
   {% comment %} Sort, product count and filter pills at the end when filter is type of Drawer for the correct tabbing order {% endcomment %}
   {%- if enable_sorting and filter_type == 'drawer' -%}
-    {% comment %} <facet-filters-form class="facets small-hide"> {% endcomment %}
-      <form id="FacetSortDrawerForm" class="facets__form">
+    <facet-filters-form class="facets small-hide">
+      {% comment %} <form id="FacetSortDrawerForm" class="facets__form"> {% endcomment %}
         <div class="facet-filters sorting caption small-hide">
           <div class="facet-filters__field">
             <div class="select">
@@ -826,8 +826,8 @@
           <input type="hidden" name="q" value="{{ results.terms | escape }}">
           <input name="options[prefix]" type="hidden" value="last">
         {%- endif -%}
-      </form>
-    {% comment %} </facet-filters-form> {% endcomment %}
+      {% comment %} </form> {% endcomment %}
+    </facet-filters-form>
   {%- endif -%}
 
   <div
