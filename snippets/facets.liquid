@@ -393,7 +393,7 @@
         {%- if filter_type == 'horizontal' -%}
           {% comment %} Sorting and product count are the last elements when filter type is horizontal {% endcomment %}
           {%- if enable_sorting -%}
-            <div class="facet-filters sorting caption">
+            <div class="facet-filters caption">
               <div class="facet-filters__field">
                 <div class="select">
                   {%- render 'my-sort-by', collection: results -%}
@@ -810,7 +810,7 @@
   {%- if enable_sorting and filter_type == 'drawer' -%}
     <facet-filters-form class="facets small-hide">
       <form id="FacetSortDrawerForm" class="facets__form">
-        <div class="facet-filters sorting caption small-hide">
+        <div class="facet-filters caption small-hide">
           <div class="facet-filters__field">
             <div class="select">
                {%- render 'my-sort-by', results: results -%}

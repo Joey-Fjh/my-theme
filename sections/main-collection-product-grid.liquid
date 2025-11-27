@@ -37,7 +37,7 @@
     {%- if section.settings.enable_sorting and section.settings.filter_type == 'vertical' -%}
       <facet-filters-form class="facets facets-vertical-sort page-width small-hide">
         <form class="facets-vertical-form" id="FacetSortForm">
-          <div class="facet-filters sorting caption">
+          <div class="facet-filters caption">
             <div class="facet-filters__field">
               <div class="select">
                 {%- render 'my-sort-by', collection: collection -%}

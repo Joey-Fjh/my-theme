@@ -5,7 +5,7 @@
     <input type="hidden" name="sort_by" id="SortBy" value="{{ collection.default_sort_by }}">
     
     <label for="dropdownToggle" id="dropdownOverlay"></label>
-    <label for="dropdownToggle" class="dropdown-button">
+    <label for="dropdownToggle" class="dropdown-button sorting">
         <span>Sort By</span>
         {%- capture sort_name -%}
           {%- for option in collection.sort_options -%}
