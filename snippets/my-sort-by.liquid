@@ -16,6 +16,7 @@
             {%- for option in collection.sort_options -%}
             <li>
                 <button 
+                    type="button"
                     class="dropdown-item {% if option.value == sort_by %} active {% endif %}" 
                     data-value="{{ option.value | escape }}"
                 >
