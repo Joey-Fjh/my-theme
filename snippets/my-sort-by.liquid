@@ -2,9 +2,8 @@
     {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
 
     <input id="dropdownToggle" aria-describedby="a11y-refresh-page-message">
-    {% comment %} <input type="hidden" name="sort_by" id="SortBy" value="{{ collection.default_sort_by }}"> {% endcomment %}
+    <input type="hidden" name="sort_by" id="SortBy" value="{{ collection.default_sort_by }}">
     
-    <label for="dropdownToggle" id="dropdownOverlay"></label>
     <label for="dropdownToggle" class="dropdown-button">
         <span>Sort By</span>
         <span style="font-weight:600;">{{ sort_by }}</span>
@@ -16,6 +15,7 @@
             {%- for option in collection.sort_options -%}
             <li>
                 <button 
+                    type="button"
                     class="dropdown-item {% if option.value == sort_by %} active {% endif %}" 
                     data-value="{{ option.value | escape }}"
                 >

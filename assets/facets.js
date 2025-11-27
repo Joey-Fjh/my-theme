@@ -38,7 +38,6 @@ class FacetFiltersForm extends HTMLElement {
 
           selectedText.textContent = item.textContent;
           sortByInput.value = item.dataset.value;
-          sortByInput.dispatchEvent(new Event('change',{bubbles: true}));
         });
     });
   }
