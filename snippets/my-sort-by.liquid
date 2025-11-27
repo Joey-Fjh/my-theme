@@ -1,20 +1,28 @@
 <div class="dropdown-container">
-    {%- assign sort_by = results.sort_by | default: results.default_sort_by -%}
-    <select
-        name="sort_by"
-        aria-describedby="a11y-refresh-page-message"
-        class=""
-    >
-        {%- for option in results.sort_options -%}
-          <option 
-                value="{{ option.value | escape }}"
-                {%- if option.value == sort_by -%}
-                    selected="selected"
-                {%- endif -%}
-                class=""
-            >
+    {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
+
+    <input id="dropdownToggle" aria-describedby="a11y-refresh-page-message">
+    <input type="hidden" name="sort_by" id="SortBy" value="{{ collection.default_sort_by }}">
+    
+    <label for="dropdownToggle" id="dropdownOverlay"></label>
+    <label for="dropdownToggle" class="dropdown-button">
+        <span>Sort By</span>
+        <span style="font-weight:600;">{{ sort_by }}</span>
+        {{- 'icon-caret.svg' | inline_asset_content -}}
+    </label>
+    
+    <div class="dropdown-menu">
+        <ul class="dropdown-list">
+            {%- for option in collection.sort_options -%}
+            <li>
+                <button 
+                    class="dropdown-item {% if option.value == sort_by %} active {% endif %}" 
+                    data-value="{{ option.value | escape }}"
+                >
                 {{ option.name | escape }}
-            </option>
-        {%- endfor -%}
-    </select>
+                </button>
+            </li>
+            {%- endfor -%}
+        </ul>
+    </div>
 </div>
