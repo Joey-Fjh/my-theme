@@ -21,7 +21,7 @@
                             <responsive-container class="image__container">
                                 {%- if product.featured_image != blank -%}
                                     {{ product.featured_image
-                                        | image_url: width: 388, height: 564
+                                        | image_url: width: product.featured_image.width, height: product.featured_image.height
                                         | image_tag:
                                             alt: product.title
                                     }}
