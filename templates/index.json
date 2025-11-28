@@ -56,15 +56,6 @@
         "accessibility_info": "Slideshow about our brand"
       }
     },
-    "brand_banner_yNHUrN": {
-      "type": "brand-banner",
-      "name": "brand-banner",
-      "settings": {
-        "background_color": "#ffffff",
-        "is_scroll": false,
-        "scroll_direction": "left"
-      }
-    },
     "my_product_list_BMjQet": {
       "type": "my-product-list",
       "disabled": true,
@@ -507,7 +498,6 @@
   },
   "order": [
     "my_image_banner_fmWrU3",
-    "brand_banner_yNHUrN",
     "my_product_list_BMjQet",
     "my_fashion_highlights_jtVAje",
     "my_luxury_collection_iFCwkU",
