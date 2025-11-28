@@ -1,9 +1,9 @@
 .brand-banner__container{
     --brand-space: 1rem;
     --brand-animation-direction: -100%;
-    --brand-animation-speed: 2s;
+    --brand-animation-speed: 2;
     --brand-animation-state: running;
-    --brand-width: 88px;
+    --brand-width: 88;
 
     display: flex;
     justify-content: space-between;
@@ -30,7 +30,7 @@
             width: max-content;
 
             .brand-image{
-                width: var(--brand-width);
+                width: calc(var(--brand-width) * 1px);
                 display: block;
                 max-width: 100%;
                 height: auto;
