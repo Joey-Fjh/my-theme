@@ -15,7 +15,8 @@
         "image_MinDMD": {
           "type": "image",
           "settings": {
-            "link": ""
+            "image": "shopify://shop_images/20251027174425_21_94.jpg",
+            "link": "shopify://collections/睡衣"
           }
         }
       },
