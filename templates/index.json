@@ -47,6 +47,7 @@
         "image_banner_MdywmF",
         "image_banner_EVVez4"
       ],
+      "disabled": true,
       "name": "my-image-banner",
       "settings": {
         "layout": "full_bleed",
@@ -57,37 +58,6 @@
     },
     "brand_banner_yNHUrN": {
       "type": "brand-banner",
-      "blocks": {
-        "image_aNMmwW": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/9022a705161ff42b7879d88f1fd6d0e8_682e269a-e516-47cf-a736-19e9bb045b52.png"
-          }
-        },
-        "image_KVgiLg": {
-          "type": "image",
-          "settings": {}
-        },
-        "image_bhG8Rw": {
-          "type": "image",
-          "settings": {}
-        },
-        "image_TcVp6E": {
-          "type": "image",
-          "settings": {}
-        },
-        "image_P7gWiC": {
-          "type": "image",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "image_aNMmwW",
-        "image_KVgiLg",
-        "image_bhG8Rw",
-        "image_TcVp6E",
-        "image_P7gWiC"
-      ],
       "name": "brand-banner",
       "settings": {
         "background_color": "#ffffff",
@@ -97,6 +67,7 @@
     },
     "my_product_list_BMjQet": {
       "type": "my-product-list",
+      "disabled": true,
       "name": "my-product-list",
       "settings": {
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
@@ -127,104 +98,9 @@
         "padding_bottom": 36
       }
     },
-    "brand_banner_UHKtHB": {
-      "type": "brand-banner",
-      "blocks": {
-        "image_y7wUQ6": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/20251027174416_19_94.jpg"
-          }
-        },
-        "image_XMjbPH": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/logo_be09af97-1f15-4148-8d01-1b404a716a96.png"
-          }
-        },
-        "image_WQiF47": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/logo_e7eddfab-fb47-404e-b12d-4b6e5a5c9333.png"
-          }
-        },
-        "image_8Khnj3": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/logo_a97c0391-195b-470c-948e-3722838e411a.png"
-          }
-        },
-        "image_hwxTdi": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/logo_11cea99c-09af-49bb-9a2c-7e1a889a89fa.png"
-          }
-        }
-      },
-      "block_order": [
-        "image_y7wUQ6",
-        "image_XMjbPH",
-        "image_WQiF47",
-        "image_8Khnj3",
-        "image_hwxTdi"
-      ],
-      "name": "brand-banner",
-      "settings": {
-        "background_color": "#00d27d",
-        "is_scroll": false,
-        "scroll_direction": "left"
-      }
-    },
-    "brand_banner_jxteWF": {
-      "type": "brand-banner",
-      "blocks": {
-        "image_Ehyddx": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/logo.png"
-          }
-        },
-        "image_w69KY6": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/logo_be09af97-1f15-4148-8d01-1b404a716a96.png"
-          }
-        },
-        "image_y7CFM4": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/logo_e7eddfab-fb47-404e-b12d-4b6e5a5c9333.png"
-          }
-        },
-        "image_PY3PbY": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/logo_a97c0391-195b-470c-948e-3722838e411a.png"
-          }
-        },
-        "image_cGckWx": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/logo_11cea99c-09af-49bb-9a2c-7e1a889a89fa.png"
-          }
-        }
-      },
-      "block_order": [
-        "image_Ehyddx",
-        "image_w69KY6",
-        "image_y7CFM4",
-        "image_PY3PbY",
-        "image_cGckWx"
-      ],
-      "name": "brand-banner",
-      "settings": {
-        "background_color": "#dedede",
-        "is_scroll": true,
-        "scroll_direction": "right"
-      }
-    },
     "my_fashion_highlights_jtVAje": {
       "type": "my-fashion-highlights",
+      "disabled": true,
       "name": "my-fashion-highlights",
       "settings": {
         "font_color": "#50b948",
@@ -274,6 +150,7 @@
         "collection_VJ3Jig",
         "collection_L7nMz8"
       ],
+      "disabled": true,
       "name": "my-luxury-collection",
       "settings": {
         "color_scheme": "",
@@ -293,6 +170,7 @@
     },
     "my_hero_banner_6JCMYw": {
       "type": "my-hero-banner",
+      "disabled": true,
       "name": "my-hero-banner",
       "settings": {
         "color_scheme": "scheme-1",
@@ -309,6 +187,7 @@
     },
     "my_video_player_CfFJqU": {
       "type": "my-video-player",
+      "disabled": true,
       "name": "my-video-player",
       "settings": {
         "color_scheme": "scheme-3",
@@ -361,6 +240,7 @@
         "accordion_item_VJXPCT",
         "accordion_item_i4WQXw"
       ],
+      "disabled": true,
       "name": "my-image-with-text",
       "settings": {
         "color_scheme": "scheme-2",
@@ -377,6 +257,7 @@
     },
     "my_fashion_grid_layout_MtAfQU": {
       "type": "my-fashion-grid-layout",
+      "disabled": true,
       "name": "my-fashion-grid-layout",
       "settings": {
         "is_fullWidth": true,
@@ -414,6 +295,7 @@
     },
     "my_newsletter_hero_EHJQF4": {
       "type": "my-newsletter-hero",
+      "disabled": true,
       "name": "my-newsletter-hero",
       "settings": {
         "is_fullWidth": true,
@@ -445,6 +327,7 @@
       "block_order": [
         "comment_U8bLyP"
       ],
+      "disabled": true,
       "name": "my-sustainable-hero",
       "settings": {
         "is_fullWidth": false,
@@ -461,6 +344,7 @@
     },
     "my_color_comparison_aRQifX": {
       "type": "my-color-comparison",
+      "disabled": true,
       "name": "my-color-comparison",
       "settings": {
         "is_fullWidth": false,
@@ -482,6 +366,7 @@
     },
     "my_blog_carousel_Pb9fHn": {
       "type": "my-blog-carousel",
+      "disabled": true,
       "name": "my-blog-carousel",
       "settings": {
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
@@ -498,6 +383,7 @@
     },
     "my_user_comment_w84MEY": {
       "type": "my-user-comment",
+      "disabled": true,
       "name": "my-user-comment",
       "settings": {
         "color_scheme": "scheme-1",
@@ -515,6 +401,7 @@
     },
     "my_featured_blog_Wa7B4H": {
       "type": "my-featured-blog",
+      "disabled": true,
       "name": "my-featured-blog",
       "settings": {
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
@@ -563,6 +450,7 @@
         "slide_JR3XDp",
         "slide_jgDCQL"
       ],
+      "disabled": true,
       "name": "my-media-carousel",
       "settings": {
         "padding_top": 36,
@@ -593,6 +481,7 @@
         "product_YHgxCF",
         "product_DL4p64"
       ],
+      "disabled": true,
       "name": "my-promo-split",
       "settings": {
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
@@ -608,6 +497,7 @@
     },
     "google_map_mGDGqr": {
       "type": "google-map",
+      "disabled": true,
       "name": "goole-map",
       "settings": {
         "show_google_map": true,
@@ -619,8 +509,6 @@
     "my_image_banner_fmWrU3",
     "brand_banner_yNHUrN",
     "my_product_list_BMjQet",
-    "brand_banner_UHKtHB",
-    "brand_banner_jxteWF",
     "my_fashion_highlights_jtVAje",
     "my_luxury_collection_iFCwkU",
     "my_hero_banner_6JCMYw",
