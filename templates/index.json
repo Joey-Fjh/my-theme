@@ -9,6 +9,30 @@
  */
 {
   "sections": {
+    "brand_banner_bjmWC8": {
+      "type": "brand-banner",
+      "blocks": {
+        "image_MinDMD": {
+          "type": "image",
+          "settings": {
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_MinDMD"
+      ],
+      "name": "brand-banner",
+      "settings": {
+        "color_scheme": "",
+        "scroll": "none",
+        "scroll_direction": "left",
+        "scroll_speed": "normal",
+        "space": "small",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "my_image_banner_fmWrU3": {
       "type": "my-image-banner",
       "blocks": {
@@ -497,6 +521,7 @@
     }
   },
   "order": [
+    "brand_banner_bjmWC8",
     "my_image_banner_fmWrU3",
     "my_product_list_BMjQet",
     "my_fashion_highlights_jtVAje",
