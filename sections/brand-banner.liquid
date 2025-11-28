@@ -4,19 +4,35 @@
 <my-brand-banner class="brand-banner__container color-{{ section.settings.color_scheme }}
   section-{{ section.id }}-padding
   "
+  style="
+    --brand-space: {{ section.settings.space }};
+    --brand-animation-direction: {{ section.settings.scroll_direction }};
+    --brand-animation-speed: {{ section.settings.scroll_speed }};
+    --brand-animation-state: 
+      {% if section.settings.scroll == 'auto' %} 
+        running 
+      {% elsif %}
+        paused 
+      {% endif %};
+    --brand-width: {{ section.settings.content_size }};
+  "
 >
-  <div class="brand__content" data-brand-banner-element="content">
+  <div class="brand__content" 
+    data-brand-banner-element="content"
+  >
     {%- for block in section.blocks -%}
-      <div class="brand__item">
-        {{ 
-          block.settings.image
-            | image_url: width: block.settings.image.width
-            | image_tag: 
-                alt: block.settings.image.alt,
-                class: "brand-image"
-        }}
-        <a href="{{ block.settings.link }}" class="brand-link" aria-label="brand link"></a>       
-      </div>
+      {%- if block.settings.image -%}
+        <div class="brand__item">
+          {{ 
+            block.settings.image
+              | image_url: width: block.settings.image.width
+              | image_tag: 
+                  alt: block.settings.image.alt,
+                  class: "brand-image"
+          }}
+          <a href="{{ block.settings.link }}" class="brand-link" aria-label="brand link"></a>       
+        </div>
+      {%- endif -%}
     {%- endfor -%}
   </div>
 </my-brand-banner>
@@ -32,6 +48,15 @@
         "id": "color_scheme",
         "label": "Color Scheme",
         "default": "scheme-1"
+      },
+      {
+        "type":"range",
+        "id": "content_size",
+        "label": "Content Size",
+        "min": 100,
+        "max": 500,
+        "step": 1,
+        "default": 150
       },
       {
         "type": "select",
