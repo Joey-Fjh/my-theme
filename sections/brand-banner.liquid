@@ -1,53 +1,26 @@
 {{ 'brand-banner.css' | asset_url | stylesheet_tag  }}
 <script src="{{ 'my-brand-banner.js' | asset_url }}" type="module" defer></script>
 
-{%- liquid
-  assign scroll_direction = section.settings.scroll_direction
-  assign is_scroll = section.settings.is_scroll
--%}
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
 
-{%- capture background_color -%}
-  {{ section.settings.background_color }}
-{%- endcapture -%}
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
 
-{%- capture image_slide_placeholder -%}
-  {% for block in section.blocks %}
-    {%- if block.settings.image -%}
-      {{
-          block.settings.image
-          | image_url: width: block.settings.image.width
-          | image_tag:
-              alt: block.settings.image.alt,
-              class: 'image'
-      }}
-    {%- else -%}
-      {{ 'image' | placeholder_svg_tag: 'my-placeholder-svg' }}
-    {%- endif -%}
-  {% endfor %}
-{%- endcapture -%}
-
-<my-brand-banner class="brand-banner__container" data-scroll-direction="{{ scroll_direction }}" 
-  data-is-scroll="{{ is_scroll }}"
+<my-brand-banner class="brand-banner__container color-{{ section.settings.color_scheme }}
+  section-{{ section.id }}-padding
+  "
 >
-  <div class="wrapper" style="background-color: {{ background_color }};">
-    <div class="brand-banner__bgd" id="bannerTrack">
-      {%- if is_scroll and scroll_direction == 'right' -%}
-        <div class="image-wrapper image-slide right"
-        >
-          {{ image_slide_placeholder }}
-        </div>
-      {%- endif -%}
-      
-      <div class="image-wrapper">
-        {{ image_slide_placeholder }}
-      </div>
-
-      {%- if is_scroll and scroll_direction == 'left' -%}
-        <div class="image-wrapper image-slide">
-          {{ image_slide_placeholder }}
-        </div>
-      {%- endif -%}
-    </div>
+  <div class="brand__content">
+    <div class="brand__item"></div>
   </div>
 </my-brand-banner>
 
@@ -58,49 +31,132 @@
     "class": "section",
     "settings": [
       {
-        "type": "color",
-        "id": "background_color",
-        "label": "Background Color",
-        "default": "#ffffff"
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "Color Scheme",
+        "default": "scheme-1"
       },
       {
-        "type": "checkbox",
-        "id": "is_scroll",
-        "label": "Is Scroll",
-        "default":false
+        "type": "select",
+        "id": "scroll",
+        "label": "Scroll Type",
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "auto",
+            "label": "Auto"
+          },
+          {
+            "value": "scroll",
+            "label": "Scroll"
+          }
+        ],
+        "default": "none"
       },
       {
-        "type": "radio",
+        "type": "select",
         "id": "scroll_direction",
         "label": "Scroll Direction",
         "options": [
-            { "value": "left", "label": "left" },
-            { "value": "right", "label": "right" }
-          ],
-        "default": "left"
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "lefet",
+      },
+      {
+        "type": "select",
+        "id": "scroll_speed",
+        "label": "Scroll Speed",
+        "options": [
+          {
+            "value": "slow",
+            "label": "Slow"
+          },
+          {
+            "value": "normal",
+            "label": "Normal"
+          },
+          {
+            "value": "fast",
+            "label": "Fast"
+          }
+        ],
+        "default": "normal"
+      },
+      {
+        "type": "select",
+        "id": "space",
+        "label": "Space",
+        "options": [
+          {
+            "value": "small",
+            "label": "Small"
+          },
+          {
+            "value": "medium",
+            "label": "Medium"
+          },
+          {
+            "value": "large",
+            "label": "Large"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Padding"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding Top",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding Bottom",
+        "default": 0
       }
     ],
     "blocks": [
-        {
-            "type": "image",
-            "name": "Image",
-            "settings": [
-                {
-                    "type": "image_picker",
-                    "id": "image",
-                    "label": "Image",
-                }
-            ]
-        }
+      {
+        "type": "image",
+        "name": "Image",
+        "settings": [
+            {
+              "type": "image_picker",
+              "id": "image",
+              "label": "Image",
+            },
+            {
+              "type": "url",
+              "id": "link",
+              "label": "Link"
+            }
+        ]
+      }
     ],
     "presets": [
       {
         "name": "brand-banner",
-        "settings": {
-          "background_color": "#ffffff",
-          "is_scroll": false,
-          "scroll_direction": "left"
-        },
         "blocks": [
           {
             "type": "image"
