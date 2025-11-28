@@ -1,3 +1,58 @@
 .brand-banner__container{
-    margin: auto;
+    --brand-space: 1rem;
+    --brand-animation-direction: -100%;
+    --brand-animation-speed: 2s;
+    --brand-animation-state: paused;
+    --brand-width: 70px;
+
+    display: flex;
+    justify-content: space-between;
+    overflow-x: hidden;
+    user-select: none;
+    padding-block: min(var(--brand-space) * 1.5 , 2rem);
+
+    .brand__content{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-shrink: 0;
+        padding-right: var(--brand-space);
+
+        animation: brand linear both;
+        animation-duration: calc(var(--brand-width) * 1s / 30 * var(--brand-animation-speed , 1));
+        animation-iteration-count: infinite;
+        animation-play-state: var(--brand-animation-state,running);
+
+        .brand__item{
+            position: relative;
+            flex-shrink: 0;
+            width: max-content;
+
+            .brand-image{
+                width: var(--brand-width);
+                display: block;
+                max-width: 100%;
+                height: auto;
+            }
+
+            .brand-link
+            {
+                position: absolute;
+                display: block;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+            }
+        }
+    }
+
+    @keyframes brand {
+        to {
+            transform: translateX(var(--brand-animation-direction));
+        }
+    }
 }

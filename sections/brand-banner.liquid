@@ -20,7 +20,18 @@
   "
 >
   <div class="brand__content">
-    <div class="brand__item"></div>
+    <div class="brand__item">
+      {%- for block in section.blocks -%}
+        {{ 
+          block.settings.image
+            | image_url: width: block.settings.image.width
+            | image_tag: 
+                alt: block.settings.image.alt,
+                class: "brand-image"
+        }}
+        <a href="{{ block.settings.link }}" class="brand-link" aria-label="brand link"></a>       
+      {%- endfor -%}
+    </div>
   </div>
 </my-brand-banner>
 
@@ -48,10 +59,6 @@
           {
             "value": "auto",
             "label": "Auto"
-          },
-          {
-            "value": "scroll",
-            "label": "Scroll"
           }
         ],
         "default": "none"
@@ -62,11 +69,11 @@
         "label": "Scroll Direction",
         "options": [
           {
-            "value": "left",
+            "value": "-100%",
             "label": "Left"
           },
           {
-            "value": "right",
+            "value": "100%",
             "label": "Right"
           }
         ],
@@ -78,15 +85,15 @@
         "label": "Scroll Speed",
         "options": [
           {
-            "value": "slow",
+            "value": "3s",
             "label": "Slow"
           },
           {
-            "value": "normal",
+            "value": "2s",
             "label": "Normal"
           },
           {
-            "value": "fast",
+            "value": "1s",
             "label": "Fast"
           }
         ],
@@ -98,15 +105,15 @@
         "label": "Space",
         "options": [
           {
-            "value": "small",
+            "value": "1rem",
             "label": "Small"
           },
           {
-            "value": "medium",
+            "value": "2rem",
             "label": "Medium"
           },
           {
-            "value": "large",
+            "value": "3rem",
             "label": "Large"
           }
         ]
