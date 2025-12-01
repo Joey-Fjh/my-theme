@@ -25,7 +25,7 @@
         "collection": "女士衣服",
         "title": "You'll Love This Too",
         "heading_size": "h1",
-        "text_align": "right",
+        "text_align": "center",
         "columns_desktop": 4,
         "columns_mobile": "2",
         "full_width": false,
