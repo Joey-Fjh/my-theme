@@ -13,11 +13,11 @@
 {% endcomment %}
 
 {%- if ratio == nil -%}
-    ratio = "1 / 1"
+    {%- assign ratio = "1 / 1" -%}
 {%- endif -%}
 
 {%- if has_quick_add == nil -%}
-    has_quick_add = false
+    {%- assign has_quick_add = false -%} 
 {%- endif -%}
 
 {%- assign current_variant = product -%}
