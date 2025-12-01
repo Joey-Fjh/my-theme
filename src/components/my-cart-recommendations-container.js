@@ -2,6 +2,16 @@ import { LitElement,html,css } from "lit";
 import Swiper from "swiper";
 
 export class MyCartRecommendationsContainer extends LitElement{
+    static properties = {
+        slidesView: {
+            type: Number,
+            converter: (value) => Number(value)  
+        },
+        slidesMobileView: {
+            type: Number,
+            converter: (value) => Number(value)
+        }
+    }
 
     static styles = [
         css`
@@ -17,9 +27,14 @@ export class MyCartRecommendationsContainer extends LitElement{
         super.connectedCallback();
 
         new Swiper(".swiper",{
-            slidesPerView: 4,
+            slidesPerView: this.slidesView,
             spaceBetween: 20,
-            freeMode: true
+            freeMode: true,
+            breakpoints: {
+                768: {
+                    slidesPerView: this.slidesMobileView,
+                }
+            }
         });
     }
 

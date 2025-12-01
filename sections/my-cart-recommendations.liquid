@@ -31,7 +31,11 @@
         <h1 class="title inline-richtext {{ section.settings.heading_size }}">{{ section.settings.title }}</h1>
     </div>
 
-    <my-cart-recommendations-container class="my-swiper-container {% unless section.settings.full_width %} my-page-width {% endunless %}">
+    <my-cart-recommendations-container 
+        class="my-swiper-container {% unless section.settings.full_width %} my-page-width {% endunless %}"
+        slidesView="{{ section.settings.columns_desktop }}"
+        slidesMobileView="{{ section.settings.columns_mobile }}"
+    >
         <div class="swiper">
             <div class="swiper-wrapper bottom">   
                 {% for product in section.settings.collection.products %}
