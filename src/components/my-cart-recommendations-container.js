@@ -27,12 +27,12 @@ export class MyCartRecommendationsContainer extends LitElement{
         super.connectedCallback();
 
         new Swiper(".swiper",{
-            slidesPerView: this.slidesView,
+            slidesPerView: this.slidesMobileView,
             spaceBetween: 20,
             freeMode: true,
             breakpoints: {
                 768: {
-                    slidesPerView: this.slidesMobileView,
+                    slidesPerView: this.slidesView
                 }
             }
         });
