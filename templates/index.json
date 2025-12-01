@@ -9,19 +9,19 @@
  */
 {
   "sections": {
-    "brand_banner_wDmAb3": {
+    "brand_banner_by84Uk": {
       "type": "brand-banner",
       "blocks": {
-        "image_3W8mfq": {
+        "image_q8efNg": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/20251027174416_19_94.jpg",
+            "image": "shopify://shop_images/20251027174425_21_94.jpg",
             "link": ""
           }
         }
       },
       "block_order": [
-        "image_3W8mfq"
+        "image_q8efNg"
       ],
       "name": "brand-banner",
       "settings": {
@@ -521,7 +521,7 @@
     }
   },
   "order": [
-    "brand_banner_wDmAb3",
+    "brand_banner_by84Uk",
     "my_image_banner_fmWrU3",
     "my_product_list_BMjQet",
     "my_fashion_highlights_jtVAje",
