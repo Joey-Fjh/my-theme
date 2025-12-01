@@ -9,27 +9,27 @@
  */
 {
   "sections": {
-    "brand_banner_by84Uk": {
+    "brand_banner_pcJjtU": {
       "type": "brand-banner",
       "blocks": {
-        "image_q8efNg": {
+        "image_PzWx8p": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/20251027174425_21_94.jpg",
+            "image": "shopify://shop_images/20251027174416_19_94.jpg",
             "link": ""
           }
         }
       },
       "block_order": [
-        "image_q8efNg"
+        "image_PzWx8p"
       ],
       "name": "brand-banner",
       "settings": {
         "color_scheme": "",
         "content_size": 150,
-        "scroll": "auto",
-        "scroll_direction": "normal",
-        "scroll_speed": "2",
+        "scroll": "none",
+        "scroll_direction": "reverse",
+        "scroll_speed": "0.5",
         "space": "2rem"
       }
     },
@@ -521,7 +521,7 @@
     }
   },
   "order": [
-    "brand_banner_by84Uk",
+    "brand_banner_pcJjtU",
     "my_image_banner_fmWrU3",
     "my_product_list_BMjQet",
     "my_fashion_highlights_jtVAje",
