@@ -1,4 +1,5 @@
 {{ 'my-cart-recommendations.css' | asset_url | stylesheet_tag  }}
+{{ 'my-product-card.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'my-cart-recommendations-container.js' | asset_url }}" type="module"></script>
 <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
 
@@ -21,74 +22,11 @@
                         quick_add_modal:"#my-cart-recommendations-PopupModal" 
                     -%}    
                 {% endfor %}
-
-
-
-
-
-                {% comment %} {%- for product in section.settings.collection.products -%}
-                    {%- unless product == nil  -%}
-                        {%- assign placeholder_image_index = forloop.index0 | modulo: 4 | plus: 1 -%}
-                        {%- assign placeholder_image = "product-apparel-" | append: placeholder_image_index -%}
-
-
-                        <div class="my-product-card swiper-slide">
-                            <responsive-container class="image__container">
-                                {%- if product.featured_image != blank -%}
-                                    {{ product.featured_image
-                                        | image_url: width: product.featured_image.width, height: product.featured_image.height
-                                        | image_tag:
-                                            alt: product.title
-                                    }}
-                                {%- else -%}
-                                    {{ placeholder_image | placeholder_svg_tag:"placeholder-svg" }}
-                                {%- endif -%}
-
-                                {%- if product.price != blank or product.compare_at_price != blank -%}
-                                    {%- if product.compare_at_price > product.price and product.compare_at_price > 0 -%}
-                                        {%- assign percent = product.price | times: 100 | divided_by: product.compare_at_price -%}
-                                        {%- assign discount = 100 | minus: percent | prepend: '-' | append: '%' -%}
-                                    {%- else -%}
-                                        {%- assign discount = 0 | append: '%' -%}
-                                    {%- endif -%}
-                                    <div class="sale">
-                                        SALE {{ discount }} OFF
-                                    </div>
-                                {% endif %}
-                                
-                                <modal-opener 
-                                    class="opener"
-                                    data-modal="#my-cart-recommendations-PopupModal"
-                                >
-                                    <button
-                                        class="quick-view-btn"
-                                        type="button"
-                                        aria-haspopup="dialog"
-                                        data-product-url="{{ product.url }}"
-                                    >
-                                        Quick View
-                                        {%- render 'loading-spinner' -%}
-                                    </button>
-                                </modal-opener>
-                            </responsive-container>
-                            
-                            {%- if product.title != blank -%}
-                                <h2>{{ product.title }}</h2>
-                            {%- endif -%}
-                            {%- if product.price != blank or product.compare_at_price != blank -%}
-                                <div>
-                                    <span class="my-price h2">{{ product.price | money }}</span>
-                                    <span class="my-compare-price h4">{{ product.compare_at_price | money }}</span>
-                                </div>
-                            {%- endif -%}
-                        </div>    
-                    {%- endunless -%}
-                {%- endfor -%} {% endcomment %}
             </div>
         </div>
     </my-cart-recommendations-container>
 
-    {% comment %} {%- if section.settings.collection != nil and section.settings.collection.products_count > 0 -%}
+    {%- if section.settings.collection != nil and section.settings.collection.products_count > 0 -%}
         <quick-add-modal
             id="my-cart-recommendations-PopupModal"
             class="cart-recommendations-modal"
@@ -111,7 +49,7 @@
                 </div>
             </div>
         </quick-add-modal>
-    {%- endif -%} {% endcomment %}
+    {%- endif -%}
 </responsive-container>
 
 {% schema %}
