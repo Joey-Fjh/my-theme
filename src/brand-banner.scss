@@ -1,6 +1,6 @@
 .brand-banner__container{
     --brand-space: 1rem;
-    --brand-animation-direction: -100%;
+    --brand-animation-direction: normal;
     --brand-animation-speed: 2;
     --brand-animation-state: running;
     --brand-width: 88;
@@ -20,6 +20,7 @@
         padding-right: var(--brand-space);
 
         animation: brand linear both;
+        animation-direction: var(--brand-animation-direction);
         animation-duration: calc(var(--brand-width) * 1s / 30 * var(--brand-animation-speed , 1));
         animation-iteration-count: infinite;
         animation-play-state: var(--brand-animation-state,running);
