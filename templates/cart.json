@@ -21,11 +21,11 @@
       "type": "my-cart-recommendations",
       "name": "my-cart-recommendations",
       "settings": {
-        "color_scheme": "",
+        "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
         "collection": "女士衣服",
         "title": "You'll Love This Too",
         "heading_size": "h1",
-        "text_align": "center",
+        "text_align": "right",
         "columns_desktop": 4,
         "columns_mobile": "2",
         "full_width": false,
