@@ -13,8 +13,6 @@
   {% render 'my-product-card' product: product, ratio: ratio %}
 {% endcomment %}
 
-{{ 'my-product-card.css' | asset_url | stylesheet_tag }}
-
 {%- if ratio == nil -%}
     {%- assign ratio = "1 / 1" -%}
 {%- endif -%}
