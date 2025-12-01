@@ -6,6 +6,7 @@
   - ratio: {String} Image ratio
   - has_quick_add: {Boolean} The quick add modal is show(Optional). Default is false.
   - show_secondary_image: {Boolean} Show the secondary image on hover. Default: false (optional)
+  - isSwiper: {Boolean} Is swiper. Default: false (optional)
 
   Usage:
   {% render 'my-product-card' product: product, ratio: ratio %}
@@ -24,7 +25,10 @@
     {%- assign current_variant = product.selected_or_first_available_variant -%}
 {%- endif -%}
 
-<my-product-card class="product-card__container" data-product-url="{{ product.url }}">
+<my-product-card 
+    class="product-card__container {% if isSwiper %} swiper-slide {% endif %}" 
+    data-product-url="{{ product.url }}"
+>
     <responsive-container class="product-card__image 
         {% if section.settings.show_operation == 'hover' %} product-card__image-hover {% endif %}
         "
