@@ -1,4 +1,5 @@
 {{ 'my-product-list.css' | asset_url | stylesheet_tag }}
+{{ 'my-product-card.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
 
 {%- style -%}
@@ -123,7 +124,8 @@
                     product: product, 
                     ratio: ratio, 
                     has_quick_add: has_quick_add,
-                    show_secondary_image: section.settings.show_secondary_image 
+                    show_secondary_image: section.settings.show_secondary_image,
+                    quick_add_modal:"#my-product-list-PopupModal" 
                 -%}    
             {% endfor %}
         {%- endif -%}

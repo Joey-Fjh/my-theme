@@ -4,13 +4,16 @@
   Accepts:
   - product: {Object} Product object
   - ratio: {String} Image ratio
-  - has_quick_add: {Boolean} The quick add modal is show(Optional). Default is false.
+  - has_quick_add: {Boolean} The quick add modal is show(optional). Default is false.
   - show_secondary_image: {Boolean} Show the secondary image on hover. Default: false (optional)
   - is_swiper: {Boolean} Is swiper. Default: false (optional)
+  - quick_add_modal: { String } Modal id (optional)
 
   Usage:
   {% render 'my-product-card' product: product, ratio: ratio %}
 {% endcomment %}
+
+{{ 'my-product-card.css' | asset_url | stylesheet_tag }}
 
 {%- if ratio == nil -%}
     {%- assign ratio = "1 / 1" -%}
@@ -22,6 +25,10 @@
 
 {%- if is_swiper == nil -%}
     {%- assign is_swiper = false -%}
+{%- endif -%}
+
+{%- if quick_add_modal == nil -%}
+    {%- assign quick_add_modal = '' -%}
 {%- endif -%}
 
 {%- assign current_variant = product -%}
@@ -87,7 +94,7 @@
         {%- if has_quick_add -%}
             <modal-opener 
                 class="opener"
-                data-modal="#my-product-list-PopupModal"
+                data-modal="{{ quick_add_modal }}"
             >
                 <button
                     class="quick-view-btn"
