@@ -21,8 +21,27 @@
       "type": "my-cart-recommendations",
       "name": "my-cart-recommendations",
       "settings": {
+        "color_scheme": "",
+        "collection": "女士衣服",
         "title": "You'll Love This Too",
-        "collection": "女士衣服"
+        "heading_size": "h1",
+        "text_align": "center",
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "full_width": false,
+        "product_title_size": "h3",
+        "product_title_bold": false,
+        "show_secondary_image": false,
+        "quick_add": "none",
+        "badge_color": "",
+        "show_badge_text": false,
+        "badge_text": "BEST SELLER",
+        "show_operation": "none",
+        "alignment": "center",
+        "color_swatch_trigger": "Color",
+        "size_trigger": "Size",
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     }
   },
