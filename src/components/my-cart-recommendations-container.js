@@ -17,8 +17,8 @@ export class MyCartRecommendationsContainer extends LitElement{
         super.connectedCallback();
 
         new Swiper(".swiper",{
-            slidesPerView: '4',
-            spaceBetween: 18,
+            slidesPerView: 4,
+            spaceBetween: 20,
             freeMode: true
         });
     }
