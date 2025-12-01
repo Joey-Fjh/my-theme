@@ -9,35 +9,28 @@
  */
 {
   "sections": {
-    "brand_banner_bjmWC8": {
+    "brand_banner_wDmAb3": {
       "type": "brand-banner",
       "blocks": {
-        "image_dicjwQ": {
+        "image_3W8mfq": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/20251027174416_19_94.jpg",
             "link": ""
           }
-        },
-        "image_MinDMD": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/20251027174425_21_94.jpg",
-            "link": "shopify://collections/睡衣"
-          }
         }
       },
       "block_order": [
-        "image_dicjwQ",
-        "image_MinDMD"
+        "image_3W8mfq"
       ],
       "name": "brand-banner",
       "settings": {
         "color_scheme": "",
-        "scroll": "none",
-        "scroll_direction": "left",
-        "scroll_speed": "normal",
-        "space": "small"
+        "content_size": 150,
+        "scroll": "auto",
+        "scroll_direction": "normal",
+        "scroll_speed": "2",
+        "space": "2rem"
       }
     },
     "my_image_banner_fmWrU3": {
@@ -528,7 +521,7 @@
     }
   },
   "order": [
-    "brand_banner_bjmWC8",
+    "brand_banner_wDmAb3",
     "my_image_banner_fmWrU3",
     "my_product_list_BMjQet",
     "my_fashion_highlights_jtVAje",
