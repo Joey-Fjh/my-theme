@@ -18,18 +18,10 @@
             "banner_image": "shopify://shop_images/9022a705161ff42b7879d88f1fd6d0e8.png",
             "title": "About Us"
           }
-        },
-        "banner_info_Uccw8a": {
-          "type": "banner-info",
-          "settings": {
-            "title": "Why Choose Us",
-            "description": "<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use<br/><br/></p>"
-          }
         }
       },
       "block_order": [
-        "image_AyNhYe",
-        "banner_info_Uccw8a"
+        "image_AyNhYe"
       ],
       "settings": {
         "title": "<strong>About Us</strong>",
