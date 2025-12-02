@@ -1,0 +1,421 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "icon_with_text_ARndHb": {
+          "type": "icon-with-text",
+          "settings": {
+            "show_under_product": true,
+            "layout": "horizontal",
+            "icon_1": "heart",
+            "heading_1": "Display",
+            "description_1": "<p>6.3\" Super Retina XDR<\/p>",
+            "icon_2": "return",
+            "heading_2": "CPU",
+            "description_2": "<p>6.3\" Super Retina XDR<\/p>",
+            "icon_3": "truck",
+            "heading_3": "Camera",
+            "description_3": "<p>6.3\" Super Retina XDR<\/p>"
+          }
+        },
+        "table_text_rEjbJc": {
+          "type": "table-text",
+          "settings": {
+            "show_under_product": true,
+            "thead1": "Model",
+            "tcontent1": "<p>MW08 Sport<\/p>",
+            "thead2": "Dimensions",
+            "tcontent2": "<p>21.19mm x 20.22mm x 25.08mm<\/p>",
+            "thead3": "Driver",
+            "tcontent3": "<p>11mm Beryllium<\/p>",
+            "thead4": "Weight",
+            "tcontent4": "<p>Sport Earphones: 8.6g each, Charging Case: 56g<\/p>",
+            "thead5": "Materials",
+            "tcontent5": "<p>Sapphire glass sport earbuds \/Kevlar® fiber case<\/p>",
+            "thead6": "BatteryLife",
+            "tcontent6": "<p>Up to 12 hours playtime \/ 10 hours with ANC or Ambient Listening<\/p>"
+          }
+        },
+        "text_Gt6QjB": {
+          "type": "text",
+          "settings": {
+            "text": "Cloth",
+            "text_style": "body"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "text_fp4KLE": {
+          "type": "text",
+          "settings": {
+            "text": "A type of casual shorts, typically for men, with multiple pockets for function. Sundress with drawstring: A loose-fitting, sleeveless dress, often for women, with a drawstring at the waist for adjustability and a relaxed silhouette.",
+            "text_style": "body"
+          }
+        },
+        "inventory_MApFhW": {
+          "type": "inventory",
+          "settings": {
+            "text_style": "body",
+            "inventory_threshold": 10,
+            "show_inventory_quantity": true
+          }
+        },
+        "cutdown_timer_hEdxDx": {
+          "type": "cutdown_timer",
+          "settings": {
+            "text_color": "#cc4242",
+            "bgc_color": "#ffffff",
+            "text": "Sales end in:",
+            "target_date": "2025-11-24 13:32"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "payment_icons_xrXTrB": {
+          "type": "payment_icons",
+          "settings": {
+            "show_payment": true,
+            "payment_type": "custom",
+            "show_payment_visa": true,
+            "show_payment_master": true,
+            "show_payment_maestro": true,
+            "show_payment_american_express": true,
+            "show_payment_apple_pay": false,
+            "show_payment_bitcoin": true,
+            "show_payment_dankort": false,
+            "show_payment_diners_club": false,
+            "show_payment_discover": false,
+            "show_payment_paypal": false,
+            "show_payment_dogecoin": false,
+            "show_payment_dwolla": false,
+            "show_payment_forbrugsforeningen": false,
+            "show_payment_jcb": false,
+            "show_payment_litecoin": false,
+            "show_payment_afterpay": false,
+            "show_payment_google_pay": false,
+            "show_payment_ideal": false,
+            "show_payment_klarna": false,
+            "show_payment_klarna-pay-later": false,
+            "show_payment_shopify_pay": false,
+            "show_payment_sofort": false
+          }
+        },
+        "complementary_fFGTBN": {
+          "type": "complementary",
+          "settings": {
+            "block_heading": "Pairs well with",
+            "make_collapsible_row": true,
+            "icon": "apple",
+            "product_list_limit": 10,
+            "products_per_page": 3,
+            "pagination_style": "dots",
+            "image_ratio": "square",
+            "enable_quick_add": false
+          }
+        }
+      },
+      "block_order": [
+        "icon_with_text_ARndHb",
+        "table_text_rEjbJc",
+        "text_Gt6QjB",
+        "title",
+        "text_fp4KLE",
+        "inventory_MApFhW",
+        "cutdown_timer_hEdxDx",
+        "price",
+        "variant_picker",
+        "buy_buttons",
+        "payment_icons_xrXTrB",
+        "complementary_fFGTBN"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "mobile_thumbnails": "hide",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "Customers also purchased",
+        "heading_size": "h1",
+        "sub_heading": "Related Products",
+        "head_align": "center",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "grid_layout_ggAHpP": {
+      "type": "grid-layout",
+      "blocks": {
+        "image_item_cwHnWM": {
+          "type": "image_item",
+          "settings": {
+            "column": 2,
+            "row": 1,
+            "image_opacity": 100,
+            "image_fit": "cover",
+            "content_position": "top-left",
+            "mobile_content_position": "left",
+            "text_align": "center",
+            "heading": "<strong>Technology at your fingertips<\/strong>",
+            "text_size": "h2",
+            "description": "<p>Elevate your daily look with a blend of chic aesthetics and robust functionality.<\/p>",
+            "text_color": "#8b3232"
+          }
+        },
+        "image_item_iijg8W": {
+          "type": "image_item",
+          "settings": {
+            "column": 2,
+            "row": 2,
+            "image_opacity": 0,
+            "image_fit": "cover",
+            "content_position": "middle-center",
+            "mobile_content_position": "left",
+            "text_align": "center",
+            "heading": "",
+            "text_size": "h2",
+            "description": "",
+            "text_color": "#ffffff"
+          }
+        },
+        "image_item_cY8jRQ": {
+          "type": "image_item",
+          "settings": {
+            "column": 2,
+            "row": 2,
+            "image_opacity": 0,
+            "image_fit": "cover",
+            "content_position": "middle-center",
+            "mobile_content_position": "left",
+            "text_align": "center",
+            "heading": "",
+            "text_size": "h2",
+            "description": "",
+            "text_color": "#ffffff"
+          }
+        },
+        "image_item_k44ddb": {
+          "type": "image_item",
+          "settings": {
+            "column": 2,
+            "row": 2,
+            "image_opacity": 0,
+            "image_fit": "cover",
+            "content_position": "middle-center",
+            "mobile_content_position": "left",
+            "text_align": "center",
+            "heading": "",
+            "text_size": "h2",
+            "description": "",
+            "text_color": "#ffffff"
+          }
+        },
+        "image_item_w3dEhX": {
+          "type": "image_item",
+          "settings": {
+            "column": 2,
+            "row": 1,
+            "image_opacity": 0,
+            "image_fit": "cover",
+            "content_position": "middle-center",
+            "mobile_content_position": "left",
+            "text_align": "center",
+            "heading": "",
+            "text_size": "h2",
+            "description": "",
+            "text_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "image_item_cwHnWM",
+        "image_item_iijg8W",
+        "image_item_cY8jRQ",
+        "image_item_k44ddb",
+        "image_item_w3dEhX"
+      ],
+      "name": "Grid Layout",
+      "settings": {
+        "layout": "page_width",
+        "row_height": 24,
+        "max_columns": 4,
+        "desktop_column_gap": 12,
+        "mobile_column_gap": 0,
+        "border_radius": 6,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "my_image_with_text2_nx96A9": {
+      "type": "my-image-with-text2",
+      "name": "my-image-with-text2",
+      "settings": {
+        "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
+        "text_size": "h1",
+        "heading": "<strong>The Future of Everyday Tech<\/strong>",
+        "description": "<p>From epic game nights to deep-focus playlists and rugged outdoor adventures — today’s gadgets are more powerful, personal, and versatile than ever.<br\/>Level up your everyday with devices designed to entertain, connect, and adapt to your lifestyle. Whether it’s for family fun, fitness goals, or immersive escapes — we’ve got the gear that fits.<\/p>",
+        "image1": "shopify:\/\/shop_images\/20251027174425_21_94.jpg",
+        "image2": "shopify:\/\/shop_images\/1.jpg",
+        "image3": "shopify:\/\/shop_images\/20251027170838_16_94.png"
+      }
+    },
+    "tab_control_T3wFJg": {
+      "type": "tab-control",
+      "blocks": {
+        "tab_item_RTfWbT": {
+          "type": "_tab-item",
+          "settings": {
+            "title": "Description"
+          },
+          "blocks": {
+            "custom_richtext_MKiiCn": {
+              "type": "custom-richtext",
+              "name": "Text & Liquid",
+              "settings": {
+                "content": "<p>Nodding to retro styles, this Hyperbola T-shirt is defined by its off-the-shoulder design. It's spun from a green stretch cotton jersey and adorned with an embroidered AC logo on the front, a brand's signature.<\/p>",
+                "custom_code": ""
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "custom_richtext_MKiiCn"
+          ]
+        },
+        "tab_item_gmtbBk": {
+          "type": "_tab-item",
+          "name": "Tab Item",
+          "settings": {
+            "title": "Customer Reviews"
+          },
+          "blocks": {
+            "customer_comment_xExfDN": {
+              "type": "customer-comment",
+              "name": "customer-comment",
+              "settings": {
+                "user_comments": [
+                  "user-comment-ku1cxxnh",
+                  "user-comment-fq1of1x3",
+                  "user-comment-0t7wsrqq",
+                  "user-comment-gs1wqfgi"
+                ]
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "customer_comment_xExfDN"
+          ]
+        },
+        "tab_item_pyHXNJ": {
+          "type": "_tab-item",
+          "name": "Tab Item",
+          "settings": {
+            "title": "Shipping & Returns"
+          },
+          "blocks": {
+            "custom_richtext_nH7gXM": {
+              "type": "custom-richtext",
+              "name": "Text & Liquid",
+              "settings": {
+                "content": "<p>Shipping & Returns<\/p>",
+                "custom_code": ""
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "custom_richtext_nH7gXM"
+          ]
+        },
+        "tab_item_wqzyfC": {
+          "type": "_tab-item",
+          "name": "Tab Item",
+          "settings": {
+            "title": "Return Policies"
+          },
+          "blocks": {
+            "custom_richtext_xmttC9": {
+              "type": "custom-richtext",
+              "name": "Text & Liquid",
+              "settings": {
+                "content": "<p>Return Policies<\/p>",
+                "custom_code": ""
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "custom_richtext_xmttC9"
+          ]
+        }
+      },
+      "block_order": [
+        "tab_item_RTfWbT",
+        "tab_item_gmtbBk",
+        "tab_item_pyHXNJ",
+        "tab_item_wqzyfC"
+      ],
+      "name": "Tab Control",
+      "settings": {
+        "color_scheme": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "related-products",
+    "grid_layout_ggAHpP",
+    "my_image_with_text2_nx96A9",
+    "tab_control_T3wFJg"
+  ]
+}
