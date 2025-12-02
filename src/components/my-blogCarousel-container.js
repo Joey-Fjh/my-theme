@@ -25,6 +25,8 @@ export class MyBlogCarouselContainer extends LitElement {
             modules: [Pagination],              
             slidesPerView: 1,     
             spaceBetween: 10,
+            slidesOffsetBefore:20,
+            slidesOffsetAfter:20,
             breakpoints: {
                 750: {
                     slidesPerView: 2,
