@@ -21,10 +21,21 @@
             "title": "About Esen",
             "subtitle": "123"
           }
+        },
+        "content_CBP7Bn": {
+          "type": "content",
+          "settings": {
+            "is_fullWidth": false,
+            "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
+            "title": "About Esen",
+            "content": "<p>123</p>",
+            "align": "left"
+          }
         }
       },
       "block_order": [
-        "image_Q9MKAk"
+        "image_Q9MKAk",
+        "content_CBP7Bn"
       ],
       "settings": {
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
