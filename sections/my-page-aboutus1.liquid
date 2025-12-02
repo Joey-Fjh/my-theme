@@ -18,11 +18,14 @@
     {%- endif -%}
 
     <div class="wrapper">
-      <div class="content">
-        <div class="title h0">
+      <div class="content text-{{ section.settings.alignment }}">
+        {%- assign number = banner_image_block.settings.text_size | slice: 1 -%}
+        {%- assign size = number | plus: 1 -%}
+
+        <div class="title {{ banner_image_block.settings.text_size }}">
           {{ banner_image_block.settings.title }}
         </div>
-        <div class="subtitle">
+        <div class="subtitle {{ banner_image_block.settings.text_size | slice: 0 | append: size }}">
           {{ banner_image_block.settings.subtitle }}
         </div>
       </div>
@@ -86,6 +89,46 @@
             "type": "image_picker",
             "id": "banner_image",
             "label": "Banner Image"
+          },
+          {
+            "type": "select",
+            "id": "text_size",
+            "label": "Text Size",
+            "options": [
+              {
+                "value": "h2",
+                "label": "Small"
+              },
+              {
+                "value": "h1",
+                "label": "Medium"
+              },
+              {
+                "value": "h0",
+                "label": "Large"
+              }
+            ],
+            "default":"h1"
+          },
+          {
+            "type": "select",
+            "id":"alignment",
+            "label": "Alignment",
+            "options": [
+                {
+                    "value": "left",
+                    "label": "Left"
+                },
+                {
+                    "value": "center",
+                    "label": "Center"
+                },
+                {
+                    "value": "right",
+                    "label": "Right"
+                }
+            ],
+            "default":"center"
           },
           {
             "type": "inline_richtext",
