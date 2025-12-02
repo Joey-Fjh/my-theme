@@ -6,7 +6,7 @@
 -%}
 
 <responsive-container class="my-page-aboutus2__container">
-  <div class="top-info__container">
+  <div class="top-info__container my-page-width color-{{ section.settings.color_scheme }}">
     <div class="title h1">
       {{ section.settings.title }}
     </div>
@@ -22,7 +22,7 @@
     </div>
   </div>
 
-  <div class="banner__container">
+  <div class="banner__container color-{{ banner_image_block.settings.color_scheme }}">
     <responsive-container class="banner-image__container">
       {%- if banner_image_block.settings.banner_image != blank -%}
         {{ 
@@ -40,7 +40,7 @@
       </div>
     </responsive-container>
 
-    <div class="banner-info">
+    <div class="banner-info color-{{ banner_info_block.settings.color_scheme }}">
         <div class="info-title h1">
           {{ banner_info_block.settings.title }}
         </div>
@@ -57,6 +57,12 @@
     "tag": "section",
     "class": "section",
     "settings": [
+      {
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "Color Scheme",
+        "default": "scheme-1"
+      },
       {
         "type": "inline_richtext",
         "id": "title",
@@ -83,6 +89,12 @@
         "limit": 1,
         "settings": [
           {
+            "type": "color_scheme",
+            "id": "color_scheme",
+            "label": "Color Scheme",
+            "default": "scheme-1"
+          },
+          {
             "type": "image_picker",
             "id": "banner_image",
             "label": "Banner Image"
@@ -100,6 +112,12 @@
         "name": "banner-info",
         "limit": 1,
         "settings": [
+          {
+            "type": "color_scheme",
+            "id": "color_scheme",
+            "label": "Color Scheme",
+            "default": "scheme-1"
+          },
           {
             "type": "inline_richtext",
             "id": "title",
