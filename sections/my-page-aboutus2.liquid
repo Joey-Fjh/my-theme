@@ -60,7 +60,7 @@
     const bannerInfo = section.querySelector('.banner-info');
     const placeholder = section.querySelector('.banner-info-placeholder');
 
-    if(!bannerInfo || !placeholder) return;
+    if(!section || !bannerInfo || !placeholder) return;
 
     const syncHeight = function() {
       placeholder.style.height = bannerInfo.offsetHeight + 'px';
@@ -72,7 +72,9 @@
   };
 
   document.addEventListener('DOMContentLoaded', loadedHandler);
-  document.addEventListener('shopify:section:load', loadedHandler);
+  document.addEventListener('shopify:section:load', function(){
+    setTimeout(loadedHandler, 100);
+  });
 </script>
 
 {% schema %}
