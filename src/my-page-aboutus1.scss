@@ -27,18 +27,15 @@
         }
 
         .text-center{
-            justify-content: center;
-            align-items: center;
+          text-align: center;
         }
 
         .text-left{
-            justify-content: flex-start;
-            align-items: flex-start;
+            text-align: left;
         }
 
         .text-right{
-            justify-content: flex-end;
-            align-items: flex-end;
+            text-align: right;
         }
     }
 
