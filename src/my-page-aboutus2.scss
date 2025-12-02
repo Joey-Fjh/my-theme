@@ -29,6 +29,11 @@
 
         .banner-image__container{
             position: relative;
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            min-height: 200px;
+            max-height: 600px;
 
             .title{
                 position: absolute;
@@ -36,12 +41,6 @@
                 display: flex;
                 justify-content: center;       
                 align-items: center;             
-            }
-
-            img {
-                @include media-query('750px','max'){
-                    min-height: 240px;
-                }
             }
         }
 
@@ -69,5 +68,12 @@
                 width: fit-content;
             }
         }
+    }
+
+     @media (max-width: 768px) {
+        .banner-image__container{
+            max-height: 400px; 
+            min-height: 150px; 
+        } 
     }
 }
