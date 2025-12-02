@@ -25,7 +25,7 @@
           "settings": {
             "color_scheme": "scheme-5",
             "title": "Why Choose Us",
-            "description": "<p>4561312345645455454544444</p><p>4561312345645455454544444</p><p>4561312345645455454544444</p><p>4561312345645455454544444</p>"
+            "description": "<p>1111111</p>"
           }
         }
       },
@@ -69,7 +69,6 @@
         "description_FpJXi8",
         "avatar_TyTtAj"
       ],
-      "disabled": true,
       "name": "my-image-with-text1",
       "settings": {
         "image": "shopify://shop_images/9022a705161ff42b7879d88f1fd6d0e8_e2aac91e-8a5b-44b6-83b8-797651c77e8c.png"
