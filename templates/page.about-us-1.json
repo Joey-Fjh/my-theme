@@ -24,19 +24,27 @@
           "type": "content",
           "settings": {
             "title": "About Esen",
-            "content": "Welcome to our classic women's clothing store, where we believe\nthat timeless style never goes out of fashion. Our collection features classic\npieces that are both stylish and versatile, perfect for building a\nwardrobe that will last for years.",
+            "content": "<p>Welcome to our classic women's clothing store, where we believe\nthat timeless style never goes out of fashion. Our collection features classic\npieces that are both stylish and versatile, perfect for building a\nwardrobe that will last for years.</p>",
+            "align": "center"
+          }
+        },
+        "content_wCVXif": {
+          "type": "content",
+          "settings": {
+            "title": "About Esen",
+            "content": "",
             "align": "center"
           }
         }
       },
       "block_order": [
         "image_Q9MKAk",
-        "content_pz3Drd"
+        "content_pz3Drd",
+        "content_wCVXif"
       ],
       "settings": {
         "color_scheme": "",
-        "show_page_title": false,
-        "page_title_alignment": "center"
+        "show_page_title": false
       }
     },
     "image_with_text_MEVhhY": {
@@ -82,11 +90,17 @@
       "type": "my-sustainable-hero",
       "name": "my-sustainable-hero",
       "settings": {
+        "is_fullWidth": true,
+        "color_scheme": "",
         "reverse_layout": true,
         "primary_image": "shopify://shop_images/1-1_1f407948-93dd-4e35-8503-feaed3449b41.png",
         "secondary_image": "shopify://shop_images/1-1_1f407948-93dd-4e35-8503-feaed3449b41.png",
+        "image_radius": 20,
+        "text_size": "h1",
         "title": "Our mission",
-        "description": "<p>Our mission is to empower people through sustainable fashion.We want everyone to look and feel good, while also doing our part tohelp the environment.We believe that fashion should be stylish,affordable and accessible to everyone. Body positivity and inclusivityare values that are at the heart of our brand.</p>"
+        "description": "<p>Our mission is to empower people through sustainable fashion.We want everyone to look and feel good, while also doing our part tohelp the environment.We believe that fashion should be stylish,affordable and accessible to everyone. Body positivity and inclusivityare values that are at the heart of our brand.</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "my_sustainable_hero_bRzmzJ": {
@@ -95,6 +109,8 @@
         "comment_iGd7ML": {
           "type": "comment",
           "settings": {
+            "color_scheme_comment": "",
+            "text_size": "h1",
             "title": "Our customer's reviews",
             "user_comments": [
               "user-comment-ku1cxxnh",
@@ -110,20 +126,33 @@
       ],
       "name": "my-sustainable-hero",
       "settings": {
+        "is_fullWidth": true,
+        "color_scheme": "",
         "reverse_layout": true,
         "primary_image": "shopify://shop_images/9022a705161ff42b7879d88f1fd6d0e8_e2aac91e-8a5b-44b6-83b8-797651c77e8c.png",
         "secondary_image": "shopify://shop_images/9022a705161ff42b7879d88f1fd6d0e8_e2aac91e-8a5b-44b6-83b8-797651c77e8c.png",
+        "image_radius": 20,
+        "text_size": "h1",
         "title": "Our customer's reviews",
-        "description": "<p>We believe that fashion should be stylish, affordable and accessible to everyone. Body positivity and inclusivity are values that are at the heart of our brand. We want everyone to look and feel good, while also doing our part to help the environment.</p>"
+        "description": "<p>We believe that fashion should be stylish, affordable and accessible to everyone. Body positivity and inclusivity are values that are at the heart of our brand. We want everyone to look and feel good, while also doing our part to help the environment.</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "my_blog_carousel_nfrLGQ": {
       "type": "my-blog-carousel",
       "name": "my-blog-carousel",
       "settings": {
+        "color_scheme": "",
+        "is_fullWidth": false,
+        "is_showTitle": true,
         "title": "Read Our Blogs",
         "alignment": "center",
-        "blog": "news"
+        "text_size": "h1",
+        "blog": "news",
+        "blog_column": "3",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     }
   },
