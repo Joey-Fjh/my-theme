@@ -24,17 +24,17 @@ export class MyBlogCarouselContainer extends LitElement {
         new Swiper(this.querySelector(".swiper"),{
             modules: [Pagination],              
             slidesPerView: 1,     
-            spaceBetween: 10,
+            spaceBetween: 5,
             slidesOffsetBefore:20,
             slidesOffsetAfter:20,
             breakpoints: {
                 750: {
                     slidesPerView: 2,
-                    spaceBetween: 20,
+                    spaceBetween: 10,
                 },
                 1024: {
                     slidesPerView: this.columns ?? 3,
-                    spaceBetween: 30,
+                    spaceBetween: 20,
                 },
             },
             loop:this.slides.length > 4,
