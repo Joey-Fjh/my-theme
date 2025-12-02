@@ -37,6 +37,7 @@
         "image_Q9MKAk",
         "content_CBP7Bn"
       ],
+      "disabled": true,
       "settings": {
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
         "show_page_title": false
@@ -139,7 +140,6 @@
     },
     "my_blog_carousel_nfrLGQ": {
       "type": "my-blog-carousel",
-      "disabled": true,
       "name": "my-blog-carousel",
       "settings": {
         "color_scheme": "",
