@@ -66,6 +66,7 @@
         "description_FpJXi8",
         "avatar_TyTtAj"
       ],
+      "disabled": true,
       "name": "my-image-with-text1",
       "settings": {
         "image": "shopify://shop_images/9022a705161ff42b7879d88f1fd6d0e8_e2aac91e-8a5b-44b6-83b8-797651c77e8c.png"
@@ -99,6 +100,7 @@
         "desc_DBz8AE",
         "buttons_pFatAD"
       ],
+      "disabled": true,
       "name": "my-text-banner",
       "settings": {
         "color_scheme": ""
@@ -164,6 +166,7 @@
         "team_member_tXhHQr",
         "team_member_xyVWnc"
       ],
+      "disabled": true,
       "name": "my-team-showcase",
       "settings": {
         "text": "Meet Our Team Of Creators,Designers,And World-Class Problem Solvers",
