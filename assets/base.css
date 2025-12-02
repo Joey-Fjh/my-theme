@@ -3618,15 +3618,10 @@ details-disclosure > details {
 
 .multiline-ellipsis {
   display: -webkit-box;        
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;     
+  -webkit-box-orient: vertical;     
   overflow: hidden;           
-  text-overflow: ellipsis;  
+  text-overflow: ellipsis;
+  -webkit-line-clamp: var(--line-clamp, 3);  
 }
 
-.multiline-ellipsis--2 {
-  -webkit-line-clamp: 2;
-}
-.multiline-ellipsis--5 {
-  -webkit-line-clamp: 5;
-}
+
