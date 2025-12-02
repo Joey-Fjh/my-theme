@@ -62,8 +62,10 @@
 
     if(!section || !bannerInfo || !placeholder) return;
 
+    let calcHeight = 100;
     const syncHeight = function() {
-      placeholder.style.height = bannerInfo.offsetHeight + 'px';
+      if(bannerInfo.offsetHeight != 0) height = bannerInfo.offsetHeight;
+      placeholder.style.height = calcHeight + 'px';
     }
 
     syncHeight();
@@ -72,9 +74,7 @@
   };
 
   document.addEventListener('DOMContentLoaded', loadedHandler);
-  document.addEventListener('shopify:section:load', function(){
-    setTimeout(loadedHandler, 100);
-  });
+  document.addEventListener('shopify:section:load', loadedHandler);
 </script>
 
 {% schema %}
