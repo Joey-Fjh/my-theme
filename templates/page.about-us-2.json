@@ -18,10 +18,18 @@
             "banner_image": "shopify://shop_images/9022a705161ff42b7879d88f1fd6d0e8.png",
             "title": "About Us"
           }
+        },
+        "banner_info_BMQD64": {
+          "type": "banner-info",
+          "settings": {
+            "title": "Why Choose Us",
+            "description": ""
+          }
         }
       },
       "block_order": [
-        "image_AyNhYe"
+        "image_AyNhYe",
+        "banner_info_BMQD64"
       ],
       "settings": {
         "title": "<strong>About Us</strong>",
