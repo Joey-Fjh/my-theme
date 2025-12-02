@@ -28,11 +28,9 @@
 
     .block__wrapper{
         margin-top: 20px;
-
-        .content__container{
-            display: flex;
-            flex-direction: column;        
-        }
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
     }
 
 

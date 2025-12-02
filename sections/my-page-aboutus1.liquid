@@ -16,7 +16,7 @@
     {%- else -%}
       {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
     {%- endif -%}
-    
+
     <div class="wrapper">
       <div class="content">
         <div class="title h0">
@@ -41,9 +41,11 @@
                 {{ page.title }}
               </div>
             {%- endif -%}
+
             <div class="title h2">
               {{ block.settings.title }}
             </div>
+            
             <p class="content h4">
               {{ block.settings.content }}
             </p>
