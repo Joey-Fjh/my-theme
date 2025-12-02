@@ -47,8 +47,9 @@
         .banner-info{
             box-sizing: border-box;
             position: absolute;
-            // width: 520dw;
-            // height: 288dw;
+            width: 520dw;
+            height: 288dw;
+            background-color: var(--color-background);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -58,14 +59,8 @@
             bottom: -10%;
             right: 10%;        
 
-            .description{overflow: hidden;}
-
-            @include media-query('750px','max'){
-                margin-top: 20px;
-                position: relative;
-                right: 0;
-                height: fit-content;
-                width: fit-content;
+            .description{
+                overflow: hidden;
             }
         }
     }
@@ -75,5 +70,13 @@
             max-height: 400px; 
             min-height: 150px; 
         } 
+
+        .banner-info{
+            margin-top: 20px;
+            position: relative;
+            right: 0;
+            height: fit-content;
+            width: fit-content;
+        }
     }
 }

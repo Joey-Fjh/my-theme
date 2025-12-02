@@ -3614,3 +3614,19 @@ details-disclosure > details {
   margin: 0;
   padding: 0;
 }
+
+
+.multiline-ellipsis {
+  display: -webkit-box;        
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;     
+  overflow: hidden;           
+  text-overflow: ellipsis;  
+}
+
+.multiline-ellipsis--2 {
+  -webkit-line-clamp: 2;
+}
+.multiline-ellipsis--5 {
+  -webkit-line-clamp: 5;
+}
