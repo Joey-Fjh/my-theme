@@ -9,17 +9,22 @@
   <responsive-container class="banner-image__container">
     {%- if banner_image_block.settings.banner_image != blank -%}
       {{ banner_image_block.settings.banner_image 
-        | image_url: width: 1440 , height: 600 
+        | image_url: width: banner_image_block.settings.banner_image.width
         | image_tag:
             alt: banner_image_block.settings.banner_image.title
       }}
     {%- else -%}
       {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
     {%- endif -%}
+    
     <div class="wrapper">
       <div class="content">
-        <div class="title h0">{{ banner_image_block.settings.title }}</div>
-        <div class="subtitle">{{ banner_image_block.settings.subtitle }}</div>
+        <div class="title h0">
+          {{ banner_image_block.settings.title }}
+        </div>
+        <div class="subtitle">
+          {{ banner_image_block.settings.subtitle }}
+        </div>
       </div>
     </div>
   </responsive-container>
@@ -28,14 +33,18 @@
     {%- for block in section.blocks -%}
       {%- case block.type -%}
         {%- when "content" -%}
-          <div class="content__container" style="text-align: {{ block.settings.align }};">
+          <div class="content__container {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in {% endif %}" 
+            style="text-align: {{ block.settings.align }};"
+          >
             {%- if show_page_title -%}
-              <div class="title h2 {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">{{ page.title }}</div>
+              <div class="title h2 ">
+                {{ page.title }}
+              </div>
             {%- endif -%}
-            <div class="title h2 {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+            <div class="title h2">
               {{ block.settings.title }}
             </div>
-            <p class="content h4 {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+            <p class="content h4">
               {{ block.settings.content }}
             </p>
           </div>  
@@ -62,27 +71,7 @@
         "id": "show_page_title",
         "label": "Show Page Title",
         "default": true
-      },
-      {
-        "type": "select",
-        "id": "page_title_alignment",
-        "label": "Page Title Alignment",
-        "options": [
-          {
-              "value": "left",
-              "label": "left"
-          },
-          {
-              "value": "center",
-              "label": "center"
-          },
-          {
-              "value": "right",
-              "label": "right"
-          }
-        ],
-        "default": "center"
-      },
+      }
     ],
     "blocks": [
       {
@@ -96,13 +85,13 @@
             "label": "Banner Image"
           },
           {
-            "type": "text",
+            "type": "inline_richtext",
             "id": "title",
             "label": "Title",
             "default": "About Esen"
           },
           {
-            "type": "text",
+            "type": "inline_richtext",
             "id": "subtitle",
             "label": "Subtitle",
             "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl nec ultricies lacinia, nisl nisl"
@@ -115,13 +104,13 @@
         "settings":
         [
           {
-            "type" : "text",
+            "type" : "inline_richtext",
             "id" : "title",
             "label" : "title",
             "default": "About Esen"
           },
           {
-              "type" : "html",
+              "type" : "richtext",
               "id" : "content",
               "label" : "content"
           },
