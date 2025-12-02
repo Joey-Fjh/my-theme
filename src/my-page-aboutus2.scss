@@ -1,5 +1,4 @@
 .my-page-aboutus2__container{
-    overflow:hidden;
     flex-direction: column;
     justify-content: space-between;
     gap: 10px;
@@ -48,7 +47,6 @@
             box-sizing: border-box;
             position: absolute;
             width: 520dw;
-            height: 288dw;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -61,6 +59,13 @@
             .description{
                 overflow: hidden;
             }
+        }
+
+        .banner-info-placeholder{
+            display: block;
+            visibility: hidden;
+            pointer-events: none;
+            height: auto;
         }
     }
 
@@ -76,6 +81,10 @@
             right: 0;
             height: fit-content;
             width: fit-content;
+        }
+
+        .banner-info-placeholder{
+            display: none;
         }
     }
 }

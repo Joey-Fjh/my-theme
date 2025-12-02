@@ -5,7 +5,7 @@
   assign banner_info_block = section.blocks | where: "type", "banner-info" | first
 -%}
 
-<responsive-container class="my-page-aboutus2__container">
+<responsive-container class="my-page-aboutus2__container" data-section-id="{{ section.id }}">
   <div class="top-info__container my-page-width color-{{ section.settings.color_scheme }}">
     <div class="title h1">
       {{ section.settings.title }}
@@ -41,15 +41,24 @@
     </responsive-container>
 
     <div class="banner-info gradient color-{{ banner_info_block.settings.color_scheme }}">
-        <div class="info-title h1">
-          {{ banner_info_block.settings.title }}
-        </div>
-        <div class="description h3 multiline-ellipsis">
-          {{ banner_info_block.settings.description }}
-        </div>
+      <div class="info-title h1">
+        {{ banner_info_block.settings.title }}
       </div>
+      <div class="description h3 multiline-ellipsis">
+        {{ banner_info_block.settings.description }}
+      </div>
+    </div>
+
+    <div class="banner-info-placeholder"></div>
   </div>
 </responsive-container>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const section = document.querySelector('.my-page-aboutus2__container[data-section-id="{{ section.id }}"]');
+    console.log(section,'---', {{ section.id }});
+  });
+</script>
 
 {% schema %}
   {
