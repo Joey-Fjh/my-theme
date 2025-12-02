@@ -16,6 +16,8 @@
           "type": "image",
           "settings": {
             "banner_image": "shopify://shop_images/9022a705161ff42b7879d88f1fd6d0e8.png",
+            "text_size": "h0",
+            "alignment": "right",
             "title": "About Esen",
             "subtitle": "123"
           }
