@@ -56,7 +56,19 @@
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     const section = document.querySelector('.my-page-aboutus2__container[data-section-id="{{ section.id }}"]');
-    console.log(section);
+    
+    const bannerInfo = section.querySelector('.banner-info');
+    const placeholder = section.querySelector('.banner-info-placeholder');
+
+    if(!bannerInfo || !placeholder) return;
+
+    const syncHeight = function() {
+      placeholder.style.height = bannerInfo.offsetHeight + 'px';
+    }
+
+    syncHeight();
+
+    window.addEventListener('resize', syncHeight);
   });
 </script>
 
