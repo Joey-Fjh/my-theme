@@ -1,0 +1,543 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "brand_banner_pcJjtU": {
+      "type": "brand-banner",
+      "blocks": {
+        "image_PzWx8p": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/20251027174416_19_94.jpg",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_PzWx8p"
+      ],
+      "disabled": true,
+      "name": "brand-banner",
+      "settings": {
+        "color_scheme": "",
+        "content_size": 150,
+        "scroll": "none",
+        "scroll_direction": "reverse",
+        "scroll_speed": "0.5",
+        "space": "2rem"
+      }
+    },
+    "my_image_banner_fmWrU3": {
+      "type": "my-image-banner",
+      "blocks": {
+        "image_banner_MdywmF": {
+          "type": "image-banner",
+          "settings": {
+            "color_scheme": "scheme-1",
+            "image": "shopify:\/\/shop_images\/20251027174416_19_94.jpg",
+            "image_overlay_opacity": 100,
+            "title": "Wear the Moment,Own the Style",
+            "heading_size": "h1",
+            "sub_title": "Embrace every moment with confidence and let your fashion reflect your personality.Style is more than just clothing.",
+            "button_text": "Shop Now",
+            "button_url": "",
+            "content_position": "middle-center",
+            "text_alignment": "center"
+          }
+        },
+        "image_banner_EVVez4": {
+          "type": "image-banner",
+          "settings": {
+            "color_scheme": "scheme-1",
+            "image": "shopify:\/\/shop_images\/20251027170840_17_94.png",
+            "image_overlay_opacity": 100,
+            "title": "Wear the Moment,Own the Style",
+            "heading_size": "h1",
+            "sub_title": "Embrace every moment with confidence and let your fashion reflect your personality.Style is more than just clothing.",
+            "button_text": "Shop Now",
+            "button_url": "",
+            "content_position": "middle-center",
+            "text_alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "image_banner_MdywmF",
+        "image_banner_EVVez4"
+      ],
+      "disabled": true,
+      "name": "my-image-banner",
+      "settings": {
+        "layout": "full_bleed",
+        "auto_slide": false,
+        "autoplay_speed": 5,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "my_product_list_BMjQet": {
+      "type": "my-product-list",
+      "name": "my-product-list",
+      "settings": {
+        "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
+        "product_collection": "女士衣服",
+        "title": "OUR BEST SELLERS",
+        "heading_size": "h2",
+        "description": "<p>MOST LOVED BY YOU<\/p>",
+        "show_description": false,
+        "text_align": "left",
+        "products_to_show": 25,
+        "columns_desktop": 3,
+        "columns_mobile": "1",
+        "full_width": false,
+        "show_view_all": true,
+        "product_title_size": "h2",
+        "product_title_bold": false,
+        "show_secondary_image": true,
+        "image_ratio": "3-4",
+        "quick_add": "standard",
+        "badge_color": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
+        "show_badge_text": false,
+        "badge_text": "BEST SELLER",
+        "show_operation": "hover",
+        "alignment": "left",
+        "color_swatch_trigger": "Color",
+        "size_trigger": "Size",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "my_fashion_highlights_jtVAje": {
+      "type": "my-fashion-highlights",
+      "disabled": true,
+      "name": "my-fashion-highlights",
+      "settings": {
+        "font_color": "#50b948",
+        "bgc_img": "shopify:\/\/shop_images\/20251027174416_19_94.jpg",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "my_luxury_collection_iFCwkU": {
+      "type": "my-luxury-collection",
+      "blocks": {
+        "collection_Ha7Htt": {
+          "type": "collection",
+          "settings": {
+            "collection": "女士衣服"
+          }
+        },
+        "collection_myQf8T": {
+          "type": "collection",
+          "settings": {
+            "collection": "夏季产品系列"
+          }
+        },
+        "collection_HiHGHV": {
+          "type": "collection",
+          "settings": {
+            "collection": "夏季产品系列"
+          }
+        },
+        "collection_VJ3Jig": {
+          "type": "collection",
+          "settings": {
+            "collection": "睡衣"
+          }
+        },
+        "collection_L7nMz8": {
+          "type": "collection",
+          "settings": {
+            "collection": "睡衣"
+          }
+        }
+      },
+      "block_order": [
+        "collection_Ha7Htt",
+        "collection_myQf8T",
+        "collection_HiHGHV",
+        "collection_VJ3Jig",
+        "collection_L7nMz8"
+      ],
+      "disabled": true,
+      "name": "my-luxury-collection",
+      "settings": {
+        "color_scheme": "",
+        "auto_slide": false,
+        "autoplay_speed": 2,
+        "show_title": true,
+        "title": "EXPERIENCE OPULENCE LIKE NEVER BEFORE",
+        "heading_size": "h2",
+        "text_align": "center",
+        "show_collection_title": true,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "full_width": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "my_hero_banner_6JCMYw": {
+      "type": "my-hero-banner",
+      "disabled": true,
+      "name": "my-hero-banner",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "image_url": "shopify:\/\/shop_images\/Frame_48036.png",
+        "full_width": false,
+        "title": "ONLINE ONLY!",
+        "sub_title": "UP TO 50% OFF EVERYTHING",
+        "target_date": "2025-11-6 10:00:00",
+        "button_text": "SHOPNOW",
+        "button_link": "shopify:\/\/products\/casual-knitted-shirt3",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "my_video_player_CfFJqU": {
+      "type": "my-video-player",
+      "disabled": true,
+      "name": "my-video-player",
+      "settings": {
+        "color_scheme": "scheme-3",
+        "is_fullWidth": true,
+        "title": "Watch the Full Video About Our Concept Store",
+        "button_text": "Watch Now",
+        "enable_video_looping": true,
+        "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "cover_image": "shopify:\/\/shop_images\/20251027174427_22_94.jpg",
+        "description": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "my_image_with_text_6RV9t9": {
+      "type": "my-image-with-text",
+      "blocks": {
+        "accordion_item_DQKfa6": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Unrivaled Quality",
+            "content": "<p>We believe in offering great value<\/p>"
+          }
+        },
+        "accordion_item_6K8PCD": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Unrivaled Variety",
+            "content": "<p>We believe in offering great value<\/p>"
+          }
+        },
+        "accordion_item_VJXPCT": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Sustains bullous",
+            "content": "<p>We believe in offering great value<\/p>"
+          }
+        },
+        "accordion_item_i4WQXw": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Legacy Of Excellence",
+            "content": "<p>We believe in offering great value<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "accordion_item_DQKfa6",
+        "accordion_item_6K8PCD",
+        "accordion_item_VJXPCT",
+        "accordion_item_i4WQXw"
+      ],
+      "disabled": true,
+      "name": "my-image-with-text",
+      "settings": {
+        "color_scheme": "scheme-2",
+        "is_fullWidth": false,
+        "is_swapLocation": false,
+        "image": "shopify:\/\/shop_images\/image_69.png",
+        "title": "Why Choose Us",
+        "text-size": "h1",
+        "text-align": "left",
+        "subtitle": "<p>We pride ourselves on offering products that meet the highest standards of quality.<\/p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "my_fashion_grid_layout_MtAfQU": {
+      "type": "my-fashion-grid-layout",
+      "disabled": true,
+      "name": "my-fashion-grid-layout",
+      "settings": {
+        "is_fullWidth": true,
+        "color_scheme1": "scheme-1",
+        "image1-1": "shopify:\/\/shop_images\/image_2.png",
+        "image1-4": "shopify:\/\/shop_images\/image_73.png",
+        "image2-4": "shopify:\/\/shop_images\/H526Y04WFA_5100_1F_1.png",
+        "fisrt-title": "Color of Summer Outfit",
+        "fisrt-description": "<p>100+ Collections for you outfit inspirations this summer<\/p>",
+        "fisrt-button": "VIEW COLLECTIONS",
+        "fisrt-button-url": "",
+        "color_scheme2": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
+        "image3-3": "shopify:\/\/shop_images\/3ad03d4385b40c98bce5e371ed85d9b_1.png",
+        "image3-4": "shopify:\/\/shop_images\/image_74.png",
+        "second-title": "Casual Inspirations",
+        "second-description": "<p>Our favorite combinations for casual outfit that can inspire you to apply on your daily activity<\/p>",
+        "second-button": "BROWSE INPIRATIONS",
+        "seconde-button-url": "",
+        "image4-4": "shopify:\/\/shop_images\/image_62.png",
+        "third-title1": "100% Authentic Product",
+        "third-description1": "<p>Prominently display a clear \"100% Authentic Guarantee\" on your product<\/p>",
+        "third-button1": "SEE MORE",
+        "third-button-url1": "",
+        "third-title2": "100% Authentic Product",
+        "third-description2": "<p>Prominently display a clear \"100% Authentic Guarantee\" on your product<\/p>",
+        "third-button2": "SEE MORE",
+        "third-button-url2": "",
+        "third-title3": "100% Authentic Product",
+        "third-description3": "<p>Prominently display a clear \"100% Authentic Guarantee\" on your product<\/p>",
+        "third-button3": "SEE MORE",
+        "third-button-url3": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "my_newsletter_hero_EHJQF4": {
+      "type": "my-newsletter-hero",
+      "disabled": true,
+      "name": "my-newsletter-hero",
+      "settings": {
+        "is_fullWidth": true,
+        "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
+        "background_image": "shopify:\/\/shop_images\/image_35.png",
+        "text-size": "h1",
+        "subtitle": "KEEP ME UPDATED",
+        "title": "NEWSLETTER",
+        "description": "<p>Subscribe to get notified about product launches, special offers and company news.<\/p>",
+        "email_placeholder": "E-mail",
+        "button_text": "SUBSCRIBE",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "my_sustainable_hero_cHgtTK": {
+      "type": "my-sustainable-hero",
+      "blocks": {
+        "comment_U8bLyP": {
+          "type": "comment",
+          "settings": {
+            "color_scheme_comment": "scheme-1",
+            "text_size": "h1",
+            "title": "Our Story",
+            "user_comments": []
+          }
+        }
+      },
+      "block_order": [
+        "comment_U8bLyP"
+      ],
+      "disabled": true,
+      "name": "my-sustainable-hero",
+      "settings": {
+        "is_fullWidth": false,
+        "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
+        "reverse_layout": false,
+        "primary_image": "shopify:\/\/shop_images\/Frame_47827.png",
+        "image_radius": 20,
+        "text_size": "h1",
+        "title": "Sustainable Trends You'll Love Forever.",
+        "description": "<p>We believe that fashion should be stylish, affordable and accessible to everyone. Body positivity and inclusivity are values that are at the heart of our brand. We want everyone to look and feel good, while also doing our part to help the environment.<\/p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "my_color_comparison_aRQifX": {
+      "type": "my-color-comparison",
+      "disabled": true,
+      "name": "my-color-comparison",
+      "settings": {
+        "is_fullWidth": false,
+        "font_color": "#873434",
+        "show_header": true,
+        "title": "CHOOSE YOUR COLOUR",
+        "subtitle": "OUR BEST SELLERS",
+        "text_size": "h1",
+        "text_align": "center",
+        "left_image": "shopify:\/\/shop_images\/image_82.png",
+        "left_label": "GRAY",
+        "left_link": "",
+        "right_image": "shopify:\/\/shop_images\/image_81.png",
+        "right_label": "MILK",
+        "right_link": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "my_blog_carousel_Pb9fHn": {
+      "type": "my-blog-carousel",
+      "disabled": true,
+      "name": "my-blog-carousel",
+      "settings": {
+        "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
+        "is_fullWidth": false,
+        "is_showTitle": true,
+        "title": "Read Our Blogs",
+        "alignment": "center",
+        "text_size": "h1",
+        "blog": "news",
+        "blog_column": "3",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "my_user_comment_w84MEY": {
+      "type": "my-user-comment",
+      "disabled": true,
+      "name": "my-user-comment",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "is_fullWidth": true,
+        "text_size": "h3",
+        "user_comments": [
+          "user-comment-ku1cxxnh",
+          "user-comment-fq1of1x3",
+          "user-comment-0t7wsrqq",
+          "user-comment-gs1wqfgi"
+        ],
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "my_featured_blog_Wa7B4H": {
+      "type": "my-featured-blog",
+      "disabled": true,
+      "name": "my-featured-blog",
+      "settings": {
+        "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
+        "is_fullWidth": true,
+        "heading": "<strong>Blog posts<\/strong>",
+        "text_align": "center",
+        "heading_size": "h0",
+        "blog": "news",
+        "show_image": true,
+        "show_date": true,
+        "show_author": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "my_media_carousel_8nNGTd": {
+      "type": "my-media-carousel",
+      "blocks": {
+        "slide_KjdhXq": {
+          "type": "slide",
+          "settings": {
+            "enable_video_looping": false,
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "description": ""
+          }
+        },
+        "slide_JR3XDp": {
+          "type": "slide",
+          "settings": {
+            "enable_video_looping": false,
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "description": ""
+          }
+        },
+        "slide_jgDCQL": {
+          "type": "slide",
+          "settings": {
+            "enable_video_looping": false,
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_KjdhXq",
+        "slide_JR3XDp",
+        "slide_jgDCQL"
+      ],
+      "disabled": true,
+      "name": "my-media-carousel",
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "my_promo_split_JYmjBz": {
+      "type": "my-promo-split",
+      "blocks": {
+        "product_YHgxCF": {
+          "type": "product",
+          "settings": {
+            "product_1": "black-leather-bag",
+            "product_2": "blue-silk-tuxedo",
+            "product_3": "casual-knitted-shirt"
+          }
+        },
+        "product_DL4p64": {
+          "type": "product",
+          "settings": {
+            "product_1": "casual-knitted-shirt2",
+            "product_2": "casual-knitted-shirt3",
+            "product_3": "casual-knitted-shirt4"
+          }
+        }
+      },
+      "block_order": [
+        "product_YHgxCF",
+        "product_DL4p64"
+      ],
+      "disabled": true,
+      "name": "my-promo-split",
+      "settings": {
+        "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
+        "is_fullWidth": false,
+        "lifestyle_image": "shopify:\/\/shop_images\/Frame_48122.png",
+        "overlay_text": "Dress",
+        "promo_badge": "SAVE 50% OFF",
+        "promo_title": "Products to Proceed & Save",
+        "cta_text": "ADD TO CART",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "google_map_mGDGqr": {
+      "type": "google-map",
+      "disabled": true,
+      "name": "goole-map",
+      "settings": {
+        "show_google_map": true,
+        "block_content": "<iframe src=\"https:\/\/www.google.com\/maps\/embed?pb=!1m18!1m12!1m3!1d3266.8199736752226!2d110.98820107634748!3d35.03623336513483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x367a23d3d72fcac5%3A0xccd5a48c910b129d!2z6buE5rKz5LiW57qq5bm_5Zy677yS5Y-35YWs5a-T!5e0!3m2!1szh-CN!2ssg!4v1758866697815!5m2!1szh-CN!2ssg\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"><\/iframe>"
+      }
+    }
+  },
+  "order": [
+    "brand_banner_pcJjtU",
+    "my_image_banner_fmWrU3",
+    "my_product_list_BMjQet",
+    "my_fashion_highlights_jtVAje",
+    "my_luxury_collection_iFCwkU",
+    "my_hero_banner_6JCMYw",
+    "my_video_player_CfFJqU",
+    "my_image_with_text_6RV9t9",
+    "my_fashion_grid_layout_MtAfQU",
+    "my_newsletter_hero_EHJQF4",
+    "my_sustainable_hero_cHgtTK",
+    "my_color_comparison_aRQifX",
+    "my_blog_carousel_Pb9fHn",
+    "my_user_comment_w84MEY",
+    "my_featured_blog_Wa7B4H",
+    "my_media_carousel_8nNGTd",
+    "my_promo_split_JYmjBz",
+    "google_map_mGDGqr"
+  ]
+}
