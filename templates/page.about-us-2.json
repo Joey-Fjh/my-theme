@@ -15,6 +15,7 @@
         "image_AyNhYe": {
           "type": "image",
           "settings": {
+            "color_scheme": "",
             "banner_image": "shopify://shop_images/9022a705161ff42b7879d88f1fd6d0e8.png",
             "title": "About Us"
           }
@@ -22,6 +23,7 @@
         "banner_info_BMQD64": {
           "type": "banner-info",
           "settings": {
+            "color_scheme": "",
             "title": "Why Choose Us",
             "description": ""
           }
@@ -32,6 +34,7 @@
         "banner_info_BMQD64"
       ],
       "settings": {
+        "color_scheme": "scheme-5",
         "title": "<strong>About Us</strong>",
         "sale_info": "<strong>50+</strong>",
         "investment_info": "<strong>300%</strong>"
