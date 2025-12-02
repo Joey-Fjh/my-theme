@@ -54,7 +54,7 @@
 </responsive-container>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+  const loadedHandler = ()=>{
     const section = document.querySelector('.my-page-aboutus2__container[data-section-id="{{ section.id }}"]');
     
     const bannerInfo = section.querySelector('.banner-info');
@@ -69,7 +69,10 @@
     syncHeight();
 
     window.addEventListener('resize', syncHeight);
-  });
+  };
+
+  document.addEventListener('DOMContentLoaded', loadedHandler);
+  document.addEventListener('shopify:section:load', loadedHandler);
 </script>
 
 {% schema %}
