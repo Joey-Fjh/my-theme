@@ -17,34 +17,16 @@
           "settings": {
             "banner_image": "shopify://shop_images/9022a705161ff42b7879d88f1fd6d0e8.png",
             "title": "About Esen",
-            "subtitle": ""
-          }
-        },
-        "content_pz3Drd": {
-          "type": "content",
-          "settings": {
-            "title": "About Esen",
-            "content": "<p>Welcome to our classic women's clothing store, where we believe\nthat timeless style never goes out of fashion. Our collection features classic\npieces that are both stylish and versatile, perfect for building a\nwardrobe that will last for years.</p>",
-            "align": "center"
-          }
-        },
-        "content_wCVXif": {
-          "type": "content",
-          "settings": {
-            "title": "About Esen",
-            "content": "",
-            "align": "center"
+            "subtitle": "123"
           }
         }
       },
       "block_order": [
-        "image_Q9MKAk",
-        "content_pz3Drd",
-        "content_wCVXif"
+        "image_Q9MKAk"
       ],
       "settings": {
-        "color_scheme": "",
-        "show_page_title": false
+        "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
+        "show_page_title": true
       }
     },
     "image_with_text_MEVhhY": {
@@ -69,6 +51,7 @@
         "heading_DRAM8h",
         "text_aVQcaz"
       ],
+      "disabled": true,
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "image": "shopify://shop_images/1-1.png",
@@ -88,6 +71,7 @@
     },
     "my_sustainable_hero_PYPCfh": {
       "type": "my-sustainable-hero",
+      "disabled": true,
       "name": "my-sustainable-hero",
       "settings": {
         "is_fullWidth": true,
@@ -124,6 +108,7 @@
       "block_order": [
         "comment_iGd7ML"
       ],
+      "disabled": true,
       "name": "my-sustainable-hero",
       "settings": {
         "is_fullWidth": true,
@@ -141,6 +126,7 @@
     },
     "my_blog_carousel_nfrLGQ": {
       "type": "my-blog-carousel",
+      "disabled": true,
       "name": "my-blog-carousel",
       "settings": {
         "color_scheme": "",
