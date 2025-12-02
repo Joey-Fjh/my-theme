@@ -1,22 +1,19 @@
 .my-page-aboutus2__container{
     overflow:hidden;
-    margin-top: 30px;
+    margin-top: 20px;
     flex-direction: column;
     justify-content: space-between;
     gap: 10px;
 
     .top-info__container{
-        padding-left: 120dw;
-        padding-right: 120dw;
+        // padding-left: 120dw;
+        // padding-right: 120dw;
+
         width: 100%;
         display: inline-flex;
         align-items: center;
         box-sizing: border-box;
         text-align: center;
-        
-        .title,.sale-info>span,.invest-info>span{
-            font-weight: 700;
-        }
 
         .sale-info{
             margin-left: auto;
@@ -32,7 +29,7 @@
     }
 
     .banner__container{
-        margin-top: 30px;
+        margin-top: 20px;
         margin-bottom: 100px;
         position: relative;
 
@@ -46,7 +43,6 @@
                 justify-content: center;       
                 align-items: center;             
                 color: #fff;
-                font-weight: 700;
             }
 
             img {
@@ -59,8 +55,8 @@
         .banner-info{
             box-sizing: border-box;
             position: absolute;
-            width: 520dw;
-            height: 288dw;
+            // width: 520dw;
+            // height: 288dw;
             background-color: #373737;
             display: flex;
             flex-direction: column;
@@ -69,13 +65,7 @@
             border-radius: 16px;
             padding: 50px;
             bottom: -10%;
-            right: 10%;
-
-            .info-title,.description{color: #fff;}
-
-            .info-title{
-                font-weight: 700;
-            }
+            right: 10%;        
 
             .description{overflow: hidden;}
 

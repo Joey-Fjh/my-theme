@@ -10,13 +10,15 @@
     <div class="title h1">
       {{ section.settings.title }}
     </div>
+
     <div class="sale-info">
       <span class="h1">{{ section.settings.sale_info }}</span>
-      <span class="h3" style="font-weight:500;">Items Sale</span>
+      <span class="h3">Items Sale</span>
     </div>
+
     <div class="invest-info">
       <span class="h1">{{ section.settings.investment_info }}</span>
-      <span class="h3" style="font-weight:500;">Return On Investment</span>
+      <span class="h3">Return On Investment</span>
     </div>
   </div>
 
@@ -25,19 +27,26 @@
       {%- if banner_image_block.settings.banner_image != blank -%}
         {{ 
           banner_image_block.settings.banner_image 
-          | image_url: width: 1440 , height: 600 
+          | image_url: width: banner_image_block.settings.banner_image.width 
           | image_tag:
-              alt: banner_image_block.settings.banner_image.title
+              alt: banner_image_block.settings.banner_image.alt
         }}
       {%- else -%}
         {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
       {%- endif -%}
 
-      <div class="title h0">{{ banner_image_block.settings.title }}</div>
+      <div class="title h0">
+        {{ banner_image_block.settings.title }}
+      </div>
     </responsive-container>
+
     <div class="banner-info">
-        <div class="info-title h1">{{ banner_info_block.settings.title }}</div>
-        <div class="description h3">{{ banner_info_block.settings.description }}</div>
+        <div class="info-title h1">
+          {{ banner_info_block.settings.title }}
+        </div>
+        <div class="description h3">
+          {{ banner_info_block.settings.description }}
+        </div>
       </div>
   </div>
 </responsive-container>
@@ -49,19 +58,19 @@
     "class": "section",
     "settings": [
       {
-        "type": "text",
+        "type": "inline_richtext",
         "id": "title",
         "label": "Title",
         "default": "About Us"
       },
       {
-        "type": "text",
+        "type": "inline_richtext",
         "id": "sale_info",
         "label": "Sale Info",
         "default": "50+"
       },
       {
-        "type": "text",
+        "type": "inline_richtext",
         "id": "investment_info",
         "label": "Investment Info",
         "default": "300%"
@@ -79,7 +88,7 @@
             "label": "Banner Image"
           },
           {
-            "type": "text",
+            "type": "inline_richtext",
             "id": "title",
             "label": "Title",
             "default": "About Us"
@@ -92,7 +101,7 @@
         "limit": 1,
         "settings": [
           {
-            "type": "text",
+            "type": "inline_richtext",
             "id": "title",
             "label": "Title",
             "default": "Why Choose Us"
