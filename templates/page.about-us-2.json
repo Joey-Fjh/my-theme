@@ -71,7 +71,7 @@
       ],
       "name": "my-image-with-text1",
       "settings": {
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
         "image": "shopify://shop_images/9022a705161ff42b7879d88f1fd6d0e8_e2aac91e-8a5b-44b6-83b8-797651c77e8c.png",
         "padding_top": 0,
         "padding_bottom": 0
@@ -89,7 +89,7 @@
         "desc_DBz8AE": {
           "type": "desc",
           "settings": {
-            "description": "<p>Our experts will help find the grar that’s right for you</p>"
+            "description": "<p>Our experts will help find the grar that’s right for youOur experts will help find the grar that’s right for youOur experts will help find the grar that’s right for youOur experts will help find the grar that’s right for youOur experts will help find the grar that’s right for youOur experts will help find the grar that’s right for youOur experts will help find the grar that’s right for youOur experts will help find the grar that’s right for youOur experts will help find the grar that’s right for you</p>"
           }
         },
         "buttons_pFatAD": {
@@ -105,10 +105,9 @@
         "desc_DBz8AE",
         "buttons_pFatAD"
       ],
-      "disabled": true,
       "name": "my-text-banner",
       "settings": {
-        "color_scheme": ""
+        "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4"
       }
     },
     "my_team_showcase_eynFUf": {
