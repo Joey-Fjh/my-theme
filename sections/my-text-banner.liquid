@@ -6,11 +6,21 @@
   assign button_block = section.blocks | where: 'type', 'buttons' | first
 -%}
 
-<responsive-container class="my-text-banner__container color-{{ section.settings.color_scheme }}">
-    <div class="title h2">{{ title_block.settings.title }}</div>
-    <div class="desc">{{ desc_block.settings.description }}</div>
+<responsive-container class="my-text-banner__container 
+    color-{{ section.settings.color_scheme }}
+    gradient
+    "
+>
+    <div class="title h2">
+        {{ title_block.settings.title }}
+    </div>
+    <div class="desc multiline-ellipsis" style="--line-clamp:1;">
+        {{ desc_block.settings.description }}
+    </div>
     <a href="{{ button_block.settings.url }}">
-        <button class="btn">{{ button_block.settings.text }}</button>
+        <button class="btn">
+            {{ button_block.settings.text }}
+        </button>
     </a>
 </responsive-container>
 
@@ -35,7 +45,7 @@
             "limit": 1,
             "settings": [
                 {
-                    "type": "text",
+                    "type": "inline_richtext",
                     "id": "title",
                     "label": "Title",
                     "default": "Example Title"
@@ -60,7 +70,7 @@
             "limit": 1,
             "settings": [
                 {
-                    "type": "text",
+                    "type": "inline_richtext",
                     "id": "text",
                     "label": "Button Text",
                     "default": "Get In Touch"
@@ -76,8 +86,6 @@
     "presets": [
       {
         "name": "my-text-banner",
-        "settings": {
-        },
         "blocks": [
             {
                 "type": "title"

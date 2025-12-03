@@ -1,12 +1,11 @@
 .my-text-banner__container{
-    margin-top: 20px;
     box-sizing: border-box;
     padding: 20px;
     justify-content: center;
     align-items: center;
 
     .title{
-        font-weight: 700;
+        flex-shrink: 0;
         margin: 0;
         margin-right: 16px;
     }
@@ -22,6 +21,7 @@
     }
 
     .btn{
+        flex-shrink: 0;
         cursor: pointer;
         padding: 10px 25px;
         font-weight: bold;
@@ -29,7 +29,6 @@
         white-space: nowrap;
         border-radius: 20px;
         overflow: hidden;
-        background-color: #fff;
     }
 
     @include media-query('750px','max'){
