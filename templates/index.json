@@ -496,6 +496,7 @@
     },
     "google_map_mGDGqr": {
       "type": "google-map",
+      "disabled": true,
       "name": "goole-map",
       "settings": {
         "show_google_map": true,
