@@ -71,7 +71,10 @@
       ],
       "name": "my-image-with-text1",
       "settings": {
-        "image": "shopify://shop_images/9022a705161ff42b7879d88f1fd6d0e8_e2aac91e-8a5b-44b6-83b8-797651c77e8c.png"
+        "color_scheme": "scheme-1",
+        "image": "shopify://shop_images/9022a705161ff42b7879d88f1fd6d0e8_e2aac91e-8a5b-44b6-83b8-797651c77e8c.png",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "my_text_banner_CxrYiX": {
