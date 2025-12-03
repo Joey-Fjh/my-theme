@@ -1,6 +1,6 @@
 .my-main-blog__container{
     flex-direction: column;
-    gap: 48px;
+    gap: 20px;
 
     .top{
         width: 100%;
@@ -12,7 +12,6 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            color: #fff;
             font-weight: 700;
             transform: translate(-50%, -50%);
             margin: 0;
@@ -20,10 +19,6 @@
     }
 
     .bottom{
-        max-width: 1200px;
-        width: 1200dw;
-        margin: 0 auto;
-    
         .banner-article__container{
             position: relative;
             overflow: hidden;

@@ -1,6 +1,5 @@
 {{ 'my-main-blog.css' | asset_url | stylesheet_tag  }}
 
-
 {%- liquid
   assign handle = blog.handle
   assign articles = blog.articles
@@ -11,7 +10,7 @@
       {%- if section.settings.banner_image != blank -%}
         {{ 
           section.settings.banner_image
-          | image_url: width: 1440, height: 338
+          | image_url: width: section.settings.banner_image.width
           | image_tag:
               alt: section.settings.banner_image.alt
         }}
@@ -20,20 +19,26 @@
       {%- endif -%}
       <div class="title h0">Blog</div>
     </responsive-container>
-    <div class="bottom">
+
+    <div class="bottom my-page-width">
       {%- for article in articles limit: 1 -%}
         {%- if article -%}
           <responsive-container class="banner-article__container">
             {{ 
               article.image
-              | image_url: width: 1200, height: 466
+              | image_url: width: article.image.width
               | image_tag:
                   alt: article.image.alt 
             }}
+
             <div class="info">
-              <div class="title h1" style="color:#fff;">{{ article.title }}</div>
+              <div class="title h1">
+                {{ article.title }}
+              </div>
               <a href="{{ article.url }}">
-                <button class="btn">READ MORE</button>
+                <button class="btn">
+                  READ MORE
+                </button>
               </a>
             </div>
           </responsive-container>
@@ -48,7 +53,7 @@
                 {%- if article.image != blank -%}
                   {{ 
                     article.image
-                    | image_url: width: 388, height: 290
+                    | image_url: width: article.image.width
                     | image_tag:
                         alt: article.image.alt
                   }}
@@ -56,11 +61,12 @@
                   {{ 'blog-apparel-2' | placeholder_svg_tag: 'placeholder-svg' }}
                 {%- endif -%}
               </responsive-container>
+
               <div class="article-info">
                 <p>{{ handle }}</p>
                 <p>{{ article.title }}</p>
                 <p>{{ article.content | truncatewords:30 }}</p>
-                <a href="{{ article.url }}" style="color:#000;">Read more</a>
+                <a href="{{ article.url }}">Read more</a>
               </div>
             </div>
           {%- endif -%}
