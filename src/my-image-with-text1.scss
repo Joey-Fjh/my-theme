@@ -1,9 +1,5 @@
 .my-image-with-text1__container{
-    margin-top: 20px;
     overflow: hidden;
-    width: 1200dw;
-    max-width: 1200px;
-    margin: 0 auto;
     gap: 50px;
 
     .image__container{
@@ -26,14 +22,11 @@
 
         .title{
             margin-top: 0;
-            font-weight: 700;
         }
 
         .desc{
             flex: 1;
             overflow: hidden;
-            max-height: 180dw;
-            min-height: 180px;
         }
 
         .avator__container{

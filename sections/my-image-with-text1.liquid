@@ -1,18 +1,36 @@
 {{ 'my-image-with-text1.css' | asset_url | stylesheet_tag }}
 
-
 {%- liquid
   assign title_block = section.blocks | where: "type", "title" | first
   assign desc_block =  section.blocks | where: "type", "description" | first
   assign avator_block = section.blocks | where: "type", "avatar" | first
 -%}
 
-<responsive-container class="my-image-with-text1__container">
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<responsive-container class="my-image-with-text1__container 
+  color-{{ section.settings.color_scheme }}
+  section-{{ section.id }}-padding
+  my-page-width
+  "
+>
     <responsive-container class="image__container">
       {%- if section.settings.image != blank -%}
         {{ 
           section.settings.image
-          | image_url: width: 552, height:552 
+          | image_url: width: section.settings.image.width 
           | image_tag: 
               alt: section.settings.image.alt
         }}
@@ -25,24 +43,30 @@
       <div class="title h1">
         {{ title_block.settings.title }}
       </div>
-      <div class="desc h3">
+      <div class="desc h3 multiline-ellipsis" style="--line-clamp:5;">
         {{ desc_block.settings.description }}
       </div>
+
       <div class="avator__container">
         <responsive-container class="avator-image__container">
           {%- if avator_block.settings.avatar != blank -%}
             {{ 
               avator_block.settings.avatar
-              | image_url: width: 88, height:88 
+              | image_url: width: avator_block.settings.avatar.width 
               | image_tag: avator_block.settings.avator.alt
             }}
           {%- else -%}
             {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
           {%- endif -%}
         </responsive-container>
+
         <div class="avator__info"> 
-          <div class="name h3" style="font-weight:700;margin-bottom:5px;">{{ avator_block.settings.name }}</div>
-          <div class="job h5">{{ avator_block.settings.job }}</div>
+          <div class="name h3" style="margin-bottom:5px;">
+            {{ avator_block.settings.name }}
+          </div>
+          <div class="job h5">
+            {{ avator_block.settings.job }}
+          </div>
         </div>
       </div>
     </div>
@@ -54,11 +78,41 @@
     "tag": "section",
     "class": "section",
     "settings": [
-        {
-            "type": "image_picker",
-            "id": "image",
-            "label": "Image"
-        }
+      {
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "Color Scheme",
+        "default": "scheme-1"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "header",
+        "content": "Padding"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding Top",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding Bottom",
+        "default": 0
+      }
     ],
     "blocks": [
       {
@@ -67,7 +121,7 @@
         "limit": 1,
         "settings": [
           {
-            "type": "text",
+            "type": "inline_richtext",
             "id": "title",
             "label": "Title",
             "default":"Example Title"
@@ -98,13 +152,13 @@
             "label": "Avatar"
           },
           {
-            "type": "text",
+            "type": "inline_richtext",
             "id": "name",
             "label": "Name",
             "default":"Example Name"
           },
           {
-            "type": "text",
+            "type": "inline_richtext",
             "id": "job",
             "label": "Job",
             "default":"Example Job"
