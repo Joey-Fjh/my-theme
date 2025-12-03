@@ -5,42 +5,57 @@
       {%- if section.settings.image != blank -%}
         {{ 
           section.settings.image
-          | image_url: width: 1440, height: 600
+          | image_url: width: section.settings.image.width
           | image_tag:
               alt: section.settings.image.alt
         }}
       {%- else -%}
         {{  'blog-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
-      {%- endif -%}s
-      <div class="title h0">Blog Details</div>
+      {%- endif -%}
+      
+      <div class="title h0">
+        Blog Details
+      </div>
     </responsive-container>
-    <div class="content__container">
+    
+    <div class="content__container my-page-width">
       <div class="content">
-        <h1>{{ article.title }}</h1>
-        <div class="article-content">{{ article.content }}</div>
+        <h1>
+          {{ article.title }}
+        </h1>
+        <div class="article-content">
+          {{ article.content }}
+        </div>
+        
         <div class="article-social__container">
           <div class="article-tag">
             <span>Tag: </span>
             {%- for tag in article.tags -%}
-              <span class="tag">{{ tag }}</span>
+              <span class="tag">
+                {{ tag }}
+              </span>
             {%- endfor -%}
           </div>
+          
           <div class="article-social">
             <span>Share this post:</span>
-              {%- render 'social-icons',
-                show_youtube:false,
-                show_pinterest:false,
-                show_snapchat:false,
-                show_tumblr:false,
-                show_vimeo:false
-              -%}
+
+            {%- render 'social-icons',
+              show_youtube:false,
+              show_pinterest:false,
+              show_snapchat:false,
+              show_tumblr:false,
+              show_vimeo:false
+            -%}
           </div>
         </div>
       </div>
+
       <div class="pagination">
         <a href="{% if blog.previous_article == nil %} javascript:void(0) {% else %} {{ blog.previous_article }} {% endif %}" 
           class="pagination__link pagination__link--prev {% if blog.previous_article == nil  %} pagination__link--disabled {% endif %}">
           <span class="pagination__label">PREVIOUS</span>
+          
           <span class="pagination__title">
             {%- if blog.previous_article -%}
               {{ blog.previous_article.title }}
@@ -49,7 +64,9 @@
             {%- endif -%}
           </span>
         </a>
+        
         <div class="pagination__divider"></div>
+        
         <a href="{% if blog.next_article == nil %} javascript:void(0) {% else %} {{ blog.next_article }} {% endif %}" 
           class="pagination__link pagination__link--next {% if blog.next_article == nil  %} pagination__link--disabled {% endif %}">
           <span class="pagination__label">NEXT</span>
@@ -62,6 +79,7 @@
           </span>
         </a>
       </div>
+
       {%- if blog.comments_enabled? -%}
         <div class="comment__container">
           <div class="comment-show">
@@ -71,6 +89,7 @@
                 {{ 'blogs.article.comments' | t: count: article.comments_count }}
               </span>
             </h1>
+
             <div class="comments {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %}">
               {%- if article.comments_count > 0 -%}
                 {%- assign anchor_id = '#Comments-' | append: article.id -%}
@@ -113,6 +132,7 @@
               {%- endif -%}
             </div>
           </div>
+
           <div class="comment-form">
             {% form 'new_comment', article %}
               {%- liquid
@@ -121,6 +141,7 @@
                   assign post_message = 'blogs.article.success_moderated'
                 endif
               -%}
+
               <h1 style="font-weight:600;text-align:left;">{{ 'blogs.article.comment_form_title' | t }}</h1>
               {%- if form.errors -%}
                 <div class="form__message" role="alert">
@@ -131,6 +152,7 @@
                     {{ 'templates.contact.form.error_heading' | t }}
                   </h3>
                 </div>
+
                 <ul class="form-status-list caption-large">
                   {%- for field in form.errors -%}
                     <li>
@@ -147,6 +169,7 @@
                     </li>
                   {%- endfor -%}
                 </ul>
+
               {%- elsif form.posted_successfully? -%}
                 <div class="form-status-list form__message" role="status">
                   <h3 class="form-status" tabindex="-1" autofocus>
@@ -287,9 +310,7 @@
     ],
     "presets": [
       {
-        "name": "my-main-article",
-        "settings": {
-        }
+        "name": "my-main-article"
       }
     ]
   }
