@@ -14,6 +14,10 @@
         margin: 0;
         margin-right: 36px;
 
+        p{
+            margin: inherit;
+        }
+
         @include media-query('750px','max'){
             margin-right: 0;
             text-align: center;
