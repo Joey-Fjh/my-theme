@@ -376,7 +376,7 @@
         "is_fullWidth": false,
         "is_showTitle": true,
         "title": "Read Our Blogs",
-        "alignment": "center",
+        "alignment": "right",
         "text_size": "h1",
         "blog": "news",
         "blog_column": "3",
