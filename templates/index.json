@@ -380,15 +380,15 @@
         "padding_bottom": 0
       }
     },
-    "my_blog_carousel_Pb9fHn": {
+    "my_blog_carousel_CPKCd4": {
       "type": "my-blog-carousel",
       "name": "my-blog-carousel",
       "settings": {
-        "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
+        "color_scheme": "",
         "is_fullWidth": false,
         "is_showTitle": true,
         "title": "Read Our Blogs",
-        "alignment": "left",
+        "alignment": "center",
         "text_size": "h1",
         "blog": "news",
         "blog_column": "3",
@@ -533,7 +533,7 @@
     "my_newsletter_hero_EHJQF4",
     "my_sustainable_hero_cHgtTK",
     "my_color_comparison_aRQifX",
-    "my_blog_carousel_Pb9fHn",
+    "my_blog_carousel_CPKCd4",
     "my_user_comment_w84MEY",
     "my_featured_blog_Wa7B4H",
     "my_media_carousel_8nNGTd",
