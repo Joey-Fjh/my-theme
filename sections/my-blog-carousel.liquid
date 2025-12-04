@@ -34,7 +34,7 @@
             <div class="swiper">
                 <div class="swiper-wrapper">
                     {%- for article in section.settings.blog.articles -%}
-                        <div class="swiper-slide slide">
+                        <a class="swiper-slide slide" href="{{ article.url }}">
                                 <responsive-container class="image__container" style="aspect-ratio: 1 / 1;">
                                     {%- if article.image != blank -%}
                                         {{ 
@@ -50,8 +50,8 @@
                                 </responsive-container>
 
                                 <div class="article-title h3" title="{{ article.title }}">{{ article.title }}</div>
-                                <a href="{{ article.url }}" class="link">Read More</a>
-                        </div>   
+                                <a class="link">Read More</a>
+                        </a>   
                     {%- endfor -%}
                 </div>
 

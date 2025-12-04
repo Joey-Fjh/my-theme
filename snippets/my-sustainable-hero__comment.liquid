@@ -5,10 +5,15 @@
     {%- assign number = block.settings.text_size | slice: 1 -%}
     {%- assign size = number | plus: 1 -%}
 
-    <div class="title {{ block.settings.text_size }}">{{ block.settings.title }}</div>
-    <div class="icon">
-        {%- render 'icon-comma' -%}
-    </div>
+    {%- if block.settings.title != nil -%} 
+        <div class="title {{ block.settings.text_size }}">
+            {{ block.settings.title }}
+        </div>
+        <div class="icon">
+            {%- render 'icon-comma' -%}
+        </div>
+    {%- endif -%}
+    
     <my-sustainable-hero-comment class="my-swiper-container">
         <div class="swiper">
             <div class="swiper-wrapper wrapper">
