@@ -52,6 +52,7 @@
         "image_icPAL9",
         "image_hPc9XT"
       ],
+      "disabled": true,
       "name": "brand-banner",
       "settings": {
         "color_scheme": "",
@@ -110,6 +111,7 @@
         "text_8NVq9N",
         "footer_bottom_6JTLXz"
       ],
+      "disabled": true,
       "name": "my-footer",
       "settings": {
         "color_scheme": "",
