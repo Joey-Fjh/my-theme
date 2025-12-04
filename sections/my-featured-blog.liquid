@@ -41,7 +41,7 @@
     </div>
 
     <div class="bottom">
-        <a class="left" href="{{ left_article.url }}">
+        <div class="left" href="{{ left_article.url }}">
             <responsive-container class="image__container">
                 {%- if left_article.image != blank -%}
                     {{ 
@@ -65,13 +65,13 @@
                     <a class="link">Read more</a>
                 </div>
             </responsive-container>
-        </a>
+        </div>
         <div class="right">
             {%- for i in (2..articles.size) limit: 2 -%}
                 {% assign idx = i | minus: 1 %}
                 {% assign article = articles[idx] %}
 
-                <a class="card" href="{{ article.url }}">
+                <div class="card" href="{{ article.url }}">
                     {%- if show_image -%}
                         <responsive-container class="image__container right-image-container" style="aspect-ratio: 1 / 1;">
                             {%- if article.image != blank -%}
@@ -105,7 +105,7 @@
                         </div>
                         <a class="my-link">Read more</a>
                     </div>
-                </a>
+                </div>
             {%- endfor -%}
         </div>
     </div>
