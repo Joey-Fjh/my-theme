@@ -3624,4 +3624,17 @@ details-disclosure > details {
   -webkit-line-clamp: var(--line-clamp, 3);  
 }
 
+.a-reset {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline;
+}
+
+.a-reset-block {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  display: block;
+}
 
