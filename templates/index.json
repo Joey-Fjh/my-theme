@@ -343,6 +343,7 @@
       "block_order": [
         "comment_U8bLyP"
       ],
+      "disabled": true,
       "name": "my-sustainable-hero",
       "settings": {
         "is_fullWidth": false,
@@ -381,6 +382,7 @@
     },
     "my_blog_carousel_CPKCd4": {
       "type": "my-blog-carousel",
+      "disabled": true,
       "name": "my-blog-carousel",
       "settings": {
         "color_scheme": "",
@@ -397,6 +399,7 @@
     },
     "my_user_comment_w84MEY": {
       "type": "my-user-comment",
+      "disabled": true,
       "name": "my-user-comment",
       "settings": {
         "color_scheme": "scheme-1",
@@ -409,6 +412,7 @@
     },
     "my_featured_blog_Wa7B4H": {
       "type": "my-featured-blog",
+      "disabled": true,
       "name": "my-featured-blog",
       "settings": {
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
@@ -488,7 +492,6 @@
         "product_YHgxCF",
         "product_DL4p64"
       ],
-      "disabled": true,
       "name": "my-promo-split",
       "settings": {
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
