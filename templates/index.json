@@ -360,7 +360,6 @@
     },
     "my_color_comparison_aRQifX": {
       "type": "my-color-comparison",
-      "disabled": true,
       "name": "my-color-comparison",
       "settings": {
         "is_fullWidth": false,
