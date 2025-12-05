@@ -30,7 +30,7 @@
         {{  'hero-apparel-1' | placeholder_svg_tag:"placeholder-svg" }}          
       {%- endif -%}
   
-      <div class="content-overlay color-{{ section.settings.color_scheme1 }}" style="background-color: transparent;">
+      <div class="content-overlay color-{{ section.settings.color_scheme1 }} gradient" style="background-color: transparent;">
         <h2 class="overlay-title">{{ section.settings.fisrt-title }}</h2>
         <p class="overlay-description">{{ section.settings.fisrt-description }}</p>
         <a href="{{ section.settings.fisrt-button-url }}">
@@ -66,7 +66,7 @@
     </responsive-container>
 
     {% comment %} second part  {% endcomment %}
-    <div class="grid-3-1 color-{{ section.settings.color_scheme2 }}">
+    <div class="grid-3-1 color-{{ section.settings.color_scheme2 }} gradient">
         <div class="grid-3-1__title">{{ section.settings.second-title }}</div>
         <div class="grid-3-1__subtitle">{{ section.settings.second-description }}</div>
         <a href="{{ section.settings.seconde-button-url }}">

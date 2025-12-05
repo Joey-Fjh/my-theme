@@ -61,7 +61,7 @@
               {% if block.settings.show_text_box == true %} {% endif %}"
             >
               <div class="content__container
-                color-{{ block.settings.color_scheme }}
+                color-{{ block.settings.color_scheme }} gradient
                 text--{{ block.settings.text_alignment }}
                 "
               >
@@ -73,7 +73,7 @@
                   </h2>
                 {%- endif -%}
                 {%- if block.settings.sub_title != blank -%}
-                  <div class="slide__text rte">
+                  <div class="slide__text rte h3">
                     <p>{{ block.settings.sub_title }}</p>
                   </div>
                 {%- endif -%}

@@ -6,7 +6,7 @@
 -%}
 
 <responsive-container class="my-page-aboutus2__container" data-section-id="{{ section.id }}">
-  <div class="top-info__container my-page-width color-{{ section.settings.color_scheme }}">
+  <div class="top-info__container my-page-width color-{{ section.settings.color_scheme }} gradient">
     <div class="title h1">
       {{ section.settings.title }}
     </div>
@@ -22,7 +22,7 @@
     </div>
   </div>
 
-  <div class="banner__container color-{{ banner_image_block.settings.color_scheme }}">
+  <div class="banner__container color-{{ banner_image_block.settings.color_scheme }} gradient">
     <responsive-container class="banner-image__container">
       {%- if banner_image_block.settings.banner_image != blank -%}
         {{ 
@@ -40,7 +40,7 @@
       </div>
     </responsive-container>
 
-    <div class="banner-info gradient color-{{ banner_info_block.settings.color_scheme }}">
+    <div class="banner-info color-{{ banner_info_block.settings.color_scheme }} gradient">
       <div class="info-title h1 multiline-ellipsis" style="--line-clamp: 1;">
         {{ banner_info_block.settings.title }}
       </div>

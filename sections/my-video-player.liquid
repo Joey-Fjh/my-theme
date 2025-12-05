@@ -28,14 +28,14 @@
     style="width:100%;height:100%;"
     {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in {% endif %} 
     data-media-id="{{ video_id }}"
-    class="deferred-media color-{{ section.settings.color_scheme }}"
+    class="deferred-media color-{{ section.settings.color_scheme }} gradient"
   >
     <button
       style="width:100%;height:100%;padding:0;border:0;cursor:pointer;"
       id="Deferred-Poster-Modal-{{ video_id }}"
       type="button"
       aria-label="{{ alt }}"
-      class="deferred-media__poster"
+      class="button deferred-media__poster"
     >
       <responsive-container>
         {%- if poster != null -%}

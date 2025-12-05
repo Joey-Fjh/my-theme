@@ -23,7 +23,7 @@
         {% else %}
             my-page-width
         {% endif %} 
-        color-{{ section.settings.color_scheme }} 
+        color-{{ section.settings.color_scheme }} gradient
         section-{{ section.id }}-padding
     " 
     direction='column'
@@ -55,7 +55,7 @@
                 {%- for block in section.blocks -%}      
                     {%- assign collection = collections[block.settings.collection] -%}
 
-                    <a href="{{ collection.url }}" class="item__container swiper-slide"> 
+                    <a href="{{ collection.url }}" class="item__container swiper-slide link--text"> 
                         <responsive-container class="img__container">
                             <div class="img__wrapper">
                                 {%- if collection.image != blank -%}

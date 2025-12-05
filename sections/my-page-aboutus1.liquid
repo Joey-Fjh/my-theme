@@ -5,7 +5,7 @@
   assign banner_image_block = section.blocks | where: "type", "image" | first
 -%}
 
-<responsive-container class="my-page-aboutus1__container color-{{ section.settings.color_scheme }}">
+<responsive-container class="my-page-aboutus1__container color-{{ section.settings.color_scheme }} gradient">
   <responsive-container class="banner-image__container">
     {%- if banner_image_block.settings.banner_image != blank -%}
       {{ banner_image_block.settings.banner_image 
@@ -38,7 +38,7 @@
         {%- when "content" -%}
           <div 
             class="content__container 
-            color-{{ block.settings.color_scheme }} 
+            color-{{ block.settings.color_scheme }} gradient
             {% unless block.settings.is_fullWidth %} my-page-width {% endunless %} 
             {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in {% endif %}" 
             style="text-align: {{ block.settings.align }};"
