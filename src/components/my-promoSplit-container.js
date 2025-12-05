@@ -31,8 +31,8 @@ export class MyPromoSplitContainer extends LitElement {
             });
         });
 
-        this.addToCartBtn.addEventListener('click',()=>{
-            this.handleAddToBtnClick();
+        this.addToCartBtn.addEventListener('click',(e)=>{
+            this.handleAddToBtnClick(e);
         });
     }
 
@@ -45,7 +45,7 @@ export class MyPromoSplitContainer extends LitElement {
     handleAddToBtnClick(event){
         event.preventDefault();
         if(this.addToCartBtn.getAttribute("aria-disabled") == "true") return;
-        
+
         const selectedProduct = Array.from(this.products).find(
             el => Number(el.dataset.index ?? 0) == this._productIndex 
         );
