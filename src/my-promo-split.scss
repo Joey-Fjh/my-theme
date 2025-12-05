@@ -155,7 +155,7 @@
         }
         
         .promo-cta {
-            margin-top: 32px;
+            margin-top: 20px;
 
             .add-to-cart-btn {
                 border: none;
@@ -181,6 +181,26 @@
                 @include media-query(900px,'max'){
                     width:100px;
                 }
+            }
+
+            .add-to-cart-btn.loading{
+                color: transparent;
+                position: relative;
+            }
+
+            .add-to-cart-btn[aria-disabled=true]{
+                cursor: not-allowed;
+                opacity: .5;
+            }
+
+            .add-to-cart-btn.loading>.loading__spinner{
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                position: absolute;
+                height: 100%;
+                display: flex;
+                align-items: center;
             }
         }
 
