@@ -52,6 +52,7 @@ export class MyPromoSplitContainer extends LitElement {
         );
 
         this.addToCartBtn.classList.add('loading');
+        this.addToCartBtn.setAttribute("aria-disabled", true);
         this.querySelector(".loading__spinner").classList.remove("hidden");
         
         fetch(routes.cart_add_url, {
@@ -66,7 +67,8 @@ export class MyPromoSplitContainer extends LitElement {
         .then(res => {
             this.addToCartBtn.classList.remove('loading');
             this.querySelector('.loading__spinner').classList.add('hidden');
-            
+            this.addToCartBtn.removeAttribute('aria-disabled');
+
             window.location  = window.routes.cart_url;
         })
         .catch(err => {
