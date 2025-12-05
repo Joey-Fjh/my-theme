@@ -414,7 +414,7 @@
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
         "is_fullWidth": false,
         "heading": "<strong>Blog posts</strong>",
-        "text_align": "right",
+        "text_align": "center",
         "heading_size": "h1",
         "blog": "news",
         "show_image": true,
