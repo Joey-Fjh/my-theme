@@ -34,26 +34,24 @@
             <div class="swiper">
                 <div class="swiper-wrapper">
                     {%- for article in section.settings.blog.articles -%}
-                        <a class="a-reset-block" href="{{ article.url }}">
-                            <div class="swiper-slide slide">
-                                <responsive-container class="image__container" style="aspect-ratio: 1 / 1;">
-                                    {%- if article.image != blank -%}
-                                        {{ 
-                                            article.image 
-                                            | image_url: width: article.image.width
-                                            | image_tag:
-                                                alt: article.title
-                                        }}
-                                    {%- else -%}
-                                        {{ 'blog-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
-                                    {%- endif -%}
-                                    <div class="category">{{ section.settings.blog.title }}</div>
-                                </responsive-container>
+                        <a class="swiper-slide slide" href="{{ article.url }}">
+                            <responsive-container class="image__container" style="aspect-ratio: 1 / 1;">
+                                {%- if article.image != blank -%}
+                                    {{ 
+                                        article.image 
+                                        | image_url: width: article.image.width
+                                        | image_tag:
+                                            alt: article.title
+                                    }}
+                                {%- else -%}
+                                    {{ 'blog-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                                {%- endif -%}
+                                <div class="category">{{ section.settings.blog.title }}</div>
+                            </responsive-container>
 
-                                <div class="article-title h3" title="{{ article.title }}">{{ article.title }}</div>
-                                <span class="link" href="{{ article.url }}">Read More</span>
-                            </div>
-                        </a>   
+                            <div class="article-title h3" title="{{ article.title }}">{{ article.title }}</div>
+                            <span class="link">Read More</span>
+                        </a>  
                     {%- endfor -%}
                 </div>
 
