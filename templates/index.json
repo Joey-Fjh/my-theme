@@ -273,6 +273,7 @@
     },
     "my_fashion_grid_layout_MtAfQU": {
       "type": "my-fashion-grid-layout",
+      "disabled": true,
       "name": "my-fashion-grid-layout",
       "settings": {
         "is_fullWidth": true,
@@ -310,6 +311,7 @@
     },
     "my_newsletter_hero_EHJQF4": {
       "type": "my-newsletter-hero",
+      "disabled": true,
       "name": "my-newsletter-hero",
       "settings": {
         "is_fullWidth": true,
@@ -341,6 +343,7 @@
       "block_order": [
         "comment_U8bLyP"
       ],
+      "disabled": true,
       "name": "my-sustainable-hero",
       "settings": {
         "is_fullWidth": false,
@@ -357,6 +360,7 @@
     },
     "my_color_comparison_aRQifX": {
       "type": "my-color-comparison",
+      "disabled": true,
       "name": "my-color-comparison",
       "settings": {
         "is_fullWidth": false,
@@ -378,6 +382,7 @@
     },
     "my_blog_carousel_CPKCd4": {
       "type": "my-blog-carousel",
+      "disabled": true,
       "name": "my-blog-carousel",
       "settings": {
         "color_scheme": "",
@@ -394,6 +399,7 @@
     },
     "my_user_comment_w84MEY": {
       "type": "my-user-comment",
+      "disabled": true,
       "name": "my-user-comment",
       "settings": {
         "color_scheme": "scheme-1",
@@ -411,7 +417,7 @@
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
         "is_fullWidth": false,
         "heading": "<strong>Blog posts</strong>",
-        "text_align": "center",
+        "text_align": "right",
         "heading_size": "h1",
         "blog": "news",
         "show_image": true,
@@ -454,6 +460,7 @@
         "slide_JR3XDp",
         "slide_jgDCQL"
       ],
+      "disabled": true,
       "name": "my-media-carousel",
       "settings": {
         "padding_top": 36,
@@ -484,6 +491,7 @@
         "product_YHgxCF",
         "product_DL4p64"
       ],
+      "disabled": true,
       "name": "my-promo-split",
       "settings": {
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
