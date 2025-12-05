@@ -418,7 +418,7 @@
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
         "is_fullWidth": true,
         "heading": "<strong>Blog posts</strong>",
-        "text_align": "right",
+        "text_align": "center",
         "heading_size": "h1",
         "blog": "news",
         "show_image": true,
@@ -461,7 +461,6 @@
         "slide_JR3XDp",
         "slide_jgDCQL"
       ],
-      "disabled": true,
       "name": "my-media-carousel",
       "settings": {
         "padding_top": 36,
@@ -492,7 +491,6 @@
         "product_YHgxCF",
         "product_DL4p64"
       ],
-      "disabled": true,
       "name": "my-promo-split",
       "settings": {
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
