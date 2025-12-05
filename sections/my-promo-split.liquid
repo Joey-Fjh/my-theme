@@ -101,6 +101,7 @@
         <div class="promo-cta">
           <button class="add-to-cart-btn">
             {{ section.settings.cta_text | default: 'ADD TO CART' }}
+            {% render 'loading-spinner' %}
           </button>
         </div>
     </div>

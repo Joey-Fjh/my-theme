@@ -50,6 +50,9 @@ export class MyPromoSplitContainer extends LitElement {
         const productIds = Array.from(selectedProduct.querySelectorAll(".product-item")).map(
             product => Number(product.dataset.productId)
         );
+
+        this.addToCartBtn.classList.add('loading');
+        this.querySelector(".loading__spinner").classList.remove("hidden");
         
         fetch(routes.cart_add_url, {
             method: 'POST',
@@ -61,7 +64,10 @@ export class MyPromoSplitContainer extends LitElement {
             })
         })
         .then(res => {
-            window.location.href = '/cart';
+            this.addToCartBtn.classList.remove('loading');
+            this.querySelector('.loading__spinner').classList.add('hidden');
+            
+            window.location  = window.routes.cart_url;
         })
         .catch(err => {
             console.error(err);
