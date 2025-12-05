@@ -399,12 +399,7 @@
         "color_scheme": "scheme-1",
         "is_fullWidth": true,
         "text_size": "h3",
-        "user_comments": [
-          "user-comment-ku1cxxnh",
-          "user-comment-fq1of1x3",
-          "user-comment-0t7wsrqq",
-          "user-comment-gs1wqfgi"
-        ],
+        "user_comments": [],
         "padding_top": 0,
         "padding_bottom": 0
       }
@@ -414,9 +409,9 @@
       "name": "my-featured-blog",
       "settings": {
         "color_scheme": "scheme-30266982-ad4a-4cf4-9995-be836753faa4",
-        "is_fullWidth": true,
+        "is_fullWidth": false,
         "heading": "<strong>Blog posts</strong>",
-        "text_align": "right",
+        "text_align": "center",
         "heading_size": "h1",
         "blog": "news",
         "show_image": true,
