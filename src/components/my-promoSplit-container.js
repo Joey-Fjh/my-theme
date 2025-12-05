@@ -68,14 +68,14 @@ export class MyPromoSplitContainer extends LitElement {
             })
         })
         .then(res => {
-            this.addToCartBtn.classList.remove('loading');
-            this.querySelector('.loading__spinner').classList.add('hidden');
-            this.addToCartBtn.removeAttribute('aria-disabled');
-
             window.location  = window.routes.cart_url;
         })
         .catch(err => {
             console.error(err);
+        }).finally(()=>{
+            this.addToCartBtn.classList.remove('loading');
+            this.querySelector('.loading__spinner').classList.add('hidden');
+            this.addToCartBtn.removeAttribute('aria-disabled');
         });
     }
 
