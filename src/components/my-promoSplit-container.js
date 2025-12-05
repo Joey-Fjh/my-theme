@@ -42,7 +42,10 @@ export class MyPromoSplitContainer extends LitElement {
         this._mq.addEventListener('change',(e)=>this.handleMediaChange(e));
     }
 
-    handleAddToBtnClick(){
+    handleAddToBtnClick(event){
+        event.preventDefault();
+        if(this.addToCartBtn.getAttribute("aria-disabled") == "true") return;
+        
         const selectedProduct = Array.from(this.products).find(
             el => Number(el.dataset.index ?? 0) == this._productIndex 
         );
