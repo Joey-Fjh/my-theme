@@ -5,6 +5,7 @@
     }
 
     .content__container {
+        overflow: hidden;
         box-sizing: border-box;
         padding: 20px;
         width: 40%;
@@ -16,6 +17,7 @@
 
     .text__container {
         text-align: center;
+        
         .title{
             margin: 16px 0;
         }
