@@ -1,7 +1,1 @@
-  AssetSizeJavaScript:
-    enabled: false
-    threshold_in_bytes: 10000
-
-  AssetSizeCSS:
-    enabled: false
-    threshold_in_bytes: 100000
+extends: theme-check:recommended
