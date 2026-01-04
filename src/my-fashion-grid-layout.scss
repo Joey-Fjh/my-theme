@@ -69,6 +69,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-around;
+        padding-inline: 16px;
 
         .grid-3-1__title {
             overflow-wrap: break-word;
