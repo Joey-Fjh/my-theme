@@ -295,7 +295,6 @@
           "settings": {
             "column": 2,
             "row": 1,
-            "image": "{{ product.featured_image }}",
             "image_opacity": 100,
             "image_fit": "cover",
             "content_position": "top-left",
@@ -312,7 +311,6 @@
           "settings": {
             "column": 2,
             "row": 2,
-            "image": "{{ product.featured_image }}",
             "image_opacity": 0,
             "image_fit": "cover",
             "content_position": "middle-center",
@@ -329,7 +327,6 @@
           "settings": {
             "column": 2,
             "row": 2,
-            "image": "{{ product.featured_image }}",
             "image_opacity": 0,
             "image_fit": "cover",
             "content_position": "middle-center",
