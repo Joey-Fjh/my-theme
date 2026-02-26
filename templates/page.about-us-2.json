@@ -96,7 +96,7 @@
           "type": "buttons",
           "settings": {
             "text": "Get In Touch",
-            "url": "shopify://pages/contact-us1"
+            "url": "shopify://pages/contact-us"
           }
         }
       },
